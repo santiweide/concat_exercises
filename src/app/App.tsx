@@ -314,6 +314,34 @@ function MainApp() {
     setSelectedQueueId(queueId);
   };
 
+  const handleAddCollaborator = async (email: string) => {
+    if (!token || !selectedQueueId) return;
+    
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/queues/${selectedQueueId}/collaborators`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({ email }),
+      });
+      
+      if (!response.ok) throw new Error('Failed to add collaborator');
+      
+      const data = await response.json();
+      if (data.queue) {
+        setQueue(prev => ({
+          ...prev,
+          collaborators: data.queue.collaborators || [],
+        }));
+        toast.success(`已邀请 ${email} 协作编辑`);
+      }
+    } catch (err) {
+      toast.error('邀请失败');
+    }
+  };
+
   // Show loading state
   if (isLoading) {
     return (
@@ -460,6 +488,7 @@ function MainApp() {
               onExport={handleExport}
               onImport={handleImport}
               onViewQuestion={setSelectedQuestion}
+              onAddCollaborator={handleAddCollaborator}
             />
 
             {/* Right Panel - Search */}

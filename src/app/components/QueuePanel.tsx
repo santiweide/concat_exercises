@@ -25,6 +25,7 @@ interface QueuePanelProps {
   onExport: () => void;
   onImport: (file: File) => void;
   onViewQuestion: (question: ReadingQuestion) => void;
+  onAddCollaborator?: (email: string) => void;
 }
 
 interface DraggableQuestionProps {
@@ -75,7 +76,6 @@ const DraggableQuestion: React.FC<DraggableQuestionProps> = ({
         showRemoveButton={!frozen}
         isDraggable={!frozen}
         dragHandleProps={!frozen ? { ref: drag } : undefined}
-        showDetails={true}
       />
     </div>
   );
@@ -88,7 +88,8 @@ export function QueuePanel({
   onToggleFreeze,
   onExport,
   onImport,
-  onViewQuestion
+  onViewQuestion,
+  onAddCollaborator
 }: QueuePanelProps) {
   const [collaboratorEmail, setCollaboratorEmail] = useState('');
 
@@ -100,9 +101,11 @@ export function QueuePanel({
   };
 
   const handleAddCollaborator = () => {
-    if (collaboratorEmail.trim()) {
-      toast.success(`已邀请 ${collaboratorEmail} 协作编辑`);
+    if (collaboratorEmail.trim() && onAddCollaborator) {
+      onAddCollaborator(collaboratorEmail.trim());
       setCollaboratorEmail('');
+    } else if (!onAddCollaborator) {
+      toast.error('邀请功能暂不可用');
     }
   };
 
