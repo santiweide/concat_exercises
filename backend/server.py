@@ -5,7 +5,8 @@ from aiohttp import web
 import aiohttp_cors
 import structlog
 from config import config
-from handlers import question_handlers, queue_handlers
+from handlers import question_handlers, queue_handlers, auth_handlers
+from services.auth_service import auth_service
 
 logger = structlog.get_logger()
 
@@ -29,6 +30,12 @@ def create_app() -> web.Application:
 
 def setup_routes(app: web.Application):
     """Setup all API routes."""
+    
+    # Auth Routes (no authentication required)
+    app.router.add_post('/api/auth/send-magic-link', auth_handlers.send_magic_link)
+    app.router.add_post('/api/auth/verify', auth_handlers.verify_magic_link)
+    app.router.add_get('/api/auth/me', auth_handlers.get_current_user)
+    app.router.add_post('/api/auth/logout', auth_handlers.logout)
     
     # Question Service Routes
     app.router.add_post('/api/questions/search', question_handlers.search_questions)

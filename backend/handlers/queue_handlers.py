@@ -16,33 +16,45 @@ from models import (
     ExportFormat,
     PaginationRequest,
 )
-from zmq_service import queue_client
+import zmq_service
+from services.auth_service import auth_service
 
 logger = structlog.get_logger()
 
 
+def get_user_from_request(request: web.Request) -> dict | None:
+    """Extract user info from JWT token in Authorization header."""
+    auth_header = request.headers.get('Authorization', '')
+    if not auth_header.startswith('Bearer '):
+        return None
+    token = auth_header[7:]
+    return auth_service.verify_jwt(token)
+
+
 async def list_queues(request: web.Request) -> web.Response:
     """
-    GET /api/queues?userEmail={email}&page={page}&pageSize={pageSize}
-    List queues for a user.
+    GET /api/queues?page={page}&pageSize={pageSize}
+    List queues for the authenticated user.
     """
     try:
-        user_email = request.query.get('userEmail', '')
+        # Get user from JWT token
+        user = get_user_from_request(request)
+        if not user:
+            return web.json_response(
+                {"code": 401, "message": "Authentication required"},
+                status=401
+            )
+        
+        user_email = user.get('email', '')
         page = int(request.query.get('page', '1'))
         page_size = int(request.query.get('pageSize', '20'))
-        
-        if not user_email:
-            return web.json_response(
-                {"code": 400, "message": "userEmail is required"},
-                status=400
-            )
         
         payload = {
             "userEmail": user_email,
             "pagination": {"page": page, "pageSize": page_size}
         }
         
-        result = await queue_client.call("list_queues", payload)
+        result = await zmq_service.queue_client.call("list_queues", payload)
         
         return web.json_response(result)
     except Exception as e:
@@ -61,7 +73,7 @@ async def get_queue(request: web.Request) -> web.Response:
     queue_id = request.match_info['id']
     
     try:
-        result = await queue_client.call("get_queue", {"id": queue_id})
+        result = await zmq_service.queue_client.call("get_queue", {"id": queue_id})
         
         if result.get("queue") is None:
             return web.json_response(
@@ -84,10 +96,20 @@ async def create_queue(request: web.Request) -> web.Response:
     Create a new queue.
     """
     try:
+        # Get user from JWT token
+        user = get_user_from_request(request)
+        if not user:
+            return web.json_response(
+                {"code": 401, "message": "Authentication required"},
+                status=401
+            )
+        
         body = await request.json()
+        # Set the owner to the authenticated user
+        body['owner'] = user.get('email', '')
         req = CreateQueueRequest(**body)
         
-        result = await queue_client.call("create_queue", req.model_dump())
+        result = await zmq_service.queue_client.call("create_queue", req.model_dump())
         
         return web.json_response(result, status=201)
     except Exception as e:
@@ -110,7 +132,7 @@ async def update_queue(request: web.Request) -> web.Response:
         body['id'] = queue_id
         req = UpdateQueueRequest(**body)
         
-        result = await queue_client.call("update_queue", req.model_dump(exclude_none=True))
+        result = await zmq_service.queue_client.call("update_queue", req.model_dump(exclude_none=True))
         
         if result.get("queue") is None:
             return web.json_response(
@@ -135,7 +157,7 @@ async def delete_queue(request: web.Request) -> web.Response:
     queue_id = request.match_info['id']
     
     try:
-        await queue_client.call("delete_queue", {"id": queue_id})
+        await zmq_service.queue_client.call("delete_queue", {"id": queue_id})
         
         return web.Response(status=204)
     except Exception as e:
@@ -157,7 +179,7 @@ async def add_question_to_queue(request: web.Request) -> web.Response:
         body = await request.json()
         body['queueId'] = queue_id
         
-        result = await queue_client.call("add_question_to_queue", body)
+        result = await zmq_service.queue_client.call("add_question_to_queue", body)
         
         return web.json_response(result)
     except Exception as e:
@@ -177,7 +199,7 @@ async def remove_question_from_queue(request: web.Request) -> web.Response:
     question_id = request.match_info['question_id']
     
     try:
-        result = await queue_client.call("remove_question_from_queue", {
+        result = await zmq_service.queue_client.call("remove_question_from_queue", {
             "queueId": queue_id,
             "questionId": question_id
         })
@@ -203,7 +225,7 @@ async def reorder_queue_questions(request: web.Request) -> web.Response:
         body = await request.json()
         body['queueId'] = queue_id
         
-        result = await queue_client.call("reorder_queue_questions", body)
+        result = await zmq_service.queue_client.call("reorder_queue_questions", body)
         
         return web.json_response(result)
     except Exception as e:
@@ -225,7 +247,7 @@ async def toggle_queue_freeze(request: web.Request) -> web.Response:
         body = await request.json()
         body['queueId'] = queue_id
         
-        result = await queue_client.call("toggle_queue_freeze", body)
+        result = await zmq_service.queue_client.call("toggle_queue_freeze", body)
         
         return web.json_response(result)
     except Exception as e:
@@ -247,7 +269,7 @@ async def add_collaborator(request: web.Request) -> web.Response:
         body = await request.json()
         body['queueId'] = queue_id
         
-        result = await queue_client.call("add_collaborator", body)
+        result = await zmq_service.queue_client.call("add_collaborator", body)
         
         return web.json_response(result)
     except Exception as e:
@@ -267,7 +289,7 @@ async def remove_collaborator(request: web.Request) -> web.Response:
     email = unquote(request.match_info['email'])
     
     try:
-        result = await queue_client.call("remove_collaborator", {
+        result = await zmq_service.queue_client.call("remove_collaborator", {
             "queueId": queue_id,
             "collaboratorEmail": email
         })
@@ -293,7 +315,7 @@ async def export_queue(request: web.Request) -> web.Response:
         body = await request.json()
         format_value = body.get('format', 1)
         
-        result = await queue_client.call("export_queue", {
+        result = await zmq_service.queue_client.call("export_queue", {
             "queueId": queue_id,
             "format": format_value
         })

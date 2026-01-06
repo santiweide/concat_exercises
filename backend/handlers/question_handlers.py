@@ -16,7 +16,7 @@ from models import (
     GetAllLabelsResponse,
     GetAllYearsResponse,
 )
-from zmq_service import question_client
+import zmq_service
 
 logger = structlog.get_logger()
 
@@ -30,7 +30,7 @@ async def search_questions(request: web.Request) -> web.Response:
         body = await request.json()
         req = SearchQuestionsRequest(**body)
         
-        result = await question_client.call("search_questions", req.model_dump())
+        result = await zmq_service.question_client.call("search_questions", req.model_dump())
         
         return web.json_response(result)
     except Exception as e:
@@ -49,7 +49,7 @@ async def get_question(request: web.Request) -> web.Response:
     question_id = request.match_info['id']
     
     try:
-        result = await question_client.call("get_question", {"id": question_id})
+        result = await zmq_service.question_client.call("get_question", {"id": question_id})
         
         if result.get("question") is None:
             return web.json_response(
@@ -75,7 +75,7 @@ async def batch_get_questions(request: web.Request) -> web.Response:
         body = await request.json()
         req = BatchGetQuestionsRequest(**body)
         
-        result = await question_client.call("batch_get_questions", req.model_dump())
+        result = await zmq_service.question_client.call("batch_get_questions", req.model_dump())
         
         return web.json_response(result)
     except Exception as e:
@@ -95,7 +95,7 @@ async def create_question(request: web.Request) -> web.Response:
         body = await request.json()
         req = CreateQuestionRequest(**body)
         
-        result = await question_client.call("create_question", req.model_dump())
+        result = await zmq_service.question_client.call("create_question", req.model_dump())
         
         return web.json_response(result, status=201)
     except Exception as e:
@@ -118,7 +118,7 @@ async def update_question(request: web.Request) -> web.Response:
         body['id'] = question_id
         req = UpdateQuestionRequest(**body)
         
-        result = await question_client.call("update_question", req.model_dump(exclude_none=True))
+        result = await zmq_service.question_client.call("update_question", req.model_dump(exclude_none=True))
         
         if result.get("question") is None:
             return web.json_response(
@@ -143,7 +143,7 @@ async def delete_question(request: web.Request) -> web.Response:
     question_id = request.match_info['id']
     
     try:
-        await question_client.call("delete_question", {"id": question_id})
+        await zmq_service.question_client.call("delete_question", {"id": question_id})
         
         return web.Response(status=204)
     except Exception as e:
@@ -160,7 +160,7 @@ async def get_all_labels(request: web.Request) -> web.Response:
     Get all available labels.
     """
     try:
-        result = await question_client.call("get_all_labels", {})
+        result = await zmq_service.question_client.call("get_all_labels", {})
         
         return web.json_response(result)
     except Exception as e:
@@ -177,7 +177,7 @@ async def get_all_years(request: web.Request) -> web.Response:
     Get all available years.
     """
     try:
-        result = await question_client.call("get_all_years", {})
+        result = await zmq_service.question_client.call("get_all_years", {})
         
         return web.json_response(result)
     except Exception as e:

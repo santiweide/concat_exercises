@@ -4,24 +4,121 @@ import { mockQuestions } from './data/mockData';
 import { QueuePanel } from './components/QueuePanel';
 import { SearchPanel } from './components/SearchPanel';
 import { QuestionDetail } from './components/QuestionDetail';
+import { LoginPage } from './components/LoginPage';
+import { VerifyPage } from './components/VerifyPage';
+import { QueueDashboard } from './components/QueueDashboard';
+import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { Toaster } from './components/ui/sonner';
 import { toast } from 'sonner';
+import { Button } from './components/ui/button';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from './components/ui/alert-dialog';
+import { LogOut, User, ArrowLeft, Save } from 'lucide-react';
+import { API_BASE_URL } from '../api/config';
 
 const STORAGE_KEY = 'exam-queue-system';
 
-export default function App() {
+// Simple router based on URL hash
+function useHashRouter() {
+  const [route, setRoute] = useState(() => {
+    const hash = window.location.hash.slice(1) || '/';
+    return hash;
+  });
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      setRoute(window.location.hash.slice(1) || '/');
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  const navigate = (path: string) => {
+    window.location.hash = path;
+  };
+
+  return { route, navigate };
+}
+
+// Get query params from hash
+function getHashParams(): URLSearchParams {
+  const hash = window.location.hash.slice(1);
+  const queryIndex = hash.indexOf('?');
+  if (queryIndex === -1) return new URLSearchParams();
+  return new URLSearchParams(hash.slice(queryIndex + 1));
+}
+
+function MainApp() {
+  const { user, isAuthenticated, isLoading, logout, login, token } = useAuth();
+  const { route, navigate } = useHashRouter();
+  
   const [questions, setQuestions] = useState<ReadingQuestion[]>(mockQuestions);
+  const [selectedQueueId, setSelectedQueueId] = useState<string | null>(null);
   const [queue, setQueue] = useState<Queue>({
     id: '1',
     name: '组卷队列',
     questions: [],
     frozen: false,
-    owner: 'teacher@example.com',
+    owner: user?.email || 'teacher@example.com',
     collaborators: []
   });
   const [selectedQuestion, setSelectedQuestion] = useState<ReadingQuestion | null>(null);
+  const [loadingQueue, setLoadingQueue] = useState(false);
+  const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
+  const [saving, setSaving] = useState(false);
+  const [showUnsavedDialog, setShowUnsavedDialog] = useState(false);
+  const [originalQueue, setOriginalQueue] = useState<Queue | null>(null);
 
-  // Load from localStorage on mount
+  // Update queue owner when user changes
+  useEffect(() => {
+    if (user?.email) {
+      setQueue(prev => ({ ...prev, owner: user.email }));
+    }
+  }, [user?.email]);
+
+  // Load queue from backend when selectedQueueId changes
+  useEffect(() => {
+    if (!selectedQueueId || !token) return;
+    
+    setLoadingQueue(true);
+    setHasUnsavedChanges(false);
+    fetch(`${API_BASE_URL}/api/queues/${selectedQueueId}`, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+      },
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.queue) {
+          const loadedQueue = {
+            id: data.queue.queue.id,
+            name: data.queue.queue.name,
+            questions: data.queue.questions || [],
+            frozen: data.queue.queue.frozen,
+            owner: data.queue.queue.owner,
+            collaborators: data.queue.queue.collaborators || [],
+          };
+          setQueue(loadedQueue);
+          setOriginalQueue(loadedQueue);
+        }
+      })
+      .catch(err => {
+        console.error('Failed to load queue:', err);
+        toast.error('加载队列失败');
+      })
+      .finally(() => setLoadingQueue(false));
+  }, [selectedQueueId, token]);
+
+  // Load from localStorage on mount (fallback)
   useEffect(() => {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
@@ -55,6 +152,7 @@ export default function App() {
       ...prev,
       questions: [...prev.questions, question]
     }));
+    setHasUnsavedChanges(true);
     toast.success('题目已添加到队列');
   };
 
@@ -63,6 +161,7 @@ export default function App() {
       ...prev,
       questions: prev.questions.filter(q => q.id !== questionId)
     }));
+    setHasUnsavedChanges(true);
     toast.success('题目已从队列移除');
   };
 
@@ -71,14 +170,82 @@ export default function App() {
       ...prev,
       questions: newOrder
     }));
+    setHasUnsavedChanges(true);
   };
 
-  const handleToggleFreeze = () => {
-    setQueue(prev => ({
-      ...prev,
-      frozen: !prev.frozen
-    }));
-    toast.success(queue.frozen ? '队列已解冻' : '队列已冻结');
+  const handleToggleFreeze = async () => {
+    if (!token || !selectedQueueId) {
+      setQueue(prev => ({
+        ...prev,
+        frozen: !prev.frozen
+      }));
+      toast.success(queue.frozen ? '队列已解冻' : '队列已冻结');
+      return;
+    }
+
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/queues/${selectedQueueId}/freeze`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({ frozen: !queue.frozen }),
+      });
+      
+      if (!response.ok) throw new Error('Failed to toggle freeze');
+      
+      setQueue(prev => ({
+        ...prev,
+        frozen: !prev.frozen
+      }));
+      toast.success(queue.frozen ? '队列已解冻' : '队列已冻结');
+    } catch (err) {
+      toast.error('操作失败');
+    }
+  };
+
+  const handleSaveQueue = async () => {
+    if (!token || !selectedQueueId) return;
+    
+    setSaving(true);
+    try {
+      // Update queue question order
+      const response = await fetch(`${API_BASE_URL}/api/queues/${selectedQueueId}/reorder`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({ 
+          questionIds: queue.questions.map(q => q.id) 
+        }),
+      });
+      
+      if (!response.ok) throw new Error('Failed to save queue');
+      
+      setHasUnsavedChanges(false);
+      setOriginalQueue(queue);
+      toast.success('队列已保存');
+    } catch (err) {
+      toast.error('保存失败');
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const handleBackToDashboard = () => {
+    if (hasUnsavedChanges) {
+      setShowUnsavedDialog(true);
+    } else {
+      setSelectedQueueId(null);
+    }
+  };
+
+  const handleConfirmLeave = () => {
+    setShowUnsavedDialog(false);
+    setHasUnsavedChanges(false);
+    setSelectedQueueId(null);
   };
 
   const handleExport = () => {
@@ -108,34 +275,145 @@ export default function App() {
   };
 
   const handleUpdateLabels = (questionId: string, labels: string[]) => {
-    // Update in main questions list
     setQuestions(prev =>
       prev.map(q => q.id === questionId ? { ...q, labels } : q)
     );
-
-    // Update in queue if present
     setQueue(prev => ({
       ...prev,
       questions: prev.questions.map(q =>
         q.id === questionId ? { ...q, labels } : q
       )
     }));
-
-    // Update selected question if it's the one being edited
     if (selectedQuestion?.id === questionId) {
       setSelectedQuestion(prev => prev ? { ...prev, labels } : null);
     }
   };
 
+  const handleLogout = async () => {
+    await logout();
+    setSelectedQueueId(null);
+    navigate('/login');
+    toast.success('已退出登录');
+  };
+
+  const handleSelectQueue = (queueId: string) => {
+    setSelectedQueueId(queueId);
+  };
+
+  // Show loading state
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+          <p className="mt-4 text-gray-500">加载中...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Route: Verify magic link
+  if (route.startsWith('/auth/verify')) {
+    const params = getHashParams();
+    const token = params.get('token') || '';
+    
+    return (
+      <VerifyPage
+        token={token}
+        onVerifySuccess={(jwtToken, userData) => {
+          login(jwtToken, userData);
+          navigate('/');
+        }}
+        onNavigateToLogin={() => navigate('/login')}
+      />
+    );
+  }
+
+  // Route: Login page (check this BEFORE showing dashboard)
+  if (route === '/login' || !isAuthenticated) {
+    return <LoginPage />;
+  }
+
+  // Main app (authenticated)
+  // Show dashboard if no queue selected
+  if (!selectedQueueId) {
+    return (
+      <div className="size-full bg-gray-50">
+        <div className="h-full flex flex-col">
+          {/* Header */}
+          <header className="bg-white border-b px-6 py-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <h1 className="text-2xl">英语阅读题组卷系统</h1>
+                <p className="text-sm text-gray-500 mt-1">
+                  从题库中选择题目，组织成试卷队列
+                </p>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2 text-sm text-gray-600">
+                  <User className="h-4 w-4" />
+                  <span>{user?.email}</span>
+                </div>
+                <Button variant="ghost" size="sm" onClick={handleLogout}>
+                  <LogOut className="h-4 w-4 mr-2" />
+                  退出
+                </Button>
+              </div>
+            </div>
+          </header>
+
+          {/* Dashboard Content */}
+          <div className="flex-1 overflow-auto">
+            <QueueDashboard onSelectQueue={handleSelectQueue} />
+          </div>
+        </div>
+        <Toaster />
+      </div>
+    );
+  }
+
+  // Show loading state when loading queue
+  if (loadingQueue) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+          <p className="mt-4 text-gray-500">加载队列中...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Queue editor view
   return (
     <div className="size-full bg-gray-50">
       <div className="h-full flex flex-col">
         {/* Header */}
         <header className="bg-white border-b px-6 py-4">
-          <h1 className="text-2xl">英语阅读题组卷系统</h1>
-          <p className="text-sm text-gray-500 mt-1">
-            从题库中选择题目，组织成试卷队列
-          </p>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <Button variant="ghost" size="sm" onClick={handleBackToDashboard}>
+                <ArrowLeft className="h-4 w-4 mr-2" />
+                返回
+              </Button>
+              <div>
+                <h1 className="text-2xl">{queue.name}</h1>
+                <p className="text-sm text-gray-500 mt-1">
+                  编辑队列 - {queue.questions.length} 道题目
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2 text-sm text-gray-600">
+                <User className="h-4 w-4" />
+                <span>{user?.email}</span>
+              </div>
+              <Button variant="ghost" size="sm" onClick={handleLogout}>
+                <LogOut className="h-4 w-4 mr-2" />
+                退出
+              </Button>
+            </div>
+          </div>
         </header>
 
         {/* Main Content */}
@@ -173,5 +451,13 @@ export default function App() {
 
       <Toaster />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <AuthProvider>
+      <MainApp />
+    </AuthProvider>
   );
 }

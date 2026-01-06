@@ -1,0 +1,70 @@
+{
+  "queue-001": {
+    "id": "queue-001",
+    "name": "2024高考模拟卷1",
+    "questionIds": [
+      "q-001",
+      "q-002"
+    ],
+    "frozen": false,
+    "owner": "user@example.com",
+    "collaborators": [
+      "other@example.com"
+    ],
+    "createdAt": 1704067200000,
+    "updatedAt": 1704067200000
+  },
+  "queue-002": {
+    "id": "queue-002",
+    "name": "科技类专题练习",
+    "questionIds": [
+      "q-001",
+      "q-005"
+    ],
+    "frozen": false,
+    "owner": "user@example.com",
+    "collaborators": [],
+    "createdAt": 1704067200000,
+    "updatedAt": 1704067200000
+  },
+  "queue-a79b5517": {
+    "id": "queue-a79b5517",
+    "name": "测试",
+    "questionIds": [],
+    "frozen": false,
+    "owner": "ggy_778@outlook.com",
+    "collaborators": [],
+    "createdAt": 1767666087928,
+    "updatedAt": 1767666087928
+  },
+  "queue-89b6817e": {
+    "id": "queue-89b6817e",
+    "name": "orz",
+    "questionIds": [],
+    "frozen": false,
+    "owner": "ggy_778@outlook.com",
+    "collaborators": [],
+    "createdAt": 1767666143173,
+    "updatedAt": 1767666143173
+  },
+  "queue-978de441": {
+    "id": "queue-978de441",
+    "name": "abc",
+    "questionIds": [],
+    "frozen": false,
+    "owner": "abc@123.xo",
+    "collaborators": [],
+    "createdAt": 1767666409868,
+    "updatedAt": 1767666409868
+  },
+  "queue-92981caf": {
+    "id": "queue-92981caf",
+    "name": "kjefhkje",
+    "questionIds": [],
+    "frozen": false,
+    "owner": "abc@123.xo",
+    "collaborators": [],
+    "createdAt": 1767666852293,
+    "updatedAt": 1767666852293
+  }
+}

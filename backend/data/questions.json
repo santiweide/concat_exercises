@@ -1,0 +1,72 @@
+{
+  "q-001": {
+    "id": "q-001",
+    "title": "2023年全国卷I",
+    "year": 2023,
+    "questionNumber": "A",
+    "articleContent": "In recent years, artificial intelligence has made remarkable progress...",
+    "questionContent": "1. What is the main idea of the passage?\nA. AI development\nB. Technology history\nC. Future predictions\nD. Scientific research",
+    "labels": [
+      "科技",
+      "人工智能"
+    ],
+    "createdAt": 1704067200000,
+    "updatedAt": 1704067200000
+  },
+  "q-002": {
+    "id": "q-002",
+    "title": "2023年全国卷I",
+    "year": 2023,
+    "questionNumber": "B",
+    "articleContent": "Climate change has become one of the most pressing issues of our time...",
+    "questionContent": "1. According to the passage, what is the main cause of climate change?\nA. Natural cycles\nB. Human activities\nC. Solar radiation\nD. Volcanic eruptions",
+    "labels": [
+      "环境",
+      "气候"
+    ],
+    "createdAt": 1704067200000,
+    "updatedAt": 1704067200000
+  },
+  "q-003": {
+    "id": "q-003",
+    "title": "2022年全国卷II",
+    "year": 2022,
+    "questionNumber": "C",
+    "articleContent": "The history of tea dates back thousands of years to ancient China...",
+    "questionContent": "1. When did tea first become popular outside of China?\nA. 16th century\nB. 17th century\nC. 18th century\nD. 19th century",
+    "labels": [
+      "文化",
+      "历史"
+    ],
+    "createdAt": 1704067200000,
+    "updatedAt": 1704067200000
+  },
+  "q-004": {
+    "id": "q-004",
+    "title": "2022年全国卷II",
+    "year": 2022,
+    "questionNumber": "D",
+    "articleContent": "The global economy has undergone significant changes in the past decade...",
+    "questionContent": "1. What factor contributed most to economic growth?\nA. Technology innovation\nB. Trade agreements\nC. Government policies\nD. Consumer spending",
+    "labels": [
+      "经济",
+      "社会"
+    ],
+    "createdAt": 1704067200000,
+    "updatedAt": 1704067200000
+  },
+  "q-005": {
+    "id": "q-005",
+    "title": "2021年全国卷I",
+    "year": 2021,
+    "questionNumber": "A",
+    "articleContent": "Space exploration has entered a new era with private companies leading the way...",
+    "questionContent": "1. What makes the new era of space exploration different?\nA. Government funding\nB. Private investment\nC. International cooperation\nD. Scientific discoveries",
+    "labels": [
+      "科技",
+      "航天"
+    ],
+    "createdAt": 1704067200000,
+    "updatedAt": 1704067200000
+  }
+}
