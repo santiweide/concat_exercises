@@ -397,13 +397,31 @@ function MainApp() {
                 返回
               </Button>
               <div>
-                <h1 className="text-2xl">{queue.name}</h1>
+                <div className="flex items-center gap-2">
+                  <h1 className="text-2xl">{queue.name}</h1>
+                  {hasUnsavedChanges && (
+                    <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-0.5 rounded">
+                      未保存
+                    </span>
+                  )}
+                </div>
                 <p className="text-sm text-gray-500 mt-1">
                   编辑队列 - {queue.questions.length} 道题目
                 </p>
               </div>
             </div>
             <div className="flex items-center gap-4">
+              {/* Save Button */}
+              <Button 
+                variant={hasUnsavedChanges ? "default" : "outline"}
+                size="sm" 
+                onClick={handleSaveQueue}
+                disabled={!hasUnsavedChanges || saving || queue.frozen}
+              >
+                <Save className="h-4 w-4 mr-2" />
+                {saving ? '保存中...' : '保存'}
+              </Button>
+              
               <div className="flex items-center gap-2 text-sm text-gray-600">
                 <User className="h-4 w-4" />
                 <span>{user?.email}</span>
@@ -448,6 +466,27 @@ function MainApp() {
           onUpdateLabels={handleUpdateLabels}
         />
       )}
+
+      {/* Unsaved Changes Dialog */}
+      <AlertDialog open={showUnsavedDialog} onOpenChange={setShowUnsavedDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>有未保存的更改</AlertDialogTitle>
+            <AlertDialogDescription>
+              你对队列的修改还没有保存。如果离开此页面，更改将会丢失。
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>继续编辑</AlertDialogCancel>
+            <AlertDialogAction 
+              onClick={handleConfirmLeave}
+              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+            >
+              放弃更改
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
 
       <Toaster />
     </div>

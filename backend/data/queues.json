@@ -30,12 +30,16 @@
   "queue-a79b5517": {
     "id": "queue-a79b5517",
     "name": "测试",
-    "questionIds": [],
+    "questionIds": [
+      "1",
+      "2",
+      "3"
+    ],
     "frozen": false,
     "owner": "ggy_778@outlook.com",
     "collaborators": [],
     "createdAt": 1767666087928,
-    "updatedAt": 1767666087928
+    "updatedAt": 1767667388641
   },
   "queue-89b6817e": {
     "id": "queue-89b6817e",
