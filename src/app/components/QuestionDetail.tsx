@@ -3,9 +3,8 @@ import { ReadingQuestion } from '../types';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
-import { Textarea } from './ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import { X, Plus, Save } from 'lucide-react';
+import { X, Plus } from 'lucide-react';
 import { toast } from 'sonner';
 
 interface QuestionDetailProps {
@@ -17,7 +16,6 @@ interface QuestionDetailProps {
 export function QuestionDetail({ question, onClose, onUpdateLabels }: QuestionDetailProps) {
   const [labels, setLabels] = useState<string[]>(question.labels);
   const [newLabel, setNewLabel] = useState('');
-  const [annotation, setAnnotation] = useState('');
 
   const handleAddLabel = () => {
     if (newLabel.trim() && !labels.includes(newLabel.trim())) {
@@ -34,12 +32,6 @@ export function QuestionDetail({ question, onClose, onUpdateLabels }: QuestionDe
     setLabels(updatedLabels);
     onUpdateLabels(question.id, updatedLabels);
     toast.success('标签已删除');
-  };
-
-  const handleSaveAnnotation = () => {
-    // In a real app, this would save to database
-    toast.success('批注已保存');
-    setAnnotation('');
   };
 
   return (
@@ -105,21 +97,6 @@ export function QuestionDetail({ question, onClose, onUpdateLabels }: QuestionDe
             <div className="bg-gray-50 p-4 rounded-lg">
               <pre className="whitespace-pre-wrap font-sans">{question.questionContent}</pre>
             </div>
-          </div>
-
-          {/* Annotation Section */}
-          <div>
-            <h3 className="mb-2">批注</h3>
-            <Textarea
-              placeholder="在此添加批注..."
-              value={annotation}
-              onChange={(e) => setAnnotation(e.target.value)}
-              rows={4}
-            />
-            <Button onClick={handleSaveAnnotation} className="mt-2" size="sm">
-              <Save className="size-4 mr-1" />
-              保存批注
-            </Button>
           </div>
         </CardContent>
       </Card>

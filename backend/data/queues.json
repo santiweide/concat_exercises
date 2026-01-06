@@ -71,5 +71,19 @@
     "collaborators": [],
     "createdAt": 1767666852293,
     "updatedAt": 1767666852293
+  },
+  "queue-5843190d": {
+    "id": "queue-5843190d",
+    "name": "第一次统练",
+    "questionIds": [
+      "q-001",
+      "q-002",
+      "q-004"
+    ],
+    "frozen": false,
+    "owner": "teacher_01@abc.com",
+    "collaborators": [],
+    "createdAt": 1767709005543,
+    "updatedAt": 1767709078258
   }
 }
