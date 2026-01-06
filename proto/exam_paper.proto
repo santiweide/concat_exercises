@@ -1,0 +1,365 @@
+// Exam Paper System Protocol Buffer Definitions
+// Version: 1.0.0
+
+syntax = "proto3";
+
+package exampaper;
+
+option go_package = "exampaper/pb";
+
+// ============================================================================
+// Common Types
+// ============================================================================
+
+// 空请求/响应
+message Empty {}
+
+// 分页请求参数
+message PaginationRequest {
+  int32 page = 1;        // 页码，从1开始
+  int32 page_size = 2;   // 每页数量
+}
+
+// 分页响应信息
+message PaginationResponse {
+  int32 total = 1;       // 总数量
+  int32 page = 2;        // 当前页码
+  int32 page_size = 3;   // 每页数量
+  int32 total_pages = 4; // 总页数
+}
+
+// ============================================================================
+// Core Data Models
+// ============================================================================
+
+// 阅读理解题目
+message ReadingQuestion {
+  string id = 1;                    // 题目唯一ID
+  string title = 2;                 // 来源题目（如：2023年全国卷I）
+  int32 year = 3;                   // 年份
+  string question_number = 4;       // 阅读题编号（A, B, C, D等）
+  string article_content = 5;       // 文章内容
+  string question_content = 6;      // 题目和选项
+  repeated string labels = 7;       // 标签列表
+  int64 created_at = 8;             // 创建时间戳
+  int64 updated_at = 9;             // 更新时间戳
+}
+
+// 组卷队列
+message Queue {
+  string id = 1;                           // 队列唯一ID
+  string name = 2;                         // 队列名称
+  repeated string question_ids = 3;        // 队列中题目ID列表（有序）
+  bool frozen = 4;                         // 是否冻结
+  string owner = 5;                        // 所有者邮箱
+  repeated string collaborators = 6;       // 协作者邮箱列表
+  int64 created_at = 7;                    // 创建时间戳
+  int64 updated_at = 8;                    // 更新时间戳
+}
+
+// 队列详情（包含题目完整信息）
+message QueueDetail {
+  Queue queue = 1;                         // 队列基本信息
+  repeated ReadingQuestion questions = 2;  // 队列中的题目详情
+}
+
+// 用户信息
+message User {
+  string id = 1;
+  string email = 2;
+  string name = 3;
+  string avatar_url = 4;
+  int64 created_at = 5;
+}
+
+// ============================================================================
+// Question Service - 题目相关接口
+// ============================================================================
+
+// 搜索题目请求
+message SearchQuestionsRequest {
+  string query = 1;                        // 搜索关键词（语义搜索）
+  optional int32 year = 2;                 // 年份过滤
+  repeated string labels = 3;              // 标签过滤
+  PaginationRequest pagination = 4;        // 分页参数
+}
+
+// 搜索题目响应
+message SearchQuestionsResponse {
+  repeated ReadingQuestion questions = 1;  // 题目列表
+  PaginationResponse pagination = 2;       // 分页信息
+}
+
+// 获取单个题目请求
+message GetQuestionRequest {
+  string id = 1;                           // 题目ID
+}
+
+// 获取单个题目响应
+message GetQuestionResponse {
+  ReadingQuestion question = 1;
+}
+
+// 批量获取题目请求
+message BatchGetQuestionsRequest {
+  repeated string ids = 1;                 // 题目ID列表
+}
+
+// 批量获取题目响应
+message BatchGetQuestionsResponse {
+  repeated ReadingQuestion questions = 1;
+}
+
+// 创建题目请求
+message CreateQuestionRequest {
+  string title = 1;
+  int32 year = 2;
+  string question_number = 3;
+  string article_content = 4;
+  string question_content = 5;
+  repeated string labels = 6;
+}
+
+// 创建题目响应
+message CreateQuestionResponse {
+  ReadingQuestion question = 1;
+}
+
+// 更新题目请求
+message UpdateQuestionRequest {
+  string id = 1;                           // 题目ID
+  optional string title = 2;
+  optional int32 year = 3;
+  optional string question_number = 4;
+  optional string article_content = 5;
+  optional string question_content = 6;
+  repeated string labels = 7;              // 如果提供则完全替换
+}
+
+// 更新题目响应
+message UpdateQuestionResponse {
+  ReadingQuestion question = 1;
+}
+
+// 删除题目请求
+message DeleteQuestionRequest {
+  string id = 1;
+}
+
+// 获取所有标签
+message GetAllLabelsResponse {
+  repeated string labels = 1;
+}
+
+// 获取所有年份
+message GetAllYearsResponse {
+  repeated int32 years = 1;
+}
+
+// ============================================================================
+// Queue Service - 队列相关接口
+// ============================================================================
+
+// 获取用户队列列表请求
+message ListQueuesRequest {
+  string user_email = 1;                   // 用户邮箱（包括作为owner或collaborator的队列）
+  PaginationRequest pagination = 2;
+}
+
+// 获取用户队列列表响应
+message ListQueuesResponse {
+  repeated Queue queues = 1;
+  PaginationResponse pagination = 2;
+}
+
+// 获取队列详情请求
+message GetQueueRequest {
+  string id = 1;                           // 队列ID
+}
+
+// 获取队列详情响应
+message GetQueueResponse {
+  QueueDetail queue = 1;                   // 包含完整题目信息的队列
+}
+
+// 创建队列请求
+message CreateQueueRequest {
+  string name = 1;                         // 队列名称
+  string owner = 2;                        // 所有者邮箱
+}
+
+// 创建队列响应
+message CreateQueueResponse {
+  Queue queue = 1;
+}
+
+// 更新队列基本信息请求
+message UpdateQueueRequest {
+  string id = 1;
+  optional string name = 2;
+}
+
+// 更新队列响应
+message UpdateQueueResponse {
+  Queue queue = 1;
+}
+
+// 删除队列请求
+message DeleteQueueRequest {
+  string id = 1;
+}
+
+// 添加题目到队列请求
+message AddQuestionToQueueRequest {
+  string queue_id = 1;
+  string question_id = 2;
+  optional int32 position = 3;             // 插入位置，不提供则添加到末尾
+}
+
+// 添加题目到队列响应
+message AddQuestionToQueueResponse {
+  Queue queue = 1;
+}
+
+// 从队列移除题目请求
+message RemoveQuestionFromQueueRequest {
+  string queue_id = 1;
+  string question_id = 2;
+}
+
+// 从队列移除题目响应
+message RemoveQuestionFromQueueResponse {
+  Queue queue = 1;
+}
+
+// 重排队列题目顺序请求
+message ReorderQueueQuestionsRequest {
+  string queue_id = 1;
+  repeated string question_ids = 2;        // 新的题目顺序
+}
+
+// 重排队列题目顺序响应
+message ReorderQueueQuestionsResponse {
+  Queue queue = 1;
+}
+
+// 冻结/解冻队列请求
+message ToggleQueueFreezeRequest {
+  string queue_id = 1;
+  bool frozen = 2;
+}
+
+// 冻结/解冻队列响应
+message ToggleQueueFreezeResponse {
+  Queue queue = 1;
+}
+
+// 添加协作者请求
+message AddCollaboratorRequest {
+  string queue_id = 1;
+  string collaborator_email = 2;
+}
+
+// 添加协作者响应
+message AddCollaboratorResponse {
+  Queue queue = 1;
+}
+
+// 移除协作者请求
+message RemoveCollaboratorRequest {
+  string queue_id = 1;
+  string collaborator_email = 2;
+}
+
+// 移除协作者响应
+message RemoveCollaboratorResponse {
+  Queue queue = 1;
+}
+
+// 导出队列请求
+message ExportQueueRequest {
+  string queue_id = 1;
+  ExportFormat format = 2;
+}
+
+enum ExportFormat {
+  EXPORT_FORMAT_UNSPECIFIED = 0;
+  EXPORT_FORMAT_JSON = 1;
+  EXPORT_FORMAT_PDF = 2;
+  EXPORT_FORMAT_WORD = 3;
+}
+
+// 导出队列响应
+message ExportQueueResponse {
+  bytes data = 1;                          // 导出的文件数据
+  string filename = 2;                     // 建议的文件名
+  string content_type = 3;                 // MIME类型
+}
+
+// ============================================================================
+// Service Definitions
+// ============================================================================
+
+service QuestionService {
+  // 搜索题目（支持语义搜索）
+  rpc SearchQuestions(SearchQuestionsRequest) returns (SearchQuestionsResponse);
+  
+  // 获取单个题目
+  rpc GetQuestion(GetQuestionRequest) returns (GetQuestionResponse);
+  
+  // 批量获取题目
+  rpc BatchGetQuestions(BatchGetQuestionsRequest) returns (BatchGetQuestionsResponse);
+  
+  // 创建题目
+  rpc CreateQuestion(CreateQuestionRequest) returns (CreateQuestionResponse);
+  
+  // 更新题目
+  rpc UpdateQuestion(UpdateQuestionRequest) returns (UpdateQuestionResponse);
+  
+  // 删除题目
+  rpc DeleteQuestion(DeleteQuestionRequest) returns (Empty);
+  
+  // 获取所有标签
+  rpc GetAllLabels(Empty) returns (GetAllLabelsResponse);
+  
+  // 获取所有年份
+  rpc GetAllYears(Empty) returns (GetAllYearsResponse);
+}
+
+service QueueService {
+  // 获取用户的队列列表
+  rpc ListQueues(ListQueuesRequest) returns (ListQueuesResponse);
+  
+  // 获取队列详情（包含题目）
+  rpc GetQueue(GetQueueRequest) returns (GetQueueResponse);
+  
+  // 创建队列
+  rpc CreateQueue(CreateQueueRequest) returns (CreateQueueResponse);
+  
+  // 更新队列基本信息
+  rpc UpdateQueue(UpdateQueueRequest) returns (UpdateQueueResponse);
+  
+  // 删除队列
+  rpc DeleteQueue(DeleteQueueRequest) returns (Empty);
+  
+  // 添加题目到队列
+  rpc AddQuestionToQueue(AddQuestionToQueueRequest) returns (AddQuestionToQueueResponse);
+  
+  // 从队列移除题目
+  rpc RemoveQuestionFromQueue(RemoveQuestionFromQueueRequest) returns (RemoveQuestionFromQueueResponse);
+  
+  // 重排队列题目顺序
+  rpc ReorderQueueQuestions(ReorderQueueQuestionsRequest) returns (ReorderQueueQuestionsResponse);
+  
+  // 冻结/解冻队列
+  rpc ToggleQueueFreeze(ToggleQueueFreezeRequest) returns (ToggleQueueFreezeResponse);
+  
+  // 添加协作者
+  rpc AddCollaborator(AddCollaboratorRequest) returns (AddCollaboratorResponse);
+  
+  // 移除协作者
+  rpc RemoveCollaborator(RemoveCollaboratorRequest) returns (RemoveCollaboratorResponse);
+  
+  // 导出队列
+  rpc ExportQueue(ExportQueueRequest) returns (ExportQueueResponse);
+}
