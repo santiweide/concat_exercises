@@ -61,7 +61,8 @@ function MainApp() {
   const { user, isAuthenticated, isLoading, logout, login, token } = useAuth();
   const { route, navigate } = useHashRouter();
   
-  const [questions, setQuestions] = useState<ReadingQuestion[]>(mockQuestions);
+  const [questions, setQuestions] = useState<ReadingQuestion[]>([]);
+  const [loadingQuestions, setLoadingQuestions] = useState(false);
   const [selectedQueueId, setSelectedQueueId] = useState<string | null>(null);
   const [queue, setQueue] = useState<Queue>({
     id: '1',
@@ -77,6 +78,31 @@ function MainApp() {
   const [saving, setSaving] = useState(false);
   const [showUnsavedDialog, setShowUnsavedDialog] = useState(false);
   const [originalQueue, setOriginalQueue] = useState<Queue | null>(null);
+
+  // Load questions from backend API
+  useEffect(() => {
+    if (!token) return;
+    
+    setLoadingQuestions(true);
+    fetch(`${API_BASE_URL}/api/questions/search`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
+      body: JSON.stringify({ page: 1, pageSize: 100 }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.questions) {
+          setQuestions(data.questions);
+        }
+      })
+      .catch(err => {
+        console.error('Failed to load questions:', err);
+      })
+      .finally(() => setLoadingQuestions(false));
+  }, [token]);
 
   // Update queue owner when user changes
   useEffect(() => {
@@ -118,24 +144,12 @@ function MainApp() {
       .finally(() => setLoadingQueue(false));
   }, [selectedQueueId, token]);
 
-  // Load from localStorage on mount (fallback)
+  // Save queue to localStorage whenever it changes (as backup)
   useEffect(() => {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) {
-      try {
-        const data = JSON.parse(saved);
-        if (data.queue) setQueue(data.queue);
-        if (data.questions) setQuestions(data.questions);
-      } catch (e) {
-        console.error('Failed to load saved data:', e);
-      }
+    if (queue.id !== '1') {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ queue }));
     }
-  }, []);
-
-  // Save to localStorage whenever queue or questions change
-  useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ queue, questions }));
-  }, [queue, questions]);
+  }, [queue]);
 
   const handleAddToQueue = (question: ReadingQuestion) => {
     if (queue.frozen) {

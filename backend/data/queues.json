@@ -31,15 +31,14 @@
     "id": "queue-a79b5517",
     "name": "测试",
     "questionIds": [
-      "1",
-      "2",
-      "3"
+      "q-001",
+      "q-002"
     ],
     "frozen": false,
     "owner": "ggy_778@outlook.com",
     "collaborators": [],
     "createdAt": 1767666087928,
-    "updatedAt": 1767667388641
+    "updatedAt": 1767667926907
   },
   "queue-89b6817e": {
     "id": "queue-89b6817e",

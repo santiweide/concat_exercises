@@ -75,6 +75,7 @@ const DraggableQuestion: React.FC<DraggableQuestionProps> = ({
         showRemoveButton={!frozen}
         isDraggable={!frozen}
         dragHandleProps={!frozen ? { ref: drag } : undefined}
+        showDetails={true}
       />
     </div>
   );
