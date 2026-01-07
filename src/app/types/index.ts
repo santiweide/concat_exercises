@@ -1,3 +1,8 @@
+export interface QuestionAnswer {
+  number: number; // 题号，如 21, 22, 23
+  answer: string; // 答案，A/B/C/D
+}
+
 export interface ReadingQuestion {
   id: string;
   title: string; // 来源题目
@@ -6,6 +11,7 @@ export interface ReadingQuestion {
   articleContent: string; // 文章内容
   questionContent: string; // 题目和选项
   labels: string[]; // 标签
+  answers?: QuestionAnswer[]; // 答案列表
 }
 
 export interface Queue {

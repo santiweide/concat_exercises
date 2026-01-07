@@ -20,6 +20,12 @@ import {
   DialogFooter,
 } from './ui/dialog';
 
+// Types for answers
+interface QuestionAnswer {
+  number: number;
+  answer: string;
+}
+
 // Types for preview data
 interface PreviewQuestion {
   id: string;
@@ -29,6 +35,7 @@ interface PreviewQuestion {
   articleSummary: string;
   subQuestionCount: number;
   labels: string[];
+  answers: QuestionAnswer[];
 }
 
 interface PreviewData {
@@ -71,11 +78,13 @@ export function ImportPaperPage({ onBack }: ImportPaperPageProps) {
     questionContent: string;
     labels: string[];
     newLabel: string;
+    answers: QuestionAnswer[];
   }>({
     articleContent: '',
     questionContent: '',
     labels: [],
     newLabel: '',
+    answers: [],
   });
 
   const handleDragOver = useCallback((e: React.DragEvent) => {
@@ -183,6 +192,7 @@ export function ImportPaperPage({ onBack }: ImportPaperPageProps) {
             articleContent: q.articleContent,
             questionContent: q.questionContent,
             labels: q.labels,
+            answers: q.answers || [],
           })),
         }),
       });
@@ -222,6 +232,7 @@ export function ImportPaperPage({ onBack }: ImportPaperPageProps) {
       questionContent: question.questionContent,
       labels: [...question.labels],
       newLabel: '',
+      answers: question.answers ? [...question.answers] : [],
     });
   };
 
@@ -239,6 +250,7 @@ export function ImportPaperPage({ onBack }: ImportPaperPageProps) {
                 articleContent: editFormData.articleContent,
                 questionContent: editFormData.questionContent,
                 labels: editFormData.labels,
+                answers: editFormData.answers,
                 articleSummary: editFormData.articleContent.split(' ').slice(0, 20).join(' ') + '...',
               }
             : q
@@ -248,6 +260,34 @@ export function ImportPaperPage({ onBack }: ImportPaperPageProps) {
 
     setEditingQuestion(null);
     toast.success('已保存修改');
+  };
+
+  const handleUpdateAnswer = (index: number, field: 'number' | 'answer', value: string) => {
+    setEditFormData(prev => ({
+      ...prev,
+      answers: prev.answers.map((a, i) =>
+        i === index
+          ? { ...a, [field]: field === 'number' ? parseInt(value) || 0 : value.toUpperCase() }
+          : a
+      ),
+    }));
+  };
+
+  const handleAddAnswer = () => {
+    const lastNumber = editFormData.answers.length > 0
+      ? Math.max(...editFormData.answers.map(a => a.number))
+      : 20;
+    setEditFormData(prev => ({
+      ...prev,
+      answers: [...prev.answers, { number: lastNumber + 1, answer: 'A' }],
+    }));
+  };
+
+  const handleRemoveAnswer = (index: number) => {
+    setEditFormData(prev => ({
+      ...prev,
+      answers: prev.answers.filter((_, i) => i !== index),
+    }));
   };
 
   const handleAddLabel = () => {
@@ -447,13 +487,18 @@ export function ImportPaperPage({ onBack }: ImportPaperPageProps) {
                         <p className="text-sm text-gray-600 truncate mb-2">
                           {question.articleSummary}
                         </p>
-                        <div className="flex flex-wrap gap-1">
+                        <div className="flex flex-wrap gap-1 mb-2">
                           {question.labels.map((label, i) => (
                             <Badge key={i} variant="secondary" className="text-xs">
                               {label}
                             </Badge>
                           ))}
                         </div>
+                        {question.answers && question.answers.length > 0 && (
+                          <div className="text-xs text-gray-500">
+                            答案: {question.answers.map(a => `${a.number}.${a.answer}`).join(' ')}
+                          </div>
+                        )}
                       </div>
                       <div className="flex items-center gap-2">
                         <Button
@@ -664,6 +709,50 @@ export function ImportPaperPage({ onBack }: ImportPaperPageProps) {
                   添加
                 </Button>
               </div>
+            </div>
+
+            {/* Answers */}
+            <div>
+              <label className="block text-sm font-medium mb-2">答案（题号 + 选项）</label>
+              <div className="space-y-2 mb-3">
+                {editFormData.answers.map((answer, index) => (
+                  <div key={index} className="flex items-center gap-2">
+                    <Input
+                      type="number"
+                      value={answer.number}
+                      onChange={(e) => handleUpdateAnswer(index, 'number', e.target.value)}
+                      className="w-20"
+                      placeholder="题号"
+                    />
+                    <span className="text-gray-500">.</span>
+                    <select
+                      value={answer.answer}
+                      onChange={(e) => handleUpdateAnswer(index, 'answer', e.target.value)}
+                      className="h-10 px-3 py-2 border border-gray-200 rounded-md bg-white text-sm"
+                    >
+                      <option value="A">A</option>
+                      <option value="B">B</option>
+                      <option value="C">C</option>
+                      <option value="D">D</option>
+                    </select>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="text-red-600 hover:text-red-700"
+                      onClick={() => handleRemoveAnswer(index)}
+                    >
+                      <X className="h-4 w-4" />
+                    </Button>
+                  </div>
+                ))}
+                {editFormData.answers.length === 0 && (
+                  <span className="text-sm text-gray-400">暂无答案（可能未从试卷中提取到）</span>
+                )}
+              </div>
+              <Button onClick={handleAddAnswer} size="sm" variant="outline">
+                <Plus className="h-4 w-4 mr-1" />
+                添加答案
+              </Button>
             </div>
           </div>
 

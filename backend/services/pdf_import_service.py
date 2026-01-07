@@ -4,6 +4,7 @@ PDF Import Service - Uses Gemini AI to extract reading questions from exam paper
 import asyncio
 import base64
 import json
+import os
 import re
 import time
 import uuid
@@ -15,15 +16,21 @@ from io import BytesIO
 import pdfplumber
 from pdf2image import convert_from_path
 from PIL import Image
+from dotenv import load_dotenv
 
 from config import config
 from storage import question_store
 from models import ReadingQuestion
 
+# Load environment variables from .env file
+load_dotenv()
+
 logger = structlog.get_logger()
 
-# Gemini API configuration
-GEMINI_API_KEY = "AIzaSyBlgls9p5LihiaVrnO8qgem2yQpogsXaew"
+# Gemini API configuration - loaded from environment variable
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+if not GEMINI_API_KEY:
+    logger.warning("GEMINI_API_KEY not set in environment variables!")
 # Use gemini-1.5-flash for faster image processing
 GEMINI_API_URL_TEXT = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
 GEMINI_API_URL_IMAGE = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
@@ -173,6 +180,7 @@ class PDFImportService:
             article_content = q.get('articleContent', '')
             question_content = q.get('questionContent', '')
             labels = q.get('labels', [])
+            answers = q.get('answers', [])  # List of {number, answer}
             
             # Skip empty questions
             if not article_content and not question_content:
@@ -192,6 +200,7 @@ class PDFImportService:
                 'articleSummary': article_summary,
                 'subQuestionCount': sub_question_count,
                 'labels': labels,
+                'answers': answers,
             })
         
         return {
@@ -276,6 +285,7 @@ class PDFImportService:
                 question_content = q.get('questionContent', '')
                 question_number = q.get('questionNumber', 'A')
                 labels = q.get('labels', [])
+                answers = q.get('answers', [])  # List of {number, answer}
                 
                 # Skip empty questions
                 if not article_content or not question_content:
@@ -290,6 +300,7 @@ class PDFImportService:
                     articleContent=article_content,
                     questionContent=question_content,
                     labels=labels,
+                    answers=answers,
                     createdAt=current_time,
                     updatedAt=current_time
                 )
@@ -326,8 +337,8 @@ class PDFImportService:
             }
     
     def _get_extraction_prompt(self) -> str:
-        """Get the prompt for extracting reading questions."""
-        return """你是一个专业的高考英语试卷分析助手。请仔细分析试卷内容，提取其中的阅读理解部分。
+        """Get the prompt for extracting reading questions and answers."""
+        return """你是一个专业的高考英语试卷分析助手。请仔细分析试卷内容，提取其中的阅读理解部分及其答案。
 
 请按照以下JSON格式返回结果：
 
@@ -340,7 +351,12 @@ class PDFImportService:
             "questionNumber": "A",
             "articleContent": "阅读文章的完整原文内容...",
             "questionContent": "题目和选项的完整内容，包括所有小题...",
-            "labels": ["主题标签1", "主题标签2", "主题标签3"]
+            "labels": ["主题标签1", "主题标签2", "主题标签3"],
+            "answers": [
+                {"number": 21, "answer": "B"},
+                {"number": 22, "answer": "A"},
+                {"number": 23, "answer": "D"}
+            ]
         }
     ]
 }
@@ -348,13 +364,17 @@ class PDFImportService:
 
 要求：
 1. 识别试卷来源和年份（从试卷标题或页眉提取）
-2. 提取所有阅读理解题目（通常在大标题“第二部分 阅读理解”下的第一节，通常标记为A、B、C、D四篇）
+2. 提取所有阅读理解题目（通常在大标题"第二部分 阅读理解"下的第一节，通常标记为A、B、C、D四篇）
 3. articleContent：完整提取每篇阅读的文章原文
-4. questionContent：提取该篇文章对应的所有题目和选项，通常题目序号分别为21-23，24-27，28-30，31-34。每个编号表示一个小题。
+4. questionContent：提取该篇文章对应的所有题目和选项，通常题目序号分别为21-23，24-27，28-31，32-35。注意每个编号表示一个小题，而不是每个选项代表一个小题（因为是选择题）。
 5. labels：根据文章内容生成3-5个语义标签，描述文章的主题、体裁、话题等
    - 主题标签示例：科技、环境、文化、教育、健康、社会、历史、艺术、体育、经济
    - 体裁标签示例：记叙文、说明文、议论文、新闻报道、人物传记
    - 话题标签示例：人工智能、气候变化、传统文化、青少年成长等
+6. answers：从"英语参考答案"部分的"第二部分 阅读理解"中提取每个小题的答案
+   - number：小题题号（如21, 22, 23等整数）
+   - answer：该小题的正确答案（A、B、C或D）
+   - 如果找不到答案部分，answers数组可以为空
 
 请只返回JSON格式的结果，不要包含其他文字说明。如果无法识别为英语试卷，返回：
 ```json
