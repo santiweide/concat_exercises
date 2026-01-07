@@ -1,22 +1,18 @@
 """
 HTTP handlers for Question Service API endpoints.
+Now uses question_store directly instead of ZMQ for simplicity.
 """
 from aiohttp import web
 import structlog
 from models import (
     SearchQuestionsRequest,
-    SearchQuestionsResponse,
     GetQuestionResponse,
     BatchGetQuestionsRequest,
-    BatchGetQuestionsResponse,
     CreateQuestionRequest,
-    CreateQuestionResponse,
     UpdateQuestionRequest,
-    UpdateQuestionResponse,
-    GetAllLabelsResponse,
-    GetAllYearsResponse,
+    PaginationResponse,
 )
-import zmq_service
+from storage import question_store
 
 logger = structlog.get_logger()
 
@@ -24,15 +20,33 @@ logger = structlog.get_logger()
 async def search_questions(request: web.Request) -> web.Response:
     """
     POST /api/questions/search
-    Search questions with semantic search support.
+    Search questions with filters.
     """
     try:
         body = await request.json()
         req = SearchQuestionsRequest(**body)
         
-        result = await zmq_service.question_client.call("search_questions", req.model_dump())
+        # Direct call to question_store
+        query = req.query or ''
+        year = req.year
+        labels = req.labels or []
+        page = req.page if hasattr(req, 'page') else 1
+        page_size = req.pageSize if hasattr(req, 'pageSize') else 100
         
-        return web.json_response(result)
+        questions, total = question_store.search(
+            query=query,
+            year=year,
+            labels=labels,
+            page=page,
+            page_size=page_size
+        )
+        
+        pagination = PaginationResponse.create(total, page, page_size)
+        
+        return web.json_response({
+            "questions": [q.model_dump() for q in questions],
+            "pagination": pagination.model_dump()
+        })
     except Exception as e:
         logger.error("search_questions error", error=str(e))
         return web.json_response(
@@ -49,15 +63,17 @@ async def get_question(request: web.Request) -> web.Response:
     question_id = request.match_info['id']
     
     try:
-        result = await zmq_service.question_client.call("get_question", {"id": question_id})
+        question = question_store.get(question_id)
         
-        if result.get("question") is None:
+        if question is None:
             return web.json_response(
                 {"code": 404, "message": "Question not found"},
                 status=404
             )
         
-        return web.json_response(result)
+        return web.json_response({
+            "question": question.model_dump()
+        })
     except Exception as e:
         logger.error("get_question error", error=str(e), id=question_id)
         return web.json_response(
@@ -75,9 +91,11 @@ async def batch_get_questions(request: web.Request) -> web.Response:
         body = await request.json()
         req = BatchGetQuestionsRequest(**body)
         
-        result = await zmq_service.question_client.call("batch_get_questions", req.model_dump())
+        questions = question_store.batch_get(req.ids)
         
-        return web.json_response(result)
+        return web.json_response({
+            "questions": [q.model_dump() for q in questions]
+        })
     except Exception as e:
         logger.error("batch_get_questions error", error=str(e))
         return web.json_response(
@@ -95,9 +113,11 @@ async def create_question(request: web.Request) -> web.Response:
         body = await request.json()
         req = CreateQuestionRequest(**body)
         
-        result = await zmq_service.question_client.call("create_question", req.model_dump())
+        question = question_store.create(req.model_dump())
         
-        return web.json_response(result, status=201)
+        return web.json_response({
+            "question": question.model_dump()
+        }, status=201)
     except Exception as e:
         logger.error("create_question error", error=str(e))
         return web.json_response(
@@ -115,18 +135,18 @@ async def update_question(request: web.Request) -> web.Response:
     
     try:
         body = await request.json()
-        body['id'] = question_id
-        req = UpdateQuestionRequest(**body)
         
-        result = await zmq_service.question_client.call("update_question", req.model_dump(exclude_none=True))
+        question = question_store.update(question_id, body)
         
-        if result.get("question") is None:
+        if question is None:
             return web.json_response(
                 {"code": 404, "message": "Question not found"},
                 status=404
             )
         
-        return web.json_response(result)
+        return web.json_response({
+            "question": question.model_dump()
+        })
     except Exception as e:
         logger.error("update_question error", error=str(e), id=question_id)
         return web.json_response(
@@ -143,7 +163,13 @@ async def delete_question(request: web.Request) -> web.Response:
     question_id = request.match_info['id']
     
     try:
-        await zmq_service.question_client.call("delete_question", {"id": question_id})
+        success = question_store.delete(question_id)
+        
+        if not success:
+            return web.json_response(
+                {"code": 404, "message": "Question not found"},
+                status=404
+            )
         
         return web.Response(status=204)
     except Exception as e:
@@ -160,9 +186,11 @@ async def get_all_labels(request: web.Request) -> web.Response:
     Get all available labels.
     """
     try:
-        result = await zmq_service.question_client.call("get_all_labels", {})
+        labels = question_store.get_all_labels()
         
-        return web.json_response(result)
+        return web.json_response({
+            "labels": labels
+        })
     except Exception as e:
         logger.error("get_all_labels error", error=str(e))
         return web.json_response(
@@ -177,9 +205,11 @@ async def get_all_years(request: web.Request) -> web.Response:
     Get all available years.
     """
     try:
-        result = await zmq_service.question_client.call("get_all_years", {})
+        years = question_store.get_all_years()
         
-        return web.json_response(result)
+        return web.json_response({
+            "years": years
+        })
     except Exception as e:
         logger.error("get_all_years error", error=str(e))
         return web.json_response(

@@ -7,6 +7,7 @@ import { QuestionDetail } from './components/QuestionDetail';
 import { LoginPage } from './components/LoginPage';
 import { VerifyPage } from './components/VerifyPage';
 import { QueueDashboard } from './components/QueueDashboard';
+import { ImportPaperPage } from './components/ImportPaperPage';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { Toaster } from './components/ui/sonner';
 import { toast } from 'sonner';
@@ -21,7 +22,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from './components/ui/alert-dialog';
-import { LogOut, User, ArrowLeft, Save } from 'lucide-react';
+import { LogOut, User, ArrowLeft, Save, FileUp } from 'lucide-react';
 import { API_BASE_URL } from '../api/config';
 
 const STORAGE_KEY = 'exam-queue-system';
@@ -376,6 +377,16 @@ function MainApp() {
     return <LoginPage />;
   }
 
+  // Route: Import paper page
+  if (route === '/import') {
+    return (
+      <>
+        <ImportPaperPage onBack={() => navigate('/')} />
+        <Toaster />
+      </>
+    );
+  }
+
   // Main app (authenticated)
   // Show dashboard if no queue selected
   if (!selectedQueueId) {
@@ -392,6 +403,10 @@ function MainApp() {
                 </p>
               </div>
               <div className="flex items-center gap-4">
+                <Button variant="outline" size="sm" onClick={() => navigate('/import')}>
+                  <FileUp className="h-4 w-4 mr-2" />
+                  导入试卷
+                </Button>
                 <div className="flex items-center gap-2 text-sm text-gray-600">
                   <User className="h-4 w-4" />
                   <span>{user?.email}</span>

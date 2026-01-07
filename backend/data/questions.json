@@ -6,7 +6,11 @@
     "questionNumber": "A",
     "articleContent": "The rapid development of artificial intelligence has sparked debates about its impact on society. While some experts believe AI will create new opportunities and enhance human capabilities, others worry about job displacement and ethical concerns.\n\nRecent studies show that AI is already transforming industries from healthcare to finance. In medicine, AI algorithms can now detect diseases earlier than human doctors in many cases. Financial institutions use AI to detect fraud and manage risk more effectively.\n\nHowever, the technology also raises important questions. Who is responsible when an AI system makes a mistake? How do we ensure AI systems are fair and unbiased? These are challenges that society must address as AI becomes more prevalent.\n\nDespite these concerns, many researchers remain optimistic. They argue that with proper regulation and ethical guidelines, AI can be a powerful tool for addressing global challenges such as climate change, poverty, and disease.",
     "questionContent": "1. According to the passage, what is the main concern about AI development?\nA) The cost of implementation\nB) Job displacement and ethical issues\nC) Lack of computing power\nD) Limited applications\n\n2. How is AI being used in healthcare according to the text?\nA) Replacing all human doctors\nB) Managing hospital administration\nC) Detecting diseases earlier than humans\nD) Developing new medicines\n\n3. What does the passage suggest about the future of AI?\nA) It will solve all global problems\nB) It should be banned due to risks\nC) It can be beneficial with proper regulation\nD) It will replace human intelligence\n\n4. What question does the passage raise about AI responsibility?\nA) Who pays for AI development\nB) Who is responsible when AI makes mistakes\nC) Who should control AI companies\nD) Who can access AI technology",
-    "labels": ["科技", "人工智能", "社会影响"],
+    "labels": [
+      "科技",
+      "人工智能",
+      "社会影响"
+    ],
     "createdAt": 1704067200000,
     "updatedAt": 1704067200000
   },
@@ -17,7 +21,11 @@
     "questionNumber": "B",
     "articleContent": "Climate change is reshaping ecosystems around the world, forcing many species to adapt or relocate. Scientists have observed that some bird species are migrating earlier in the spring and later in the fall, while others have shifted their ranges northward by hundreds of miles.\n\nMarine life is also affected. Coral reefs, which support about 25% of all marine species, are experiencing widespread bleaching due to warming ocean temperatures. Many fish species are moving to cooler waters, disrupting traditional fishing industries and local economies.\n\nPlants are responding too. In mountainous regions, tree lines are creeping higher up slopes as temperatures rise. Some plants are flowering earlier in the year, which can disrupt the timing of pollination if insects aren't active yet.\n\nThese changes create a complex web of challenges. When one species shifts its range or behavior, it affects the entire ecosystem. Predators may lose their prey, plants may lose their pollinators, and delicate balances that took millennia to develop can be disrupted in just a few decades.",
     "questionContent": "5. What is the main topic of this passage?\nA) Bird migration patterns\nB) Ocean pollution\nC) Effects of climate change on ecosystems\nD) Mountain geography\n\n6. According to the text, what percentage of marine species do coral reefs support?\nA) 10%\nB) 25%\nC) 50%\nD) 75%\n\n7. How are plants in mountainous regions responding to climate change?\nA) Growing larger leaves\nB) Moving to lower elevations\nC) Tree lines moving higher up slopes\nD) Producing more seeds\n\n8. What does the passage suggest about ecosystem changes?\nA) They only affect a single species\nB) They happen over millions of years\nC) They create interconnected challenges\nD) They are easy to reverse",
-    "labels": ["环境", "气候变化", "生态"],
+    "labels": [
+      "环境",
+      "气候变化",
+      "生态"
+    ],
     "createdAt": 1704067200000,
     "updatedAt": 1704067200000
   },
@@ -28,7 +36,11 @@
     "questionNumber": "A",
     "articleContent": "The concept of lifelong learning has become increasingly important in today's rapidly changing world. Traditional education models, which focused on preparing young people for a single career, are no longer sufficient. Adults now need to continuously update their skills to remain competitive in the job market.\n\nTechnology has made lifelong learning more accessible than ever. Online courses, webinars, and digital resources allow people to learn at their own pace, from anywhere in the world. Many universities now offer professional development programs specifically designed for working adults.\n\nCompanies are also recognizing the value of continuous learning. Progressive employers invest in training programs for their staff, understanding that employee development benefits both the individual and the organization. Some companies even offer tuition reimbursement or dedicated learning time during work hours.\n\nThe challenge lies in motivation and time management. With busy work schedules and family responsibilities, many adults struggle to find time for learning. However, experts suggest that even small, consistent efforts—such as reading industry publications or taking short online courses—can make a significant difference over time.",
     "questionContent": "9. Why is lifelong learning considered important according to the passage?\nA) It's required by law\nB) Traditional education is no longer sufficient\nC) It's free and accessible\nD) Everyone has too much free time\n\n10. How has technology changed lifelong learning?\nA) Made it more expensive\nB) Made it only available in classrooms\nC) Made it more accessible and flexible\nD) Made it less necessary\n\n11. What do progressive employers offer according to the text?\nA) Higher salaries only\nB) Longer vacations\nC) Training and development programs\nD) Remote work exclusively\n\n12. What challenge does the passage mention regarding lifelong learning?\nA) Lack of available courses\nB) High costs\nC) Motivation and time management\nD) Language barriers",
-    "labels": ["教育", "终身学习", "职业发展"],
+    "labels": [
+      "教育",
+      "终身学习",
+      "职业发展"
+    ],
     "createdAt": 1704067200000,
     "updatedAt": 1704067200000
   },
@@ -39,7 +51,11 @@
     "questionNumber": "B",
     "articleContent": "Urban farming is emerging as a solution to food security challenges in cities worldwide. As urban populations grow, the distance between food production and consumption increases, leading to higher costs and environmental impacts from transportation.\n\nRooftop gardens, vertical farms, and community gardens are transforming unused urban spaces into productive agricultural areas. These urban farms can grow fresh vegetables, herbs, and even raise chickens or bees in the heart of cities. Some advanced vertical farms use hydroponic systems and LED lighting to grow crops year-round, regardless of weather conditions.\n\nThe benefits extend beyond fresh food. Urban farms create green spaces that improve air quality and reduce urban heat. They also provide educational opportunities, bringing people closer to understanding where their food comes from. Community gardens, in particular, foster social connections and strengthen neighborhood bonds.\n\nHowever, urban farming faces obstacles. Limited space, high land costs, and zoning regulations can make it difficult to establish farms in cities. Additionally, urban farms typically can't match the scale of rural agriculture, so they complement rather than replace traditional farming.",
     "questionContent": "13. What problem does urban farming aim to address?\nA) Rural unemployment\nB) Food security in cities\nC) Lack of parks\nD) Air pollution only\n\n14. What technology do some vertical farms use?\nA) Solar panels only\nB) Wind turbines\nC) Hydroponic systems and LED lighting\nD) Traditional soil farming\n\n15. According to the passage, what is a social benefit of community gardens?\nA) Higher property values\nB) Strengthening neighborhood bonds\nC) Reducing crime rates\nD) Attracting tourists\n\n16. What limitation of urban farming is mentioned?\nA) Poor crop quality\nB) High water usage\nC) Cannot match the scale of rural agriculture\nD) Requires too much sunlight",
-    "labels": ["农业", "城市发展", "可持续性"],
+    "labels": [
+      "农业",
+      "城市发展",
+      "可持续性"
+    ],
     "createdAt": 1704067200000,
     "updatedAt": 1704067200000
   },
@@ -50,8 +66,148 @@
     "questionNumber": "A",
     "articleContent": "The art of storytelling has evolved dramatically with new media, but its fundamental purpose remains unchanged: to connect people through shared experiences. Ancient humans told stories around campfires; today we share them through podcasts, videos, and social media.\n\nDigital platforms have democratized storytelling, allowing anyone with internet access to share their voice with a global audience. This has led to an explosion of diverse perspectives and narratives that were previously marginalized in mainstream media. Indigenous communities, for example, are using digital tools to preserve and share their cultural stories with younger generations.\n\nHowever, the digital age also presents challenges for storytelling. The average attention span has decreased, leading to a preference for shorter, more digestible content. The pressure to go \"viral\" can sometimes prioritize sensationalism over substance. Additionally, the sheer volume of content makes it difficult for quality stories to stand out.\n\nDespite these challenges, many creators are finding innovative ways to engage audiences. Interactive documentaries, immersive virtual reality experiences, and serialized podcasts are pushing the boundaries of what storytelling can be. The key, experts say, is to adapt the medium while staying true to the story's core message.",
     "questionContent": "17. What does the passage say about the purpose of storytelling?\nA) It has changed completely in the digital age\nB) It remains focused on connecting people\nC) It is only for entertainment\nD) It is less important than before\n\n18. How have digital platforms affected storytelling?\nA) Made it available only to professionals\nB) Reduced the number of stories told\nC) Democratized access to storytelling\nD) Made storytelling more expensive\n\n19. What challenge does the passage mention about digital storytelling?\nA) Lack of technology\nB) Decreased attention spans\nC) Government censorship\nD) High production costs\n\n20. According to the text, what are creators doing to adapt?\nA) Returning to traditional methods only\nB) Avoiding social media completely\nC) Finding innovative ways to engage audiences\nD) Making longer content",
-    "labels": ["媒体", "讲故事", "文化"],
+    "labels": [
+      "媒体",
+      "讲故事",
+      "文化"
+    ],
     "createdAt": 1704067200000,
     "updatedAt": 1704067200000
+  },
+  "q-fd2a1e20": {
+    "id": "q-fd2a1e20",
+    "title": "北京市朝阳区高三年级第二学期质量检测一",
+    "year": 2025,
+    "questionNumber": "A",
+    "articleContent": "UNESCO is inviting teams and individuals from Asia and the Pacific to submit case studies on the roles and risks of intangible cultural heritage (ICH) (非物质文化遗产) in the context of climate change. The goal is to safeguard ICH while advancing sustainable development. These case studies will deepen the understanding of the links between ICH and environmental sustainability, and inform future policies and practices in heritage protection and climate action.\n\nFocus of the Case Studies:\nSubmitted case studies should address one or more of the following questions in detail:\n•\tWhat roles does ICH play in identifying, assessing and monitoring climate change?\n•\tWhat roles does ICH play in promoting communities’ adaptation and safeguarding against climate change?\n•\tWhat roles does ICH play in reducing carbon emissions (排放) and disaster risk?\n•\tWhat are the cultural, social and economic impacts and risks to ICH practice, transmission (传承) and safeguarding due to climate change?\n•\tWhat changes to ICH are required for adaptation to climate change?\n•\tWhat are local and regional strategies for safeguarding ICH in the context of climate change?\nThe case studies should be grounded in evidence-based research and involve the widest possible participation of the community, groups or individuals. They should highlight the links between cultural diversity and environmental sustainability and offer locally-suited solutions for sustainable development.\n\nSubmission Details:\nThe case studies should be written in English and between 3,000 and 5,000 words in length. All submissions are to be sent to beijing.culture@unesco.org before April 15th, 2025. Authors of selected case studies may have the opportunity to participate in publications or international conferences.",
+    "questionContent": "21. Why is UNESCO calling for case studies?\nA. To show the risk of climate change.\nB. To protect ICH in a sustainable way.\nC. To stress UNESCO’s importance.\nD. To raise funds for ICH protection.\n22. Which of the following is a focus of the case studies?\nA. ICH’s role in evaluating climate change.\nB. ICH’s economic value for communities.\nC. Global strategies to safeguard ICH.\nD. Carbon emissions’ effects on ICH.\n23. The case studies to be submitted should ______.\nA. cover all the listed questions\nB. maximize public participation\nC. be based on personal opinions\nD. be written in Chinese or English",
+    "labels": [
+      "文化",
+      "环境",
+      "气候变化",
+      "非物质文化遗产",
+      "可持续发展"
+    ],
+    "createdAt": 1767750065681,
+    "updatedAt": 1767750065681
+  },
+  "q-a7e49868": {
+    "id": "q-a7e49868",
+    "title": "北京市朝阳区高三年级第二学期质量检测一",
+    "year": 2025,
+    "questionNumber": "B",
+    "articleContent": "Luther Gerlach’s images enrich the permanent collections of the J. Paul Getty Museum in Los Angeles and the National Portrait Gallery in London, among other institutions.\nWhile studying his work, one cannot help but revisit the journey he undertook in pursuit of art. Gerlach has dyslexia, a condition that makes it difficult for him to read and spell, and in middle school, it began to affect his studies. At the University of Minnesota, where Gerlach studied biology, his struggle with writing reached a tipping point. Gerlach left the university and entered art school. “Art has never been something that slowed me down; in contrast to the written word,” Gerlach says.\nAfter graduating from art school, Gerlach took what he learned and traveled across the United States selling his prints at art fairs. It was the late 1980s, and Gerlach traveled roughly 90,000 miles a year, taking photos along the way. He was making $100,000 a year doing what he loved.\nBut the emergence of digital photography changed everything. Photographers began to use Photoshop to create the hand-brushed quality of Gerlach’s photographs and told customers they were using the same process Gerlach was using. “I would hear them talking—complete lies,” he says.\nRather than dive into digital, Gerlach moved into a photographic process that was quite unusual: the wet collodion (火棉胶) process, invented in 1851. The process involves coating a plate of glass or metal with collodion, followed by using a silver nitrate (硝酸银) bath to make the plate sensitive to light. The plate is then placed in a light-tight film holder, with the photo made almost immediately while the plate is still wet.\nIt wasn’t easy when he first started, but Gerlach has always considered “constant problem solving” to be part of the creative process. It made Gerlach feel “present as an artist”. “I saw the final product right there in front of me. The same leaves on the tree that I’m standing in front of are on the image,” Gerlach explains. “The process allowed me to feel more like a photographer instead of a machine that printed prints to sell so I could make money. And when the final product works, nothing else compares to it.”",
+    "questionContent": "24. Luther Gerlach’s dyslexia ______.\nA. forced him to change his major\nB. drove him to go into business\nC. made him drop out of middle school\nD. affected his artistic performance\n25. As digital photography emerged, Luther Gerlach ______.\nA. adopted a unique photographic technique\nB. set off for new places to take photographs\nC. praised photographers for using Photoshop\nD. improved the hand-brushed quality of his photos\n26. Why did Luther Gerlach prefer the wet collodion process?\nA. It was cheap and reliable.\nB. It was easy and efficient.\nC. It gave him artistic satisfaction.\nD. It helped him sell prints for profit.\n27. What can we learn from this passage?\nA. Necessity inspires invention.\nB. Everything comes to those who wait.\nC. Hope for the best; prepare for the worst.\nD. Dare to be different in a world of copycats.",
+    "labels": [
+      "艺术",
+      "人物传记",
+      "摄影",
+      "传统工艺",
+      "创新"
+    ],
+    "createdAt": 1767750065686,
+    "updatedAt": 1767750065686
+  },
+  "q-41d5348a": {
+    "id": "q-41d5348a",
+    "title": "北京市朝阳区高三年级第二学期质量检测一",
+    "year": 2025,
+    "questionNumber": "C",
+    "articleContent": "When people view photographs of frightening spiders, scientists usually observe increased electrical activity deep in their brain, in a region called the periaqueductal gray (PAG). The obvious conclusion is that the PAG controls fight-or-flight responses in threatening situations. But what if brains don’t have dedicated circuits for fighting and fighting? Is threat detection really a primary mode of the brain with its own neural circuitry (神经回路)?\nThis idea of fight-or-flight circuits originates from the “triune brain” model dividing brains into the so-called lizard brain, including the PAG, for survival functions, the “limbic system” for emotions, and the “neocortex” for higher-order reasoning. If you know anything about evolution, you might know that something is spurious. The only animal on this planet with a lizard brain is a lizard. Also, there’s no unified limbic “system” or the “neocortex” for emotions or rationality (理性), respectively. So where does this leave the fight-or-flight story?\nRecently, changes in PAG activity have been observed in nonthreatening tasks, such as reading a fascinating article about the brain. The PAG has also been proved to regulate bodily systems continuously. Incidentally, this explains why antianxiety medications manage anxiety disorders without healing them. They target brain circuits that aren’t dedicated to anxiety or fight-or-flight but that simply regulate the body.\nResearches on the brain’s powers also cast new light on our understandings. In daily life, individuals might feel like they perceive and react to various stimuli as either threatening or safe. Actually, the brain, using past experiences, skillfully predicts and formulates action plans in anticipation of events before stimuli occur. The brain’s preparatory mechanism, metabolically (新陈代谢地) expensive, involves complicated neuronal activities for sustaining multiple predictions and corresponding action plans over extended periods. But the experiences in fight-or-flight responses crafted by your brain don’t reveal how it works.\nMoreover, your brain, which does much more than avoid threats, handles a complex social world full of uncertainty. That’s a recipe for stress. And what is stress? It reflects energy preparation for anticipated challenges. Your brain often makes sense of metabolic cost of uncertainty, if it drags on for long enough, as anxiety, but that’s not a must. People seek uncertainty outward—its positive cousin, novelty—when they try new foods or learn new skills. Uncertainty is common, but these days, with social media and round-the-clock news coverage, it sometimes bombards us and leaves us anxious and exhausted. But these feelings don’t emerge from fight-or-flight circuits. They may just mean, in an ever changing and only partly predictable world, that you’re doing something hard.",
+    "questionContent": "28. The author asks the questions in Paragraph 1 to ______.\nA. evaluate a statement\nB. justify an assumption\nC. challenge an argument\nD. introduce a new concept\n29. Which does the underlined word “spurious” in Paragraph 2 probably mean?\nA. Rare.\nB. Wrong.\nC. Limited.\nD. Unexpected.\n30. What can we infer from this passage?\nA. Hunting for novelty reduces stress and anxiety.\nB. Medicine targeting PAG cures anxiety disorders.\nC. Uncertainty is a product of modern media and news cycles.\nD. The “Fight or Flight” idea overlooks the brain’s predictive power.",
+    "labels": [
+      "健康",
+      "心理学",
+      "大脑",
+      "压力",
+      "神经科学"
+    ],
+    "createdAt": 1767750065687,
+    "updatedAt": 1767750065687
+  },
+  "q-befd235d": {
+    "id": "q-befd235d",
+    "title": "北京市朝阳区高三年级第二学期质量检测一",
+    "year": 2025,
+    "questionNumber": "D",
+    "articleContent": "In the field where philosophy and neuroscience overlap, few questions have fascinated and confused humanity as deeply as the concept of free will. At first glance, the idea that we have the power to make choices that are not predetermined seems intuitive (直觉的). However, a closer examination reveals a complex web of philosophical arguments and scientific findings that challenge this seemingly straightforward concept.\nFrom a philosophical standpoint, the debate around free will has continued intensely for centuries. Compatibilists argue free will can coexist with determinism, as long as our actions are a result of our own desires and motivations. For example, choosing a music career out of passion is considered as a free choice within this framework. In contrast, incompatibilists maintain free will and determinism are mutually exclusive. Hard determinists view the universe as a closed system governed by strict laws of nature, where every event, including human actions, is predetermined. In this view, the idea of free will is an illusion (幻觉).\nNeuroscience has advanced markedly in decoding the brain, revealing that many actions are preceded (先于) by neural activity. Studies on the brain’s reward system and neurotransmitters, particularly dopamine (多巴胺), further challenge the nature of free will. Addictive behaviors, for instance, can be strongly influenced by the brain’s response to dopamine. A person struggling with addiction may feel they lack the free will to resist it, as their brain chemistry has been altered in a way that forces them into acting.\nThe scientific evidence is not conclusive, though. Some argue that the neural activity observed before conscious decisions may not be the cause of the action but rather part of the preparatory process for a decision that is still freely made. Additionally, the complexity of the human brain and the fact that much of its functioning is still not fully understood leave room for the possibility of free will.\nIf free will is an illusion, it challenges our fundamental notions of moral responsibility. We praise and blame people for their actions because we believe they could have acted differently. How can we hold individuals accountable for their actions if they were never truly free to choose otherwise? Without free will, the essential moral framework of our societies would collapse into chaotic indifference. Free will is only an illusion if you are, too.",
+    "questionContent": "31. Which of the following situations reflects the compatibilists’ view?\nA. Driven by dopamine, Tim keeps checking his social media.\nB. Lucy speaks first after being randomly selected by software.\nC. Exposed to a sudden blinding light, Lily quickly shuts her eyes.\nD. Jerry shifts between companies of shared bikes based on discounts.\n32. What can we learn from the passage?\nA. The altered brain chemistry enhances free will.\nB. Conscious decisions are independent of neural activities.\nC. Hard determinists see free will vital to moral accountability.\nD. Neuroscientists’ views on the causes of human actions differ.\n33. As for the existence of free will, the author is ______.\nA. neutral\nB. disapproving\nC. positive\nD. doubtful\n34. Which would be the best title for the passage?\nA. Does Neuroscience Threaten Free Will?\nB. Why the Arguments Against Free Will Fail\nC. Exploration into the Complexity of Free Will\nD. Free Will: Bridging Neuroscience and Philosophy",
+    "labels": [
+      "哲学",
+      "神经科学",
+      "自由意志",
+      "道德",
+      "心理学"
+    ],
+    "createdAt": 1767750065693,
+    "updatedAt": 1767750065693
+  },
+  "q-d4d538a5": {
+    "id": "q-d4d538a5",
+    "title": "北京市丰台区 2024~2025 学年度第二学期综合练习（一）高三英语",
+    "year": 2025,
+    "questionNumber": "A",
+    "articleContent": "FREE FAMILY DAY PASS\nNational Trust\nLooking for the perfect day out this March? Whether you love peaceful woodland walks, birdwatching, or discovering new places surrounded by nature, the National Trust has something for everyone.\nThanks to this incredible offer, you can enjoy a FREE visit to a National Trust property of your choice. It will give you the perfect excuse to gather your loved ones and explore the great outdoors.\nStart your year by reconnecting with nature and making unforgettable memories with family and friends. Don't miss out on this wonderful opportunity to experience the beauty of National Trust sites—completely free!\nHOW TO CLAIM\nCut out the voucher(代金券) below and present at your chosen National Trust location. Some National Trust properties require advance booking, please check the property website for full details. Certain places are excluded(排除在外) from this promotion, details can be found at reachforms.co.uk/nationaltrustpass.\nFREE National Trust FAMILY PASS\n1. This pass is single use and is effective once from the date of issue through to 31 December, 2025 inclusive.\n2. This pass allows free admission at participating National Trust places for 2 adults and up to 3 children, or 1 adult and up to 4 children. Adults are aged 18 or over; children are aged under 17 inclusive.\n3. This pass is for standard admission only and excludes parking, group entity, paid transport, and any paid events.\n4. This pass is effective at participating National Trust places within advertised opening hours. Opening hours may be subject to change at any time and should be checked at nationaltrust.org.uk.\n5. Present this pass to receive free admission at participating places. Pass holders who cannot present the pass, or visit an excluded place, will be charged the full admission price.\n6. Only one pass per household will be permitted.",
+    "questionContent": "21. What can people enjoy with the National Trust's offer?\nA. An outdoor activity close to nature.\nB. A birdwatching photography course.\nC. An exploration to national museums.\nD. A visit to a treasure-themed exhibition.\n22. One can get free admission by ______.\nA. purchasing a digital pass on a website\nB. showing the voucher at the selected site\nC. submitting an application on the website\nD. joining as a member of the National Trust\n23. According to the passage, the pass ______.\nA. allows free entry for a six-person family\nB. includes free transport and parking\nC. is limited to one per household\nD. can be used more than once",
+    "labels": [
+      "旅游",
+      "家庭",
+      "优惠",
+      "国家信托",
+      "户外活动"
+    ],
+    "createdAt": 1767750459822,
+    "updatedAt": 1767750459822
+  },
+  "q-2373da96": {
+    "id": "q-2373da96",
+    "title": "北京市丰台区 2024~2025 学年度第二学期综合练习（一）高三英语",
+    "year": 2025,
+    "questionNumber": "B",
+    "articleContent": "For years, Robyn Elman, a nature advocate, has been passionately raising the endangered monarch butterflies in the cozy corner of her backyard. She collects the butterfly eggs from the milkweed plants—the only food for these delicate creatures—alongside the highways. Each time she goes on her journey to the highways, she hopes these little eggs, which are as precious as hidden treasures, will hatch(孵化) into many beautiful creatures. They will slowly make the group which is getting smaller gradually breathe new life.\nBut reality destroyed her hopes last year. Instead of being greeted by the green milkweed plants, she was met with the desolate sight of mowed stubs(修剪过的草茬) and destroyed eggs. The milkweed plants had been cut down, and all left were short stubs. She felt a deep sense of loss. “Is there really no hope for these delicate, flying creatures?” she whispered to herself, her heart as heavy as a big piece of lead.\nEven as pain consumed her, Robyn remained determined. She teamed up with other nature lovers. They reached out to Frank Coniglio, the city's director of highway maintenance, urging him to cut the butterflies a break. At first, Frank was doubtful. He thought, “How important can this be? What difference will it make? It's just some butterflies and plants.” But as Robyn and her friends poured out their worries, and kept explaining the importance of the issue, Frank began to understand. He finally realised, “What happens to the butterflies is going to happen to us, isn't it?”, as if a light bulb had suddenly switched on in his mind.\nFrank went to work on studying more about monarch butterflies, and finally he supported their cause, and took decisive action. He stopped mowing in certain areas, drawing an invisible line of protection. So far, around 20 patches of milkweed plants, like oases in the urban desert, have been protected across the city. “We're making a real difference,” Frank said proudly.\nThanks to their combined efforts, the monarch butterflies now have a brighter future, and the city's ecosystem is on the path to positive transformation.",
+    "questionContent": "24. As a nature advocate, Robyn Elman ______.\nA. grows some milkweed in her backyard\nB. raises butterflies alongside the highway\nC. collects butterfly eggs and hatches them\nD. studies milkweed and proves them valuable\n25. How did Robyn feel upon seeing the mowed stubs?\nA. Upset and disappointed.\nB. Angry and annoyed.\nC. Embarrassed and ashamed.\nD. Terrified and confused.\n26. What did Frank do to help protect the monarch butterflies?\nA. He raised the awareness of the public.\nB. He studied the local natural ecosystem.\nC. He protected milkweed in certain areas.\nD. He moved the butterflies to a safe place.\n27. What can we conclude from this passage?\nA. Wildlife conservation takes a back seat to urban development.\nB. Government policies play a main role in wildlife conservation.\nC. The damage of habitats has long-term impact on the ecosystem.\nD. Commitment and cooperation cause positive ecological outcomes.",
+    "labels": [
+      "自然保护",
+      "蝴蝶",
+      "生态系统",
+      "合作",
+      "环境"
+    ],
+    "createdAt": 1767750459826,
+    "updatedAt": 1767750459826
+  },
+  "q-bd87d883": {
+    "id": "q-bd87d883",
+    "title": "北京市丰台区 2024~2025 学年度第二学期综合练习（一）高三英语",
+    "year": 2025,
+    "questionNumber": "C",
+    "articleContent": "During WWII, mathematician Alan Turing gathered a team of logic experts to decode enemy messages, a key step toward victory. If there was one branch of mathematics which could be said they were using systematically, it was symbolic logic. However, the curriculum designs that methodically develop students' symbolic logic abilities are relatively rare.\nSymbolic logic is a form of mathematics that lets us check whether certain conclusions correctly follow from a set of facts. Consider a library book-theft case. If a suspect wasn't in the library on the day the theft happened, they can't be the thief. If present, they may or may not be. Being in the library doesn't mean they stole the book. Symbolic logic turns this kind of argument into algebra(代数学), readily shared, solved and generalized for solving mysteries.\nFor careers such as electrical engineering and computer science, the value of symbolic logic is undeniable. The fundamental building blocks of modern digital computers are circuits representing “AND” and “OR”, which are common in symbolic logic. Almost every computer program contains similar “if-then-else” logical conditions. Professional programmers must routinely write and troubleshoot such statements.\nBut symbolic logic is not solely limited to technical fields. Rutgers University mathematician Gray Wenger argues that teaching responsible citizenship requires providing students with mathematical reasoning skills. For example, consider a debate over a study finding that most adults without high-school certificates earn less. A responsible citizen must think through the implications along the lines of the book-theft case example above. No certificate likely means lower income, but low income doesn't mean no certificate. Training in symbolic logic makes these sorts of reasonings sink into their cognitive processes and become second nature to citizens.\nIn addition, symbolic logic equips individuals to counter false claims by distinguishing between separate incidents and systematic evidence. The most effective strategy for this lies in preventive education—teaching people to recognize faulty reasoning at its source. Consider, for instance, some global-warming doubters use one day of cold weather as proof that global warming is a hoax(骗局). But a logical thinker can quickly spot that weather is short-term, while climate is long-term change.\nSome doubt the need for a separate symbolic logic course, believing other classes can do the job. In writing courses, for example, students learn how to spot illogical arguments, and elementary proofs are covered in trigonometry(三角学). Much can be gained by teaching people logical thinking without using any symbols. But only symbolic logic ensures logical strictness. A piecemeal approach isn't enough; a full-semester course is needed for comprehensive learning.\nSymbolic logic is essential for intellectual development. By integrating symbolic logic into educational frameworks, we equip future generations with the intellectual tools to navigate complex challenges. Training for it must be included in the curriculum and cannot be left to chance.",
+    "questionContent": "28. According to the passage, symbolic logic can play a primary role when ______.\nA. a chef is creating a new recipe by combining different materials\nB. a student is deciding which club to join based on personal interests\nC. a doctor is identifying one's illness by using signs and test findings\nD. a journalist is writing a feature article by interviewing local people\n29. What does the phrase \"second nature\" underlined in Paragraph 4 probably mean?\nA. A routine practice.\nB. An automatic ability.\nC. An essential tool.\nD. A necessary quality.\n30. From the passage, we learn that symbolic logic ______.\nA. tells the difference between separate incidents\nB. is mainly applied in solving mathematical puzzles\nC. questions the basic principles of modern computers\nD. enables people to detect and challenge false arguments\n31. The author may agree that current symbolic logic education is ______.\nA. unsatisfying for the lack of symbolic logic courses\nB. problematic and ignores logical reasoning practice\nC. acceptable if alternative courses are available\nD. manageable and will improve naturally",
+    "labels": [
+      "符号逻辑",
+      "教育",
+      "思维",
+      "数学",
+      "逻辑推理"
+    ],
+    "createdAt": 1767750459827,
+    "updatedAt": 1767750459827
+  },
+  "q-b2c5794d": {
+    "id": "q-b2c5794d",
+    "title": "北京市丰台区 2024~2025 学年度第二学期综合练习（一）高三英语",
+    "year": 2025,
+    "questionNumber": "D",
+    "articleContent": "Recent findings from the Dark Energy Spectroscopic Instrument(DESI) in Arizona, which produced the largest 3D map of the universe, suggest that dark energy—the mysterious force driving the universe's accelerated(加速的) expansion—might change over time. This challenges the standard model of cosmology(宇宙学), which assumes a steady acceleration.\nDark energy is thought to make up nearly 70% of the cosmos, so if its behaviour really is changing as time passes, it could have significant implications for our understanding of the universe.\nSince the DESI data came out, researchers have been working on ways to explain the apparent changes in the universe's expansion rate. Dark energy isn't directly observable, so there are several options that could fit. One solution suggested by Michael Garda at the Federal University in Brazil and his colleagues involves letting dark energy interact with dark matter, an invisible and abundant form of matter that outweighs ordinary matter. This interaction is forbidden in the standard model, but if energy could flow from the universe's dark matter to its dark energy—essentially changing the former to the latter—the researchers' simulations (模拟) showed that this would match the DESI measurements. Yet, the mechanism for such an energy transfer isn't clear.\nThis solution might also help resolve the Hubble tension, a difference in the ways we measure the expansion rate of the cosmos. Measurements of this made by analysing nearby galaxies(known as “local” measurements) give an expansion rate, or Hubble constant, which is slightly higher than the one obtained from the cosmic microwave background(CMB)—the remaining radiation from the early universe. CMB measurements rely on a theoretical model of cosmic evolution, which may need adjustment if Garda's proposal is correct. By allowing energy transfer between dark matter and dark energy, the adjusted model could bring CMB-based estimates more closely into line with local measurements, potentially resolving the tension.\nAnother proposed solution involves dark radiation, an invisible form of radiation similar to light but composed of dark photons(光子). Tamar Allali at Brown University and his team suggest that dark radiation could explain the DESI data and lessened the Hubble tension by increasing the universe's expansion rate in its early stages. “If you have more radiation, the expansion is faster in the early universe,” says Allali. Unlike adjustments to dark energy, dark radiation introduces a new component without changing existing physical laws, making it a more conservative approach. Allali notes that the DESI data does not rule out dark radiation and even shows a slight preference for it.\nBoth models—interacting dark energy and dark radiation—fit the DESI data, but neither has been confirmed. Shawn Smith at the University of Edinburgh, UK, points out that while many unconventional cosmological models could explain the observations, none currently compete with the standard cosmological model from a fundamental physics perspective. Nevertheless, these models serve as catalysts for progress, ensuring that cosmology remains a dynamic and evolving field.",
+    "questionContent": "32. What does this passage mainly talk about?\nA. The development of scientific models to study the universe.\nB. The discovery of dark energy and its impact on the universe.\nC. The importance of DESI in studying the universe's behavior.\nD. The attempts to explain the universe's unexpected expansion.\n33. Which of the following might the author agree with?\nA. Garda's proposal outperforms Allali's in its simplicity.\nB. Recent research has found ways for dark energy transfer.\nC. The DESI data has confirmed the existence of dark radiation.\nD. The two models share similarities in reducing Hubble tension.\n34. The passage is organized in the pattern of ______.\nA. cause—effect—solution\nB. problem—solution—evaluation\nC. example—analysis—conclusion\nD. introduction—comparison—result",
+    "labels": [
+      "宇宙学",
+      "暗能量",
+      "DESI",
+      "宇宙膨胀",
+      "科学研究"
+    ],
+    "createdAt": 1767750459829,
+    "updatedAt": 1767750459829
   }
 }

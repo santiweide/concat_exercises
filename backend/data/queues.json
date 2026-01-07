@@ -85,5 +85,25 @@
     "collaborators": [],
     "createdAt": 1767709005543,
     "updatedAt": 1767709078258
+  },
+  "queue-05333736": {
+    "id": "queue-05333736",
+    "name": "测试",
+    "questionIds": [],
+    "frozen": false,
+    "owner": "abc123456@xoxo.com",
+    "collaborators": [],
+    "createdAt": 1767743074447,
+    "updatedAt": 1767743074447
+  },
+  "queue-44994ebc": {
+    "id": "queue-44994ebc",
+    "name": "test",
+    "questionIds": [],
+    "frozen": false,
+    "owner": "abc@123.com",
+    "collaborators": [],
+    "createdAt": 1767746023469,
+    "updatedAt": 1767746023469
   }
 }

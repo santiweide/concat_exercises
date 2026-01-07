@@ -199,6 +199,13 @@ class QuestionStore:
             return True
         return False
     
+    def exists_by_title(self, title: str) -> bool:
+        """Check if any question with the given title exists."""
+        for q in self.questions.values():
+            if q.title == title:
+                return True
+        return False
+    
     def get_all_labels(self) -> List[str]:
         labels = set()
         for q in self.questions.values():

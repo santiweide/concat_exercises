@@ -1,22 +1,17 @@
 """
 HTTP handlers for Queue Service API endpoints.
+Now uses queue_store directly instead of ZMQ for simplicity.
 """
 from aiohttp import web
 from urllib.parse import unquote
 import structlog
 from models import (
-    ListQueuesRequest,
     CreateQueueRequest,
     UpdateQueueRequest,
-    AddQuestionToQueueRequest,
-    ReorderQueueQuestionsRequest,
-    ToggleQueueFreezeRequest,
-    AddCollaboratorRequest,
-    ExportQueueRequest,
     ExportFormat,
-    PaginationRequest,
+    PaginationResponse,
 )
-import zmq_service
+from storage import queue_store
 from services.auth_service import auth_service
 
 logger = structlog.get_logger()
@@ -49,14 +44,13 @@ async def list_queues(request: web.Request) -> web.Response:
         page = int(request.query.get('page', '1'))
         page_size = int(request.query.get('pageSize', '20'))
         
-        payload = {
-            "userEmail": user_email,
-            "pagination": {"page": page, "pageSize": page_size}
-        }
+        queues, total = queue_store.list(user_email, page, page_size)
+        pagination = PaginationResponse.create(total, page, page_size)
         
-        result = await zmq_service.queue_client.call("list_queues", payload)
-        
-        return web.json_response(result)
+        return web.json_response({
+            "queues": [q.model_dump() for q in queues],
+            "pagination": pagination.model_dump()
+        })
     except Exception as e:
         logger.error("list_queues error", error=str(e))
         return web.json_response(
@@ -73,15 +67,18 @@ async def get_queue(request: web.Request) -> web.Response:
     queue_id = request.match_info['id']
     
     try:
-        result = await zmq_service.queue_client.call("get_queue", {"id": queue_id})
+        queue_detail = queue_store.get(queue_id)
         
-        if result.get("queue") is None:
+        if queue_detail is None:
             return web.json_response(
                 {"code": 404, "message": "Queue not found"},
                 status=404
             )
         
-        return web.json_response(result)
+        return web.json_response({
+            "queue": queue_detail.queue.model_dump(),
+            "questions": [q.model_dump() for q in queue_detail.questions]
+        })
     except Exception as e:
         logger.error("get_queue error", error=str(e), id=queue_id)
         return web.json_response(
@@ -109,9 +106,11 @@ async def create_queue(request: web.Request) -> web.Response:
         body['owner'] = user.get('email', '')
         req = CreateQueueRequest(**body)
         
-        result = await zmq_service.queue_client.call("create_queue", req.model_dump())
+        queue = queue_store.create(req.model_dump())
         
-        return web.json_response(result, status=201)
+        return web.json_response({
+            "queue": queue.model_dump()
+        }, status=201)
     except Exception as e:
         logger.error("create_queue error", error=str(e))
         return web.json_response(
@@ -129,18 +128,18 @@ async def update_queue(request: web.Request) -> web.Response:
     
     try:
         body = await request.json()
-        body['id'] = queue_id
-        req = UpdateQueueRequest(**body)
         
-        result = await zmq_service.queue_client.call("update_queue", req.model_dump(exclude_none=True))
+        queue = queue_store.update(queue_id, body)
         
-        if result.get("queue") is None:
+        if queue is None:
             return web.json_response(
                 {"code": 404, "message": "Queue not found"},
                 status=404
             )
         
-        return web.json_response(result)
+        return web.json_response({
+            "queue": queue.model_dump()
+        })
     except Exception as e:
         logger.error("update_queue error", error=str(e), id=queue_id)
         return web.json_response(
@@ -157,7 +156,13 @@ async def delete_queue(request: web.Request) -> web.Response:
     queue_id = request.match_info['id']
     
     try:
-        await zmq_service.queue_client.call("delete_queue", {"id": queue_id})
+        success = queue_store.delete(queue_id)
+        
+        if not success:
+            return web.json_response(
+                {"code": 404, "message": "Queue not found"},
+                status=404
+            )
         
         return web.Response(status=204)
     except Exception as e:
@@ -177,11 +182,20 @@ async def add_question_to_queue(request: web.Request) -> web.Response:
     
     try:
         body = await request.json()
-        body['queueId'] = queue_id
+        question_id = body.get('questionId')
+        position = body.get('position')
         
-        result = await zmq_service.queue_client.call("add_question_to_queue", body)
+        queue = queue_store.add_question(queue_id, question_id, position)
         
-        return web.json_response(result)
+        if queue is None:
+            return web.json_response(
+                {"code": 400, "message": "Queue not found or frozen"},
+                status=400
+            )
+        
+        return web.json_response({
+            "queue": queue.model_dump()
+        })
     except Exception as e:
         logger.error("add_question_to_queue error", error=str(e), queue_id=queue_id)
         return web.json_response(
@@ -199,12 +213,17 @@ async def remove_question_from_queue(request: web.Request) -> web.Response:
     question_id = request.match_info['question_id']
     
     try:
-        result = await zmq_service.queue_client.call("remove_question_from_queue", {
-            "queueId": queue_id,
-            "questionId": question_id
-        })
+        queue = queue_store.remove_question(queue_id, question_id)
         
-        return web.json_response(result)
+        if queue is None:
+            return web.json_response(
+                {"code": 400, "message": "Queue not found or frozen"},
+                status=400
+            )
+        
+        return web.json_response({
+            "queue": queue.model_dump()
+        })
     except Exception as e:
         logger.error("remove_question_from_queue error", error=str(e), 
                     queue_id=queue_id, question_id=question_id)
@@ -223,11 +242,19 @@ async def reorder_queue_questions(request: web.Request) -> web.Response:
     
     try:
         body = await request.json()
-        body['queueId'] = queue_id
+        question_ids = body.get('questionIds', [])
         
-        result = await zmq_service.queue_client.call("reorder_queue_questions", body)
+        queue = queue_store.reorder_questions(queue_id, question_ids)
         
-        return web.json_response(result)
+        if queue is None:
+            return web.json_response(
+                {"code": 400, "message": "Queue not found or frozen"},
+                status=400
+            )
+        
+        return web.json_response({
+            "queue": queue.model_dump()
+        })
     except Exception as e:
         logger.error("reorder_queue_questions error", error=str(e), queue_id=queue_id)
         return web.json_response(
@@ -245,11 +272,19 @@ async def toggle_queue_freeze(request: web.Request) -> web.Response:
     
     try:
         body = await request.json()
-        body['queueId'] = queue_id
+        frozen = body.get('frozen', False)
         
-        result = await zmq_service.queue_client.call("toggle_queue_freeze", body)
+        queue = queue_store.toggle_freeze(queue_id, frozen)
         
-        return web.json_response(result)
+        if queue is None:
+            return web.json_response(
+                {"code": 404, "message": "Queue not found"},
+                status=404
+            )
+        
+        return web.json_response({
+            "queue": queue.model_dump()
+        })
     except Exception as e:
         logger.error("toggle_queue_freeze error", error=str(e), queue_id=queue_id)
         return web.json_response(
@@ -267,11 +302,19 @@ async def add_collaborator(request: web.Request) -> web.Response:
     
     try:
         body = await request.json()
-        body['queueId'] = queue_id
+        email = body.get('collaboratorEmail')
         
-        result = await zmq_service.queue_client.call("add_collaborator", body)
+        queue = queue_store.add_collaborator(queue_id, email)
         
-        return web.json_response(result)
+        if queue is None:
+            return web.json_response(
+                {"code": 404, "message": "Queue not found"},
+                status=404
+            )
+        
+        return web.json_response({
+            "queue": queue.model_dump()
+        })
     except Exception as e:
         logger.error("add_collaborator error", error=str(e), queue_id=queue_id)
         return web.json_response(
@@ -289,12 +332,17 @@ async def remove_collaborator(request: web.Request) -> web.Response:
     email = unquote(request.match_info['email'])
     
     try:
-        result = await zmq_service.queue_client.call("remove_collaborator", {
-            "queueId": queue_id,
-            "collaboratorEmail": email
-        })
+        queue = queue_store.remove_collaborator(queue_id, email)
         
-        return web.json_response(result)
+        if queue is None:
+            return web.json_response(
+                {"code": 404, "message": "Queue not found"},
+                status=404
+            )
+        
+        return web.json_response({
+            "queue": queue.model_dump()
+        })
     except Exception as e:
         logger.error("remove_collaborator error", error=str(e), 
                     queue_id=queue_id, email=email)
@@ -315,26 +363,25 @@ async def export_queue(request: web.Request) -> web.Response:
         body = await request.json()
         format_value = body.get('format', 1)
         
-        result = await zmq_service.queue_client.call("export_queue", {
-            "queueId": queue_id,
-            "format": format_value
-        })
-        
-        # Return file as binary response
-        content_type = result.get('contentType', 'application/octet-stream')
-        filename = result.get('filename', 'export')
+        queue_detail = queue_store.get(queue_id)
+        if queue_detail is None:
+            return web.json_response(
+                {"code": 404, "message": "Queue not found"},
+                status=404
+            )
         
         # For JSON, return directly
         if format_value == ExportFormat.JSON:
-            return web.json_response(result.get('data', {}))
+            return web.json_response({
+                "queue": queue_detail.queue.model_dump(),
+                "questions": [q.model_dump() for q in queue_detail.questions]
+            })
         
-        # For binary formats, return as file
-        response = web.Response(
-            body=bytes(result.get('data', [])),
-            content_type=content_type
+        # For other formats, not implemented yet
+        return web.json_response(
+            {"code": 501, "message": "Export format not implemented"},
+            status=501
         )
-        response.headers['Content-Disposition'] = f'attachment; filename="{filename}"'
-        return response
         
     except Exception as e:
         logger.error("export_queue error", error=str(e), queue_id=queue_id)

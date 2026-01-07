@@ -5,7 +5,7 @@ from aiohttp import web
 import aiohttp_cors
 import structlog
 from config import config
-from handlers import question_handlers, queue_handlers, auth_handlers
+from handlers import question_handlers, queue_handlers, auth_handlers, pdf_handlers
 from services.auth_service import auth_service
 
 logger = structlog.get_logger()
@@ -60,6 +60,11 @@ def setup_routes(app: web.Application):
     app.router.add_post('/api/queues/{queue_id}/collaborators', queue_handlers.add_collaborator)
     app.router.add_delete('/api/queues/{queue_id}/collaborators/{email}', queue_handlers.remove_collaborator)
     app.router.add_post('/api/queues/{queue_id}/export', queue_handlers.export_queue)
+    
+    # PDF Import Routes
+    app.router.add_post('/api/papers/parse', pdf_handlers.parse_paper)
+    app.router.add_post('/api/papers/confirm', pdf_handlers.confirm_import)
+    app.router.add_post('/api/papers/import', pdf_handlers.import_paper)  # Legacy
     
     # Health check
     app.router.add_get('/health', health_check)
@@ -117,3 +122,29 @@ async def logging_middleware(request: web.Request, handler):
 async def health_check(request: web.Request) -> web.Response:
     """Health check endpoint."""
     return web.json_response({"status": "healthy"})
+
+
+if __name__ == "__main__":
+    """Simple standalone HTTP server startup (without ZMQ services)."""
+    import sys
+    import logging
+    from config import config
+    
+    # Configure logging
+    structlog.configure(
+        processors=[
+            structlog.stdlib.add_log_level,
+            structlog.processors.TimeStamper(fmt="iso"),
+            structlog.dev.ConsoleRenderer()
+        ],
+        logger_factory=structlog.stdlib.LoggerFactory(),
+    )
+    logging.basicConfig(
+        format="%(message)s",
+        stream=sys.stdout,
+        level=logging.INFO
+    )
+    
+    app = create_app()
+    logger.info("Starting HTTP server", host=config.HTTP_HOST, port=config.HTTP_PORT)
+    web.run_app(app, host=config.HTTP_HOST, port=config.HTTP_PORT, print=None)
