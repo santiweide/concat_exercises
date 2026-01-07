@@ -53,6 +53,7 @@ class ReadingQuestion(BaseModel):
     questionContent: str = Field(description="Question and options")
     labels: list[str] = Field(default_factory=list, description="Labels")
     answers: list[dict] = Field(default_factory=list, description="Answer list, each item has 'number' (int) and 'answer' (A/B/C/D)")
+    subQuestionCount: int = Field(default=0, description="Number of sub-questions in this reading question")
     createdAt: int = Field(default_factory=lambda: int(time.time() * 1000), description="Created timestamp (ms)")
     updatedAt: int = Field(default_factory=lambda: int(time.time() * 1000), description="Updated timestamp (ms)")
 

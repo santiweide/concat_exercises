@@ -12,6 +12,7 @@ export interface ReadingQuestion {
   questionContent: string; // 题目和选项
   labels: string[]; // 标签
   answers?: QuestionAnswer[]; // 答案列表
+  subQuestionCount?: number; // 小题数量
 }
 
 export interface Queue {

@@ -50,6 +50,12 @@ export function QuestionDetail({ question, onClose, onUpdateLabels }: QuestionDe
             <span>{question.year}年</span>
             <span>·</span>
             <span>ID: {question.id}</span>
+            {question.subQuestionCount && question.subQuestionCount > 0 && (
+              <>
+                <span>·</span>
+                <span>{question.subQuestionCount} 道小题</span>
+              </>
+            )}
           </div>
         </CardHeader>
         <CardContent className="space-y-6 pt-6">

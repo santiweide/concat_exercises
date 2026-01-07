@@ -46,6 +46,9 @@ export function QuestionCard({
               </CardTitle>
               <div className="text-sm text-gray-500 mt-1">
                 {question.year}年 · ID: {question.id}
+                {question.subQuestionCount && question.subQuestionCount > 0 && (
+                  <span> · {question.subQuestionCount} 道小题</span>
+                )}
               </div>
             </div>
           </div>

@@ -181,13 +181,16 @@ class PDFImportService:
             question_content = q.get('questionContent', '')
             labels = q.get('labels', [])
             answers = q.get('answers', [])  # List of {number, answer}
+            # Use Gemini's subQuestionCount if available, otherwise fallback to local counting
+            sub_question_count = q.get('subQuestionCount', 0)
             
             # Skip empty questions
             if not article_content and not question_content:
                 continue
             
-            # Count sub-questions (usually numbered 1., 2., 3., etc. or A., B., etc.)
-            sub_question_count = self._count_sub_questions(question_content)
+            # Fallback: count sub-questions locally if Gemini didn't provide it
+            if sub_question_count <= 0:
+                sub_question_count = self._count_sub_questions(question_content)
             
             # Generate article summary (first 20 words)
             article_summary = self._get_word_summary(article_content, 20)
@@ -254,12 +257,13 @@ class PDFImportService:
         """Check if a paper with the given title already exists in database."""
         return question_store.exists_by_title(title)
     
-    async def confirm_import(self, import_data: Dict[str, Any]) -> Dict[str, Any]:
+    async def confirm_import(self, import_data: Dict[str, Any], force_overwrite: bool = False) -> Dict[str, Any]:
         """
         Confirm and save the imported questions to database.
         
         Args:
             import_data: The edited import data from frontend
+            force_overwrite: If True, overwrite existing paper with same title
             
         Returns:
             Dictionary with import results
@@ -271,11 +275,16 @@ class PDFImportService:
             
             # Check if paper with this title already exists
             if self.check_title_exists(title):
-                return {
-                    'success': False,
-                    'duplicate': True,
-                    'error': f'试卷「{title}」已存在于数据库中，请勿重复导入'
-                }
+                if force_overwrite:
+                    # Delete existing questions with this title
+                    deleted_count = question_store.delete_by_title(title)
+                    logger.info("Overwriting existing paper", title=title, deleted=deleted_count)
+                else:
+                    return {
+                        'success': False,
+                        'duplicate': True,
+                        'error': f'试卷「{title}」已存在于数据库中，是否覆盖更新？'
+                    }
             
             saved_questions = []
             current_time = int(time.time() * 1000)
@@ -286,6 +295,7 @@ class PDFImportService:
                 question_number = q.get('questionNumber', 'A')
                 labels = q.get('labels', [])
                 answers = q.get('answers', [])  # List of {number, answer}
+                sub_question_count = q.get('subQuestionCount', 0)  # Number of sub-questions
                 
                 # Skip empty questions
                 if not article_content or not question_content:
@@ -301,6 +311,7 @@ class PDFImportService:
                     questionContent=question_content,
                     labels=labels,
                     answers=answers,
+                    subQuestionCount=sub_question_count,
                     createdAt=current_time,
                     updatedAt=current_time
                 )
@@ -351,6 +362,7 @@ class PDFImportService:
             "questionNumber": "A",
             "articleContent": "阅读文章的完整原文内容...",
             "questionContent": "题目和选项的完整内容，包括所有小题...",
+            "subQuestionCount": 3,
             "labels": ["主题标签1", "主题标签2", "主题标签3"],
             "answers": [
                 {"number": 21, "answer": "B"},
@@ -364,14 +376,15 @@ class PDFImportService:
 
 要求：
 1. 识别试卷来源和年份（从试卷标题或页眉提取）
-2. 提取所有阅读理解题目（通常在大标题"第二部分 阅读理解"下的第一节，通常标记为A、B、C、D四篇）
+2. 提取所有阅读理解题目（通常在"第二部分 阅读理解"下的第一节，通常标记为A、B、C、D四篇。注意同一道题目可能会跨页）
 3. articleContent：完整提取每篇阅读的文章原文
 4. questionContent：提取该篇文章对应的所有题目和选项，通常题目序号分别为21-23，24-27，28-31，32-35。注意每个编号表示一个小题，而不是每个选项代表一个小题（因为是选择题）。
-5. labels：根据文章内容生成3-5个语义标签，描述文章的主题、体裁、话题等
+5. subQuestionCount：统计该篇阅读对应的小题数量（整数），例如A篇有21、22、23三道小题则为3，B篇有24、25、26、27四道小题则为4
+6. labels：根据文章内容生成3-5个语义标签，描述文章的主题、体裁、话题等
    - 主题标签示例：科技、环境、文化、教育、健康、社会、历史、艺术、体育、经济
    - 体裁标签示例：记叙文、说明文、议论文、新闻报道、人物传记
    - 话题标签示例：人工智能、气候变化、传统文化、青少年成长等
-6. answers：从"英语参考答案"部分的"第二部分 阅读理解"中提取每个小题的答案
+7. answers：从"英语参考答案"部分的"第二部分 阅读理解"中提取每个小题的答案
    - number：小题题号（如21, 22, 23等整数）
    - answer：该小题的正确答案（A、B、C或D）
    - 如果找不到答案部分，answers数组可以为空

@@ -71,6 +71,10 @@ export function ImportPaperPage({ onBack }: ImportPaperPageProps) {
   const [importResult, setImportResult] = useState<ImportResult | null>(null);
   const [isConfirming, setIsConfirming] = useState(false);
   
+  // Overwrite confirmation dialog state
+  const [showOverwriteDialog, setShowOverwriteDialog] = useState(false);
+  const [duplicateTitle, setDuplicateTitle] = useState<string>('');
+  
   // Edit modal state
   const [editingQuestion, setEditingQuestion] = useState<PreviewQuestion | null>(null);
   const [editFormData, setEditFormData] = useState<{
@@ -172,7 +176,7 @@ export function ImportPaperPage({ onBack }: ImportPaperPageProps) {
     }
   };
 
-  const handleConfirmImport = async () => {
+  const handleConfirmImport = async (forceOverwrite: boolean = false) => {
     if (!previewData || !token) return;
 
     setIsConfirming(true);
@@ -193,7 +197,9 @@ export function ImportPaperPage({ onBack }: ImportPaperPageProps) {
             questionContent: q.questionContent,
             labels: q.labels,
             answers: q.answers || [],
+            subQuestionCount: q.subQuestionCount || 0,
           })),
+          forceOverwrite,
         }),
       });
 
@@ -207,13 +213,12 @@ export function ImportPaperPage({ onBack }: ImportPaperPageProps) {
           questions: result.questions || [],
         });
         setPreviewData(null);
-        toast.success(`成功导入 ${result.questionsImported} 道阅读题`);
+        setShowOverwriteDialog(false);
+        toast.success(`成功${forceOverwrite ? '覆盖' : ''}导入 ${result.questionsImported} 道阅读题`);
       } else if (result.duplicate) {
-        // Paper with same title already exists
-        toast.error(result.error || '该试卷已存在于数据库中', {
-          duration: 5000,
-          icon: '⚠️',
-        });
+        // Paper with same title already exists, show confirmation dialog
+        setDuplicateTitle(previewData.title);
+        setShowOverwriteDialog(true);
       } else {
         toast.error(result.message || result.error || '导入失败');
       }
@@ -223,6 +228,15 @@ export function ImportPaperPage({ onBack }: ImportPaperPageProps) {
     } finally {
       setIsConfirming(false);
     }
+  };
+
+  const handleOverwriteConfirm = async () => {
+    await handleConfirmImport(true);
+  };
+
+  const handleOverwriteCancel = () => {
+    setShowOverwriteDialog(false);
+    setDuplicateTitle('');
   };
 
   const handleEditQuestion = (question: PreviewQuestion) => {
@@ -529,7 +543,7 @@ export function ImportPaperPage({ onBack }: ImportPaperPageProps) {
                   取消导入
                 </Button>
                 <Button 
-                  onClick={handleConfirmImport} 
+                  onClick={() => handleConfirmImport(false)} 
                   className="flex-1"
                   disabled={isConfirming || previewData.questions.length === 0}
                 >
@@ -763,6 +777,49 @@ export function ImportPaperPage({ onBack }: ImportPaperPageProps) {
             <Button onClick={handleSaveEdit}>
               <Save className="h-4 w-4 mr-2" />
               保存修改
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+
+      {/* Overwrite Confirmation Dialog */}
+      <Dialog open={showOverwriteDialog} onOpenChange={setShowOverwriteDialog}>
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <DialogTitle className="flex items-center gap-2 text-amber-600">
+              <AlertCircle className="h-5 w-5" />
+              试卷已存在
+            </DialogTitle>
+          </DialogHeader>
+          <div className="py-4">
+            <p className="text-gray-700">
+              试卷「<span className="font-semibold">{duplicateTitle}</span>」已存在于数据库中。
+            </p>
+            <p className="text-gray-600 mt-2">
+              是否覆盖更新现有数据？此操作将删除该试卷的所有旧题目，并导入新的题目数据。
+            </p>
+          </div>
+          <DialogFooter className="gap-2">
+            <Button 
+              variant="outline" 
+              onClick={handleOverwriteCancel}
+              disabled={isConfirming}
+            >
+              取消
+            </Button>
+            <Button 
+              variant="destructive" 
+              onClick={handleOverwriteConfirm}
+              disabled={isConfirming}
+            >
+              {isConfirming ? (
+                <>
+                  <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                  覆盖中...
+                </>
+              ) : (
+                '确认覆盖'
+              )}
             </Button>
           </DialogFooter>
         </DialogContent>

@@ -87,8 +87,11 @@ async def confirm_import(request: web.Request) -> web.Response:
                 status=400
             )
         
+        # Extract forceOverwrite flag from request body
+        force_overwrite = body.pop('forceOverwrite', False)
+        
         # Confirm import and save to database
-        result = await pdf_import_service.confirm_import(body)
+        result = await pdf_import_service.confirm_import(body, force_overwrite=force_overwrite)
         
         if result['success']:
             return web.json_response({
@@ -98,10 +101,15 @@ async def confirm_import(request: web.Request) -> web.Response:
                 "questions": result['questions'],
             })
         else:
-            return web.json_response({
+            # Return duplicate flag if applicable
+            response_data = {
                 "success": False,
                 "message": result.get('error', '保存失败'),
-            }, status=400)
+            }
+            if result.get('duplicate'):
+                response_data['duplicate'] = True
+                response_data['error'] = result.get('error')
+            return web.json_response(response_data, status=400)
             
     except Exception as e:
         logger.exception("confirm_import error", error=str(e))

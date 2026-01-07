@@ -206,6 +206,16 @@ class QuestionStore:
                 return True
         return False
     
+    def delete_by_title(self, title: str) -> int:
+        """Delete all questions with the given title. Returns count of deleted questions."""
+        to_delete = [qid for qid, q in self.questions.items() if q.title == title]
+        for qid in to_delete:
+            del self.questions[qid]
+        if to_delete:
+            self._save()
+            logger.info("Deleted questions by title", title=title, count=len(to_delete))
+        return len(to_delete)
+    
     def get_all_labels(self) -> List[str]:
         labels = set()
         for q in self.questions.values():
