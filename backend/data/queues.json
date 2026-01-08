@@ -99,11 +99,14 @@
   "queue-44994ebc": {
     "id": "queue-44994ebc",
     "name": "test",
-    "questionIds": [],
+    "questionIds": [
+      "q-8484ee38",
+      "q-b3a3121b"
+    ],
     "frozen": false,
     "owner": "abc@123.com",
     "collaborators": [],
     "createdAt": 1767746023469,
-    "updatedAt": 1767746023469
+    "updatedAt": 1767793710040
   }
 }

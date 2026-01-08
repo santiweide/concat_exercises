@@ -3,9 +3,9 @@ node_modules
 *__pycache__*
 
 # Environment files with secrets
-.env
-.env.local
-.env.*.local
+*.env
+*.env.local
+*.env.*.local
 
 # Keep example file
 !.env.example
