@@ -5,7 +5,7 @@ from aiohttp import web
 import aiohttp_cors
 import structlog
 from config import config
-from handlers import question_handlers, queue_handlers, auth_handlers, pdf_handlers
+from handlers import question_handlers, queue_handlers, auth_handlers, pdf_handlers, management_handlers
 from services.auth_service import auth_service
 
 logger = structlog.get_logger()
@@ -66,6 +66,14 @@ def setup_routes(app: web.Application):
     app.router.add_post('/api/papers/confirm', pdf_handlers.confirm_import)
     app.router.add_post('/api/papers/import', pdf_handlers.import_paper)  # Legacy
     
+    # Question Management Routes (soft delete, restore, operation logs)
+    app.router.add_post('/api/management/questions', management_handlers.list_questions_for_management)
+    app.router.add_get('/api/management/questions/deleted', management_handlers.list_deleted_questions)
+    app.router.add_delete('/api/management/questions/{id}', management_handlers.soft_delete_question)
+    app.router.add_post('/api/management/questions/batch-delete', management_handlers.batch_soft_delete_questions)
+    app.router.add_post('/api/management/questions/{id}/restore', management_handlers.restore_question)
+    app.router.add_get('/api/management/logs', management_handlers.get_operation_logs)
+    
     # Health check
     app.router.add_get('/health', health_check)
     
@@ -124,26 +132,91 @@ async def health_check(request: web.Request) -> web.Response:
     return web.json_response({"status": "healthy"})
 
 
-if __name__ == "__main__":
-    """Simple standalone HTTP server startup (without ZMQ services)."""
-    import sys
+def setup_logging():
+    """Setup file-based logging with rotation."""
+    import os
     import logging
-    from config import config
+    from logging.handlers import RotatingFileHandler
     
-    # Configure logging
+    # Create log directory if not exists
+    log_dir = config.LOG_DIR
+    os.makedirs(log_dir, exist_ok=True)
+    
+    service_name = config.SERVICE_NAME
+    log_file = os.path.join(log_dir, f"{service_name}.log")
+    log_file_wf = os.path.join(log_dir, f"{service_name}.log.wf")
+    
+    # Create formatters
+    log_format = "%(asctime)s [%(levelname)s] %(name)s: %(message)s"
+    formatter = logging.Formatter(log_format, datefmt="%Y-%m-%d %H:%M:%S")
+    
+    # Root logger configuration
+    root_logger = logging.getLogger()
+    root_logger.setLevel(getattr(logging, config.LOG_LEVEL.upper(), logging.INFO))
+    
+    # Clear existing handlers
+    root_logger.handlers.clear()
+    
+    # File handler for all logs (INFO and above) -> {service_name}.log
+    file_handler = RotatingFileHandler(
+        log_file,
+        maxBytes=100 * 1024 * 1024,  # 100MB
+        backupCount=5,
+        encoding='utf-8'
+    )
+    file_handler.setLevel(logging.INFO)
+    file_handler.setFormatter(formatter)
+    root_logger.addHandler(file_handler)
+    
+    # File handler for warnings and errors -> {service_name}.log.wf
+    wf_handler = RotatingFileHandler(
+        log_file_wf,
+        maxBytes=50 * 1024 * 1024,  # 50MB
+        backupCount=3,
+        encoding='utf-8'
+    )
+    wf_handler.setLevel(logging.WARNING)
+    wf_handler.setFormatter(formatter)
+    root_logger.addHandler(wf_handler)
+    
+    # Console handler (optional, for debugging)
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(logging.INFO)
+    console_handler.setFormatter(formatter)
+    root_logger.addHandler(console_handler)
+    
+    # Configure structlog to use stdlib logging
     structlog.configure(
         processors=[
+            structlog.stdlib.filter_by_level,
+            structlog.stdlib.add_logger_name,
             structlog.stdlib.add_log_level,
+            structlog.stdlib.PositionalArgumentsFormatter(),
             structlog.processors.TimeStamper(fmt="iso"),
-            structlog.dev.ConsoleRenderer()
+            structlog.processors.StackInfoRenderer(),
+            structlog.processors.format_exc_info,
+            structlog.processors.UnicodeDecoder(),
+            structlog.stdlib.ProcessorFormatter.wrap_for_formatter,
         ],
+        context_class=dict,
         logger_factory=structlog.stdlib.LoggerFactory(),
+        wrapper_class=structlog.stdlib.BoundLogger,
+        cache_logger_on_first_use=True,
     )
-    logging.basicConfig(
-        format="%(message)s",
-        stream=sys.stdout,
-        level=logging.INFO
-    )
+    
+    return log_file, log_file_wf
+
+
+if __name__ == "__main__":
+    """Simple standalone HTTP server startup (without ZMQ services)."""
+    
+    # Setup file-based logging
+    log_file, log_file_wf = setup_logging()
+    
+    logger.info("Logging initialized", 
+                service=config.SERVICE_NAME,
+                log_file=log_file, 
+                log_file_wf=log_file_wf)
     
     app = create_app()
     logger.info("Starting HTTP server", host=config.HTTP_HOST, port=config.HTTP_PORT)

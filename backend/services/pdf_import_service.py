@@ -19,8 +19,8 @@ from PIL import Image
 from dotenv import load_dotenv
 
 from config import config
-from storage import question_store
-from models import ReadingQuestion
+from storage import question_store, operation_log_store
+from models import ReadingQuestion, OperationType
 
 # Load environment variables from .env file
 load_dotenv()
@@ -114,6 +114,10 @@ class PDFImportService:
             raise
         return images_base64
     
+    # Minimum text length threshold to consider text extraction successful
+    # If extracted text is shorter than this, treat as scanned/image PDF
+    MIN_TEXT_LENGTH = 100
+    
     async def parse_pdf(self, pdf_path: str, filename: str) -> Dict[str, Any]:
         """
         Parse a PDF file and extract reading questions using Gemini AI.
@@ -129,14 +133,28 @@ class PDFImportService:
         try:
             # Try to extract text from PDF locally first (much faster)
             text_content = self._extract_text_from_pdf(pdf_path)
+            text_length = len(text_content.strip())
             
-            if text_content.strip():
-                # Text extracted successfully, use text mode
-                logger.info("Using text mode for Gemini API")
+            # Check if text extraction was meaningful
+            # Some scanned PDFs have a low-quality OCR layer with garbage text
+            is_text_sufficient = text_length >= self.MIN_TEXT_LENGTH
+            
+            if text_content.strip() and is_text_sufficient:
+                # Text extracted successfully with sufficient content, use text mode
+                logger.info("Using text mode for Gemini API", 
+                           text_length=text_length,
+                           threshold=self.MIN_TEXT_LENGTH)
                 extracted_data = await self._call_gemini_api_text(text_content, filename)
             else:
-                # No text extracted, likely a scanned PDF - use image mode
-                logger.info("No text found, switching to image mode for Gemini API")
+                # No text or insufficient text extracted, likely a scanned PDF - use image mode
+                if text_length > 0:
+                    logger.warning("Text too short, likely garbage OCR layer. Switching to image mode",
+                                  text_length=text_length,
+                                  threshold=self.MIN_TEXT_LENGTH,
+                                  text_preview=text_content[:100] if text_length > 0 else "")
+                else:
+                    logger.info("No text found, switching to image mode for Gemini API")
+                
                 images_base64 = self._convert_pdf_to_images(pdf_path)
                 
                 if not images_base64:
@@ -257,13 +275,14 @@ class PDFImportService:
         """Check if a paper with the given title already exists in database."""
         return question_store.exists_by_title(title)
     
-    async def confirm_import(self, import_data: Dict[str, Any], force_overwrite: bool = False) -> Dict[str, Any]:
+    async def confirm_import(self, import_data: Dict[str, Any], force_overwrite: bool = False, operator_email: str = "") -> Dict[str, Any]:
         """
         Confirm and save the imported questions to database.
         
         Args:
             import_data: The edited import data from frontend
             force_overwrite: If True, overwrite existing paper with same title
+            operator_email: Email of the operator performing the import
             
         Returns:
             Dictionary with import results
@@ -319,6 +338,14 @@ class PDFImportService:
                 # Save to store
                 created = question_store.create(question.model_dump())
                 saved_questions.append(created)
+                
+                # Create operation log for the new question
+                if operator_email:
+                    operation_log_store.create(
+                        operation_type=OperationType.CREATE,
+                        question=created,
+                        operator_email=operator_email
+                    )
                 
                 logger.info("Question saved", 
                            id=created.id, 
@@ -406,6 +433,12 @@ class PDFImportService:
 {text_content}
 ---
 """
+        
+        # Log the prompt for debugging
+        logger.info("Gemini API prompt (text mode)", 
+                   filename=filename,
+                   prompt_length=len(prompt),
+                   prompt_preview=prompt[:500] + "..." if len(prompt) > 500 else prompt)
 
         try:
             async with httpx.AsyncClient(timeout=120.0) as client:
@@ -484,6 +517,13 @@ class PDFImportService:
         parts.append({
             "text": prompt
         })
+        
+        # Log the prompt for debugging
+        logger.info("Gemini API prompt (image mode)",
+                   filename=filename,
+                   image_count=len(images_base64),
+                   prompt_length=len(prompt),
+                   prompt=prompt)
 
         try:
             # Use longer timeout for image processing (multiple images can take time)

@@ -14,7 +14,9 @@
     "answers": [],
     "subQuestionCount": 0,
     "createdAt": 1704067200000,
-    "updatedAt": 1704067200000
+    "updatedAt": 1767880740253,
+    "deleted": true,
+    "deletedAt": 1767880740253
   },
   "q-002": {
     "id": "q-002",
@@ -31,7 +33,9 @@
     "answers": [],
     "subQuestionCount": 0,
     "createdAt": 1704067200000,
-    "updatedAt": 1704067200000
+    "updatedAt": 1767880742802,
+    "deleted": true,
+    "deletedAt": 1767880742802
   },
   "q-003": {
     "id": "q-003",
@@ -48,7 +52,9 @@
     "answers": [],
     "subQuestionCount": 0,
     "createdAt": 1704067200000,
-    "updatedAt": 1704067200000
+    "updatedAt": 1767880744635,
+    "deleted": true,
+    "deletedAt": 1767880744635
   },
   "q-004": {
     "id": "q-004",
@@ -65,7 +71,9 @@
     "answers": [],
     "subQuestionCount": 0,
     "createdAt": 1704067200000,
-    "updatedAt": 1704067200000
+    "updatedAt": 1767880746652,
+    "deleted": true,
+    "deletedAt": 1767880746652
   },
   "q-005": {
     "id": "q-005",
@@ -82,7 +90,9 @@
     "answers": [],
     "subQuestionCount": 0,
     "createdAt": 1704067200000,
-    "updatedAt": 1704067200000
+    "updatedAt": 1767880748569,
+    "deleted": true,
+    "deletedAt": 1767880748569
   },
   "q-d4d538a5": {
     "id": "q-d4d538a5",
@@ -101,7 +111,9 @@
     "answers": [],
     "subQuestionCount": 0,
     "createdAt": 1767750459822,
-    "updatedAt": 1767750459822
+    "updatedAt": 1767750459822,
+    "deleted": false,
+    "deletedAt": null
   },
   "q-2373da96": {
     "id": "q-2373da96",
@@ -120,7 +132,9 @@
     "answers": [],
     "subQuestionCount": 0,
     "createdAt": 1767750459826,
-    "updatedAt": 1767750459826
+    "updatedAt": 1767750459826,
+    "deleted": false,
+    "deletedAt": null
   },
   "q-bd87d883": {
     "id": "q-bd87d883",
@@ -139,7 +153,9 @@
     "answers": [],
     "subQuestionCount": 0,
     "createdAt": 1767750459827,
-    "updatedAt": 1767750459827
+    "updatedAt": 1767750459827,
+    "deleted": false,
+    "deletedAt": null
   },
   "q-b2c5794d": {
     "id": "q-b2c5794d",
@@ -158,7 +174,9 @@
     "answers": [],
     "subQuestionCount": 0,
     "createdAt": 1767750459829,
-    "updatedAt": 1767750459829
+    "updatedAt": 1767750459829,
+    "deleted": false,
+    "deletedAt": null
   },
   "q-c4c32aa7": {
     "id": "q-c4c32aa7",
@@ -175,7 +193,9 @@
     "answers": [],
     "subQuestionCount": 0,
     "createdAt": 1767758742248,
-    "updatedAt": 1767758742248
+    "updatedAt": 1767758742248,
+    "deleted": false,
+    "deletedAt": null
   },
   "q-19268048": {
     "id": "q-19268048",
@@ -192,7 +212,9 @@
     "answers": [],
     "subQuestionCount": 0,
     "createdAt": 1767758742253,
-    "updatedAt": 1767758742253
+    "updatedAt": 1767758742253,
+    "deleted": false,
+    "deletedAt": null
   },
   "q-aa43233a": {
     "id": "q-aa43233a",
@@ -209,7 +231,9 @@
     "answers": [],
     "subQuestionCount": 0,
     "createdAt": 1767758742256,
-    "updatedAt": 1767758742256
+    "updatedAt": 1767758742256,
+    "deleted": false,
+    "deletedAt": null
   },
   "q-42094ee4": {
     "id": "q-42094ee4",
@@ -226,7 +250,9 @@
     "answers": [],
     "subQuestionCount": 0,
     "createdAt": 1767758742257,
-    "updatedAt": 1767758742257
+    "updatedAt": 1767758742257,
+    "deleted": false,
+    "deletedAt": null
   },
   "q-c98125dd": {
     "id": "q-c98125dd",
@@ -243,7 +269,9 @@
     "answers": [],
     "subQuestionCount": 0,
     "createdAt": 1767793604605,
-    "updatedAt": 1767793604605
+    "updatedAt": 1767793604605,
+    "deleted": false,
+    "deletedAt": null
   },
   "q-fa6d5faf": {
     "id": "q-fa6d5faf",
@@ -261,7 +289,9 @@
     "answers": [],
     "subQuestionCount": 0,
     "createdAt": 1767793604607,
-    "updatedAt": 1767793604607
+    "updatedAt": 1767793604607,
+    "deleted": false,
+    "deletedAt": null
   },
   "q-e7edb0b9": {
     "id": "q-e7edb0b9",
@@ -279,7 +309,9 @@
     "answers": [],
     "subQuestionCount": 0,
     "createdAt": 1767793604639,
-    "updatedAt": 1767793604639
+    "updatedAt": 1767793604639,
+    "deleted": false,
+    "deletedAt": null
   },
   "q-5f9c7a54": {
     "id": "q-5f9c7a54",
@@ -297,7 +329,9 @@
     "answers": [],
     "subQuestionCount": 0,
     "createdAt": 1767793604640,
-    "updatedAt": 1767793604640
+    "updatedAt": 1767793604640,
+    "deleted": false,
+    "deletedAt": null
   },
   "q-f6bb64d7": {
     "id": "q-f6bb64d7",
@@ -315,7 +349,9 @@
     "answers": [],
     "subQuestionCount": 0,
     "createdAt": 1767794090876,
-    "updatedAt": 1767794090876
+    "updatedAt": 1767794090876,
+    "deleted": false,
+    "deletedAt": null
   },
   "q-4ee59942": {
     "id": "q-4ee59942",
@@ -334,7 +370,9 @@
     "answers": [],
     "subQuestionCount": 0,
     "createdAt": 1767794090881,
-    "updatedAt": 1767794090881
+    "updatedAt": 1767794090881,
+    "deleted": false,
+    "deletedAt": null
   },
   "q-3b630852": {
     "id": "q-3b630852",
@@ -353,7 +391,9 @@
     "answers": [],
     "subQuestionCount": 0,
     "createdAt": 1767794090882,
-    "updatedAt": 1767794090882
+    "updatedAt": 1767794090882,
+    "deleted": false,
+    "deletedAt": null
   },
   "q-99abc0f5": {
     "id": "q-99abc0f5",
@@ -372,6 +412,84 @@
     "answers": [],
     "subQuestionCount": 0,
     "createdAt": 1767794090928,
-    "updatedAt": 1767794090928
+    "updatedAt": 1767794090928,
+    "deleted": false,
+    "deletedAt": null
+  },
+  "q-65b937e4": {
+    "id": "q-65b937e4",
+    "title": "石景山区2025年高三统一练习",
+    "year": 2025,
+    "questionNumber": "A",
+    "articleContent": "The AI Scholars Programme (AISP) offers high school students worldwide a four-week, on-campus experience in artificial intelligence (AI) at Westbridge Technology University (WTU), connecting them with leading AI researchers. This fully-funded programme covers course fees, housing and programme-related field trips.\nCourse Plan\n* A virtual Python preparation course begins one month prior to the start of the campus programme. Coding experience is not required, and instructor support will be available for all students.\n* Core academic modules include lectures on using AI fairly and safely, along with in-depth seminars led by WTU teaching staff that explore current AI research projects. Students will apply newly learned AI skills to real-world challenges in a hands-on group project, which will be presented at the AISP closing ceremony.\n* Site visits with industry leaders are also included to explore emerging career paths in the AI field, along with academic writing workshops for college application.\nApplication Requirements\nStudents applying for AISP must be at least 16 years old. The complete application for AISP will consist of:\n* an online application form;\n* official high school records of academic performance and extra-curricular activities;\n* a personal statement demonstrating curiosity in AI research and commitment to socially responsible innovation.\nApplicants are strongly encouraged to submit a one-page maximum summary of the research proposal, clarifying how the project uses AI, its importance and intended outcomes. This will provide valuable information about the applicant's research potential, technical skills, and ability to plan and communicate their research goals.\nApplications of 2025 programme close on April 15, 2025, with interviews conducted through May. Click here to start your application.",
+    "questionContent": "21. What is the main purpose of the AISP?\nA. To engage students in AI exploration.\nB. To advocate cooperation in AI research.\nC. To provide career guidance in AI industry.\nD. To promote the principles of AI applications.\n\n22. What can students learn from the programme?\nA. Academic writing on AI development.\nB. Ways to write an AI research proposal.\nC. AI skills for solving problems in reality.\nD. Advanced maths and physics with AI focus.\n\n23. To be considered for the programme, students should ______.\nA. pay the tuition fees in advance\nB. upload a recommendation letter\nC. submit an online application form in May\nD. provide school records and a personal statement.",
+    "labels": [
+      "人工智能",
+      "教育项目",
+      "科技"
+    ],
+    "answers": [],
+    "subQuestionCount": 0,
+    "createdAt": 1767846618401,
+    "updatedAt": 1767846618401,
+    "deleted": false,
+    "deletedAt": null
+  },
+  "q-51592469": {
+    "id": "q-51592469",
+    "title": "石景山区2025年高三统一练习",
+    "year": 2025,
+    "questionNumber": "B",
+    "articleContent": "In my early forties, I began painting with watercolours. Each brushstroke on paper turned into a personal language, allowing me to express the inexpressible. The feeling of colour being absorbed into the paper was calming, yet it left me longing for something deeper. Over time, I became more interested in oil paints. Although they took longer to dry, they offered me a sense of control. Layers of paints combined smoothly, creating a three-dimensional effect that watercolours couldn't copy. Oil paints granted me the precious opportunity to take a few steps back, as if I were a curious explorer approaching a hidden landscape.\nHowever, working with oil paints wasn't easy. Getting the right shine or thickness required patience, and at times, I felt annoyed by my lack of progress. Colours didn't always behave as expected, and I struggled to achieve the vision in my mind. But the more I persisted, the more I understood oil paints. They balanced softness with depth, giving me the chance to create both delicate and grand images. The process of painting became reflective, a practice of exploring colours, textures (纹理) and emotions—sometimes rough, sometimes peaceful, but always rewarding.\nOne evening, I noticed a strange shade of blue on my canvas (画布). It seemed out of place, as if it didn't belong. My heart skipped a beat, and I stared at it, uncertain if it was part of my recent work or a trick of the eye. As I stepped back to examine the canvas, the blue shade slowly began to make sense. It was not an error but an invitation—an unplanned element that added depth to the piece in a way I hadn't expected. At that moment, I realised that painting, much like life, was not about complete control but about embracing the unexpected.\nFrom then on, I approached my work with a new sense of curiosity. I let colours blend more freely, allowed accidental mistakes to become part of the composition, and accepted that every brushstroke carried its own story. Oil painting not only gave me a medium to express myself but also taught me patience, resilience, and the beauty of discovery.\nLooking at my finished work, I no longer saw just layers of paints. I saw moments of struggle, joy, and growth woven into the canvas—a reminder that art, like any, is as much about the process as it is about the final masterpiece.",
+    "questionContent": "24. Why did the author turn to oil paints?\nA. To enhance creativity.\nB. To save painting time.\nC. To seek deeper artistic control.\nD. To improve painting skills.\n\n25. What challenge did the author face when working with oil paints?\nA. Balancing softness and sharpness.\nB. Creating a three-dimensional effect.\nC. Achieving the right shine and thickness.\nD. Controlling the drying time of the paints.\n\n26. What message does the author want to convey?\nA. Art is a journey of welcoming imperfections.\nB. A good picture is worth a thousand words.\nC. Beauty is the ultimate goal of fine art.\nD. Creating is about exploring ideal self.",
+    "labels": [
+      "艺术",
+      "绘画",
+      "个人成长"
+    ],
+    "answers": [],
+    "subQuestionCount": 0,
+    "createdAt": 1767846618406,
+    "updatedAt": 1767846618406,
+    "deleted": false,
+    "deletedAt": null
+  },
+  "q-85606e78": {
+    "id": "q-85606e78",
+    "title": "石景山区2025年高三统一练习",
+    "year": 2025,
+    "questionNumber": "C",
+    "articleContent": "Researchers from the NeuroMind Institute have developed a new system that uses predator (捕食者) robots to chase (追逐) larval (幼体的) zebrafish in an open water. This innovative approach is helping scientists study how the young fish rapidly learn and adapt in real-world conditions.\nLarval zebrafish are a valuable tool for neuroscientists because their transparency enables easy study of the brain and behaviour. However, it's been difficult for scientists to study learning in these developing vertebrates (脊椎动物)—an important part of understanding how the brain works. Previous research found young zebrafish could learn simple associations. But this type of learning happens slowly and often unreliably, and it was still unclear whether days-old zebrafish can learn fast enough to use their memory in natural situations, like recognizing and avoiding new predators.\nThe researchers thought that traditional ways of testing learning in larval zebrafish in the lab, where the conditions were far from what the fish would encounter in the wild, might not be effective for uncovering how the fish learn. To model a real-life situation, the researchers used small robotic cylinders (圆柱体), with some programmed to show predator-like characteristics.\nThe researchers created the dynamics: they first placed a robot that stayed still with a free-swimming zebrafish; after the robot chased the fish for a minute, the fish began avoiding the robot's area for more than an hour—a big change from the non-avoidant behaviour before the chase experience. When a second robot was introduced that did not chase the fish, the zebrafish only avoided the chasing robot, showing that they could distinguish between a threat and a non-threat.\nUsing this system, the researchers made an unexpected discovery that not only could larval zebrafish learn extremely quickly in a more natural context, but they could also do so just five days after beginning their lives as single cells. This was particularly surprising given the fact that a developing zebrafish larva contains just one percent or so of the neurons (神经元) in its adult form. The findings suggest that some essential learning abilities, like recognizing predators, emerge early in life and are critical for survival.\nFurther brain imaging reveals that different regions of the zebrafish brain are involved in this rapid learning: the hindbrain, a region controlling essential functions, responds to the approaching predator; the forebrain, a region associated with learning and planning, encodes the presence of the predator robot; and the habenula, another brain area, signals avoidance outcomes. All these regions are necessary for learning, and silencing any of them removes the ability of the fish to learn. It is believed that the new work could offer insights into how other brains process real-world threats.",
+    "questionContent": "27. Why did the researchers develop a new system with larval zebrafish?\nA. To observe their hunting behaviours.\nB. To identify their simple associations.\nC. To examine their brain characteristics.\nD. To uncover their learning in natural settings.\n\n28. What does the underlined word \"dynamics\" in Paragraph 4 probably mean?\nA. Interaction.\nB. Function.\nC. Structure.\nD. Standard.\n\n29. What can we learn about larval zebrafish?\nA. They can distinguish between robots and fish.\nB. They learn fast through a multi-regional brain network.\nC. They develop learning abilities when reaching adulthood.\nD. They can recognise predators with much neurons needed.\n\n30. What will the author most probably discuss in the paragraph that follows?\nA. Explaining the robot design used in the experiment.\nB. Exploring danger processing in other species' brains.\nC. Analysing the connection between learning and planning.\nD. Describing zebrafish behaviours in different surroundings.",
+    "labels": [
+      "动物行为",
+      "神经科学",
+      "科技"
+    ],
+    "answers": [],
+    "subQuestionCount": 0,
+    "createdAt": 1767846618462,
+    "updatedAt": 1767846618462,
+    "deleted": false,
+    "deletedAt": null
+  },
+  "q-a4524196": {
+    "id": "q-a4524196",
+    "title": "石景山区2025年高三统一练习",
+    "year": 2025,
+    "questionNumber": "D",
+    "articleContent": "The moon stands alone. Unique in the universe, it is a lifeless and sunbaked wasteland that harbours little except what we bring to it. But that is about to change.\nHalf a century after the Apollo programme, a private spacecraft Nova-C made the first touchdown on the moon successfully, bearing scientific instruments, microfiche (缩微胶片) story disks, cameras, and sculptures to stay on the moon forever. Its success would promise many more. Though it may seem like an exciting outlook for humanity's space exploration ambitions, it also signals a future where the moon becomes a hotbed of ungoverned business operations that will irreversibly (不可逆地) transform it.\nFor the first time, private capital has reached the moon, expanding beyond scientific goals. This allows private landers, even when carrying government science experiments, to include additional non-scientific payloads (有效负载) for other customers. Items bound to raise various objections, such as human cremains (骨灰) and dehydrated water bears from past missions, have caused concerns about biological materials on the moon. There's a lot more planned for future launches, likely sparking further debate.\nBefore this decade is out, with a powerful enough telescope, you may be able to see evidence of human construction or even habitation on the moon. In 2023, the global space industry was valued at $469 billion, expected to exceed $1 trillion by 2030, driven by growing satellite use in manufacturing, power, and data. “We are now at a tipping point, where ideas previously limited to science fiction represent attractive investment projects,” a report read.\nA voluntary agreement has been used since 2020 to foster lunar cooperation. It promotes international standards, emergency assistance and data sharing. However, it also allows for exploiting (开采) lunar resources like dust, water, rare earth elements and other materials.\nExploring the moon has value for science and potential benefits for Earth, but humans often turn exploration into exploitation, and the moon may face the same fate. The moon won't be alone for long. But it is and will forever be quiet. It plays host to no thunderstorms, no crashing waves, no bird songs and no anthems (国歌). We must be its voice. We will soon change its surface, and our relationship to it, forever. At the very least, we owe the moon a considered discussion of why and how we will do so.",
+    "questionContent": "31. What is the author's concern about the moon's future?\nA. Unregulated commercial activities.\nB. Illegal human construction.\nC. Limited payload carried to the moon.\nD. A lack of scientific missions.\n\n32. The \"tipping point\" in Paragraph 4 indicates the change______.\nA. from cooperation to competition\nB. from science to trade\nC. from lunar landing to settlement\nD. from fantasy to adventure.\n\n33. What can we infer from this passage?\nA. Lunar resource exploration holds great promise.\nB. Massive investment is beneficial to lunar development.\nC. Non-scientific activities can test lunar environmental limits.\nD. The existing agreement is insufficient in controlling over-exploitation.\n\n34.What would be the best title for this passage?\nA. The Promising Moon: Playground for All\nB. The Moon's Edge: Ambition Meets Reality\nC. The Moon's Future: Uncover the Unknown\nD. The Silent Moon: Humanity's Responsibility",
+    "labels": [
+      "月球探索",
+      "商业开发",
+      "伦理"
+    ],
+    "answers": [],
+    "subQuestionCount": 0,
+    "createdAt": 1767846618465,
+    "updatedAt": 1767846618465,
+    "deleted": false,
+    "deletedAt": null
   }
 }

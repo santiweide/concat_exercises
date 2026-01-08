@@ -49,7 +49,9 @@ class Config:
     CORS_ORIGINS: list[str] = field(default_factory=_get_cors_origins)
     
     # Logging
+    SERVICE_NAME: str = os.getenv("SERVICE_NAME", "ep")
     LOG_LEVEL: str = os.getenv("LOG_LEVEL", "INFO")
+    LOG_DIR: str = os.getenv("LOG_DIR", "logs")
     
     # Authentication
     JWT_SECRET: str = field(default_factory=_get_jwt_secret)

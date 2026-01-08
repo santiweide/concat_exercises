@@ -1,0 +1,62 @@
+{
+  "log-3e1e1445": {
+    "id": "log-3e1e1445",
+    "operationType": 2,
+    "questionId": "q-001",
+    "questionTitle": "2023年全国卷I",
+    "questionNumber": "A",
+    "articleContent": "The rapid development of artificial intelligence has sparked debates about its impact on society. While some experts believe AI will create new opportunities and enhance human capabilities, others worry about job displacement and ethical concerns.\n\nRecent studies show that AI is already transforming industries from healthcare to finance. In medicine, AI algorithms can now detect diseases earlier than human doctors in many cases. Financial institutions use AI to detect fraud and manage risk more effectively.\n\nHowever, the technology also raises important questions. Who is responsible when an AI system makes a mistake? How do we ensure AI systems are fair and unbiased? These are challenges that society must address as AI becomes more prevalent.\n\nDespite these concerns, many researchers remain optimistic. They argue that with proper regulation and ethical guidelines, AI can be a powerful tool for addressing global challenges such as climate change, poverty, and disease.",
+    "questionContent": "1. According to the passage, what is the main concern about AI development?\nA) The cost of implementation\nB) Job displacement and ethical issues\nC) Lack of computing power\nD) Limited applications\n\n2. How is AI being used in healthcare according to the text?\nA) Replacing all human doctors\nB) Managing hospital administration\nC) Detecting diseases earlier than humans\nD) Developing new medicines\n\n3. What does the passage suggest about the future of AI?\nA) It will solve all global problems\nB) It should be banned due to risks\nC) It can be beneficial with proper regulation\nD) It will replace human intelligence\n\n4. What question does the passage raise about AI responsibility?\nA) Who pays for AI development\nB) Who is responsible when AI makes mistakes\nC) Who should control AI companies\nD) Who can access AI technology",
+    "answers": [],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1767880740256
+  },
+  "log-11405e21": {
+    "id": "log-11405e21",
+    "operationType": 2,
+    "questionId": "q-002",
+    "questionTitle": "2023年全国卷I",
+    "questionNumber": "B",
+    "articleContent": "Climate change is reshaping ecosystems around the world, forcing many species to adapt or relocate. Scientists have observed that some bird species are migrating earlier in the spring and later in the fall, while others have shifted their ranges northward by hundreds of miles.\n\nMarine life is also affected. Coral reefs, which support about 25% of all marine species, are experiencing widespread bleaching due to warming ocean temperatures. Many fish species are moving to cooler waters, disrupting traditional fishing industries and local economies.\n\nPlants are responding too. In mountainous regions, tree lines are creeping higher up slopes as temperatures rise. Some plants are flowering earlier in the year, which can disrupt the timing of pollination if insects aren't active yet.\n\nThese changes create a complex web of challenges. When one species shifts its range or behavior, it affects the entire ecosystem. Predators may lose their prey, plants may lose their pollinators, and delicate balances that took millennia to develop can be disrupted in just a few decades.",
+    "questionContent": "5. What is the main topic of this passage?\nA) Bird migration patterns\nB) Ocean pollution\nC) Effects of climate change on ecosystems\nD) Mountain geography\n\n6. According to the text, what percentage of marine species do coral reefs support?\nA) 10%\nB) 25%\nC) 50%\nD) 75%\n\n7. How are plants in mountainous regions responding to climate change?\nA) Growing larger leaves\nB) Moving to lower elevations\nC) Tree lines moving higher up slopes\nD) Producing more seeds\n\n8. What does the passage suggest about ecosystem changes?\nA) They only affect a single species\nB) They happen over millions of years\nC) They create interconnected challenges\nD) They are easy to reverse",
+    "answers": [],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1767880742805
+  },
+  "log-28361f2f": {
+    "id": "log-28361f2f",
+    "operationType": 2,
+    "questionId": "q-003",
+    "questionTitle": "2022年全国卷II",
+    "questionNumber": "A",
+    "articleContent": "The concept of lifelong learning has become increasingly important in today's rapidly changing world. Traditional education models, which focused on preparing young people for a single career, are no longer sufficient. Adults now need to continuously update their skills to remain competitive in the job market.\n\nTechnology has made lifelong learning more accessible than ever. Online courses, webinars, and digital resources allow people to learn at their own pace, from anywhere in the world. Many universities now offer professional development programs specifically designed for working adults.\n\nCompanies are also recognizing the value of continuous learning. Progressive employers invest in training programs for their staff, understanding that employee development benefits both the individual and the organization. Some companies even offer tuition reimbursement or dedicated learning time during work hours.\n\nThe challenge lies in motivation and time management. With busy work schedules and family responsibilities, many adults struggle to find time for learning. However, experts suggest that even small, consistent efforts—such as reading industry publications or taking short online courses—can make a significant difference over time.",
+    "questionContent": "9. Why is lifelong learning considered important according to the passage?\nA) It's required by law\nB) Traditional education is no longer sufficient\nC) It's free and accessible\nD) Everyone has too much free time\n\n10. How has technology changed lifelong learning?\nA) Made it more expensive\nB) Made it only available in classrooms\nC) Made it more accessible and flexible\nD) Made it less necessary\n\n11. What do progressive employers offer according to the text?\nA) Higher salaries only\nB) Longer vacations\nC) Training and development programs\nD) Remote work exclusively\n\n12. What challenge does the passage mention regarding lifelong learning?\nA) Lack of available courses\nB) High costs\nC) Motivation and time management\nD) Language barriers",
+    "answers": [],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1767880744637
+  },
+  "log-aeb2c36a": {
+    "id": "log-aeb2c36a",
+    "operationType": 2,
+    "questionId": "q-004",
+    "questionTitle": "2022年全国卷II",
+    "questionNumber": "B",
+    "articleContent": "Urban farming is emerging as a solution to food security challenges in cities worldwide. As urban populations grow, the distance between food production and consumption increases, leading to higher costs and environmental impacts from transportation.\n\nRooftop gardens, vertical farms, and community gardens are transforming unused urban spaces into productive agricultural areas. These urban farms can grow fresh vegetables, herbs, and even raise chickens or bees in the heart of cities. Some advanced vertical farms use hydroponic systems and LED lighting to grow crops year-round, regardless of weather conditions.\n\nThe benefits extend beyond fresh food. Urban farms create green spaces that improve air quality and reduce urban heat. They also provide educational opportunities, bringing people closer to understanding where their food comes from. Community gardens, in particular, foster social connections and strengthen neighborhood bonds.\n\nHowever, urban farming faces obstacles. Limited space, high land costs, and zoning regulations can make it difficult to establish farms in cities. Additionally, urban farms typically can't match the scale of rural agriculture, so they complement rather than replace traditional farming.",
+    "questionContent": "13. What problem does urban farming aim to address?\nA) Rural unemployment\nB) Food security in cities\nC) Lack of parks\nD) Air pollution only\n\n14. What technology do some vertical farms use?\nA) Solar panels only\nB) Wind turbines\nC) Hydroponic systems and LED lighting\nD) Traditional soil farming\n\n15. According to the passage, what is a social benefit of community gardens?\nA) Higher property values\nB) Strengthening neighborhood bonds\nC) Reducing crime rates\nD) Attracting tourists\n\n16. What limitation of urban farming is mentioned?\nA) Poor crop quality\nB) High water usage\nC) Cannot match the scale of rural agriculture\nD) Requires too much sunlight",
+    "answers": [],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1767880746655
+  },
+  "log-c60a0e9b": {
+    "id": "log-c60a0e9b",
+    "operationType": 2,
+    "questionId": "q-005",
+    "questionTitle": "2021年新高考卷",
+    "questionNumber": "A",
+    "articleContent": "The art of storytelling has evolved dramatically with new media, but its fundamental purpose remains unchanged: to connect people through shared experiences. Ancient humans told stories around campfires; today we share them through podcasts, videos, and social media.\n\nDigital platforms have democratized storytelling, allowing anyone with internet access to share their voice with a global audience. This has led to an explosion of diverse perspectives and narratives that were previously marginalized in mainstream media. Indigenous communities, for example, are using digital tools to preserve and share their cultural stories with younger generations.\n\nHowever, the digital age also presents challenges for storytelling. The average attention span has decreased, leading to a preference for shorter, more digestible content. The pressure to go \"viral\" can sometimes prioritize sensationalism over substance. Additionally, the sheer volume of content makes it difficult for quality stories to stand out.\n\nDespite these challenges, many creators are finding innovative ways to engage audiences. Interactive documentaries, immersive virtual reality experiences, and serialized podcasts are pushing the boundaries of what storytelling can be. The key, experts say, is to adapt the medium while staying true to the story's core message.",
+    "questionContent": "17. What does the passage say about the purpose of storytelling?\nA) It has changed completely in the digital age\nB) It remains focused on connecting people\nC) It is only for entertainment\nD) It is less important than before\n\n18. How have digital platforms affected storytelling?\nA) Made it available only to professionals\nB) Reduced the number of stories told\nC) Democratized access to storytelling\nD) Made storytelling more expensive\n\n19. What challenge does the passage mention about digital storytelling?\nA) Lack of technology\nB) Decreased attention spans\nC) Government censorship\nD) High production costs\n\n20. According to the text, what are creators doing to adapt?\nA) Returning to traditional methods only\nB) Avoiding social media completely\nC) Finding innovative ways to engage audiences\nD) Making longer content",
+    "answers": [],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1767880748571
+  }
+}

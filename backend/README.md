@@ -100,10 +100,10 @@ curl http://localhost:8080/api/questions/years
 
 ```
 backend/
-├── main.py              # 主入口
+├── main.py              # 主入口，如果用微服务架构则用main.py启动
 ├── config.py            # 配置
 ├── models.py            # Pydantic 数据模型
-├── server.py            # HTTP 服务器 & 路由
+├── server.py            # HTTP 服务器 & 路由，all in one
 ├── storage.py           # 数据存储（内存/数据库）
 ├── zmq_service.py       # ZeroMQ 通信层
 ├── handlers/
@@ -186,3 +186,8 @@ backend/
 
 1. 集成向量数据库 (如 Milvus, Pinecone)
 2. 在 `question_service.py` 中实现语义搜索逻辑
+
+
+```
+SERVICE_NAME=exam LOG_DIR=/var/log/exam python server.py
+```

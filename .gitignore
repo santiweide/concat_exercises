@@ -9,3 +9,5 @@ node_modules
 
 # Keep example file
 !.env.example
+
+*logs

@@ -8,6 +8,7 @@ import { LoginPage } from './components/LoginPage';
 import { VerifyPage } from './components/VerifyPage';
 import { QueueDashboard } from './components/QueueDashboard';
 import { ImportPaperPage } from './components/ImportPaperPage';
+import { QuestionManagementPage } from './components/QuestionManagementPage';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { Toaster } from './components/ui/sonner';
 import { toast } from 'sonner';
@@ -22,7 +23,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from './components/ui/alert-dialog';
-import { LogOut, User, ArrowLeft, Save, FileUp } from 'lucide-react';
+import { LogOut, User, ArrowLeft, Save, FileUp, Database } from 'lucide-react';
 import { API_BASE_URL } from '../api/config';
 
 const STORAGE_KEY = 'exam-queue-system';
@@ -387,6 +388,16 @@ function MainApp() {
     );
   }
 
+  // Route: Question management page
+  if (route === '/management') {
+    return (
+      <>
+        <QuestionManagementPage onBack={() => navigate('/')} />
+        <Toaster />
+      </>
+    );
+  }
+
   // Main app (authenticated)
   // Show dashboard if no queue selected
   if (!selectedQueueId) {
@@ -406,6 +417,10 @@ function MainApp() {
                 <Button variant="outline" size="sm" onClick={() => navigate('/import')}>
                   <FileUp className="h-4 w-4 mr-2" />
                   导入试卷
+                </Button>
+                <Button variant="outline" size="sm" onClick={() => navigate('/management')}>
+                  <Database className="h-4 w-4 mr-2" />
+                  题库编辑
                 </Button>
                 <div className="flex items-center gap-2 text-sm text-gray-600">
                   <User className="h-4 w-4" />

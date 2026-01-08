@@ -56,6 +56,8 @@ class ReadingQuestion(BaseModel):
     subQuestionCount: int = Field(default=0, description="Number of sub-questions in this reading question")
     createdAt: int = Field(default_factory=lambda: int(time.time() * 1000), description="Created timestamp (ms)")
     updatedAt: int = Field(default_factory=lambda: int(time.time() * 1000), description="Updated timestamp (ms)")
+    deleted: bool = Field(default=False, description="Soft delete flag")
+    deletedAt: Optional[int] = Field(default=None, description="Deleted timestamp (ms)")
 
 
 class Queue(BaseModel):
@@ -83,6 +85,27 @@ class User(BaseModel):
     name: str
     avatarUrl: str = ""
     createdAt: int = Field(default_factory=lambda: int(time.time() * 1000))
+
+
+class OperationType(IntEnum):
+    """Operation type enum for audit logs."""
+    CREATE = 1
+    DELETE = 2
+    RESTORE = 3
+
+
+class QuestionOperationLog(BaseModel):
+    """Operation log for question changes (add/delete)."""
+    id: str = Field(description="Unique log ID")
+    operationType: OperationType = Field(description="Operation type: CREATE, DELETE, RESTORE")
+    questionId: str = Field(description="The question ID that was operated on")
+    questionTitle: str = Field(description="Question title at the time of operation")
+    questionNumber: str = Field(description="Question number (A, B, C, D)")
+    articleContent: str = Field(description="Article content at the time of operation")
+    questionContent: str = Field(description="Question content at the time of operation")
+    answers: list[dict] = Field(default_factory=list, description="Answers at the time of operation")
+    operatorEmail: str = Field(description="Operator email")
+    operatedAt: int = Field(default_factory=lambda: int(time.time() * 1000), description="Operation timestamp (ms)")
 
 
 # ============================================================================

@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import Optional, List, Dict, Any
 import structlog
 
-from models import ReadingQuestion, Queue, QueueDetail
+from models import ReadingQuestion, Queue, QueueDetail, QuestionOperationLog, OperationType
 
 logger = structlog.get_logger()
 
@@ -21,6 +21,7 @@ DATA_DIR = Path(__file__).parent / "data"
 QUESTIONS_FILE = DATA_DIR / "questions.json"
 QUEUES_FILE = DATA_DIR / "queues.json"
 USERS_FILE = DATA_DIR / "users.json"
+OPERATION_LOGS_FILE = DATA_DIR / "operation_logs.json"
 
 
 def ensure_data_dir():
@@ -137,8 +138,11 @@ class QuestionStore:
             self.questions[q.id] = q
     
     def search(self, query: str = "", year: Optional[int] = None, labels: List[str] = None,
-               page: int = 1, page_size: int = 20) -> tuple[List[ReadingQuestion], int]:
+               page: int = 1, page_size: int = 20, include_deleted: bool = False) -> tuple[List[ReadingQuestion], int]:
         results = list(self.questions.values())
+        # Filter out deleted questions unless explicitly requested
+        if not include_deleted:
+            results = [q for q in results if not getattr(q, 'deleted', False)]
         if year:
             results = [q for q in results if q.year == year]
         if labels:
@@ -155,11 +159,17 @@ class QuestionStore:
         results = results[start:start + page_size]
         return results, total
     
-    def get(self, id: str) -> Optional[ReadingQuestion]:
-        return self.questions.get(id)
+    def get(self, id: str, include_deleted: bool = False) -> Optional[ReadingQuestion]:
+        question = self.questions.get(id)
+        if question and not include_deleted and getattr(question, 'deleted', False):
+            return None
+        return question
     
-    def batch_get(self, ids: List[str]) -> List[ReadingQuestion]:
-        return [self.questions[id] for id in ids if id in self.questions]
+    def batch_get(self, ids: List[str], include_deleted: bool = False) -> List[ReadingQuestion]:
+        results = [self.questions[id] for id in ids if id in self.questions]
+        if not include_deleted:
+            results = [q for q in results if not getattr(q, 'deleted', False)]
+        return results
     
     def create(self, data: dict) -> ReadingQuestion:
         now = int(time.time() * 1000)
@@ -198,6 +208,47 @@ class QuestionStore:
             self._save()
             return True
         return False
+    
+    def soft_delete(self, id: str) -> Optional[ReadingQuestion]:
+        """Soft delete a question by setting deleted flag."""
+        question = self.questions.get(id)
+        if not question or getattr(question, 'deleted', False):
+            return None
+        now = int(time.time() * 1000)
+        update_data = question.model_dump()
+        update_data['deleted'] = True
+        update_data['deletedAt'] = now
+        update_data['updatedAt'] = now
+        updated = ReadingQuestion(**update_data)
+        self.questions[id] = updated
+        self._save()
+        logger.info("Question soft deleted", id=id)
+        return updated
+    
+    def restore(self, id: str) -> Optional[ReadingQuestion]:
+        """Restore a soft-deleted question."""
+        question = self.questions.get(id)
+        if not question or not getattr(question, 'deleted', False):
+            return None
+        now = int(time.time() * 1000)
+        update_data = question.model_dump()
+        update_data['deleted'] = False
+        update_data['deletedAt'] = None
+        update_data['updatedAt'] = now
+        updated = ReadingQuestion(**update_data)
+        self.questions[id] = updated
+        self._save()
+        logger.info("Question restored", id=id)
+        return updated
+    
+    def list_deleted(self, page: int = 1, page_size: int = 20) -> tuple[List[ReadingQuestion], int]:
+        """List all soft-deleted questions."""
+        results = [q for q in self.questions.values() if getattr(q, 'deleted', False)]
+        results.sort(key=lambda q: q.deletedAt or 0, reverse=True)
+        total = len(results)
+        start = (page - 1) * page_size
+        results = results[start:start + page_size]
+        return results, total
     
     def exists_by_title(self, title: str) -> bool:
         """Check if any question with the given title exists."""
@@ -426,3 +477,73 @@ class UserStore:
 question_store = QuestionStore()
 queue_store = QueueStore(question_store)
 user_store = UserStore()
+
+
+class OperationLogStore:
+    """Persistent operation log storage using JSON file."""
+    
+    def __init__(self):
+        self.logs: Dict[str, QuestionOperationLog] = {}
+        self._load()
+    
+    def _load(self):
+        """Load logs from file."""
+        data = load_json_file(OPERATION_LOGS_FILE)
+        for log_id, log_data in data.items():
+            self.logs[log_id] = QuestionOperationLog(**log_data)
+        logger.info("Operation logs loaded", count=len(self.logs))
+    
+    def _save(self):
+        """Save logs to file."""
+        data = {log_id: log.model_dump() for log_id, log in self.logs.items()}
+        save_json_file(OPERATION_LOGS_FILE, data)
+    
+    def create(self, operation_type: OperationType, question: ReadingQuestion, operator_email: str) -> QuestionOperationLog:
+        """Create a new operation log entry."""
+        now = int(time.time() * 1000)
+        log = QuestionOperationLog(
+            id=f"log-{uuid.uuid4().hex[:8]}",
+            operationType=operation_type,
+            questionId=question.id,
+            questionTitle=question.title,
+            questionNumber=question.questionNumber,
+            articleContent=question.articleContent,
+            questionContent=question.questionContent,
+            answers=question.answers,
+            operatorEmail=operator_email,
+            operatedAt=now
+        )
+        self.logs[log.id] = log
+        self._save()
+        logger.info("Operation log created", log_id=log.id, operation=operation_type.name, question_id=question.id)
+        return log
+    
+    def list(self, page: int = 1, page_size: int = 20, 
+             operation_type: Optional[OperationType] = None,
+             question_id: Optional[str] = None,
+             operator_email: Optional[str] = None) -> tuple[List[QuestionOperationLog], int]:
+        """List operation logs with optional filters."""
+        results = list(self.logs.values())
+        
+        if operation_type is not None:
+            results = [log for log in results if log.operationType == operation_type]
+        if question_id:
+            results = [log for log in results if log.questionId == question_id]
+        if operator_email:
+            results = [log for log in results if log.operatorEmail == operator_email]
+        
+        # Sort by operation time, newest first
+        results.sort(key=lambda log: log.operatedAt, reverse=True)
+        
+        total = len(results)
+        start = (page - 1) * page_size
+        results = results[start:start + page_size]
+        return results, total
+    
+    def get(self, log_id: str) -> Optional[QuestionOperationLog]:
+        """Get a single log by ID."""
+        return self.logs.get(log_id)
+
+
+# Initialize operation log store
+operation_log_store = OperationLogStore()

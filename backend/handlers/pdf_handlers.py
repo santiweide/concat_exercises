@@ -6,8 +6,20 @@ import structlog
 import tempfile
 import os
 from services.pdf_import_service import pdf_import_service
+from services.auth_service import auth_service
 
 logger = structlog.get_logger()
+
+
+def get_user_email_from_request(request: web.Request) -> str:
+    """Extract user email from Authorization header."""
+    auth_header = request.headers.get('Authorization', '')
+    if auth_header.startswith('Bearer '):
+        token = auth_header[7:]
+        payload = auth_service.verify_jwt(token)
+        if payload:
+            return payload.get('email', '')
+    return ''
 
 
 async def parse_paper(request: web.Request) -> web.Response:
@@ -90,8 +102,15 @@ async def confirm_import(request: web.Request) -> web.Response:
         # Extract forceOverwrite flag from request body
         force_overwrite = body.pop('forceOverwrite', False)
         
+        # Get operator email from auth token
+        operator_email = get_user_email_from_request(request)
+        
         # Confirm import and save to database
-        result = await pdf_import_service.confirm_import(body, force_overwrite=force_overwrite)
+        result = await pdf_import_service.confirm_import(
+            body, 
+            force_overwrite=force_overwrite,
+            operator_email=operator_email
+        )
         
         if result['success']:
             return web.json_response({
