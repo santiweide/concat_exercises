@@ -11,3 +11,6 @@ node_modules
 !.env.example
 
 *logs
+
+example
+.DS_Store
