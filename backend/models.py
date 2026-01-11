@@ -48,11 +48,13 @@ class ReadingQuestion(BaseModel):
     id: str = Field(description="Unique question ID")
     title: str = Field(description="Source title (e.g., 2023年全国卷I)")
     year: int = Field(description="Year")
-    questionNumber: str = Field(description="Question number (A, B, C, D)")
-    articleContent: str = Field(description="Article content")
-    questionContent: str = Field(description="Question and options")
+    section: str = Field(default="", description="Section name: 第一部分 知识运用, 第二部分 阅读理解, 第三部分 书面表达")
+    subsection: str = Field(default="", description="Subsection name: 第一节, 第二节")
+    questionNumber: str = Field(description="Question number (A, B, C, D for reading; 1-10 for cloze, etc.)")
+    articleContent: str = Field(description="Article content in LaTeX format")
+    questionContent: str = Field(description="Question and options in LaTeX format")
     labels: list[str] = Field(default_factory=list, description="Labels")
-    answers: list[dict] = Field(default_factory=list, description="Answer list, each item has 'number' (int) and 'answer' (A/B/C/D)")
+    answers: list[dict] = Field(default_factory=list, description="Answer list, each item has 'number' (int or str) and 'answer' (A/B/C/D or text)")
     subQuestionCount: int = Field(default=0, description="Number of sub-questions in this reading question")
     createdAt: int = Field(default_factory=lambda: int(time.time() * 1000), description="Created timestamp (ms)")
     updatedAt: int = Field(default_factory=lambda: int(time.time() * 1000), description="Updated timestamp (ms)")
@@ -116,6 +118,8 @@ class SearchQuestionsRequest(BaseModel):
     """Search questions request."""
     query: str = ""
     year: Optional[int] = None
+    section: Optional[str] = None
+    subsection: Optional[str] = None
     labels: list[str] = Field(default_factory=list)
     pagination: PaginationRequest = Field(default_factory=PaginationRequest)
 

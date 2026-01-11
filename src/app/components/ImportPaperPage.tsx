@@ -19,6 +19,13 @@ import {
   DialogTitle,
   DialogFooter,
 } from './ui/dialog';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from './ui/select';
 
 // Types for answers
 interface QuestionAnswer {
@@ -29,6 +36,8 @@ interface QuestionAnswer {
 // Types for preview data
 interface PreviewQuestion {
   id: string;
+  section: string;
+  subsection: string;
   questionNumber: string;
   articleContent: string;
   questionContent: string;
@@ -78,12 +87,16 @@ export function ImportPaperPage({ onBack }: ImportPaperPageProps) {
   // Edit modal state
   const [editingQuestion, setEditingQuestion] = useState<PreviewQuestion | null>(null);
   const [editFormData, setEditFormData] = useState<{
+    section: string;
+    subsection: string;
     articleContent: string;
     questionContent: string;
     labels: string[];
     newLabel: string;
     answers: QuestionAnswer[];
   }>({
+    section: '',
+    subsection: '',
     articleContent: '',
     questionContent: '',
     labels: [],
@@ -164,7 +177,7 @@ export function ImportPaperPage({ onBack }: ImportPaperPageProps) {
 
       if (response.ok && result.success) {
         setPreviewData(result.preview);
-        toast.success(`成功解析 ${result.preview.totalQuestions} 道阅读题，请确认后导入`);
+        toast.success(`成功解析 ${result.preview.totalQuestions} 道试题，请确认后导入`);
       } else {
         toast.error(result.message || '解析失败');
       }
@@ -192,6 +205,8 @@ export function ImportPaperPage({ onBack }: ImportPaperPageProps) {
           title: previewData.title,
           year: previewData.year,
           questions: previewData.questions.map(q => ({
+            section: q.section || '',
+            subsection: q.subsection || '',
             questionNumber: q.questionNumber,
             articleContent: q.articleContent,
             questionContent: q.questionContent,
@@ -214,7 +229,7 @@ export function ImportPaperPage({ onBack }: ImportPaperPageProps) {
         });
         setPreviewData(null);
         setShowOverwriteDialog(false);
-        toast.success(`成功${forceOverwrite ? '覆盖' : ''}导入 ${result.questionsImported} 道阅读题`);
+        toast.success(`成功${forceOverwrite ? '覆盖' : ''}导入 ${result.questionsImported} 道试题`);
       } else if (result.duplicate) {
         // Paper with same title already exists, show confirmation dialog
         setDuplicateTitle(previewData.title);
@@ -242,6 +257,8 @@ export function ImportPaperPage({ onBack }: ImportPaperPageProps) {
   const handleEditQuestion = (question: PreviewQuestion) => {
     setEditingQuestion(question);
     setEditFormData({
+      section: question.section || '',
+      subsection: question.subsection || '',
       articleContent: question.articleContent,
       questionContent: question.questionContent,
       labels: [...question.labels],
@@ -261,6 +278,8 @@ export function ImportPaperPage({ onBack }: ImportPaperPageProps) {
           q.id === editingQuestion.id
             ? {
                 ...q,
+                section: editFormData.section,
+                subsection: editFormData.subsection,
                 articleContent: editFormData.articleContent,
                 questionContent: editFormData.questionContent,
                 labels: editFormData.labels,
@@ -355,7 +374,7 @@ export function ImportPaperPage({ onBack }: ImportPaperPageProps) {
           </Button>
           <h1 className="text-3xl font-bold">导入试卷</h1>
           <p className="text-gray-500 mt-2">
-            上传试卷PDF，系统将自动提取阅读题目和文章内容，并生成语义标签
+            上传试卷PDF，系统将自动提取试题和文章内容，并生成语义标签
           </p>
         </div>
 
@@ -435,7 +454,7 @@ export function ImportPaperPage({ onBack }: ImportPaperPageProps) {
                 </div>
                 <Progress value={uploadProgress} />
                 <p className="text-xs text-gray-500">
-                  AI正在分析PDF内容，提取阅读题目和生成标签，这可能需要1-2分钟
+                  AI正在分析PDF内容，提取试题和生成标签，这可能需要1-2分钟
                 </p>
               </div>
             )}
@@ -492,12 +511,27 @@ export function ImportPaperPage({ onBack }: ImportPaperPageProps) {
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-2">
                           <span className="font-semibold text-lg">
-                            阅读题 {question.questionNumber}
+                            {question.questionNumber}
                           </span>
                           <span className="text-sm text-gray-500">
                             ({question.subQuestionCount} 道小题)
                           </span>
                         </div>
+                        {/* Display section and subsection */}
+                        {(question.section || question.subsection) && (
+                          <div className="flex items-center gap-2 mb-2">
+                            {question.section && (
+                              <Badge variant="outline" className="text-xs">
+                                {question.section}
+                              </Badge>
+                            )}
+                            {question.subsection && (
+                              <Badge variant="outline" className="text-xs">
+                                {question.subsection}
+                              </Badge>
+                            )}
+                          </div>
+                        )}
                         <p className="text-sm text-gray-600 truncate mb-2">
                           {question.articleSummary}
                         </p>
@@ -605,7 +639,7 @@ export function ImportPaperPage({ onBack }: ImportPaperPageProps) {
                             key={index}
                             className="flex items-center justify-between p-3 bg-gray-50 rounded-lg"
                           >
-                            <span className="font-medium">阅读题 {q.questionNumber}</span>
+                            <span className="font-medium">{q.questionNumber}</span>
                             <div className="flex gap-1">
                               {q.labels.map((label, i) => (
                                 <span
@@ -662,11 +696,46 @@ export function ImportPaperPage({ onBack }: ImportPaperPageProps) {
         <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle>
-              编辑阅读题 {editingQuestion?.questionNumber}
+              编辑试题 {editingQuestion?.questionNumber}
             </DialogTitle>
           </DialogHeader>
           
           <div className="space-y-6 py-4">
+            {/* Section and Subsection */}
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium mb-2">部分 (Section)</label>
+                <Select 
+                  value={editFormData.section} 
+                  onValueChange={(value) => setEditFormData(prev => ({ ...prev, section: value }))}
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="选择部分" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="第一部分 知识运用">第一部分 知识运用</SelectItem>
+                    <SelectItem value="第二部分 阅读理解">第二部分 阅读理解</SelectItem>
+                    <SelectItem value="第三部分 书面表达">第三部分 书面表达</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium mb-2">小节 (Subsection)</label>
+                <Select 
+                  value={editFormData.subsection} 
+                  onValueChange={(value) => setEditFormData(prev => ({ ...prev, subsection: value }))}
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="选择小节" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="第一节">第一节</SelectItem>
+                    <SelectItem value="第二节">第二节</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+
             {/* Article Content */}
             <div>
               <label className="block text-sm font-medium mb-2">文章内容</label>

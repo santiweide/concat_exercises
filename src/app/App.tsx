@@ -126,7 +126,7 @@ function MainApp() {
     })
       .then(res => res.json())
       .then(data => {
-        if (data.queue) {
+        if (data.queue && data.queue.queue) {
           const loadedQueue = {
             id: data.queue.queue.id,
             name: data.queue.queue.name,
@@ -137,6 +137,9 @@ function MainApp() {
           };
           setQueue(loadedQueue);
           setOriginalQueue(loadedQueue);
+        } else {
+          console.error('Invalid queue data structure:', data);
+          toast.error('队列数据格式错误');
         }
       })
       .catch(err => {
@@ -305,6 +308,32 @@ function MainApp() {
     }
   };
 
+  const handleUpdateSection = (questionId: string, section: string, subsection: string) => {
+    setQuestions(prev =>
+      prev.map(q => q.id === questionId ? { ...q, section, subsection } : q)
+    );
+    setQueue(prev => ({
+      ...prev,
+      questions: prev.questions.map(q =>
+        q.id === questionId ? { ...q, section, subsection } : q
+      )
+    }));
+    if (selectedQuestion?.id === questionId) {
+      setSelectedQuestion(prev => prev ? { ...prev, section, subsection } : null);
+    }
+    // Also update on backend
+    if (token) {
+      fetch(`${API_BASE_URL}/api/questions/${questionId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({ section, subsection }),
+      }).catch(err => console.error('Failed to update section:', err));
+    }
+  };
+
   const handleLogout = async () => {
     await logout();
     setSelectedQueueId(null);
@@ -408,7 +437,7 @@ function MainApp() {
           <header className="bg-white border-b px-6 py-4">
             <div className="flex items-center justify-between">
               <div>
-                <h1 className="text-2xl">英语阅读题组卷系统</h1>
+                <h1 className="text-2xl">英语试题组卷系统</h1>
                 <p className="text-sm text-gray-500 mt-1">
                   从题库中选择题目，组织成试卷队列
                 </p>
@@ -483,17 +512,6 @@ function MainApp() {
               </div>
             </div>
             <div className="flex items-center gap-4">
-              {/* Save Button */}
-              <Button 
-                variant={hasUnsavedChanges ? "default" : "outline"}
-                size="sm" 
-                onClick={handleSaveQueue}
-                disabled={!hasUnsavedChanges || saving || queue.frozen}
-              >
-                <Save className="h-4 w-4 mr-2" />
-                {saving ? '保存中...' : '保存'}
-              </Button>
-              
               <div className="flex items-center gap-2 text-sm text-gray-600">
                 <User className="h-4 w-4" />
                 <span>{user?.email}</span>
@@ -515,6 +533,9 @@ function MainApp() {
               onRemoveQuestion={handleRemoveFromQueue}
               onReorderQuestions={handleReorderQuestions}
               onToggleFreeze={handleToggleFreeze}
+              onSave={handleSaveQueue}
+              saving={saving}
+              hasUnsavedChanges={hasUnsavedChanges}
               onExport={handleExport}
               onImport={handleImport}
               onViewQuestion={setSelectedQuestion}
@@ -537,6 +558,7 @@ function MainApp() {
           question={selectedQuestion}
           onClose={() => setSelectedQuestion(null)}
           onUpdateLabels={handleUpdateLabels}
+          onUpdateSection={handleUpdateSection}
         />
       )}
 

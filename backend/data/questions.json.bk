@@ -455,6 +455,238 @@
     "deleted": false,
     "deletedAt": null
   },
+  "q-cecf7e5a": {
+    "id": "q-cecf7e5a",
+    "title": "北京市朝阳区高三年级第二学期质量检测一",
+    "year": 2025,
+    "section": "",
+    "subsection": "",
+    "questionNumber": "完形填空",
+    "articleContent": "Newborn babies aren’t afraid of the dark. They don’t have a \\clozeblank{1} of the dark yet; that comes later. One day, my 2-year-old daughter suddenly said, “Too dark!” after we turned out the light. She believed something was under the bed. To \\clozeblank{2} her fears, I plugged in the desk lamp to prove there were no monsters.\nWhen I first started writing, I didn’t worry about the dark as I could create all kinds of stories. After graduation, I became a busy parent. My writing \\clozeblank{3} . Nights that I would spend reading or thinking were gone. I wrote at 5 am before the \\clozeblank{4} of the everyday housework—laundry, playdates and feedings—but soon nodded off. I was so \\clozeblank{5} . Writing anxiety grew slowly.\nWorn out, I forgot to buy a nightlight. The desk lamp was too bright. A nightlight was enough to help my daughter see the outline of the bed. It would burn through the night, calming her fears. She didn’t need it to see; she needed it to feel \\clozeblank{6} . In the basement I found an old plastic Christmas tree and took it up to her room. My daughter saw it and clapped \\clozeblank{7} , “Light! My light!” It sits there year-round. A Christmas tree in July is odd, but perfect doesn’t \\clozeblank{8} , and besides, it casts the ideal amount of light.\nIn being a parent and a writer, there is no fixed \\clozeblank{9} , no one way of doing things that is right; only things that we must do one odd. Many things bring the light. Some bring just enough light that you are no longer afraid. The shadowy light that says, Don’t be scared, write it! It is a light to \\clozeblank{10} you, to keep you going. And it burns through the night, keeping the monsters at bay.",
+    "questionContent": "\\textbf{1.} \\option{A. secret}{B. hope}{C. fear}{D. habit}\n\\textbf{2.} \\option{A. wipe}{B. hide}{C. stop}{D. draw}\n\\textbf{3.} \\option{A. slowed}{B. ceased}{C. improved}{D. increased}\n\\textbf{4.} \\option{A. training}{B. division}{C. movement}{D. repetition}\n\\textbf{5.} \\option{A. lonely}{B. tired}{C. focused}{D. energetic}\n\\textbf{6.} \\option{A. safe}{B. quiet}{C. proud}{D. confident}\n\\textbf{7.} \\option{A. shyly}{B. softly}{C. politely}{D. excitedly}\n\\textbf{8.} \\option{A. last}{B. exist}{C. work}{D. arrive}\n\\textbf{9.} \\option{A. need}{B. term}{C. bond}{D. routine}\n\\textbf{10.} \\option{A. guide}{B. blind}{C. attract}{D. follow}",
+    "labels": [
+      "记叙文",
+      "亲子关系",
+      "成长",
+      "情感"
+    ],
+    "answers": [],
+    "subQuestionCount": 0,
+    "createdAt": 1767929683756,
+    "updatedAt": 1767929683756,
+    "deleted": false,
+    "deletedAt": null
+  },
+  "q-510527db": {
+    "id": "q-510527db",
+    "title": "北京市朝阳区高三年级第二学期质量检测一",
+    "year": 2025,
+    "section": "",
+    "subsection": "",
+    "questionNumber": "语法填空A",
+    "articleContent": "Zhu Mengdan, a 15-year-old from the Li ethnic (少数民族的) group, grew up climbing coconut trees. However, she had never imagined her childhood game \\clozeblank{11} (become) an official event at a national competition one day. In 2024, as the youngest competitor on Hainan’s team, Zhu \\clozeblank{12} (participate) in the coconut tree climbing competition at the National Traditional Games of Ethnic Minorities. “ \\clozeblank{13} makes the event so special is that it showcases Hainan’s unique cultural identity. I hope this event continues to grow,” she remarked.",
+    "questionContent": "",
+    "labels": [
+      "传统文化",
+      "少数民族",
+      "体育"
+    ],
+    "answers": [],
+    "subQuestionCount": 0,
+    "createdAt": 1767929683759,
+    "updatedAt": 1767929683759,
+    "deleted": false,
+    "deletedAt": null
+  },
+  "q-18577389": {
+    "id": "q-18577389",
+    "title": "北京市朝阳区高三年级第二学期质量检测一",
+    "year": 2025,
+    "section": "",
+    "subsection": "",
+    "questionNumber": "语法填空B",
+    "articleContent": "DeepSeek-R1, \\clozeblank{14} core technologies are built upon next-generation large language model architecture, highlights China’s growing strength in AI innovation. This smart assistant can answer complex questions, create digital art and even write computer code. DeepSeek-R1 learns by repeatedly \\clozeblank{15} (try), unlike other AIs that rely on large amounts of prepared examples. It practises many times and gets \\clozeblank{16} (good), much like how students master maths. \\clozeblank{17} the development of DeepSeek-R1, China shows the world that great things come from new ideas and hard work, not just money.",
+    "questionContent": "",
+    "labels": [
+      "人工智能",
+      "科技",
+      "创新"
+    ],
+    "answers": [],
+    "subQuestionCount": 0,
+    "createdAt": 1767929683761,
+    "updatedAt": 1767929683761,
+    "deleted": false,
+    "deletedAt": null
+  },
+  "q-55dc5129": {
+    "id": "q-55dc5129",
+    "title": "北京市朝阳区高三年级第二学期质量检测一",
+    "year": 2025,
+    "section": "",
+    "subsection": "",
+    "questionNumber": "语法填空C",
+    "articleContent": "It’s difficult \\clozeblank{18} (understand) jargon-filled (充满行话的) writing that academics have long been accused of. To track academic writing over time, The Economist analysed 347,000 PhD abstracts \\clozeblank{19} (publish) between 1812 and 2023. They found that the abstracts have become harder to read. Though specialization and advances in technology require more precise terms, the trend of unreadable academic writing \\clozeblank{20} (grow) stronger. Clear and simple writing would be a breath of fresh air.",
+    "questionContent": "",
+    "labels": [
+      "学术写作",
+      "语言",
+      "趋势"
+    ],
+    "answers": [],
+    "subQuestionCount": 0,
+    "createdAt": 1767929683764,
+    "updatedAt": 1767929683764,
+    "deleted": false,
+    "deletedAt": null
+  },
+  "q-52141173": {
+    "id": "q-52141173",
+    "title": "北京市朝阳区高三年级第二学期质量检测一",
+    "year": 2025,
+    "section": "",
+    "subsection": "",
+    "questionNumber": "A",
+    "articleContent": "UNESCO is inviting teams and individuals from Asia and the Pacific to submit case studies on the roles and risks of intangible cultural heritage (ICH) (非物质文化遗产) in the context of climate change. The goal is to safeguard ICH while advancing sustainable development. These case studies will deepen the understanding of the links between ICH and environmental sustainability, and inform future policies and practices in heritage protection and climate action.\n\nFocus of the Case Studies:\nSubmitted case studies should address one or more of the following questions in detail:\n\\begin{itemize}\n    \\item What roles does ICH play in identifying, assessing and monitoring climate change?\n    \\item What roles does ICH play in promoting communities’ adaptation and safeguarding against climate change?\n    \\item What roles does ICH play in reducing carbon emissions (排放) and disaster risk?\n    \\item What are the cultural, social and economic impacts and risks to ICH practice, transmission (传承) and safeguarding due to climate change?\n    \\item What changes to ICH are required for adaptation to climate change?\n    \\item What are local and regional strategies for safeguarding ICH in the context of climate change?\n\\end{itemize}\nThe case studies should be grounded in evidence-based research and involve the widest possible participation of the community, groups or individuals. They should highlight the links between cultural diversity and environmental sustainability and offer locally-suited solutions for sustainable development.\n\nSubmission Details:\nThe case studies should be written in English and between 3,000 and 5,000 words in length. All submissions are to be sent to beijing.culture@unesco.org before April 15th, 2025. Authors of selected case studies may have the opportunity to participate in publications or international conferences.",
+    "questionContent": "\\textbf{21.} Why is UNESCO calling for case studies?\n\\optiontwo{A. To show the risk of climate change.}{B. To protect ICH in a sustainable way.}\n\\optiontwo{C. To stress UNESCO’s importance.}{D. To raise funds for ICH protection.}\n\\textbf{22.} Which of the following is a focus of the case studies?\n\\optionone{A. ICH’s role in evaluating climate change.}{B. ICH’s economic value for communities.}\n\\optionone{C. Global strategies to safeguard ICH.}{D. Carbon emissions’ effects on ICH.}\n\\textbf{23.} The case studies to be submitted should \\myblank[1cm].\n\\optionone{A. cover all the listed questions}{B. maximize public participation}\n\\optionone{C. be based on personal opinions}{D. be written in Chinese or English}",
+    "labels": [
+      "环境",
+      "文化遗产",
+      "说明文"
+    ],
+    "answers": [],
+    "subQuestionCount": 0,
+    "createdAt": 1767929683767,
+    "updatedAt": 1767929683767,
+    "deleted": false,
+    "deletedAt": null
+  },
+  "q-58aa71ce": {
+    "id": "q-58aa71ce",
+    "title": "北京市朝阳区高三年级第二学期质量检测一",
+    "year": 2025,
+    "section": "",
+    "subsection": "",
+    "questionNumber": "B",
+    "articleContent": "Luther Gerlach’s images enrich the permanent collections of the J. Paul Getty Museum in Los Angeles and the National Portrait Gallery in London, among other institutions.\n\nWhile studying his work, one cannot help but revisit the journey he undertook in pursuit of art. Gerlach has dyslexia, a condition that makes it difficult for him to read and spell, and in middle school, it began to affect his studies. At the University of Minnesota, where Gerlach studied biology, his struggle with writing reached a tipping point. Gerlach left the university and entered art school. “Art has never been something that slowed me down, in contrast to the written word,” Gerlach says.\n\nAfter graduating from art school, Gerlach took what he learned and traveled across the United States selling his prints at art fairs. It was the late 1980s, and Gerlach traveled roughly 90,000 miles a year, taking photos along the way. He was making $100,000 a year doing what he loved.\n\nBut the emergence of digital photography changed everything. Photographers began to use Photoshop to create the hand-brushed quality of Gerlach’s photographs and told customers they were using the same process Gerlach was using. “I would hear them talking—complete lies,” he says.\n\nRather than dive into digital, Gerlach moved into a photographic process that was quite unusual: the wet collodion (火棉胶) process, invented in 1851. The process involves coating a plate of glass or metal with collodion, followed by using a silver nitrate (硝酸银) bath to make the plate sensitive to light. The plate is then placed in a light-tight film holder, with the photo made almost immediately while the plate is still wet.\n\nIt wasn’t easy when he first started, but Gerlach has always considered “constant problem solving” to be part of the creative process. It made Gerlach feel “present as an artist”. “I saw the final product right there in front of me. The same leaves on the tree that I’m standing in front of are on the image,” Gerlach explains. “The process allowed me to feel more like a photographer instead of a machine that printed prints to sell so I could make money. And when the final product works, nothing else compares to it.”",
+    "questionContent": "\\textbf{24.} Luther Gerlach’s dyslexia \\myblank[1cm].\n\\optiontwo{A. forced him to change his major}{B. drove him to go into business}\n\\optiontwo{C. made him drop out of middle school}{D. affected his artistic performance}\n\\textbf{25.} As digital photography emerged, Luther Gerlach \\myblank[1cm].\n\\optionone{A. adopted a unique photographic technique}{B. set off for new places to take photographs}\n\\optionone{C. praised photographers for using Photoshop}{D. improved the hand-brushed quality of his photos}\n\\textbf{26.} Why did Luther Gerlach prefer the wet collodion process?\n\\optionone{A. It was cheap and reliable.}{B. It was easy and efficient.}\n\\optionone{C. It gave him artistic satisfaction.}{D. It helped him sell prints for profit.}\n\\textbf{27.} What can we learn from this passage?\n\\optionone{A. Necessity inspires invention.}{B. Everything comes to those who wait.}\n\\optionone{C. Hope for the best; prepare for the worst.}{D. Dare to be different in a world of copycats.}",
+    "labels": [
+      "人物传记",
+      "艺术",
+      "摄影"
+    ],
+    "answers": [],
+    "subQuestionCount": 0,
+    "createdAt": 1767929683769,
+    "updatedAt": 1767929683769,
+    "deleted": false,
+    "deletedAt": null
+  },
+  "q-0f2c9c74": {
+    "id": "q-0f2c9c74",
+    "title": "北京市朝阳区高三年级第二学期质量检测一",
+    "year": 2025,
+    "section": "",
+    "subsection": "",
+    "questionNumber": "C",
+    "articleContent": "When people view photographs of frightening spiders, scientists usually observe increased electrical activity deep in their brain, in a region called the periaqueductal gray (PAG). The obvious conclusion is that the PAG controls fight-or-flight responses in threatening situations. But what if brains don’t have dedicated circuits for fighting and fighting? Is threat detection really a primary mode of the brain with its own neural circuitry (神经回路)?\n\nThis idea of fight-or-flight circuits originates from the “triune brain” model dividing brains into the so-called lizard brain, including the PAG, for survival functions, the “limbic system” for emotions, and the “neocortex” for higher-order reasoning. If you know anything about evolution, you might know that something is spurious. The only animal on this planet with a lizard brain is a lizard. Also, there’s no unified limbic “system” or the “neocortex” for emotions or rationality (理性), respectively. So where does this leave the fight-or-flight story?\n\nRecently, changes in PAG activity have been observed in nonthreatening tasks, such as reading a fascinating article about the brain. The PAG has also been proved to regulate bodily systems continuously. Incidentally, this explains why antianxiety medications manage anxiety disorders without healing them. They target brain circuits that aren’t dedicated to anxiety or fight-or-flight but that simply regulate the body.\n\nResearches on the brain’s powers also cast new light on our understandings. In daily life, individuals might feel like they perceive and react to various stimuli as either threatening or safe. Actually, the brain, using past experiences, skillfully predicts and formulates action plans in anticipation of events before stimuli occur. The brain’s preparatory mechanism, metabolically (新陈代谢地) expensive, involves complicated neuronal activities for sustaining multiple predictions and corresponding action plans over extended periods. But the experiences in fight-or-flight responses crafted by your brain don’t reveal how it works.\n\nMoreover, your brain, which does much more than avoid threats, handles a complex social world full of uncertainty. That’s a recipe for stress. And what is stress? It reflects energy preparation for anticipated challenges. Your brain often makes sense of metabolic cost of uncertainty, if it drags on for long enough, as anxiety, but that’s not a must. People seek uncertainty outward—its positive cousin, novelty—when they try new foods or learn new skills. Uncertainty is common, but these days, with social media and round-the-clock news coverage, it sometimes bombards us and leaves us anxious and exhausted. But these feelings don’t emerge from fight-or-flight circuits. They may just mean, in an ever changing and only partly predictable world, that you’re doing something hard.",
+    "questionContent": "\\textbf{28.} The author asks the questions in Paragraph 1 to \\myblank[1cm].\n\\optiontwo{A. evaluate a statement}{B. justify an assumption}\n\\optiontwo{C. challenge an argument}{D. introduce a new concept}\n\\textbf{29.} Which does the underlined word “spurious” in Paragraph 2 probably mean?\n\\optiontwo{A. Rare.}{B. Wrong.}\n\\optiontwo{C. Limited.}{D. Unexpected.}\n\\textbf{30.} What can we infer from this passage?\n\\optionone{A. Hunting for novelty reduces stress and anxiety.}{B. Medicine targeting PAG cures anxiety disorders.}\n\\optionone{C. Uncertainty is a product of modern media and news cycles.}{D. The “Fight or Flight” idea overlooks the brain’s predictive power.}",
+    "labels": [
+      "神经科学",
+      "心理学",
+      "大脑"
+    ],
+    "answers": [],
+    "subQuestionCount": 0,
+    "createdAt": 1767929683772,
+    "updatedAt": 1767929683772,
+    "deleted": false,
+    "deletedAt": null
+  },
+  "q-31ff7919": {
+    "id": "q-31ff7919",
+    "title": "北京市朝阳区高三年级第二学期质量检测一",
+    "year": 2025,
+    "section": "",
+    "subsection": "",
+    "questionNumber": "D",
+    "articleContent": "In the field where philosophy and neuroscience overlap, few questions have fascinated and confused humanity as deeply as the concept of free will. At first glance, the idea that we have the power to make choices that are not predetermined seems intuitive (直觉的). However, a closer examination reveals a complex web of philosophical arguments and scientific findings that challenge this seemingly straightforward concept.\n\nFrom a philosophical standpoint, the debate around free will has continued intensely for centuries. Compatibilists argue free will can coexist with determinism, as long as our actions are a result of our own desires and motivations. For example, choosing a music career out of passion is considered as a free choice within this framework. In contrast, incompatibilists maintain free will and determinism are mutually exclusive. Hard determinists view the universe as a closed system governed by strict laws of nature, where every event, including human actions, is predetermined. In this view, the idea of free will is an illusion (幻觉).\n\nNeuroscience has advanced markedly in decoding the brain, revealing that many actions are preceded (先于) by neural activity. Studies on the brain’s reward system and neurotransmitters, particularly dopamine (多巴胺), further challenge the nature of free will. Addictive behaviors, for instance, can be strongly influenced by the brain’s response to dopamine. A person struggling with addiction may feel they lack the free will to resist it, as their brain chemistry has been altered in a way that forces them into acting.\n\nThe scientific evidence is not conclusive, though. Some argue that the neural activity observed before conscious decisions may not be the cause of the action but rather part of the preparatory process for a decision that is still freely made. Additionally, the complexity of the human brain and the fact that much of its functioning is still not fully understood leave room for the possibility of free will.\n\nIf free will is an illusion, it challenges our fundamental notions of moral responsibility. We praise and blame people for their actions because we believe they could have acted differently. How can we hold individuals accountable for their actions if they were never truly free to choose otherwise? Without free will, the essential moral framework of our societies would collapse into chaotic indifference. Free will is only an illusion if you are, too.",
+    "questionContent": "\\textbf{31.} Which of the following situations reflects the compatibilists’ view?\n\\optionone{A. Driven by dopamine, Tim keeps checking his social media.}{B. Lucy speaks first after being randomly selected by software.}\n\\optionone{C. Exposed to a sudden blinding light, Lily quickly shuts her eyes.}{D. Jerry shifts between companies of shared bikes based on discounts.}\n\\textbf{32.} What can we learn from the passage?\n\\optionone{A. The altered brain chemistry enhances free will.}{B. Conscious decisions are independent of neural activities.}\n\\optionone{C. Hard determinists see free will vital to moral accountability.}{D. Neuroscientists’ views on the causes of human actions differ.}\n\\textbf{33.} As for the existence of free will, the author is \\myblank[1cm].\n\\option{A. neutral}{B. disapproving}{C. positive}{D. doubtful}\n\\textbf{34.} Which would be the best title for the passage?\n\\optionone{A. Does Neuroscience Threaten Free Will?}{B. Why the Arguments Against Free Will Fail}\n\\optionone{C. Exploration into the Complexity of Free Will}{D. Free Will: Bridging Neuroscience and Philosophy}",
+    "labels": [
+      "哲学",
+      "神经科学",
+      "自由意志"
+    ],
+    "answers": [],
+    "subQuestionCount": 0,
+    "createdAt": 1767929683774,
+    "updatedAt": 1767929683774,
+    "deleted": false,
+    "deletedAt": null
+  },
+  "q-38baf61d": {
+    "id": "q-38baf61d",
+    "title": "北京市朝阳区高三年级第二学期质量检测一",
+    "year": 2025,
+    "section": "",
+    "subsection": "",
+    "questionNumber": "七选五",
+    "articleContent": "When I think of my friends, I am mostly filled with love and warmth; I simply can’t wait to see them again for their affection and support. \\clozeblank{35} In the right mood, these individuals can deliver a fun-filled evening, but at the wrong moment, they can drain (耗尽) all my goodwill.\nIf this sounds familiar, then you too have frenemies, who psychologists call “ambivalent relationships”. These love-hate relationships could include a friend, a parent, a colleague or even a husband or wife. Their ambivalence can come in many forms. \\clozeblank{36} It could be a partner love-bombing you one day, but fiercely critical the next, leaving you unsure about their true feelings.\n\\clozeblank{37} At the very least, you would expect them to be better for us than our aversive (令人厌恶的) relationships. Unfortunately, research suggests things aren’t so simple. A team at the University of Utah asked people to take a reaction-time test and they found that rapidly flashing the name of an ambivalent connection on a screen intensified stress response of participants. Another study at Brigham Young University found that simply knowing an ambivalent connection was nearby as participants prepared to give a speech was enough to send their blood pressure rocketing. \\clozeblank{38}\nCutting ties with our ambivalent connections isn’t always possible or desirable if they are deeply mixed into our social network. So, what can be done? Simply being aware of the ambivalent nature of a relationship might offer some protection. We can manage our expectations and mentally prepare ourselves for the mixed feelings when interacting with frenemies. \\clozeblank{39} As importantly, be a little more mindful of any interactions with all our ties. Show others the appreciation and respect we feel for them, for accidental neglect could be taken as a sign of indifference.",
+    "questionContent": "\\begin{enumerate}[label=\\Alph{*}.]\n\\item A. It might be a friend who is often unavailable when you need his support.\n\\item B. We might hope that in such relationships, the good would outweigh the bad.\n\\item C. In fact, even unconscious reminders of a frenemy can break our peace of mind.\n\\item D. This allows us to focus on their good qualities and show empathy for the unpleasant ones.\n\\item E. If you feel someone too negative a presence in your life, you may decide to cut off contact.\n\\item F. A handful, however, stimulate quite different emotions—a mixture of eagerness and anxiety.\n\\item G. After all, the benefits of social connection come from feeling well understood and supported.\n\\end{enumerate}",
+    "labels": [
+      "人际关系",
+      "心理学",
+      "社交"
+    ],
+    "answers": [],
+    "subQuestionCount": 0,
+    "createdAt": 1767929683810,
+    "updatedAt": 1767929683810,
+    "deleted": false,
+    "deletedAt": null
+  },
+  "q-16f06e9b": {
+    "id": "q-16f06e9b",
+    "title": "北京市朝阳区高三年级第二学期质量检测一",
+    "year": 2025,
+    "section": "",
+    "subsection": "",
+    "questionNumber": "阅读表达",
+    "articleContent": "Growing up, my favourite children’s book was Amelia Bedelia. Amelia’s silly behaviours that were a result of her literal interpretation of language often had me laughing. When she was told to dust the furniture, instead of grabbing a feather duster, she sprinkled (撒) dust all over the chairs and tables. A classic moment in Amelia’s life.\n\nRecently, several of my friends have decided to limit their use of electronic devices for chatting to avoid potential misunderstandings. Yet, I enjoy using these tools to stay connected with my children and grandchildren. But I admit it does lead to more frequent Amelia Bedelia moments.\n\nThe other day I was providing childcare for my granddaughter Cora and her one-year-old brother, Zay. Zay was sleeping while Cora was in her bedroom colouring, with her tablet right next to her. Hoping to have a few minutes of peace, I told Cora I would be in the backyard and that she should call me if Zay woke up. Shortly after, the door opened. There was Cora, red-faced, struggling to carry Zay. I quickly took him from her, gently scolding (训斥), “Cora, I told you to call me.”\n\nShe simply replied, “Grandma, I did call you. You didn’t answer. Where’s your phone?” Her call had come via an app on her tablet to my phone which was on the kitchen table. Clearly, we had different ideas of what “call” meant.\n\nAs my grandchildren become more proficient (熟练) with technology and the language of a different generation, there is no doubt our Amelia Bedelia moments will only increase. I can resist the misunderstandings by putting my phone away, but to enjoy the smile of the loved ones, I’d rather keep it closer to me to experience the silly accidents that will occur.",
+    "questionContent": "\\textbf{40.} What caused Amelia's silly behaviours?\n\\textbf{41.} Why didn't the author's granddaughter call her the way she had expected?\n\\textbf{42.} Please decide which part is false in the following statement, then underline it and explain why.\n\\textit{The author cherishes Amelia Bedelia moments because she wants to resist the misunderstandings.}\n\\textbf{43.} If you experience an Amelia Bedelia moment, what would you do? (In about 40 words )",
+    "labels": [
+      "记叙文",
+      "代际沟通",
+      "幽默"
+    ],
+    "answers": [],
+    "subQuestionCount": 0,
+    "createdAt": 1767929683815,
+    "updatedAt": 1767929683815,
+    "deleted": false,
+    "deletedAt": null
+  },
+  "q-8209f5ca": {
+    "id": "q-8209f5ca",
+    "title": "北京市朝阳区高三年级第二学期质量检测一",
+    "year": 2025,
+    "section": "",
+    "subsection": "",
+    "questionNumber": "作文",
+    "articleContent": "",
+    "questionContent": "假没你是红星中学高三学生李华。你校正在举办以 “美丽校园” 为主题的原创作品征集活动，交换生 Jim 打算参加，发来邮件询问你的建议。请你用英文给他回复，内容包括：\n1. 建议创作内容；\n2. 就以上建议简要说明理由。\n注意：1. 词数 100 左右；\n2. 开头和结尾已给出，不计入总词数。\nDear Jim,\n\n\n\n\n\nYours,\nLi Hua",
+    "labels": [
+      "应用文",
+      "书信",
+      "校园生活"
+    ],
+    "answers": [],
+    "subQuestionCount": 0,
+    "createdAt": 1767929683817,
+    "updatedAt": 1767929683817,
+    "deleted": false,
+    "deletedAt": null
+  },
   "q-019c67fd": {
     "id": "q-019c67fd",
     "title": "北京市丰台区 2024~2025 学年度第二学期综合练习（一）",
@@ -684,231 +916,6 @@
     "subQuestionCount": 0,
     "createdAt": 1767931118289,
     "updatedAt": 1767931118289,
-    "deleted": false,
-    "deletedAt": null
-  },
-  "q-0dde6f92": {
-    "id": "q-0dde6f92",
-    "title": "北京市朝阳区高三年级第二学期质量检测一",
-    "year": 2025,
-    "section": "",
-    "subsection": "",
-    "questionNumber": "完形填空",
-    "articleContent": "Newborn babies aren’t afraid of the dark. They don’t have a \\clozeblank{1} of the dark yet; that comes later. One day, my 2-year-old daughter suddenly said, “Too dark!” after we turned out the light. She believed something was under the bed. To \\clozeblank{2} her fears, I plugged in the desk lamp to prove there were no monsters.\nWhen I first started writing, I didn’t worry about the dark as I could create all kinds of stories. After graduation, I became a busy parent. My writing \\clozeblank{3} . Nights that I would spend reading or thinking were gone. I wrote at 5 am before the \\clozeblank{4} of the everyday housework—laundry, playdates and feedings—but soon nodded off. I was so \\clozeblank{5} . Writing anxiety grew slowly.\nWorn out, I forgot to buy a nightlight. The desk lamp was too bright. A nightlight was enough to help my daughter see the outline of the bed. It would burn through the night, calming her fears. She didn’t need it to see; she needed it to feel \\clozeblank{6} . In the basement I found an old plastic Christmas tree and took it up to her room. My daughter saw it and clapped \\clozeblank{7} , “Light! My light!” It sits there year-round. A Christmas tree in July is odd, but perfect doesn’t \\clozeblank{8} , and besides, it casts the ideal amount of light.\nIn being a parent and a writer, there is no fixed \\clozeblank{9} , no one way of doing things that is right; only things that we must do one odd. Many things bring the light. Some bring just enough light that you are no longer afraid. The shadowy light that says, Don’t be scared, write it! It is a light to \\clozeblank{10} you, to keep you going. And it burns through the night, keeping the monsters at bay.",
-    "questionContent": "\\textbf{1.} \\option{A. secret}{B. hope}{C. fear}{D. habit}\n\\textbf{2.} \\option{A. wipe}{B. hide}{C. stop}{D. draw}\n\\textbf{3.} \\option{A. slowed}{B. ceased}{C. improved}{D. increased}\n\\textbf{4.} \\option{A. training}{B. division}{C. movement}{D. repetition}\n\\textbf{5.} \\option{A. lonely}{B. tired}{C. focused}{D. energetic}\n\\textbf{6.} \\option{A. safe}{B. quiet}{C. proud}{D. confident}\n\\textbf{7.} \\option{A. shyly}{B. softly}{C. politely}{D. excitedly}\n\\textbf{8.} \\option{A. last}{B. exist}{C. work}{D. arrive}\n\\textbf{9.} \\option{A. need}{B. term}{C. bond}{D. routine}\n\\textbf{10.} \\option{A. guide}{B. blind}{C. attract}{D. follow}",
-    "labels": [
-      "记叙文",
-      "亲子关系",
-      "成长"
-    ],
-    "answers": [],
-    "subQuestionCount": 0,
-    "createdAt": 1767971160386,
-    "updatedAt": 1767971160386,
-    "deleted": false,
-    "deletedAt": null
-  },
-  "q-4ff4718c": {
-    "id": "q-4ff4718c",
-    "title": "北京市朝阳区高三年级第二学期质量检测一",
-    "year": 2025,
-    "section": "",
-    "subsection": "",
-    "questionNumber": "语法填空A",
-    "articleContent": "Zhu Mengdan, a 15-year-old from the Li ethnic (少数民族的) group, grew up climbing coconut trees. However, she had never imagined her childhood game \\clozeblank{11} (become) an official event at a national competition one day. In 2024, as the youngest competitor on Hainan’s team, Zhu \\clozeblank{12} (participate) in the coconut tree climbing competition at the National Traditional Games of Ethnic Minorities. “\\clozeblank{13} makes the event so special is that it showcases Hainan’s unique cultural identity. I hope this event continues to grow,” she remarked.",
-    "questionContent": "",
-    "labels": [
-      "传统文化",
-      "少数民族"
-    ],
-    "answers": [],
-    "subQuestionCount": 0,
-    "createdAt": 1767971160397,
-    "updatedAt": 1767971160397,
-    "deleted": false,
-    "deletedAt": null
-  },
-  "q-ed46fb28": {
-    "id": "q-ed46fb28",
-    "title": "北京市朝阳区高三年级第二学期质量检测一",
-    "year": 2025,
-    "section": "",
-    "subsection": "",
-    "questionNumber": "语法填空B",
-    "articleContent": "DeepSeek-R1, \\clozeblank{14} core technologies are built upon next-generation large language model architecture, highlights China’s growing strength in AI innovation. This smart assistant can answer complex questions, create digital art and even write computer code. DeepSeek-R1 learns by repeatedly \\clozeblank{15} (try), unlike other AIs that rely on large amounts of prepared examples. It practises many times and gets \\clozeblank{16} (good), much like how students master maths. \\clozeblank{17} the development of DeepSeek-R1, China shows the world that great things come from new ideas and hard work, not just money.",
-    "questionContent": "",
-    "labels": [
-      "人工智能",
-      "科技"
-    ],
-    "answers": [],
-    "subQuestionCount": 0,
-    "createdAt": 1767971160403,
-    "updatedAt": 1767971160403,
-    "deleted": false,
-    "deletedAt": null
-  },
-  "q-374a0bb3": {
-    "id": "q-374a0bb3",
-    "title": "北京市朝阳区高三年级第二学期质量检测一",
-    "year": 2025,
-    "section": "",
-    "subsection": "",
-    "questionNumber": "语法填空C",
-    "articleContent": "It’s difficult \\clozeblank{18} (understand) jargon-filled (充满行话的) writing that academics have long been accused of. To track academic writing over time, The Economist analysed 347,000 PhD abstracts \\clozeblank{19} (publish) between 1812 and 2023. They found that the abstracts have become harder to read. Though specialization and advances in technology require more precise terms, the trend of unreadable academic writing \\clozeblank{20} (grow) stronger. Clear and simple writing would be a breath of fresh air.",
-    "questionContent": "",
-    "labels": [
-      "学术写作",
-      "语言学"
-    ],
-    "answers": [],
-    "subQuestionCount": 0,
-    "createdAt": 1767971160409,
-    "updatedAt": 1767971160409,
-    "deleted": false,
-    "deletedAt": null
-  },
-  "q-6169a393": {
-    "id": "q-6169a393",
-    "title": "北京市朝阳区高三年级第二学期质量检测一",
-    "year": 2025,
-    "section": "",
-    "subsection": "",
-    "questionNumber": "A",
-    "articleContent": "UNESCO is inviting teams and individuals from Asia and the Pacific to submit case studies on the roles and risks of intangible cultural heritage (ICH) (非物质文化遗产) in the context of climate change. The goal is to safeguard ICH while advancing sustainable development. These case studies will deepen the understanding of the links between ICH and environmental sustainability, and inform future policies and practices in heritage protection and climate action.\n\nFocus of the Case Studies:\nSubmitted case studies should address one or more of the following questions in detail:\n\\begin{itemize}\n    \\item What roles does ICH play in identifying, assessing and monitoring climate change?\n    \\item What roles does ICH play in promoting communities’ adaptation and safeguarding against climate change?\n    \\item What roles does ICH play in reducing carbon emissions (排放) and disaster risk?\n    \\item What are the cultural, social and economic impacts and risks to ICH practice, transmission (传承) and safeguarding due to climate change?\n    \\item What changes to ICH are required for adaptation to climate change?\n    \\item What are local and regional strategies for safeguarding ICH in the context of climate change?\n\\end{itemize}\nThe case studies should be grounded in evidence-based research and involve the widest possible participation of the community, groups or individuals. They should highlight the links between cultural diversity and environmental sustainability and offer locally-suited solutions for sustainable development.\n\nSubmission Details:\nThe case studies should be written in English and between 3,000 and 5,000 words in length. All submissions are to be sent to beijing.culture@unesco.org before April 15th, 2025. Authors of selected case studies may have the opportunity to participate in publications or international conferences.",
-    "questionContent": "\\textbf{21.} Why is UNESCO calling for case studies?\n\\optiontwo{A. To show the risk of climate change.}{B. To protect ICH in a sustainable way.}\n{C. To stress UNESCO’s importance.}{D. To raise funds for ICH protection.}\n\\textbf{22.} Which of the following is a focus of the case studies?\n\\optiontwo{A. ICH’s role in evaluating climate change.}{B. ICH’s economic value for communities.}\n{C. Global strategies to safeguard ICH.}{D. Carbon emissions’ effects on ICH.}\n\\textbf{23.} The case studies to be submitted should \\myblank[1cm].\n\\optionone{A. cover all the listed questions}{B. maximize public participation}{C. be based on personal opinions}{D. be written in Chinese or English}",
-    "labels": [
-      "环境",
-      "文化遗产",
-      "说明文"
-    ],
-    "answers": [],
-    "subQuestionCount": 0,
-    "createdAt": 1767971160416,
-    "updatedAt": 1767971160416,
-    "deleted": false,
-    "deletedAt": null
-  },
-  "q-7d54c00a": {
-    "id": "q-7d54c00a",
-    "title": "北京市朝阳区高三年级第二学期质量检测一",
-    "year": 2025,
-    "section": "",
-    "subsection": "",
-    "questionNumber": "B",
-    "articleContent": "Luther Gerlach’s images enrich the permanent collections of the J. Paul Getty Museum in Los Angeles and the National Portrait Gallery in London, among other institutions.\n\nWhile studying his work, one cannot help but revisit the journey he undertook in pursuit of art. Gerlach has dyslexia, a condition that makes it difficult for him to read and spell, and in middle school, it began to affect his studies. At the University of Minnesota, where Gerlach studied biology, his struggle with writing reached a tipping point. Gerlach left the university and entered art school. “Art has never been something that slowed me down, in contrast to the written word,” Gerlach says.\n\nAfter graduating from art school, Gerlach took what he learned and traveled across the United States selling his prints at art fairs. It was the late 1980s, and Gerlach traveled roughly 90,000 miles a year, taking photos along the way. He was making $100,000 a year doing what he loved.\n\nBut the emergence of digital photography changed everything. Photographers began to use Photoshop to create the hand-brushed quality of Gerlach’s photographs and told customers they were using the same process Gerlach was using. “I would hear them talking—complete lies,” he says.\n\nRather than dive into digital, Gerlach moved into a photographic process that was quite unusual: the wet collodion (火棉胶) process, invented in 1851. The process involves coating a plate of glass or metal with collodion, followed by using a silver nitrate (硝酸银) bath to make the plate sensitive to light. The plate is then placed in a light-tight film holder, with the photo made almost immediately while the plate is still wet.\n\nIt wasn’t easy when he first started, but Gerlach has always considered “constant problem solving” to be part of the creative process. It made Gerlach feel “present as an artist”. “I saw the final product right there in front of me. The same leaves on the tree that I’m standing in front of are on the image,” Gerlach explains. “The process allowed me to feel more like a photographer instead of a machine that printed prints to sell so I could make money. And when the final product works, nothing else compares to it.”",
-    "questionContent": "\\textbf{24.} Luther Gerlach’s dyslexia \\myblank[1cm].\n\\optiontwo{A. forced him to change his major}{B. drove him to go into business}{C. made him drop out of middle school}{D. affected his artistic performance}\n\\textbf{25.} As digital photography emerged, Luther Gerlach \\myblank[1cm].\n\\optiontwo{A. adopted a unique photographic technique}{B. set off for new places to take photographs}{C. praised photographers for using Photoshop}{D. improved the hand-brushed quality of his photos}\n\\textbf{26.} Why did Luther Gerlach prefer the wet collodion process?\n\\optiontwo{A. It was cheap and reliable.}{B. It was easy and efficient.}\n{C. It gave him artistic satisfaction.}{D. It helped him sell prints for profit.}\n\\textbf{27.} What can we learn from this passage?\n\\optiontwo{A. Necessity inspires invention.}{B. Everything comes to those who wait.}\n{C. Hope for the best; prepare for the worst.}{D. Dare to be different in a world of copycats.}",
-    "labels": [
-      "人物传记",
-      "摄影",
-      "艺术"
-    ],
-    "answers": [],
-    "subQuestionCount": 0,
-    "createdAt": 1767971160422,
-    "updatedAt": 1767971160422,
-    "deleted": false,
-    "deletedAt": null
-  },
-  "q-b6e20ba4": {
-    "id": "q-b6e20ba4",
-    "title": "北京市朝阳区高三年级第二学期质量检测一",
-    "year": 2025,
-    "section": "",
-    "subsection": "",
-    "questionNumber": "C",
-    "articleContent": "When people view photographs of frightening spiders, scientists usually observe increased electrical activity deep in their brain, in a region called the periaqueductal gray (PAG). The obvious conclusion is that the PAG controls fight-or-flight responses in threatening situations. But what if brains don’t have dedicated circuits for fighting and fighting? Is threat detection really a primary mode of the brain with its own neural circuitry (神经回路)?\n\nThis idea of fight-or-flight circuits originates from the “triune brain” model dividing brains into the so-called lizard brain, including the PAG, for survival functions, the “limbic system” for emotions, and the “neocortex” for higher-order reasoning. If you know anything about evolution, you might know that something is spurious. The only animal on this planet with a lizard brain is a lizard. Also, there’s no unified limbic “system” or the “neocortex” for emotions or rationality (理性), respectively. So where does this leave the fight-or-flight story?\n\nRecently, changes in PAG activity have been observed in nonthreatening tasks, such as reading a fascinating article about the brain. The PAG has also been proved to regulate bodily systems continuously. Incidentally, this explains why antianxiety medications manage anxiety disorders without healing them. They target brain circuits that aren’t dedicated to anxiety or fight-or-flight but that simply regulate the body.\n\nResearches on the brain’s powers also cast new light on our understandings. In daily life, individuals might feel like they perceive and react to various stimuli as either threatening or safe. Actually, the brain, using past experiences, skillfully predicts and formulates action plans in anticipation of events before stimuli occur. The brain’s preparatory mechanism, metabolically (新陈代谢地) expensive, involves complicated neuronal activities for sustaining multiple predictions and corresponding action plans over extended periods. But the experiences in fight-or-flight responses crafted by your brain don’t reveal how it works.\n\nMoreover, your brain, which does much more than avoid threats, handles a complex social world full of uncertainty. That’s a recipe for stress. And what is stress? It reflects energy preparation for anticipated challenges. Your brain often makes sense of metabolic cost of uncertainty, if it drags on for long enough, as anxiety, but that’s not a must. People seek uncertainty outward—its positive cousin, novelty—when they try new foods or learn new skills. Uncertainty is common, but these days, with social media and round-the-clock news coverage, it sometimes bombards us and leaves us anxious and exhausted. But these feelings don’t emerge from fight-or-flight circuits. They may just mean, in an ever changing and only partly predictable world, that you’re doing something hard.",
-    "questionContent": "\\textbf{28.} The author asks the questions in Paragraph 1 to \\myblank[1cm].\n\\optiontwo{A. evaluate a statement}{B. justify an assumption}{C. challenge an argument}{D. introduce a new concept}\n\\textbf{29.} Which does the underlined word “spurious” in Paragraph 2 probably mean?\n\\optiontwo{A. Rare.}{B. Wrong.}\n{C. Limited.}{D. Unexpected.}\n\\textbf{30.} What can we infer from this passage?\n\\optionone{A. Hunting for novelty reduces stress and anxiety.}{B. Medicine targeting PAG cures anxiety disorders.}{C. Uncertainty is a product of modern media and news cycles.}{D. The “Fight or Flight” idea overlooks the brain’s predictive power.}",
-    "labels": [
-      "神经科学",
-      "心理学",
-      "说明文"
-    ],
-    "answers": [],
-    "subQuestionCount": 0,
-    "createdAt": 1767971160427,
-    "updatedAt": 1767971160427,
-    "deleted": false,
-    "deletedAt": null
-  },
-  "q-4aa85bfe": {
-    "id": "q-4aa85bfe",
-    "title": "北京市朝阳区高三年级第二学期质量检测一",
-    "year": 2025,
-    "section": "",
-    "subsection": "",
-    "questionNumber": "D",
-    "articleContent": "In the field where philosophy and neuroscience overlap, few questions have fascinated and confused humanity as deeply as the concept of free will. At first glance, the idea that we have the power to make choices that are not predetermined seems intuitive (直觉的). However, a closer examination reveals a complex web of philosophical arguments and scientific findings that challenge this seemingly straightforward concept.\n\nFrom a philosophical standpoint, the debate around free will has continued intensely for centuries. Compatibilists argue free will can coexist with determinism , as long as our actions are a result of our own desires and motivations. For example, choosing a music career out of passion is considered as a free choice within this framework. In contrast, incompatibilists maintain free will and determinism are mutually exclusive. Hard determinists view the universe as a closed system governed by strict laws of nature, where every event, including human actions, is predetermined. In this view, the idea of free will is an illusion (幻觉).\n\nNeuroscience has advanced markedly in decoding the brain, revealing that many actions are preceded (先于) by neural activity. Studies on the brain’s reward system and neurotransmitters, particularly dopamine (多巴胺), further challenge the nature of free will. Addictive behaviors, for instance, can be strongly influenced by the brain’s response to dopamine. A person struggling with addiction may feel they lack the free will to resist it, as their brain chemistry has been altered in a way that forces them into action.\n\nThe scientific evidence is not conclusive, though. Some argue that the neural activity observed before conscious decisions may not be the cause of the action but rather part of the preparatory process for a decision that is still freely made. Additionally, the complexity of the human brain and the fact that much of its functioning is still not fully understood leave room for the possibility of free will.\n\nIf free will is an illusion, it challenges our fundamental notions of moral responsibility. We praise and blame people for their actions because we believe they could have acted differently. How can we hold individuals accountable for their actions if they were never truly free to choose otherwise? Without free will, the essential moral framework of our societies would collapse into chaotic indifference. Free will is only an illusion if you are, too.",
-    "questionContent": "\\textbf{31.} Which of the following situations reflects the compatibilists’ view?\n\\optionone{A. Driven by dopamine, Tim keeps checking his social media.}{B. Lucy speaks first after being randomly selected by software.}{C. Exposed to a sudden blinding light, Lily quickly shuts her eyes.}{D. Jerry shifts between companies of shared bikes based on discounts.}\n\\textbf{32.} What can we learn from the passage?\n\\optiontwo{A. The altered brain chemistry enhances free will.}{B. Conscious decisions are independent of neural activities.}\n{C. Hard determinists see free will vital to moral accountability.}{D. Neuroscientists’ views on the causes of human actions differ.}\n\\textbf{33.} As for the existence of free will, the author is \\myblank[1cm].\n\\optiontwo{A. neutral}{B. disapproving}{C. positive}{D. doubtful}\n\\textbf{34.} Which would be the best title for the passage?\n\\optiontwo{A. Does Neuroscience Threaten Free Will?}{B. Why the Arguments Against Free Will Fail}{C. Exploration into the Complexity of Free Will}{D. Free Will: Bridging Neuroscience and Philosophy}",
-    "labels": [
-      "哲学",
-      "神经科学",
-      "自由意志"
-    ],
-    "answers": [],
-    "subQuestionCount": 0,
-    "createdAt": 1767971160433,
-    "updatedAt": 1767971160433,
-    "deleted": false,
-    "deletedAt": null
-  },
-  "q-d245baf5": {
-    "id": "q-d245baf5",
-    "title": "北京市朝阳区高三年级第二学期质量检测一",
-    "year": 2025,
-    "section": "",
-    "subsection": "",
-    "questionNumber": "七选五",
-    "articleContent": "When I think of my friends, I am mostly filled with love and warmth; I simply can’t wait to see them again for their affection and support. \\clozeblank{35} In the right mood, these individuals can deliver a fun-filled evening, but at the wrong moment, they can drain (耗尽) all my goodwill.\nIf this sounds familiar, then you too have frenemies, who psychologists call “ambivalent relationships”. These love-hate relationships could include a friend, a parent, a colleague or even a husband or wife. Their ambivalence can come in many forms. \\clozeblank{36} It could be a partner love-bombing you one day, but fiercely critical the next, leaving you unsure about their true feelings.\n\\clozeblank{37} At the very least, you would expect them to be better for us than our aversive (令人厌恶的) relationships. Unfortunately, research suggests things aren’t so simple. A team at the University of Utah asked people to take a reaction-time test and they found that rapidly flashing the name of an ambivalent connection on a screen intensified stress response of participants. Another study at Brigham Young University found that simply knowing an ambivalent connection was nearby as participants prepared to give a speech was enough to send their blood pressure rocketing. \\clozeblank{38}\nCutting ties with our ambivalent connections isn’t always possible or desirable if they are deeply mixed into our social network. So, what can be done? Simply being aware of the ambivalent nature of a relationship might offer some protection. We can manage our expectations and mentally prepare ourselves for the mixed feelings when interacting with frenemies. \\clozeblank{39} As importantly, be a little more mindful of any interactions with all our ties. Show others the appreciation and respect we feel for them, for accidental neglect could be taken as a sign of indifference.",
-    "questionContent": "\\begin{enumerate}[label=\\Alph{*}.]\n\\item A. It might be a friend who is often unavailable when you need his support.\n\\item B. We might hope that in such relationships, the good would outweigh the bad.\n\\item C. In fact, even unconscious reminders of a frenemy can break our peace of mind.\n\\item D. This allows us to focus on their good qualities and show empathy for the unpleasant ones.\n\\item E. If you feel someone too negative a presence in your life, you may decide to cut off contact.\n\\item F. A handful, however, stimulate quite different emotions—a mixture of eagerness and anxiety.\n\\item G. After all, the benefits of social connection come from feeling well understood and supported.\n\\end{enumerate}",
-    "labels": [
-      "人际关系",
-      "心理学"
-    ],
-    "answers": [],
-    "subQuestionCount": 0,
-    "createdAt": 1767971160440,
-    "updatedAt": 1767971160440,
-    "deleted": false,
-    "deletedAt": null
-  },
-  "q-405b3afc": {
-    "id": "q-405b3afc",
-    "title": "北京市朝阳区高三年级第二学期质量检测一",
-    "year": 2025,
-    "section": "",
-    "subsection": "",
-    "questionNumber": "阅读表达",
-    "articleContent": "Growing up, my favourite children’s book was Amelia Bedelia. Amelia’s silly behaviours that were a result of her literal interpretation of language often had me laughing. When she was told to dust the furniture, instead of grabbing a feather duster, she sprinkled (撒) dust all over the chairs and tables. A classic moment in Amelia’s life.\n\nRecently, several of my friends have decided to limit their use of electronic devices for chatting to avoid potential misunderstandings. Yet, I enjoy using these tools to stay connected with my children and grandchildren. But I admit it does lead to more frequent Amelia Bedelia moments.\n\nThe other day I was providing childcare for my granddaughter Cora and her one-year-old brother, Zay. Zay was sleeping while Cora was in her bedroom colouring, with her tablet right next to her. Hoping to have a few minutes of peace, I told Cora I would be in the backyard and that she should call me if Zay woke up. Shortly after, the door opened. There was Cora, red-faced, struggling to carry Zay. I quickly took him from her, gently scolding (训斥), “Cora, I told you to call me.”\n\nShe simply replied, “Grandma, I did call you. You didn’t answer. Where’s your phone?” Her call had come via an app on her tablet to my phone which was on the kitchen table. Clearly, we had different ideas of what “call” meant.\n\nAs my grandchildren become more proficient (熟练) with technology and the language of a different generation, there is no doubt our Amelia Bedelia moments will only increase. I can resist the misunderstandings by putting my phone away, but to enjoy the smile of the loved ones, I’d rather keep it closer to me to experience the silly accidents that will occur.",
-    "questionContent": "\\textbf{40.} What caused Amelia's silly behaviours?\n\\textbf{41.} Why didn't the author's granddaughter call her the way she had expected?\n\\textbf{42.} Please decide which part is false in the following statement, then underline it and explain why.\n\\textit{The author cherishes Amelia Bedelia moments because she wants to resist the misunderstandings.}\n\\textbf{43.} If you experience an Amelia Bedelia moment, what would you do? (In about 40 words )",
-    "labels": [
-      "记叙文",
-      "代际沟通"
-    ],
-    "answers": [],
-    "subQuestionCount": 0,
-    "createdAt": 1767971160444,
-    "updatedAt": 1767971160444,
-    "deleted": false,
-    "deletedAt": null
-  },
-  "q-9353e3cd": {
-    "id": "q-9353e3cd",
-    "title": "北京市朝阳区高三年级第二学期质量检测一",
-    "year": 2025,
-    "section": "",
-    "subsection": "",
-    "questionNumber": "作文",
-    "articleContent": "",
-    "questionContent": "假设你是红星中学高三学生李华。你校正在举办以“美丽校园”为主题的原创作品征集活动，交换生Jim打算参加，发来邮件询问你的建议。请你用英文给他回复，内容包括：\n1. 建议创作内容；\n2. 就以上建议简要说明理由。\n注意：1. 词数100左右；\n2. 开头和结尾已给出，不计入总词数。\nDear Jim,\n\nYours,\nLi Hua",
-    "labels": [
-      "应用文",
-      "书信"
-    ],
-    "answers": [],
-    "subQuestionCount": 0,
-    "createdAt": 1767971160448,
-    "updatedAt": 1767971160448,
     "deleted": false,
     "deletedAt": null
   }

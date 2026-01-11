@@ -88,7 +88,7 @@ export function LoginPage({ onLoginSuccess }: LoginPageProps) {
           </div>
           <CardTitle>登录</CardTitle>
           <CardDescription>
-            英语阅读题组卷系统
+            英语试题组卷系统
           </CardDescription>
         </CardHeader>
         <CardContent>

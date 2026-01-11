@@ -42,12 +42,22 @@ message ReadingQuestion {
   string id = 1;                    // 题目唯一ID
   string title = 2;                 // 来源题目（如：2023年全国卷I）
   int32 year = 3;                   // 年份
-  string question_number = 4;       // 阅读题编号（A, B, C, D等）
-  string article_content = 5;       // 文章内容
-  string question_content = 6;      // 题目和选项
-  repeated string labels = 7;       // 标签列表
-  int64 created_at = 8;             // 创建时间戳（Unix毫秒）
-  int64 updated_at = 9;             // 更新时间戳（Unix毫秒）
+  string section = 4;               // 部分：第一部分 知识运用, 第二部分 阅读理解, 第三部分 书面表达
+  string subsection = 5;            // 节：第一节, 第二节
+  string question_number = 6;       // 题目编号（A/B/C/D, 完形填空, 语法填空, 七选五, 阅读表达, 作文）
+  string article_content = 7;       // 文章内容（LaTeX格式）
+  string question_content = 8;      // 题目和选项（LaTeX格式）
+  repeated string labels = 9;       // 标签列表
+  repeated QuestionAnswer answers = 10; // 答案列表
+  int32 sub_question_count = 11;    // 小题数量
+  int64 created_at = 12;            // 创建时间戳（Unix毫秒）
+  int64 updated_at = 13;            // 更新时间戳（Unix毫秒）
+}
+
+// 题目答案
+message QuestionAnswer {
+  string number = 1;                // 题号（字符串，支持21或"40"等格式）
+  string answer = 2;                // 答案（A/B/C/D或填空文字）
 }
 
 // 组卷队列（基本信息）

@@ -16,7 +16,18 @@ interface SearchPanelProps {
 export function SearchPanel({ questions, onAddToQueue, onViewQuestion }: SearchPanelProps) {
   const [searchQuery, setSearchQuery] = useState('');
   const [yearFilter, setYearFilter] = useState<string>('all');
+  const [sectionFilter, setSectionFilter] = useState<string>('all');
+  const [subsectionFilter, setSubsectionFilter] = useState<string>('all');
   const [labelFilter, setLabelFilter] = useState<string>('all');
+
+  // Section options
+  const sectionOptions = [
+    '第一部分 知识运用',
+    '第二部分 阅读理解',
+    '第三部分 书面表达',
+  ];
+
+  const subsectionOptions = ['第一节', '第二节'];
 
   // Get unique years and labels
   const years = useMemo(() => {
@@ -35,6 +46,16 @@ export function SearchPanel({ questions, onAddToQueue, onViewQuestion }: SearchP
     return questions.filter(question => {
       // Year filter
       if (yearFilter !== 'all' && question.year.toString() !== yearFilter) {
+        return false;
+      }
+
+      // Section filter
+      if (sectionFilter !== 'all' && question.section !== sectionFilter) {
+        return false;
+      }
+
+      // Subsection filter
+      if (subsectionFilter !== 'all' && question.subsection !== subsectionFilter) {
         return false;
       }
 
@@ -60,7 +81,7 @@ export function SearchPanel({ questions, onAddToQueue, onViewQuestion }: SearchP
 
       return true;
     });
-  }, [questions, searchQuery, yearFilter, labelFilter]);
+  }, [questions, searchQuery, yearFilter, sectionFilter, subsectionFilter, labelFilter]);
 
   return (
     <div className="h-full flex flex-col">
@@ -80,9 +101,9 @@ export function SearchPanel({ questions, onAddToQueue, onViewQuestion }: SearchP
             </div>
 
             {/* Filters */}
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2">
               <Select value={yearFilter} onValueChange={setYearFilter}>
-                <SelectTrigger className="w-[140px]">
+                <SelectTrigger className="w-[120px]">
                   <SelectValue placeholder="年份" />
                 </SelectTrigger>
                 <SelectContent>
@@ -95,8 +116,36 @@ export function SearchPanel({ questions, onAddToQueue, onViewQuestion }: SearchP
                 </SelectContent>
               </Select>
 
+              <Select value={sectionFilter} onValueChange={setSectionFilter}>
+                <SelectTrigger className="w-[160px]">
+                  <SelectValue placeholder="第几部分" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">所有部分</SelectItem>
+                  {sectionOptions.map(section => (
+                    <SelectItem key={section} value={section}>
+                      {section}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+
+              <Select value={subsectionFilter} onValueChange={setSubsectionFilter}>
+                <SelectTrigger className="w-[100px]">
+                  <SelectValue placeholder="第几节" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all">所有节</SelectItem>
+                  {subsectionOptions.map(subsection => (
+                    <SelectItem key={subsection} value={subsection}>
+                      {subsection}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+
               <Select value={labelFilter} onValueChange={setLabelFilter}>
-                <SelectTrigger className="w-[140px]">
+                <SelectTrigger className="w-[120px]">
                   <SelectValue placeholder="标签" />
                 </SelectTrigger>
                 <SelectContent>
@@ -111,7 +160,7 @@ export function SearchPanel({ questions, onAddToQueue, onViewQuestion }: SearchP
             </div>
 
             {/* Active Filters Display */}
-            {(searchQuery || yearFilter !== 'all' || labelFilter !== 'all') && (
+            {(searchQuery || yearFilter !== 'all' || sectionFilter !== 'all' || subsectionFilter !== 'all' || labelFilter !== 'all') && (
               <div className="flex flex-wrap gap-2 items-center">
                 <span className="text-sm text-gray-500">筛选条件:</span>
                 {searchQuery && (
@@ -122,6 +171,16 @@ export function SearchPanel({ questions, onAddToQueue, onViewQuestion }: SearchP
                 {yearFilter !== 'all' && (
                   <Badge variant="outline">
                     {yearFilter}年
+                  </Badge>
+                )}
+                {sectionFilter !== 'all' && (
+                  <Badge variant="outline">
+                    {sectionFilter}
+                  </Badge>
+                )}
+                {subsectionFilter !== 'all' && (
+                  <Badge variant="outline">
+                    {subsectionFilter}
                   </Badge>
                 )}
                 {labelFilter !== 'all' && (

@@ -82,9 +82,11 @@ class QuestionStore:
                 id="q-001",
                 title="2023年全国卷I",
                 year=2023,
+                section="第二部分 阅读理解",
+                subsection="第一节",
                 questionNumber="A",
                 articleContent="In recent years, artificial intelligence has made remarkable progress...",
-                questionContent="1. What is the main idea of the passage?\nA. AI development\nB. Technology history\nC. Future predictions\nD. Scientific research",
+                questionContent="\\textbf{1.} What is the main idea of the passage?\n\\option{AI development}{Technology history}{Future predictions}{Scientific research}",
                 labels=["科技", "人工智能"],
                 createdAt=1704067200000,
                 updatedAt=1704067200000
@@ -93,9 +95,11 @@ class QuestionStore:
                 id="q-002",
                 title="2023年全国卷I",
                 year=2023,
+                section="第二部分 阅读理解",
+                subsection="第一节",
                 questionNumber="B",
                 articleContent="Climate change has become one of the most pressing issues of our time...",
-                questionContent="1. According to the passage, what is the main cause of climate change?\nA. Natural cycles\nB. Human activities\nC. Solar radiation\nD. Volcanic eruptions",
+                questionContent="\\textbf{1.} According to the passage, what is the main cause of climate change?\n\\option{Natural cycles}{Human activities}{Solar radiation}{Volcanic eruptions}",
                 labels=["环境", "气候"],
                 createdAt=1704067200000,
                 updatedAt=1704067200000
@@ -104,9 +108,11 @@ class QuestionStore:
                 id="q-003",
                 title="2022年全国卷II",
                 year=2022,
+                section="第二部分 阅读理解",
+                subsection="第一节",
                 questionNumber="C",
                 articleContent="The history of tea dates back thousands of years to ancient China...",
-                questionContent="1. When did tea first become popular outside of China?\nA. 16th century\nB. 17th century\nC. 18th century\nD. 19th century",
+                questionContent="\\textbf{1.} When did tea first become popular outside of China?\n\\option{16th century}{17th century}{18th century}{19th century}",
                 labels=["文化", "历史"],
                 createdAt=1704067200000,
                 updatedAt=1704067200000
@@ -115,10 +121,12 @@ class QuestionStore:
                 id="q-004",
                 title="2022年全国卷II",
                 year=2022,
-                questionNumber="D",
-                articleContent="The global economy has undergone significant changes in the past decade...",
-                questionContent="1. What factor contributed most to economic growth?\nA. Technology innovation\nB. Trade agreements\nC. Government policies\nD. Consumer spending",
-                labels=["经济", "社会"],
+                section="第一部分 知识运用",
+                subsection="第一节",
+                questionNumber="完形填空",
+                articleContent="The story begins with a young girl who loved to explore...",
+                questionContent="New-born babies aren't afraid of the dark. They don't have a \\clozeblank{1} of the dark yet.\n\n\\textbf{1.} \\option{secret}{hope}{fear}{habit}",
+                labels=["记叙文", "成长"],
                 createdAt=1704067200000,
                 updatedAt=1704067200000
             ),
@@ -126,10 +134,12 @@ class QuestionStore:
                 id="q-005",
                 title="2021年全国卷I",
                 year=2021,
-                questionNumber="A",
-                articleContent="Space exploration has entered a new era with private companies leading the way...",
-                questionContent="1. What makes the new era of space exploration different?\nA. Government funding\nB. Private investment\nC. International cooperation\nD. Scientific discoveries",
-                labels=["科技", "航天"],
+                section="第三部分 书面表达",
+                subsection="第二节",
+                questionNumber="作文",
+                articleContent="",
+                questionContent="假设你是红星中学高三学生李华。你校正在举办以「美丽校园」为主题的原创作品征集活动...",
+                labels=["书面表达", "应用文"],
                 createdAt=1704067200000,
                 updatedAt=1704067200000
             ),
@@ -137,7 +147,8 @@ class QuestionStore:
         for q in mock_questions:
             self.questions[q.id] = q
     
-    def search(self, query: str = "", year: Optional[int] = None, labels: List[str] = None,
+    def search(self, query: str = "", year: Optional[int] = None, section: Optional[str] = None,
+               subsection: Optional[str] = None, labels: List[str] = None,
                page: int = 1, page_size: int = 20, include_deleted: bool = False) -> tuple[List[ReadingQuestion], int]:
         results = list(self.questions.values())
         # Filter out deleted questions unless explicitly requested
@@ -145,6 +156,10 @@ class QuestionStore:
             results = [q for q in results if not getattr(q, 'deleted', False)]
         if year:
             results = [q for q in results if q.year == year]
+        if section:
+            results = [q for q in results if getattr(q, 'section', '') == section]
+        if subsection:
+            results = [q for q in results if getattr(q, 'subsection', '') == subsection]
         if labels:
             results = [q for q in results if any(l in q.labels for l in labels)]
         if query:

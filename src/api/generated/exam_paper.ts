@@ -25,10 +25,14 @@ export interface ReadingQuestion {
   id: string;
   title: string;
   year: number;
+  section?: string; // 第一部分 知识运用, 第二部分 阅读理解, 第三部分 书面表达
+  subsection?: string; // 第一节, 第二节
   questionNumber: string;
-  articleContent: string;
-  questionContent: string;
+  articleContent: string; // LaTeX格式
+  questionContent: string; // LaTeX格式
   labels: string[];
+  answers?: { number: number | string; answer: string }[]; // 答案列表
+  subQuestionCount?: number; // 小题数量
   createdAt: bigint;
   updatedAt: bigint;
 }

@@ -49,6 +49,12 @@ export function QuestionCard({
                 {question.subQuestionCount && question.subQuestionCount > 0 && (
                   <span> · {question.subQuestionCount} 道小题</span>
                 )}
+                {question.section && (
+                  <span> · {question.section}</span>
+                )}
+                {question.subsection && (
+                  <span> · {question.subsection}</span>
+                )}
               </div>
             </div>
           </div>

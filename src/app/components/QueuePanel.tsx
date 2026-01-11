@@ -11,7 +11,8 @@ import {
   Upload, 
   Lock, 
   Unlock, 
-  UserPlus 
+  UserPlus,
+  Save
 } from 'lucide-react';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
@@ -22,6 +23,9 @@ interface QueuePanelProps {
   onRemoveQuestion: (questionId: string) => void;
   onReorderQuestions: (newOrder: ReadingQuestion[]) => void;
   onToggleFreeze: () => void;
+  onSave?: () => void;
+  saving?: boolean;
+  hasUnsavedChanges?: boolean;
   onExport: () => void;
   onImport: (file: File) => void;
   onViewQuestion: (question: ReadingQuestion) => void;
@@ -86,6 +90,9 @@ export function QueuePanel({
   onRemoveQuestion,
   onReorderQuestions,
   onToggleFreeze,
+  onSave,
+  saving,
+  hasUnsavedChanges,
   onExport,
   onImport,
   onViewQuestion,
@@ -134,6 +141,17 @@ export function QueuePanel({
                 </div>
               </div>
               <div className="flex gap-2">
+                {onSave && (
+                  <Button
+                    size="sm"
+                    variant={hasUnsavedChanges ? "default" : "outline"}
+                    onClick={onSave}
+                    disabled={!hasUnsavedChanges || saving || queue.frozen}
+                  >
+                    <Save className="size-4 mr-1" />
+                    {saving ? '保存中...' : '保存'}
+                  </Button>
+                )}
                 <Button
                   size="sm"
                   variant="outline"

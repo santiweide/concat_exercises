@@ -29,6 +29,8 @@ async def search_questions(request: web.Request) -> web.Response:
         # Direct call to question_store
         query = req.query or ''
         year = req.year
+        section = req.section
+        subsection = req.subsection
         labels = req.labels or []
         page = req.page if hasattr(req, 'page') else 1
         page_size = req.pageSize if hasattr(req, 'pageSize') else 100
@@ -36,6 +38,8 @@ async def search_questions(request: web.Request) -> web.Response:
         questions, total = question_store.search(
             query=query,
             year=year,
+            section=section,
+            subsection=subsection,
             labels=labels,
             page=page,
             page_size=page_size

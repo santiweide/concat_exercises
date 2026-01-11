@@ -4,6 +4,7 @@ PDF Import Service - Uses Gemini AI to extract reading questions from exam paper
 import asyncio
 import base64
 import json
+import json_repair
 import os
 import re
 import time
@@ -194,6 +195,8 @@ class PDFImportService:
         
         preview_questions = []
         for idx, q in enumerate(questions):
+            section = q.get('section', '')
+            subsection = q.get('subsection', '')
             question_number = q.get('questionNumber', chr(65 + idx))  # A, B, C, D...
             article_content = q.get('articleContent', '')
             question_content = q.get('questionContent', '')
@@ -202,7 +205,7 @@ class PDFImportService:
             # Use Gemini's subQuestionCount if available, otherwise fallback to local counting
             sub_question_count = q.get('subQuestionCount', 0)
             
-            # Skip empty questions
+            # Skip empty questions (but allow empty articleContent for essays)
             if not article_content and not question_content:
                 continue
             
@@ -210,11 +213,13 @@ class PDFImportService:
             if sub_question_count <= 0:
                 sub_question_count = self._count_sub_questions(question_content)
             
-            # Generate article summary (first 20 words)
-            article_summary = self._get_word_summary(article_content, 20)
+            # Generate article summary (first 20 words, strip LaTeX commands for display)
+            article_summary = self._get_word_summary(self._strip_latex(article_content), 20)
             
             preview_questions.append({
                 'id': f"preview-{uuid.uuid4().hex[:8]}",
+                'section': section,
+                'subsection': subsection,
                 'questionNumber': question_number,
                 'articleContent': article_content,
                 'questionContent': question_content,
@@ -230,6 +235,18 @@ class PDFImportService:
             'totalQuestions': len(preview_questions),
             'questions': preview_questions,
         }
+    
+    def _strip_latex(self, text: str) -> str:
+        """Strip common LaTeX commands for plain text display."""
+        if not text:
+            return ''
+        # Remove common LaTeX commands
+        result = re.sub(r'\\[a-zA-Z]+\{([^}]*)\}', r'\1', text)  # \command{content} -> content
+        result = re.sub(r'\\[a-zA-Z]+\[[^\]]*\]\{([^}]*)\}', r'\1', result)  # \command[opt]{content} -> content
+        result = re.sub(r'\\[a-zA-Z]+', '', result)  # \command -> ''
+        result = re.sub(r'[{}]', '', result)  # Remove braces
+        result = re.sub(r'\s+', ' ', result)  # Normalize whitespace
+        return result.strip()
     
     def _count_sub_questions(self, question_content: str) -> int:
         """Count the number of sub-questions in the question content."""
@@ -309,6 +326,8 @@ class PDFImportService:
             current_time = int(time.time() * 1000)
             
             for q in questions:
+                section = q.get('section', '')
+                subsection = q.get('subsection', '')
                 article_content = q.get('articleContent', '')
                 question_content = q.get('questionContent', '')
                 question_number = q.get('questionNumber', 'A')
@@ -316,8 +335,8 @@ class PDFImportService:
                 answers = q.get('answers', [])  # List of {number, answer}
                 sub_question_count = q.get('subQuestionCount', 0)  # Number of sub-questions
                 
-                # Skip empty questions
-                if not article_content or not question_content:
+                # Skip empty questions (but allow empty articleContent for essays)
+                if not question_content and not article_content:
                     continue
                 
                 # Create question
@@ -325,6 +344,8 @@ class PDFImportService:
                     id=f"q-{uuid.uuid4().hex[:8]}",
                     title=title,
                     year=year,
+                    section=section,
+                    subsection=subsection,
                     questionNumber=question_number,
                     articleContent=article_content,
                     questionContent=question_content,
@@ -360,6 +381,8 @@ class PDFImportService:
                 'questions': [
                     {
                         'id': q.id,
+                        'section': q.section,
+                        'subsection': q.subsection,
                         'questionNumber': q.questionNumber,
                         'labels': q.labels
                     }
@@ -375,52 +398,200 @@ class PDFImportService:
             }
     
     def _get_extraction_prompt(self) -> str:
-        """Get the prompt for extracting reading questions and answers."""
-        return """你是一个专业的高考英语试卷分析助手。请仔细分析试卷内容，提取其中的阅读理解部分及其答案。
+        """Get the prompt for extracting ALL exam questions in LaTeX format."""
+        return r'''你是一个专业的高考英语试卷分析助手。请仔细分析试卷内容，提取其中**所有**题目部分（知识运用、阅读理解、书面表达）及其答案，并以LaTeX格式输出。
 
-请按照以下JSON格式返回结果：
+## 试卷结构说明
+
+高考英语试卷通常包含以下三个部分：
+
+### 第一部分 知识运用
+- **第一节**：完形填空（约10-15道选择题，文章中有编号空格如\clozeblank{1}）
+- **第二节**：语法填空（约10道填空题，可能有提示词或无提示词）
+
+### 第二部分 阅读理解
+- **第一节**：阅读选择题（通常4篇文章A/B/C/D，每篇3-5道选择题）
+- **第二节**：七选五（1篇文章，5个空，从7个选项中选择）
+
+### 第三部分 书面表达
+- **第一节**：阅读表达/问答题（阅读短文后回答问题）
+- **第二节**：作文（应用文写作，如书信、通知等）
+
+## 输出格式要求
+
+请按照以下JSON格式返回结果，**所有题目内容必须使用LaTeX格式**：
 
 ```json
 {
-    "title": "试卷标题（如：2023年全国卷I）",
-    "year": 2023,
+    "title": "试卷标题（如：北京市朝阳区高三年级第二学期质量检测一）",
+    "year": 2025,
     "questions": [
         {
-            "questionNumber": "A",
-            "articleContent": "阅读文章的完整原文内容...",
-            "questionContent": "题目和选项的完整内容，包括所有小题...",
+            "section": "第一部分 知识运用",
+            "subsection": "第一节",
+            "questionNumber": "完形填空",
+            "articleContent": "LaTeX格式的完形填空文章，空格用\\clozeblank{序号}表示...",
+            "questionContent": "LaTeX格式的选项，如：\\textbf{1.} \\option{选项A}{选项B}{选项C}{选项D}",
+            "subQuestionCount": 10,
+            "labels": ["记叙文", "成长", "亲子关系"],
+            "answers": [
+                {"number": 1, "answer": "C"},
+                {"number": 2, "answer": "A"}
+            ]
+        },
+        {
+            "section": "第一部分 知识运用",
+            "subsection": "第二节",
+            "questionNumber": "语法填空A",
+            "articleContent": "LaTeX格式的语法填空短文A，空格用\\clozeblank{序号}表示...",
+            "questionContent": "",
             "subQuestionCount": 3,
-            "labels": ["主题标签1", "主题标签2", "主题标签3"],
+            "labels": ["传统文化", "少数民族"],
+            "answers": [
+                {"number": 11, "answer": "would become"},
+                {"number": 12, "answer": "participated"}
+            ]
+        },
+        {
+            "section": "第二部分 阅读理解",
+            "subsection": "第一节",
+            "questionNumber": "A",
+            "articleContent": "LaTeX格式的阅读文章原文...",
+            "questionContent": "LaTeX格式的题目，如：\\textbf{21.} Why is UNESCO calling for case studies?\\n\\optiontwo{选项A}{选项B}{选项C}{选项D}",
+            "subQuestionCount": 3,
+            "labels": ["环境", "文化遗产", "说明文"],
             "answers": [
                 {"number": 21, "answer": "B"},
-                {"number": 22, "answer": "A"},
-                {"number": 23, "answer": "D"}
+                {"number": 22, "answer": "A"}
             ]
+        },
+        {
+            "section": "第二部分 阅读理解",
+            "subsection": "第二节",
+            "questionNumber": "七选五",
+            "articleContent": "LaTeX格式的七选五文章，空格用\\clozeblank{序号}表示...",
+            "questionContent": "LaTeX格式的7个选项列表，使用enumerate环境...",
+            "subQuestionCount": 5,
+            "labels": ["人际关系", "心理学"],
+            "answers": [
+                {"number": 35, "answer": "F"},
+                {"number": 36, "answer": "A"}
+            ]
+        },
+        {
+            "section": "第三部分 书面表达",
+            "subsection": "第一节",
+            "questionNumber": "阅读表达",
+            "articleContent": "LaTeX格式的阅读材料...",
+            "questionContent": "LaTeX格式的问答题，如：\\textbf{40.} What caused Amelia's silly behaviours?",
+            "subQuestionCount": 4,
+            "labels": ["记叙文", "代际沟通"],
+            "answers": [
+                {"number": 40, "answer": "Her literal interpretation of language."}
+            ]
+        },
+        {
+            "section": "第三部分 书面表达",
+            "subsection": "第二节",
+            "questionNumber": "作文",
+            "articleContent": "",
+            "questionContent": "LaTeX格式的作文题目要求...",
+            "subQuestionCount": 1,
+            "labels": ["应用文", "书信"],
+            "answers": []
         }
     ]
 }
 ```
 
-要求：
-1. 识别试卷来源和年份（从试卷标题或页眉提取）
-2. 提取所有阅读理解题目（通常在"第二部分 阅读理解"下的第一节，通常标记为A、B、C、D四篇。注意同一道题目可能会跨页）
-3. articleContent：完整提取每篇阅读的文章原文
-4. questionContent：提取该篇文章对应的所有题目和选项，通常题目序号分别为21-23，24-27，28-31，32-35。注意每个编号表示一个小题，而不是每个选项代表一个小题（因为是选择题）。
-5. subQuestionCount：统计该篇阅读对应的小题数量（整数），例如A篇有21、22、23三道小题则为3，B篇有24、25、26、27四道小题则为4
-6. labels：根据文章内容生成3-5个语义标签，描述文章的主题、体裁、话题等
-   - 主题标签示例：科技、环境、文化、教育、健康、社会、历史、艺术、体育、经济
-   - 体裁标签示例：记叙文、说明文、议论文、新闻报道、人物传记
-   - 话题标签示例：人工智能、气候变化、传统文化、青少年成长等
-7. answers：从"英语参考答案"部分的"第二部分 阅读理解"中提取每个小题的答案
-   - number：小题题号（如21, 22, 23等整数）
-   - answer：该小题的正确答案（A、B、C或D）
-   - 如果找不到答案部分，answers数组可以为空
+## LaTeX格式规范
 
-请只返回JSON格式的结果，不要包含其他文字说明。如果无法识别为英语试卷，把具体原因按照如下格式返回：
-```json
-{"error": "无法识别为英语试卷，${具体原因}"}
+请使用以下LaTeX命令格式化题目内容：
+
+### 选择题选项格式
+- `\option{A}{B}{C}{D}` - 四栏排版（选项较短时使用）
+- `\optiontwo{A}{B}{C}{D}` - 两栏排版（选项中等长度）
+- `\optionone{A}{B}{C}{D}` - 单栏排版（选项较长时使用）
+
+### 填空题格式
+- `\clozeblank{序号}` - 完形填空/语法填空空格
+- `\myblank[宽度]` - 一般填空下划线，如 `\myblank[1.5cm]`
+
+### 文本格式
+- `\textbf{1.}` - 题号加粗
+- `\textit{斜体文字}` - 斜体
+- `\uwave{下划波浪线}` - 波浪下划线
+
+### 列表格式
+- 使用 `\begin{enumerate}[label=\Alph{*}.]...\end{enumerate}` 格式化选项列表
+- 使用 `\begin{itemize}...\end{itemize}` 格式化无序列表
+
+### 标题格式
+- `\centerline{\textbf{A}}` - 居中的篇章标记
+
+## 提取要求
+
+1. **识别试卷来源和年份**：从试卷标题或页眉提取
+2. **section**：必须是"第一部分 知识运用"、"第二部分 阅读理解"或"第三部分 书面表达"之一
+3. **subsection**：必须是"第一节"或"第二节"
+4. **questionNumber字段**：
+   - 阅读理解第一节：A、B、C、D
+   - 完形填空：完形填空
+   - 语法填空：语法填空A、语法填空B、语法填空C（如有多篇短文）
+   - 七选五：七选五
+   - 阅读表达：阅读表达
+   - 作文：作文
+5. **articleContent**：文章/短文原文（LaTeX格式），作文题可为空
+6. **questionContent**：题目和选项（LaTeX格式）
+7. **subQuestionCount**：该题包含的小题数量
+8. **labels**：3-5个语义标签（主题、体裁、话题）
+9. **answers**：从参考答案部分提取，number为题号，answer为答案
+   - 第一部分知识运用-第一节（完形填空）：选择题答案为A/B/C/D
+   - 第一部分知识运用-第二节（语法填空）：填空题答案为具体单词或短语
+   - 第二部分阅读理解-第一节（阅读选择题A/B/C/D）：选择题答案为A/B/C/D
+   - 第二部分阅读理解-第二节（七选五）：选择题答案为A/B/C/D/E/F/G
+   - 第三部分书面表达-第一节（阅读表达）：答案为完整的英文句子或短语，直接从参考答案抄录
+   - 第三部分书面表达-第二节（作文）：answers数组可为空（作文无标准答案）
+
+## 注意事项
+
+- 同一道题目可能跨页，请完整提取
+- 保持原文格式，不要添加或删除内容
+- 如果某部分在试卷中不存在，不要捏造，直接跳过
+
+## 输出要求（重要）
+
+**请直接输出纯JSON，不要使用Markdown代码块格式（不要包含```json或```）。不要添加任何解释性文字。**
+
+### JSON格式中的LaTeX转义规则（非常重要！）
+
+输出内容包含LaTeX命令（如\clozeblank、\textbf、\option等）。因为输出必须是有效的JSON，你**必须**对所有LaTeX命令中的反斜杠进行双重转义（使用\\\\而不是\\）。
+
+**错误写法（会导致JSON解析失败）：**
 ```
-"""
+"articleContent": "Hello \clozeblank{1} world"
+```
+
+**正确写法：**
+```
+"articleContent": "Hello \\clozeblank{1} world"
+```
+
+所有LaTeX命令都需要这样处理：
+- \\clozeblank{} 
+- \\textbf{}
+- \\option{}
+- \\optiontwo{}
+- \\optionone{}
+- \\myblank[]
+- \\textit{}
+- \\uwave{}
+- \\centerline{}
+- \\begin{} 和 \\end{}
+
+如果无法识别为英语试卷，返回：
+{"error": "无法识别为英语试卷，具体原因：..."}
+'''
     
     async def _call_gemini_api_text(self, text_content: str, filename: str) -> Optional[Dict[str, Any]]:
         """Call Gemini API to extract reading questions from text content."""
@@ -575,22 +746,55 @@ class PDFImportService:
             return None
     
     def _parse_gemini_response(self, text: str) -> Optional[Dict[str, Any]]:
-        """Parse JSON from Gemini response text."""
+        """Parse JSON from Gemini response text using json_repair for robustness."""
         try:
+            original_text = text
+            
             # Try to extract JSON from markdown code blocks
+            # Handle ```json ... ``` format
             if '```json' in text:
                 start = text.find('```json') + 7
                 end = text.find('```', start)
                 if end > start:
                     text = text[start:end].strip()
+                else:
+                    # No closing ```, try to extract everything after ```json
+                    text = text[start:].strip()
+                    # Remove trailing ``` if it exists at the very end
+                    if text.endswith('```'):
+                        text = text[:-3].strip()
             elif '```' in text:
                 start = text.find('```') + 3
+                # Skip optional language identifier on the same line
+                newline_pos = text.find('\n', start)
+                if newline_pos != -1 and newline_pos - start < 20:  # language id is short
+                    start = newline_pos + 1
                 end = text.find('```', start)
                 if end > start:
                     text = text[start:end].strip()
+                else:
+                    text = text[start:].strip()
+                    if text.endswith('```'):
+                        text = text[:-3].strip()
             
-            # Parse JSON
-            data = json.loads(text)
+            # Additional cleanup: remove any leading/trailing backticks
+            text = text.strip('`').strip()
+            
+            # Try to find JSON object boundaries if text doesn't start with {
+            if not text.startswith('{'):
+                json_start = text.find('{')
+                if json_start != -1:
+                    text = text[json_start:]
+            
+            # Find the last closing brace to handle truncated responses
+            if not text.endswith('}'):
+                last_brace = text.rfind('}')
+                if last_brace != -1:
+                    text = text[:last_brace + 1]
+            
+            # Use json_repair to handle broken JSON from LLM output
+            # This automatically fixes issues like unescaped LaTeX backslashes
+            data = json_repair.loads(text)
             
             # Check for error response
             if 'error' in data:
@@ -599,8 +803,8 @@ class PDFImportService:
             
             return data
             
-        except json.JSONDecodeError as e:
-            logger.error("Failed to parse Gemini response", error=str(e), text=text[:500])
+        except Exception as e:
+            logger.error("Failed to parse Gemini response", error=str(e), text=original_text[:500])
             return None
 
 

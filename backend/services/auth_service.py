@@ -126,7 +126,7 @@ class AuthService:
             message = EmailMessage()
             message["From"] = config.SMTP_FROM
             message["To"] = email
-            message["Subject"] = "登录 - 英语阅读题组卷系统"
+            message["Subject"] = "登录 - 英语试题组卷系统"
             
             html_content = f"""
             <!DOCTYPE html>
@@ -137,7 +137,7 @@ class AuthService:
             <body style="font-family: sans-serif; padding: 20px;">
                 <h2>登录验证</h2>
                 <p>您好，</p>
-                <p>请点击下面的链接登录英语阅读题组卷系统：</p>
+                <p>请点击下面的链接登录英语试题组卷系统：</p>
                 <p>
                     <a href="{magic_link}" 
                        style="display: inline-block; padding: 12px 24px; 
