@@ -213,6 +213,14 @@ class PDFImportService:
             if sub_question_count <= 0:
                 sub_question_count = self._count_sub_questions(question_content)
             
+            # Smart defaults for section and subsection if not provided by Gemini
+            if not section or not subsection:
+                inferred_section, inferred_subsection = self._infer_section_subsection(question_number)
+                if not section:
+                    section = inferred_section
+                if not subsection:
+                    subsection = inferred_subsection
+            
             # Generate article summary (first 20 words, strip LaTeX commands for display)
             article_summary = self._get_word_summary(self._strip_latex(article_content), 20)
             
@@ -235,6 +243,37 @@ class PDFImportService:
             'totalQuestions': len(preview_questions),
             'questions': preview_questions,
         }
+    
+    def _infer_section_subsection(self, question_number: str) -> tuple[str, str]:
+        """Infer section and subsection from question number."""
+        qn = question_number.upper()
+        
+        # 第二部分 阅读理解 - 第一节 (A, B, C, D)
+        if qn in ['A', 'B', 'C', 'D']:
+            return '第二部分 阅读理解', '第一节'
+        
+        # 第一部分 知识运用 - 第一节 (完形填空)
+        if '完形填空' in qn or 'CLOZE' in qn:
+            return '第一部分 知识运用', '第一节'
+        
+        # 第一部分 知识运用 - 第二节 (语法填空)
+        if '语法填空' in qn or 'GRAMMAR' in qn:
+            return '第一部分 知识运用', '第二节'
+        
+        # 第二部分 阅读理解 - 第二节 (七选五)
+        if '七选五' in qn or '7选5' in qn:
+            return '第二部分 阅读理解', '第二节'
+        
+        # 第三部分 书面表达 - 第一节 (阅读表达/改错/续写等)
+        if '阅读表达' in qn or '改错' in qn or '续写' in qn:
+            return '第三部分 书面表达', '第一节'
+        
+        # 第三部分 书面表达 - 第二节 (作文)
+        if '作文' in qn or 'WRITING' in qn or 'COMPOSITION' in qn:
+            return '第三部分 书面表达', '第二节'
+        
+        # 默认：第二部分 阅读理解 - 第一节
+        return '第二部分 阅读理解', '第一节'
     
     def _strip_latex(self, text: str) -> str:
         """Strip common LaTeX commands for plain text display."""

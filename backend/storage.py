@@ -188,17 +188,33 @@ class QuestionStore:
     
     def create(self, data: dict) -> ReadingQuestion:
         now = int(time.time() * 1000)
-        question = ReadingQuestion(
-            id=f"q-{uuid.uuid4().hex[:8]}",
-            title=data['title'],
-            year=data['year'],
-            questionNumber=data['questionNumber'],
-            articleContent=data['articleContent'],
-            questionContent=data['questionContent'],
-            labels=data.get('labels', []),
-            createdAt=now,
-            updatedAt=now
-        )
+        # If data already has all fields (from ReadingQuestion.model_dump()), use it directly
+        # Otherwise, create with provided fields
+        if 'id' in data and data['id'].startswith('q-'):
+            # Already a complete question dict, just update timestamps if needed
+            question_data = data.copy()
+            if 'createdAt' not in question_data:
+                question_data['createdAt'] = now
+            if 'updatedAt' not in question_data:
+                question_data['updatedAt'] = now
+            question = ReadingQuestion(**question_data)
+        else:
+            # Create new question from partial data
+            question = ReadingQuestion(
+                id=f"q-{uuid.uuid4().hex[:8]}",
+                title=data['title'],
+                year=data['year'],
+                section=data.get('section', ''),
+                subsection=data.get('subsection', ''),
+                questionNumber=data['questionNumber'],
+                articleContent=data['articleContent'],
+                questionContent=data['questionContent'],
+                labels=data.get('labels', []),
+                answers=data.get('answers', []),
+                subQuestionCount=data.get('subQuestionCount', 0),
+                createdAt=now,
+                updatedAt=now
+            )
         self.questions[question.id] = question
         self._save()
         return question
