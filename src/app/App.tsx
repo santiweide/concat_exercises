@@ -9,6 +9,7 @@ import { VerifyPage } from './components/VerifyPage';
 import { QueueDashboard } from './components/QueueDashboard';
 import { ImportPaperPage } from './components/ImportPaperPage';
 import { QuestionManagementPage } from './components/QuestionManagementPage';
+import { canAddQuestion } from './components/ExamProgressDashboard';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { Toaster } from './components/ui/sonner';
 import { toast } from 'sonner';
@@ -164,6 +165,13 @@ function MainApp() {
 
     if (queue.questions.find(q => q.id === question.id)) {
       toast.warning('该题目已在队列中');
+      return;
+    }
+
+    // 校验是否可以添加
+    const validation = canAddQuestion(queue.questions, question);
+    if (!validation.canAdd) {
+      toast.error(validation.reason || '无法添加题目');
       return;
     }
 

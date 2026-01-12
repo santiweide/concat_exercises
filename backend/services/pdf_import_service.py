@@ -462,7 +462,7 @@ class PDFImportService:
 
 ```json
 {
-    "title": "试卷标题（如：北京市朝阳区高三年级第二学期质量检测一）",
+    "title": "试卷标题（如：北京市朝阳区高三年级第二学期质量检测一），注意去掉title字段中所有的空格、tab字符",
     "year": 2025,
     "questions": [
         {

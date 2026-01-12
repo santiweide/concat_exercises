@@ -12,8 +12,18 @@ import {
   Lock, 
   Unlock, 
   UserPlus,
-  Save
+  Save,
+  BarChart3
 } from 'lucide-react';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from './ui/dialog';
+import { ExamProgressDashboard } from './ExamProgressDashboard';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { toast } from 'sonner';
@@ -99,6 +109,7 @@ export function QueuePanel({
   onAddCollaborator
 }: QueuePanelProps) {
   const [collaboratorEmail, setCollaboratorEmail] = useState('');
+  const [progressDialogOpen, setProgressDialogOpen] = useState(false);
 
   const moveQuestion = (dragIndex: number, hoverIndex: number) => {
     const newQuestions = [...queue.questions];
@@ -152,6 +163,23 @@ export function QueuePanel({
                     {saving ? '保存中...' : '保存'}
                   </Button>
                 )}
+                <Dialog open={progressDialogOpen} onOpenChange={setProgressDialogOpen}>
+                  <DialogTrigger asChild>
+                    <Button size="sm" variant="outline">
+                      <BarChart3 className="size-4 mr-1" />
+                      组卷进度
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+                    <DialogHeader>
+                      <DialogTitle>试卷组卷进度</DialogTitle>
+                      <DialogDescription>
+                        查看当前组卷进度和各部分题目配置情况
+                      </DialogDescription>
+                    </DialogHeader>
+                    <ExamProgressDashboard questions={queue.questions} />
+                  </DialogContent>
+                </Dialog>
                 <Button
                   size="sm"
                   variant="outline"
