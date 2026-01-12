@@ -15,7 +15,17 @@ import {
   DialogTrigger,
 } from './ui/dialog';
 import { Label } from './ui/label';
-import { Plus, Users, User, FileText } from 'lucide-react';
+import { Plus, Users, User, FileText, Trash2 } from 'lucide-react';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from './ui/alert-dialog';
 
 interface Queue {
   id: string;
@@ -40,6 +50,9 @@ export function QueueDashboard({ onSelectQueue }: QueueDashboardProps) {
   const [createDialogOpen, setCreateDialogOpen] = useState(false);
   const [newQueueName, setNewQueueName] = useState('');
   const [creating, setCreating] = useState(false);
+  const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
+  const [queueToDelete, setQueueToDelete] = useState<Queue | null>(null);
+  const [deleting, setDeleting] = useState(false);
 
   const fetchQueues = async () => {
     if (!token) return;
@@ -98,6 +111,32 @@ export function QueueDashboard({ onSelectQueue }: QueueDashboardProps) {
     }
   };
 
+  const handleDeleteQueue = async () => {
+    if (!queueToDelete || !token) return;
+    
+    setDeleting(true);
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/queues/${queueToDelete.id}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to delete queue');
+      }
+      
+      setDeleteDialogOpen(false);
+      setQueueToDelete(null);
+      fetchQueues();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to delete queue');
+    } finally {
+      setDeleting(false);
+    }
+  };
+
   const formatDate = (timestamp: number) => {
     return new Date(timestamp).toLocaleDateString('zh-CN', {
       year: 'numeric',
@@ -122,13 +161,18 @@ export function QueueDashboard({ onSelectQueue }: QueueDashboardProps) {
           <p className="text-muted-foreground">管理你的所有试卷组卷队列</p>
         </div>
         
+        <div className="flex gap-2">
+          <Dialog open={createDialogOpen} onOpenChange={setCreateDialogOpen}>
+            <DialogTrigger asChild>
+              <Button>
+                <Plus className="h-4 w-4 mr-2" />
+                新建队列
+              </Button>
+            </DialogTrigger>
+          </Dialog>
+        </div>
+        
         <Dialog open={createDialogOpen} onOpenChange={setCreateDialogOpen}>
-          <DialogTrigger asChild>
-            <Button>
-              <Plus className="h-4 w-4 mr-2" />
-              新建队列
-            </Button>
-          </DialogTrigger>
           <DialogContent>
             <DialogHeader>
               <DialogTitle>新建组卷队列</DialogTitle>
@@ -196,6 +240,20 @@ export function QueueDashboard({ onSelectQueue }: QueueDashboardProps) {
                     <CardTitle className="text-lg line-clamp-1">
                       {queue.name}
                     </CardTitle>
+                    {isOwner && (
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="h-8 w-8 text-muted-foreground hover:text-destructive"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setQueueToDelete(queue);
+                          setDeleteDialogOpen(true);
+                        }}
+                      >
+                        <Trash2 className="h-4 w-4" />
+                      </Button>
+                    )}
                   </div>
                   <CardDescription>
                     更新于 {formatDate(queue.updatedAt)}
@@ -247,6 +305,29 @@ export function QueueDashboard({ onSelectQueue }: QueueDashboardProps) {
           })}
         </div>
       )}
+
+      {/* Delete confirmation dialog */}
+      <AlertDialog open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>确认删除队列</AlertDialogTitle>
+            <AlertDialogDescription>
+              确定要删除队列 "{queueToDelete?.name}" 吗？
+              此操作不可恢复，队列中的所有题目关联将被移除。
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>取消</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={handleDeleteQueue}
+              disabled={deleting}
+              className="bg-destructive hover:bg-destructive/90"
+            >
+              {deleting ? '删除中...' : '确认删除'}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }
