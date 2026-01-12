@@ -470,7 +470,7 @@ class PDFImportService:
             "subsection": "第一节",
             "questionNumber": "完形填空",
             "articleContent": "LaTeX格式的完形填空文章，空格用\\clozeblank{序号}表示...",
-            "questionContent": "LaTeX格式的选项，如：\\textbf{1.} \\option{选项A}{选项B}{选项C}{选项D}",
+            "questionContent": "LaTeX格式的选项，如：\\textbf{1.} \\option{took}{made}{gave}{brought}（注意：不包含A.B.C.D.前缀）",
             "subQuestionCount": 10,
             "labels": ["记叙文", "成长", "亲子关系"],
             "answers": [
@@ -496,7 +496,7 @@ class PDFImportService:
             "subsection": "第一节",
             "questionNumber": "A",
             "articleContent": "LaTeX格式的阅读文章原文...",
-            "questionContent": "LaTeX格式的题目，如：\\textbf{21.} Why is UNESCO calling for case studies?\\n\\optiontwo{选项A}{选项B}{选项C}{选项D}",
+            "questionContent": "LaTeX格式的题目，如：\\textbf{21.} Why is UNESCO calling for case studies?\\n\\optiontwo{To protect cultural heritage}{To promote tourism}{To study climate change}{To develop new technology}（注意：不包含A.B.C.D.前缀）",
             "subQuestionCount": 3,
             "labels": ["环境", "文化遗产", "说明文"],
             "answers": [
@@ -551,6 +551,8 @@ class PDFImportService:
 - `\option{A}{B}{C}{D}` - 四栏排版（选项较短时使用）
 - `\optiontwo{A}{B}{C}{D}` - 两栏排版（选项中等长度）
 - `\optionone{A}{B}{C}{D}` - 单栏排版（选项较长时使用）
+- **重要**：选项内容**不要**包含 A.、B.、C.、D. 前缀，LaTeX命令会自动添加编号
+- **示例**：原文是 "A. apple  B. banana  C. orange  D. grape"，应写为 `\option{apple}{banana}{orange}{grape}`
 
 ### 填空题格式
 - `\clozeblank{序号}` - 完形填空/语法填空空格
@@ -563,6 +565,7 @@ class PDFImportService:
 - `\textit{斜体文字}` - 斜体
 - `\uwave{下划波浪线}` - 波浪下划线
 - **重要**：如果文本中包含下划线字符 `_`，且不是填空，则必须转义为 `\_`
+- **重要**：如果文本中包含百分号 `%`，必须转义为 `\%`（LaTeX中 `%` 是注释符号）
 
 ### 列表格式
 - 使用 `\begin{enumerate}[label=\Alph{*}.]...\end{enumerate}` 格式化选项列表
@@ -638,7 +641,10 @@ class PDFImportService:
 1. 原文中的 `______` 或 `___` 这样的下划线必须转换为 `\\myblank[1.5cm]`（JSON中写为 `\\\\myblank[1.5cm]`）
 2. 完形填空/语法填空的编号空格必须使用 `\\clozeblank{序号}`（JSON中写为 `\\\\clozeblank{序号}`）
 3. 选择题选项必须使用 `\\option{}`、`\\optiontwo{}` 或 `\\optionone{}`（JSON中写为 `\\\\option{}`等）
-4. 绝对不要在输出中保留原始下划线字符串（如 `______`）
+   - **选项内容不要包含 A.、B.、C.、D. 前缀**，LaTeX命令会自动添加编号
+   - 例如：原文 "A. apple  B. banana" 应写为 `\\\\option{apple}{banana}{...}{...}`
+4. 文本中的百分号 `%` 必须转义为 `\\%`（JSON中写为 `\\\\%`），因为在LaTeX中 `%` 是注释符号
+5. 绝对不要在输出中保留原始下划线字符串（如 `______`）
 
 如果无法识别为英语试卷，返回：
 {"error": "无法识别为英语试卷，具体原因：..."}
