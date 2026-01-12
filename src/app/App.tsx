@@ -127,21 +127,37 @@ function MainApp() {
     })
       .then(res => res.json())
       .then(data => {
+        console.log('Queue data received:', data);
+        
+        // 支持两种数据格式
+        let queueData, questionsData;
+        
         if (data.queue && data.queue.queue) {
-          const loadedQueue = {
-            id: data.queue.queue.id,
-            name: data.queue.queue.name,
-            questions: data.queue.questions || [],
-            frozen: data.queue.queue.frozen,
-            owner: data.queue.queue.owner,
-            collaborators: data.queue.queue.collaborators || [],
-          };
-          setQueue(loadedQueue);
-          setOriginalQueue(loadedQueue);
+          // 新格式: { queue: { queue: {...}, questions: [...] } }
+          queueData = data.queue.queue;
+          questionsData = data.queue.questions || [];
+        } else if (data.queue && data.questions) {
+          // 旧格式: { queue: {...}, questions: [...] }
+          queueData = data.queue;
+          questionsData = data.questions || [];
         } else {
           console.error('Invalid queue data structure:', data);
           toast.error('队列数据格式错误');
+          return;
         }
+        
+        const loadedQueue = {
+          id: queueData.id,
+          name: queueData.name,
+          questions: questionsData,
+          frozen: queueData.frozen,
+          owner: queueData.owner,
+          collaborators: queueData.collaborators || [],
+        };
+        
+        console.log('Loaded queue:', loadedQueue);
+        setQueue(loadedQueue);
+        setOriginalQueue(loadedQueue);
       })
       .catch(err => {
         console.error('Failed to load queue:', err);
@@ -158,11 +174,6 @@ function MainApp() {
   }, [queue]);
 
   const handleAddToQueue = (question: ReadingQuestion) => {
-    if (queue.frozen) {
-      toast.error('队列已冻结，无法添加题目');
-      return;
-    }
-
     if (queue.questions.find(q => q.id === question.id)) {
       toast.warning('该题目已在队列中');
       return;
@@ -200,37 +211,7 @@ function MainApp() {
     setHasUnsavedChanges(true);
   };
 
-  const handleToggleFreeze = async () => {
-    if (!token || !selectedQueueId) {
-      setQueue(prev => ({
-        ...prev,
-        frozen: !prev.frozen
-      }));
-      toast.success(queue.frozen ? '队列已解冻' : '队列已冻结');
-      return;
-    }
 
-    try {
-      const response = await fetch(`${API_BASE_URL}/api/queues/${selectedQueueId}/freeze`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
-        },
-        body: JSON.stringify({ frozen: !queue.frozen }),
-      });
-      
-      if (!response.ok) throw new Error('Failed to toggle freeze');
-      
-      setQueue(prev => ({
-        ...prev,
-        frozen: !prev.frozen
-      }));
-      toast.success(queue.frozen ? '队列已解冻' : '队列已冻结');
-    } catch (err) {
-      toast.error('操作失败');
-    }
-  };
 
   const handleSaveQueue = async () => {
     if (!token || !selectedQueueId) return;
@@ -275,16 +256,52 @@ function MainApp() {
     setSelectedQueueId(null);
   };
 
-  const handleExport = () => {
-    const data = JSON.stringify(queue, null, 2);
-    const blob = new Blob([data], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `queue-${queue.id}-${Date.now()}.json`;
-    a.click();
-    URL.revokeObjectURL(url);
-    toast.success('队列已导出');
+  const handleExport = async () => {
+    if (!token || !selectedQueueId) {
+      // Fallback to JSON export if not using backend
+      const data = JSON.stringify(queue, null, 2);
+      const blob = new Blob([data], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `queue-${queue.id}-${Date.now()}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+      toast.success('队列已导出');
+      return;
+    }
+
+    try {
+      // Export as LaTeX format (format: 4 = LATEX)
+      const response = await fetch(`${API_BASE_URL}/api/queues/${selectedQueueId}/export`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({ format: 4 }), // 4 = LATEX format
+      });
+
+      if (!response.ok) {
+        throw new Error('导出失败');
+      }
+
+      // Get the file from response
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${queue.name}_${selectedQueueId}.tex`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      
+      toast.success('试卷已导出为LaTeX文件');
+    } catch (err) {
+      console.error('Export error:', err);
+      toast.error('导出失败');
+    }
   };
 
   const handleImport = (file: File) => {
@@ -540,7 +557,6 @@ function MainApp() {
               queue={queue}
               onRemoveQuestion={handleRemoveFromQueue}
               onReorderQuestions={handleReorderQuestions}
-              onToggleFreeze={handleToggleFreeze}
               onSave={handleSaveQueue}
               saving={saving}
               hasUnsavedChanges={hasUnsavedChanges}

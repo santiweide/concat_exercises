@@ -263,25 +263,6 @@ export const queueService = {
   },
 
   /**
-   * 冻结/解冻队列
-   */
-  async toggleFreeze(queueId: string, frozen: boolean): Promise<pb.ToggleQueueFreezeResponse> {
-    const response = await fetch(`${API_BASE_URL}/api/queues/${queueId}/freeze`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ frozen }),
-    });
-
-    if (!response.ok) {
-      throw new Error(`Toggle queue freeze failed: ${response.statusText}`);
-    }
-
-    return response.json();
-  },
-
-  /**
    * 添加协作者
    */
   async addCollaborator(queueId: string, email: string): Promise<pb.AddCollaboratorResponse> {

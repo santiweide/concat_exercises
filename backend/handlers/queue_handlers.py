@@ -13,6 +13,7 @@ from models import (
 )
 from storage import queue_store
 from services.auth_service import auth_service
+from services.latex_export_service import latex_export_service
 
 logger = structlog.get_logger()
 
@@ -76,8 +77,10 @@ async def get_queue(request: web.Request) -> web.Response:
             )
         
         return web.json_response({
-            "queue": queue_detail.queue.model_dump(),
-            "questions": [q.model_dump() for q in queue_detail.questions]
+            "queue": {
+                "queue": queue_detail.queue.model_dump(),
+                "questions": [q.model_dump() for q in queue_detail.questions]
+            }
         })
     except Exception as e:
         logger.error("get_queue error", error=str(e), id=queue_id)
@@ -263,36 +266,6 @@ async def reorder_queue_questions(request: web.Request) -> web.Response:
         )
 
 
-async def toggle_queue_freeze(request: web.Request) -> web.Response:
-    """
-    PUT /api/queues/{queue_id}/freeze
-    Freeze or unfreeze a queue.
-    """
-    queue_id = request.match_info['queue_id']
-    
-    try:
-        body = await request.json()
-        frozen = body.get('frozen', False)
-        
-        queue = queue_store.toggle_freeze(queue_id, frozen)
-        
-        if queue is None:
-            return web.json_response(
-                {"code": 404, "message": "Queue not found"},
-                status=404
-            )
-        
-        return web.json_response({
-            "queue": queue.model_dump()
-        })
-    except Exception as e:
-        logger.error("toggle_queue_freeze error", error=str(e), queue_id=queue_id)
-        return web.json_response(
-            {"code": 400, "message": str(e)},
-            status=400
-        )
-
-
 async def add_collaborator(request: web.Request) -> web.Response:
     """
     POST /api/queues/{queue_id}/collaborators
@@ -376,6 +349,27 @@ async def export_queue(request: web.Request) -> web.Response:
                 "queue": queue_detail.queue.model_dump(),
                 "questions": [q.model_dump() for q in queue_detail.questions]
             })
+        
+        # For LaTeX format
+        elif format_value == ExportFormat.LATEX:
+            try:
+                latex_content = latex_export_service.export_queue_to_latex(queue_detail)
+                
+                # Return LaTeX file for download
+                filename = f"{queue_detail.queue.name}_{queue_id}.tex"
+                return web.Response(
+                    body=latex_content.encode('utf-8'),
+                    headers={
+                        'Content-Type': 'application/x-latex; charset=utf-8',
+                        'Content-Disposition': f'attachment; filename="{filename}"'
+                    }
+                )
+            except Exception as latex_error:
+                logger.error("LaTeX export error", error=str(latex_error), queue_id=queue_id)
+                return web.json_response(
+                    {"code": 500, "message": f"LaTeX export failed: {str(latex_error)}"},
+                    status=500
+                )
         
         # For other formats, not implemented yet
         return web.json_response(

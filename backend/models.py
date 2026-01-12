@@ -333,6 +333,7 @@ class ExportFormat(IntEnum):
     JSON = 1
     PDF = 2
     WORD = 3
+    LATEX = 4
 
 
 class ExportQueueRequest(BaseModel):

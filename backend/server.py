@@ -56,7 +56,6 @@ def setup_routes(app: web.Application):
     app.router.add_post('/api/queues/{queue_id}/questions', queue_handlers.add_question_to_queue)
     app.router.add_delete('/api/queues/{queue_id}/questions/{question_id}', queue_handlers.remove_question_from_queue)
     app.router.add_put('/api/queues/{queue_id}/reorder', queue_handlers.reorder_queue_questions)
-    app.router.add_put('/api/queues/{queue_id}/freeze', queue_handlers.toggle_queue_freeze)
     app.router.add_post('/api/queues/{queue_id}/collaborators', queue_handlers.add_collaborator)
     app.router.add_delete('/api/queues/{queue_id}/collaborators/{email}', queue_handlers.remove_collaborator)
     app.router.add_post('/api/queues/{queue_id}/export', queue_handlers.export_queue)
@@ -217,6 +216,17 @@ if __name__ == "__main__":
                 service=config.SERVICE_NAME,
                 log_file=log_file, 
                 log_file_wf=log_file_wf)
+    
+    # Cleanup old deleted questions on startup
+    from services.question_management_service import question_management_service
+    logger.info("Running cleanup of old deleted questions...")
+    cleanup_result = question_management_service.cleanup_old_deleted_questions()
+    if cleanup_result['success']:
+        logger.info("Cleanup completed", 
+                   deleted_count=cleanup_result['deletedCount'],
+                   question_ids=cleanup_result.get('questionIds', []))
+    else:
+        logger.error("Cleanup failed", error=cleanup_result.get('error'))
     
     app = create_app()
     logger.info("Starting HTTP server", host=config.HTTP_HOST, port=config.HTTP_PORT)

@@ -201,8 +201,17 @@ export function SearchPanel({ questions, onAddToQueue, onViewQuestion }: SearchP
             {filteredQuestions.length === 0 ? (
               <div className="text-center text-gray-400 py-12">
                 <Search className="size-12 mx-auto mb-2" />
-                <p>未找到匹配的题目</p>
-                <p className="text-sm">尝试调整搜索条件</p>
+                {questions.length === 0 ? (
+                  <>
+                    <p className="text-lg font-medium mb-1">空空如也</p>
+                    <p className="text-sm">题库中暂无题目</p>
+                  </>
+                ) : (
+                  <>
+                    <p>未找到匹配的题目</p>
+                    <p className="text-sm">尝试调整搜索条件</p>
+                  </>
+                )}
               </div>
             ) : (
               filteredQuestions.map(question => (

@@ -30,9 +30,10 @@ import {
   DialogTitle,
 } from './ui/dialog';
 import { ScrollArea } from './ui/scroll-area';
+import { Alert, AlertDescription } from './ui/alert';
 import { 
   ArrowLeft, Trash2, RotateCcw, Search, History, Eye, 
-  ChevronLeft, ChevronRight, Loader2, AlertCircle 
+  ChevronLeft, ChevronRight, Loader2, AlertCircle, Info
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { API_BASE_URL } from '../../api/config';
@@ -420,6 +421,14 @@ export function QuestionManagementPage({ onBack }: QuestionManagementPageProps) 
                 
                 {/* Questions Tab */}
                 <TabsContent value="questions" className="flex-1 overflow-hidden m-0 p-4 flex flex-col">
+                  {/* Info Alert */}
+                  <Alert className="mb-4 border-blue-200 bg-blue-50">
+                    <Info className="h-4 w-4 text-blue-600" />
+                    <AlertDescription className="text-sm text-blue-800">
+                      删除的题目将在数据库中保留 <strong>3天</strong>，期间可在"已删除"标签页恢复。3天后系统会自动彻底删除。
+                    </AlertDescription>
+                  </Alert>
+                  
                   {/* Search and Actions */}
                   <div className="flex items-center gap-4 mb-4">
                     <div className="flex-1 flex gap-2">
@@ -572,6 +581,14 @@ export function QuestionManagementPage({ onBack }: QuestionManagementPageProps) 
                 
                 {/* Deleted Questions Tab */}
                 <TabsContent value="deleted" className="flex-1 overflow-hidden m-0 p-4 flex flex-col">
+                  {/* Warning Alert */}
+                  <Alert className="mb-4 border-amber-200 bg-amber-50">
+                    <AlertCircle className="h-4 w-4 text-amber-600" />
+                    <AlertDescription className="text-sm text-amber-800">
+                      已删除的题目会在数据库中保留 <strong>3天</strong>。超过3天后，系统将在服务器启动时自动彻底删除，无法恢复。
+                    </AlertDescription>
+                  </Alert>
+                  
                   <div className="flex-1 border rounded-lg overflow-hidden">
                     <ScrollArea className="h-full">
                       {loadingDeleted ? (
@@ -777,7 +794,7 @@ export function QuestionManagementPage({ onBack }: QuestionManagementPageProps) 
               <br />
               来源：{questionToDelete?.title} ({questionToDelete?.year})
               <br />
-              <span className="text-gray-500">删除后可在"已删除"标签页中恢复。</span>
+              <span className="text-gray-500">删除后可在"已删除"标签页中恢复，题目将保留3天后自动彻底删除。</span>
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
@@ -800,7 +817,7 @@ export function QuestionManagementPage({ onBack }: QuestionManagementPageProps) 
             <AlertDialogDescription>
               确定要删除选中的 {selectedIds.size} 道题目吗？
               <br />
-              <span className="text-gray-500">删除后可在"已删除"标签页中恢复。</span>
+              <span className="text-gray-500">删除后可在"已删除"标签页中恢复，题目将保留3天后自动彻底删除。</span>
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>

@@ -118,19 +118,6 @@ export function useQueueActions(queueId: string) {
     }
   }, [queueId]);
 
-  const toggleFreeze = useCallback(async (frozen: boolean) => {
-    setIsLoading(true);
-    try {
-      await queueService.toggleFreeze(queueId, frozen);
-      toast.success(frozen ? '队列已冻结' : '队列已解冻');
-    } catch (e) {
-      toast.error('操作失败');
-      throw e;
-    } finally {
-      setIsLoading(false);
-    }
-  }, [queueId]);
-
   const addCollaborator = useCallback(async (email: string) => {
     setIsLoading(true);
     try {
@@ -184,7 +171,6 @@ export function useQueueActions(queueId: string) {
     addQuestion,
     removeQuestion,
     reorderQuestions,
-    toggleFreeze,
     addCollaborator,
     removeCollaborator,
     exportQueue,

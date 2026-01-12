@@ -256,6 +256,10 @@ class QuestionStore:
         logger.info("Question soft deleted", id=id)
         return updated
     
+    def set_queue_store(self, queue_store):
+        """Set queue store reference for cleanup operations."""
+        self._queue_store = queue_store
+    
     def restore(self, id: str) -> Optional[ReadingQuestion]:
         """Restore a soft-deleted question."""
         question = self.questions.get(id)
@@ -369,7 +373,10 @@ class QueueStore:
         queue = self.queues.get(id)
         if not queue:
             return None
-        questions = self.question_store.batch_get(queue.questionIds)
+        logger.info("Loading queue", queue_id=id, question_ids=queue.questionIds, question_count=len(queue.questionIds))
+        # 默认不包含已删除的题目
+        questions = self.question_store.batch_get(queue.questionIds, include_deleted=False)
+        logger.info("Loaded questions for queue", queue_id=id, loaded_count=len(questions), expected_count=len(queue.questionIds))
         return QueueDetail(queue=queue, questions=questions)
     
     def get_basic(self, id: str) -> Optional[Queue]:
@@ -414,7 +421,7 @@ class QueueStore:
     
     def add_question(self, queue_id: str, question_id: str, position: Optional[int] = None) -> Optional[Queue]:
         queue = self.queues.get(queue_id)
-        if not queue or queue.frozen:
+        if not queue:
             return None
         if question_id in queue.questionIds:
             return queue
@@ -427,19 +434,16 @@ class QueueStore:
     
     def remove_question(self, queue_id: str, question_id: str) -> Optional[Queue]:
         queue = self.queues.get(queue_id)
-        if not queue or queue.frozen:
+        if not queue:
             return None
         question_ids = [qid for qid in queue.questionIds if qid != question_id]
         return self.update(queue_id, {'questionIds': question_ids})
     
     def reorder_questions(self, queue_id: str, question_ids: List[str]) -> Optional[Queue]:
         queue = self.queues.get(queue_id)
-        if not queue or queue.frozen:
+        if not queue:
             return None
         return self.update(queue_id, {'questionIds': question_ids})
-    
-    def toggle_freeze(self, queue_id: str, frozen: bool) -> Optional[Queue]:
-        return self.update(queue_id, {'frozen': frozen})
     
     def add_collaborator(self, queue_id: str, email: str) -> Optional[Queue]:
         queue = self.queues.get(queue_id)
@@ -456,6 +460,18 @@ class QueueStore:
             return None
         collaborators = [e for e in queue.collaborators if e != email]
         return self.update(queue_id, {'collaborators': collaborators})
+    
+    def remove_question_from_all_queues(self, question_id: str) -> int:
+        """Remove a question from all queues. Returns count of queues updated."""
+        count = 0
+        for queue_id, queue in self.queues.items():
+            if question_id in queue.questionIds:
+                # Don't use remove_question as it checks frozen status
+                question_ids = [qid for qid in queue.questionIds if qid != question_id]
+                self.update(queue_id, {'questionIds': question_ids})
+                count += 1
+                logger.info("Removed question from queue", question_id=question_id, queue_id=queue_id, queue_name=queue.name)
+        return count
     
     def has_access(self, queue_id: str, user_email: str) -> bool:
         queue = self.queues.get(queue_id)

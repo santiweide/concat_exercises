@@ -15,7 +15,7 @@ import {
   DialogTrigger,
 } from './ui/dialog';
 import { Label } from './ui/label';
-import { Plus, Lock, Unlock, Users, User, FileText } from 'lucide-react';
+import { Plus, Users, User, FileText } from 'lucide-react';
 
 interface Queue {
   id: string;
@@ -196,11 +196,6 @@ export function QueueDashboard({ onSelectQueue }: QueueDashboardProps) {
                     <CardTitle className="text-lg line-clamp-1">
                       {queue.name}
                     </CardTitle>
-                    {queue.frozen ? (
-                      <Lock className="h-4 w-4 text-muted-foreground flex-shrink-0" />
-                    ) : (
-                      <Unlock className="h-4 w-4 text-green-500 flex-shrink-0" />
-                    )}
                   </div>
                   <CardDescription>
                     更新于 {formatDate(queue.updatedAt)}
@@ -221,12 +216,6 @@ export function QueueDashboard({ onSelectQueue }: QueueDashboardProps) {
                         </>
                       )}
                     </Badge>
-                    {queue.frozen && (
-                      <Badge variant="destructive">
-                        <Lock className="h-3 w-3 mr-1" />
-                        已冻结
-                      </Badge>
-                    )}
                   </div>
                   
                   {/* 题目数量 */}

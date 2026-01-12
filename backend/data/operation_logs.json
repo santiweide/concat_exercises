@@ -2552,5 +2552,1489 @@
     "answers": [],
     "operatorEmail": "ggy_778@outlook.com",
     "operatedAt": 1768121084206
+  },
+  "log-e809c3e6": {
+    "id": "log-e809c3e6",
+    "operationType": 2,
+    "questionId": "q-c4c32aa7",
+    "questionTitle": "北京市丰台区2024~2025学年度第二学期综合练习（一）高三英语",
+    "questionNumber": "A",
+    "articleContent": "FREE FAMILY DAY PASS\nNational Trust\nLooking for the perfect day out this March? Whether you love peaceful woodland walks, birdwatching, or discovering new places surrounded by nature, the National Trust has something for everyone.\nThanks to this incredible offer, you can enjoy a FREE visit to a National Trust property of your choice. It will give you the perfect excuse to gather your loved ones and explore the great outdoors.\nStart your year by reconnecting with nature and making unforgettable memories with family and friends. Don't miss out on this wonderful opportunity to experience the beauty of National Trust sites—completely free!\nHOW TO CLAIM\nCut out the voucher(代金券) below and present at your chosen National Trust location. Some National Trust properties require advance booking, please check the property website for full details. Certain places are excluded(排除在外) from this promotion, details can be found at reachforms.co.uk/nationaltrustpass.\nFREE National Trust FAMILY PASS\n1. This pass is single use and is effective once from the date of issue through to 31 December, 2025 inclusive.\n2. This pass allows free admission at participating National Trust places for 2 adults and up to 3 children, or 1 adult and up to 4 children. Adults are aged 18 or over; children are aged under 17 inclusive.\n3. This pass is for standard admission only and excludes parking, group entity, paid transport, and any paid events.\n4. This pass is effective at participating National Trust places within advertised opening hours. Opening hours may be subject to change at any time and should be checked at nationaltrust.org.uk.\n5. Present this pass to receive free admission at participating places. Pass holders who cannot present the pass, or visit an excluded place, will be charged the full admission price.\n6. Only one pass per household will be permitted.",
+    "questionContent": "21. What can people enjoy with the National Trust's offer?\nA. An outdoor activity close to nature.\nB. A birdwatching photography course.\nC. An exploration to national museums.\nD. A visit to a treasure-themed exhibition.\n22. One can get free admission by ______.\nA. purchasing a digital pass on a website\nB. showing the voucher at the selected site\nC. submitting an application on the website\nD. joining as a member of the National Trust\n23. According to the passage, the pass ______.\nA. allows free entry for a six-person family\nB. includes free transport and parking\nC. is limited to one per household\nD. can be used more than once",
+    "answers": [],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181953097
+  },
+  "log-8c81c9d2": {
+    "id": "log-8c81c9d2",
+    "operationType": 2,
+    "questionId": "q-19268048",
+    "questionTitle": "北京市丰台区2024~2025学年度第二学期综合练习（一）高三英语",
+    "questionNumber": "B",
+    "articleContent": "For years, Robyn Elman, a nature advocate, has been passionately raising the endangered monarch butterflies in the cozy corner of her backyard. She collects the butterfly eggs from the milkweed plants—the only food for these delicate creatures—alongside the highways. Each time she goes on her journey to the highways, she hopes these little eggs, which are as precious as hidden treasures, will hatch(孵化) into many beautiful creatures. They will slowly make the group which is getting smaller gradually breathe new life.\nBut reality destroyed her hopes last year. Instead of being greeted by the green milkweed plants, she was met with the desolate sight of mowed stubs(修剪过的草茬) and destroyed eggs. The milkweed plants had been cut down, and all left were short stubs. She felt a deep sense of loss. “Is there really no hope for these delicate, flying creatures?” she whispered to herself, her heart as heavy as a big piece of lead.\nEven as pain consumed her, Robyn remained determined. She teamed up with other nature lovers. They reached out to Frank Coniglio, the city's director of highway maintenance, urging him to cut the butterflies a break. At first, Frank was doubtful. He thought, “How important can this be? What difference will it make? It's just some butterflies and plants.” But as Robyn and her friends poured out their worries, and kept explaining the importance of the issue, Frank began to understand. He finally realised, “What happens to the butterflies is going to happen to us, isn't it?”, as if a light bulb had suddenly switched on in his mind.\nFrank went to work on studying more about monarch butterflies, and finally he supported their cause, and took decisive action. He stopped mowing in certain areas, drawing an invisible line of protection. So far, around 20 patches of milkweed plants, like oases in the urban desert, have been protected across the city. “We're making a real difference,” Frank said proudly.",
+    "questionContent": "24. As a nature advocate, Robyn Elman ______.\nA. grows some milkweed in her backyard\nB. raises butterflies alongside the highway\nC. collects butterfly eggs and hatches them\nD. studies milkweed and proves them valuable\n25. How did Robyn feel upon seeing the mowed stubs?\nA. Upset and disappointed.\nB. Angry and annoyed.\nC. Embarrassed and ashamed.\nD. Terrified and confused.\n26. What did Frank do to help protect the monarch butterflies?\nA. He raised the awareness of the public.\nB. He studied the local natural ecosystem.\nC. He protected milkweed in certain areas.\nD. He moved the butterflies to a safe place.\n27. What can we conclude from this passage?\nA. Wildlife conservation takes a back seat to urban development.\nB. Government policies play a main role in wildlife conservation.\nC. The damage of habitats has long-term impact on the ecosystem.\nD. Commitment and cooperation cause positive ecological outcomes.",
+    "answers": [],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181953113
+  },
+  "log-efe8874d": {
+    "id": "log-efe8874d",
+    "operationType": 2,
+    "questionId": "q-aa43233a",
+    "questionTitle": "北京市丰台区2024~2025学年度第二学期综合练习（一）高三英语",
+    "questionNumber": "C",
+    "articleContent": "During WWII, mathematician Alan Turing gathered a team of logic experts to decode enemy messages, a key step toward victory. If there was one branch of mathematics which could be said they were using systematically, it was symbolic logic. However, the curriculum designs that methodically develop students' symbolic logic abilities are relatively rare.\nSymbolic logic is a form of mathematics that lets us check whether certain conclusions correctly follow from a set of facts. Consider a library book-theft case. If a suspect wasn't in the library on the day the theft happened, they can't be the thief. If present, they may or may not be. Being in the library doesn't mean they stole the book. Symbolic logic turns this kind of argument into algebra(代数学), readily shared, solved and generalized for solving mysteries.\nFor careers such as electrical engineering and computer science, the value of symbolic logic is undeniable. The fundamental building blocks of modern digital computers are circuits representing “AND” and “OR”, which are common in symbolic logic. Almost every computer program contains similar “if-then-else” logical conditions. Professional programmers must routinely write and troubleshoot such statements.\nBut symbolic logic is not solely limited to technical fields. Rutgers University mathematician Gray Wenger argues that teaching responsible citizenship requires providing students with mathematical reasoning skills. For example, consider a debate over a study finding that most adults without high-school certificates earn less. A responsible citizen must think through the implications along the lines of the book-theft case example above. No certificate likely means lower income, but low income doesn't mean no certificate. Training in symbolic logic makes these sorts of reasonings sink into their cognitive processes and become second nature to citizens.\nIn addition, symbolic logic equips individuals to counter false claims by distinguishing between separate incidents and systematic evidence. The most effective strategy for this lies in preventive education—teaching people to recognize faulty reasoning at its source. Consider, for instance, some global-warming doubters use one day of cold weather as proof that global warming is a hoax(骗局). But a logical thinker can quickly spot that weather is short-term, while climate is long-term change.\nSome doubt the need for a separate symbolic logic course, believing other classes can do the job. In writing courses, for example, students learn how to spot illogical arguments, and elementary proofs are covered in trigonometry(三角学). Much can be gained by teaching people logical thinking without using any symbols. But only symbolic logic ensures logical strictness. A piecemeal approach isn't enough; a full-semester course is needed for comprehensive learning.\nSymbolic logic is essential for intellectual development. By integrating symbolic logic into educational frameworks, we equip future generations with the intellectual tools to navigate complex challenges. Training for it must be included in the curriculum and cannot be left to chance.",
+    "questionContent": "28. According to the passage, symbolic logic can play a primary role when ______.\nA. a chef is creating a new recipe by combining different materials\nB. a student is deciding which club to join based on personal interests\nC. a doctor is identifying one's illness by using signs and test findings\nD. a journalist is writing a feature article by interviewing local people\n29. What does the phrase \"second nature\" underlined in Paragraph 4 probably mean?\nA. A routine practice.\nB. An automatic ability.\nC. An essential tool.\nD. A necessary quality.\n30. From the passage, we learn that symbolic logic ______.\nA. tells the difference between separate incidents\nB. is mainly applied in solving mathematical puzzles\nC. questions the basic principles of modern computers\nD. enables people to detect and challenge false arguments\n31. The author may agree that current symbolic logic education is ______.\nA. unsatisfying for the lack of symbolic logic courses\nB. problematic and ignores logical reasoning practice\nC. acceptable if alternative courses are available\nD. manageable and will improve naturally",
+    "answers": [],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181953125
+  },
+  "log-dfede986": {
+    "id": "log-dfede986",
+    "operationType": 2,
+    "questionId": "q-42094ee4",
+    "questionTitle": "北京市丰台区2024~2025学年度第二学期综合练习（一）高三英语",
+    "questionNumber": "D",
+    "articleContent": "Recent findings from the Dark Energy Spectroscopic Instrument(DESI) in Arizona, which produced the largest 3D map of the universe, suggest that dark energy—the mysterious force driving the universe's accelerated(加速的) expansion—might change over time. This challenges the standard model of cosmology(宇宙学), which assumes a steady acceleration.\nDark energy is thought to make up nearly 70% of the cosmos, so if its behaviour really is changing as time passes, it could have significant implications for our understanding of the universe.\nSince the DESI data came out, researchers have been working on ways to explain the apparent changes in the universe's expansion rate. Dark energy isn't directly observable, so there are several options that could fit. One solution suggested by Michael Garda at the Federal University in Brazil and his colleagues involves letting dark energy interact with dark matter, an invisible and abundant form of matter that outweighs ordinary matter. This interaction is forbidden in the standard model, but if energy could flow from the universe's dark matter to its dark energy—essentially changing the former to the latter—the researchers' simulations (模拟) showed that this would match the DESI measurements. Yet, the mechanism for such an energy transfer isn't clear.\nThis solution might also help resolve the Hubble tension, a difference in the ways we measure the expansion rate of the cosmos. Measurements of this made by analysing nearby galaxies(known as “local” measurements) give an expansion rate, or Hubble constant, which is slightly higher than the one obtained from the cosmic microwave background(CMB)—the remaining radiation from the early universe. CMB measurements rely on a theoretical model of cosmic evolution, which may need adjustment if Garda's proposal is correct. By allowing energy transfer between dark matter and dark energy, the adjusted model could bring CMB-based estimates more closely into line with local measurements, potentially resolving the tension.\nAnother proposed solution involves dark radiation, an invisible form of radiation similar to light but composed of dark photons(光子). Tamar Allali at Brown University and his team suggest that dark radiation could explain the DESI data and lessened the Hubble tension by increasing the universe's expansion rate in its early stages. “If you have more radiation, the expansion is faster in the early universe,” says Allali. Unlike adjustments to dark energy, dark radiation introduces a new component without changing existing physical laws, making it a more conservative approach. Allali notes that the DESI data does not rule out dark radiation and even shows a slight preference for it.\nBoth models—interacting dark energy and dark radiation—fit the DESI data, but neither has been confirmed. Shawn Smith at the University of Edinburgh, UK, points out that while many unconventional cosmological models could explain the observations, none currently compete with the standard cosmological model from a fundamental physics perspective. Nevertheless, these models serve as catalysts for progress, ensuring that cosmology remains a dynamic and evolving field.",
+    "questionContent": "32. What does this passage mainly talk about?\nA. The development of scientific models to study the universe.\nB. The discovery of dark energy and its impact on the universe.\nC. The importance of DESI in studying the universe's behavior.\nD. The attempts to explain the universe's unexpected expansion.\n33. Which of the following might the author agree with?\nA. Garda's proposal outperforms Allali's in its simplicity.\nB. Recent research has found ways for dark energy transfer.\nC. The DESI data has confirmed the existence of dark radiation.\nD. The two models share similarities in reducing Hubble tension.\n34. The passage is organized in the pattern of ______.\nA. cause—effect—solution\nB. problem—solution—evaluation\nC. example—analysis—conclusion\nD. introduction—comparison—result",
+    "answers": [],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181953137
+  },
+  "log-0513e818": {
+    "id": "log-0513e818",
+    "operationType": 2,
+    "questionId": "q-65b937e4",
+    "questionTitle": "石景山区2025年高三统一练习",
+    "questionNumber": "A",
+    "articleContent": "The AI Scholars Programme (AISP) offers high school students worldwide a four-week, on-campus experience in artificial intelligence (AI) at Westbridge Technology University (WTU), connecting them with leading AI researchers. This fully-funded programme covers course fees, housing and programme-related field trips.\nCourse Plan\n* A virtual Python preparation course begins one month prior to the start of the campus programme. Coding experience is not required, and instructor support will be available for all students.\n* Core academic modules include lectures on using AI fairly and safely, along with in-depth seminars led by WTU teaching staff that explore current AI research projects. Students will apply newly learned AI skills to real-world challenges in a hands-on group project, which will be presented at the AISP closing ceremony.\n* Site visits with industry leaders are also included to explore emerging career paths in the AI field, along with academic writing workshops for college application.\nApplication Requirements\nStudents applying for AISP must be at least 16 years old. The complete application for AISP will consist of:\n* an online application form;\n* official high school records of academic performance and extra-curricular activities;\n* a personal statement demonstrating curiosity in AI research and commitment to socially responsible innovation.\nApplicants are strongly encouraged to submit a one-page maximum summary of the research proposal, clarifying how the project uses AI, its importance and intended outcomes. This will provide valuable information about the applicant's research potential, technical skills, and ability to plan and communicate their research goals.\nApplications of 2025 programme close on April 15, 2025, with interviews conducted through May. Click here to start your application.",
+    "questionContent": "21. What is the main purpose of the AISP?\nA. To engage students in AI exploration.\nB. To advocate cooperation in AI research.\nC. To provide career guidance in AI industry.\nD. To promote the principles of AI applications.\n\n22. What can students learn from the programme?\nA. Academic writing on AI development.\nB. Ways to write an AI research proposal.\nC. AI skills for solving problems in reality.\nD. Advanced maths and physics with AI focus.\n\n23. To be considered for the programme, students should ______.\nA. pay the tuition fees in advance\nB. upload a recommendation letter\nC. submit an online application form in May\nD. provide school records and a personal statement.",
+    "answers": [],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181953145
+  },
+  "log-80f1e42d": {
+    "id": "log-80f1e42d",
+    "operationType": 2,
+    "questionId": "q-51592469",
+    "questionTitle": "石景山区2025年高三统一练习",
+    "questionNumber": "B",
+    "articleContent": "In my early forties, I began painting with watercolours. Each brushstroke on paper turned into a personal language, allowing me to express the inexpressible. The feeling of colour being absorbed into the paper was calming, yet it left me longing for something deeper. Over time, I became more interested in oil paints. Although they took longer to dry, they offered me a sense of control. Layers of paints combined smoothly, creating a three-dimensional effect that watercolours couldn't copy. Oil paints granted me the precious opportunity to take a few steps back, as if I were a curious explorer approaching a hidden landscape.\nHowever, working with oil paints wasn't easy. Getting the right shine or thickness required patience, and at times, I felt annoyed by my lack of progress. Colours didn't always behave as expected, and I struggled to achieve the vision in my mind. But the more I persisted, the more I understood oil paints. They balanced softness with depth, giving me the chance to create both delicate and grand images. The process of painting became reflective, a practice of exploring colours, textures (纹理) and emotions—sometimes rough, sometimes peaceful, but always rewarding.\nOne evening, I noticed a strange shade of blue on my canvas (画布). It seemed out of place, as if it didn't belong. My heart skipped a beat, and I stared at it, uncertain if it was part of my recent work or a trick of the eye. As I stepped back to examine the canvas, the blue shade slowly began to make sense. It was not an error but an invitation—an unplanned element that added depth to the piece in a way I hadn't expected. At that moment, I realised that painting, much like life, was not about complete control but about embracing the unexpected.\nFrom then on, I approached my work with a new sense of curiosity. I let colours blend more freely, allowed accidental mistakes to become part of the composition, and accepted that every brushstroke carried its own story. Oil painting not only gave me a medium to express myself but also taught me patience, resilience, and the beauty of discovery.\nLooking at my finished work, I no longer saw just layers of paints. I saw moments of struggle, joy, and growth woven into the canvas—a reminder that art, like any, is as much about the process as it is about the final masterpiece.",
+    "questionContent": "24. Why did the author turn to oil paints?\nA. To enhance creativity.\nB. To save painting time.\nC. To seek deeper artistic control.\nD. To improve painting skills.\n\n25. What challenge did the author face when working with oil paints?\nA. Balancing softness and sharpness.\nB. Creating a three-dimensional effect.\nC. Achieving the right shine and thickness.\nD. Controlling the drying time of the paints.\n\n26. What message does the author want to convey?\nA. Art is a journey of welcoming imperfections.\nB. A good picture is worth a thousand words.\nC. Beauty is the ultimate goal of fine art.\nD. Creating is about exploring ideal self.",
+    "answers": [],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181953155
+  },
+  "log-754bdd81": {
+    "id": "log-754bdd81",
+    "operationType": 2,
+    "questionId": "q-85606e78",
+    "questionTitle": "石景山区2025年高三统一练习",
+    "questionNumber": "C",
+    "articleContent": "Researchers from the NeuroMind Institute have developed a new system that uses predator (捕食者) robots to chase (追逐) larval (幼体的) zebrafish in an open water. This innovative approach is helping scientists study how the young fish rapidly learn and adapt in real-world conditions.\nLarval zebrafish are a valuable tool for neuroscientists because their transparency enables easy study of the brain and behaviour. However, it's been difficult for scientists to study learning in these developing vertebrates (脊椎动物)—an important part of understanding how the brain works. Previous research found young zebrafish could learn simple associations. But this type of learning happens slowly and often unreliably, and it was still unclear whether days-old zebrafish can learn fast enough to use their memory in natural situations, like recognizing and avoiding new predators.\nThe researchers thought that traditional ways of testing learning in larval zebrafish in the lab, where the conditions were far from what the fish would encounter in the wild, might not be effective for uncovering how the fish learn. To model a real-life situation, the researchers used small robotic cylinders (圆柱体), with some programmed to show predator-like characteristics.\nThe researchers created the dynamics: they first placed a robot that stayed still with a free-swimming zebrafish; after the robot chased the fish for a minute, the fish began avoiding the robot's area for more than an hour—a big change from the non-avoidant behaviour before the chase experience. When a second robot was introduced that did not chase the fish, the zebrafish only avoided the chasing robot, showing that they could distinguish between a threat and a non-threat.\nUsing this system, the researchers made an unexpected discovery that not only could larval zebrafish learn extremely quickly in a more natural context, but they could also do so just five days after beginning their lives as single cells. This was particularly surprising given the fact that a developing zebrafish larva contains just one percent or so of the neurons (神经元) in its adult form. The findings suggest that some essential learning abilities, like recognizing predators, emerge early in life and are critical for survival.\nFurther brain imaging reveals that different regions of the zebrafish brain are involved in this rapid learning: the hindbrain, a region controlling essential functions, responds to the approaching predator; the forebrain, a region associated with learning and planning, encodes the presence of the predator robot; and the habenula, another brain area, signals avoidance outcomes. All these regions are necessary for learning, and silencing any of them removes the ability of the fish to learn. It is believed that the new work could offer insights into how other brains process real-world threats.",
+    "questionContent": "27. Why did the researchers develop a new system with larval zebrafish?\nA. To observe their hunting behaviours.\nB. To identify their simple associations.\nC. To examine their brain characteristics.\nD. To uncover their learning in natural settings.\n\n28. What does the underlined word \"dynamics\" in Paragraph 4 probably mean?\nA. Interaction.\nB. Function.\nC. Structure.\nD. Standard.\n\n29. What can we learn about larval zebrafish?\nA. They can distinguish between robots and fish.\nB. They learn fast through a multi-regional brain network.\nC. They develop learning abilities when reaching adulthood.\nD. They can recognise predators with much neurons needed.\n\n30. What will the author most probably discuss in the paragraph that follows?\nA. Explaining the robot design used in the experiment.\nB. Exploring danger processing in other species' brains.\nC. Analysing the connection between learning and planning.\nD. Describing zebrafish behaviours in different surroundings.",
+    "answers": [],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181953164
+  },
+  "log-1cc167dc": {
+    "id": "log-1cc167dc",
+    "operationType": 2,
+    "questionId": "q-a4524196",
+    "questionTitle": "石景山区2025年高三统一练习",
+    "questionNumber": "D",
+    "articleContent": "The moon stands alone. Unique in the universe, it is a lifeless and sunbaked wasteland that harbours little except what we bring to it. But that is about to change.\nHalf a century after the Apollo programme, a private spacecraft Nova-C made the first touchdown on the moon successfully, bearing scientific instruments, microfiche (缩微胶片) story disks, cameras, and sculptures to stay on the moon forever. Its success would promise many more. Though it may seem like an exciting outlook for humanity's space exploration ambitions, it also signals a future where the moon becomes a hotbed of ungoverned business operations that will irreversibly (不可逆地) transform it.\nFor the first time, private capital has reached the moon, expanding beyond scientific goals. This allows private landers, even when carrying government science experiments, to include additional non-scientific payloads (有效负载) for other customers. Items bound to raise various objections, such as human cremains (骨灰) and dehydrated water bears from past missions, have caused concerns about biological materials on the moon. There's a lot more planned for future launches, likely sparking further debate.\nBefore this decade is out, with a powerful enough telescope, you may be able to see evidence of human construction or even habitation on the moon. In 2023, the global space industry was valued at $469 billion, expected to exceed $1 trillion by 2030, driven by growing satellite use in manufacturing, power, and data. “We are now at a tipping point, where ideas previously limited to science fiction represent attractive investment projects,” a report read.\nA voluntary agreement has been used since 2020 to foster lunar cooperation. It promotes international standards, emergency assistance and data sharing. However, it also allows for exploiting (开采) lunar resources like dust, water, rare earth elements and other materials.\nExploring the moon has value for science and potential benefits for Earth, but humans often turn exploration into exploitation, and the moon may face the same fate. The moon won't be alone for long. But it is and will forever be quiet. It plays host to no thunderstorms, no crashing waves, no bird songs and no anthems (国歌). We must be its voice. We will soon change its surface, and our relationship to it, forever. At the very least, we owe the moon a considered discussion of why and how we will do so.",
+    "questionContent": "31. What is the author's concern about the moon's future?\nA. Unregulated commercial activities.\nB. Illegal human construction.\nC. Limited payload carried to the moon.\nD. A lack of scientific missions.\n\n32. The \"tipping point\" in Paragraph 4 indicates the change______.\nA. from cooperation to competition\nB. from science to trade\nC. from lunar landing to settlement\nD. from fantasy to adventure.\n\n33. What can we infer from this passage?\nA. Lunar resource exploration holds great promise.\nB. Massive investment is beneficial to lunar development.\nC. Non-scientific activities can test lunar environmental limits.\nD. The existing agreement is insufficient in controlling over-exploitation.\n\n34.What would be the best title for this passage?\nA. The Promising Moon: Playground for All\nB. The Moon's Edge: Ambition Meets Reality\nC. The Moon's Future: Uncover the Unknown\nD. The Silent Moon: Humanity's Responsibility",
+    "answers": [],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181953174
+  },
+  "log-3fd5c896": {
+    "id": "log-3fd5c896",
+    "operationType": 2,
+    "questionId": "q-ea83b2f0",
+    "questionTitle": "北京市丰台区 2024~2025 学年度第二学期综合练习（一）高三英语",
+    "questionNumber": "完形填空",
+    "articleContent": "I stepped out of the store, juggling a few shopping bags in my hands, looking forward to the drive home. As I reached my car, a wave of panic washed over me. I had \\clozeblank{1} my keys and mobile phone inside the vehicle. In a moment of annoyance, I gave the tire a hard kick.\n\tA teenager on a bike happened to pass by at that very moment. He stopped, and his eyes filled with \\clozeblank{2}. “What’s wrong?” he asked. I sighed deeply and explained my rather \\clozeblank{3} situation. “But even if I could call my wife,” I added, my tone \\clozeblank{4}, “she can’t bring me the spare car key, since she’s taking care of our children at home.”\n\tWithout hesitation, he \\clozeblank{5} me his mobile phone. “Call your wife and tell her I’m coming to get the spare key,” he said. I looked at him in \\clozeblank{6}. “That’s an 11-kilometre round trip!” I protested. But he was determined and said, “Don’t worry about it.”\n\tAn hour seemed to \\clozeblank{7} as I waited anxiously. But true to his word, he \\clozeblank{8} with the key in hand. I was overjoyed and immediately reached for my wallet to offer him some money as a gesture of my \\clozeblank{9}. However, he firmly refused. “Let’s just say I needed the exercise,” he said with a smile. Then, with a casual wave, he got back on his bike and rode off.\n\tIn a world that often seems focused on self-interest, his kindness was a shining example of the goodness that still exists. A simple act of \\clozeblank{10} can have a profound impact on someone’s day.",
+    "questionContent": "\\textbf{1.} \\option{A. placed}{B. hidden}{C. stored}{D. locked}\n\\textbf{2.} \\option{A. hope}{B. sadness}{C. concern}{D. anxiety}\n\\textbf{3.} \\option{A. unfortunate}{B. dangerous}{C. adventurous}{D. promising}\n\\textbf{4.} \\option{A. relaxed}{B. exhausted}{C. excited}{D. defeated}\n\\textbf{5.} \\option{A. left}{B. handed}{C. sent}{D. sold}\n\\textbf{6.} \\option{A. disbelief}{B. anger}{C. regret}{D. fear}\n\\textbf{7.} \\option{A. jump ahead}{B. fly by}{C. drag on}{D. come around}\n\\textbf{8.} \\option{A. returned}{B. hesitated}{C. disappeared}{D. settled}\n\\textbf{9.} \\option{A. kindness}{B. satisfaction}{C. admiration}{D. gratitude}\n\\textbf{10.} \\option{A. devotion}{B. generosity}{C. courage}{D. sharing}",
+    "answers": [],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181953187
+  },
+  "log-3517a23b": {
+    "id": "log-3517a23b",
+    "operationType": 2,
+    "questionId": "q-20170cd5",
+    "questionTitle": "北京市丰台区 2024~2025 学年度第二学期综合练习（一）高三英语",
+    "questionNumber": "语法填空A",
+    "articleContent": "Whales swim by moving their tails up and down. This motion \\clozeblank{11} (create) pressure pulses(脉冲) which harm their brains. However, whales find a way \\clozeblank{12} (avoid) such damage. Research has revealed that a network of blood vessels(血管) in their brains plays a crucial role. It can maintain stable blood pressure, \\clozeblank{13} (effective) reducing over 90% of the potential harm. This discovery also helps explain \\clozeblank{14} seals, which don't face the same issue, lack these structures.",
+    "questionContent": "",
+    "answers": [],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181953200
+  },
+  "log-3ca6d680": {
+    "id": "log-3ca6d680",
+    "operationType": 2,
+    "questionId": "q-508cacc8",
+    "questionTitle": "北京市丰台区 2024~2025 学年度第二学期综合练习（一）高三英语",
+    "questionNumber": "语法填空B",
+    "articleContent": "In Traditional Chinese Medicine, cinnamon, known as “RouGui”, \\clozeblank{15} (use) for centuries for its medicinal properties. It is considered a warming herb, meaning that it is believed to relieve pain and discomfort \\clozeblank{16} (associate) with cold and damp conditions. Cinnamon can harmonize the body’s energies and enhance overall well-being, which makes it a must for those \\clozeblank{17} want to improve their immune system.",
+    "questionContent": "",
+    "answers": [],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181956322
+  },
+  "log-2aaf3454": {
+    "id": "log-2aaf3454",
+    "operationType": 2,
+    "questionId": "q-dc2b143f",
+    "questionTitle": "北京市丰台区 2024~2025 学年度第二学期综合练习（一）高三英语",
+    "questionNumber": "语法填空C",
+    "articleContent": "Last December, I ordered a warm hamburger at a food store. As I left the store, I noticed there was an older poor gentleman \\clozeblank{18} (sit) at the bus stop. Knowing it would probably be his only warm meal of the day, I \\clozeblank{19} (give) him the hamburger. But all was not lost for me. Another customer offered me half of her hamburger. I was so delighted because I realised that \\clozeblank{20} one way or another, we are all looked after.",
+    "questionContent": "",
+    "answers": [],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181956340
+  },
+  "log-458ead04": {
+    "id": "log-458ead04",
+    "operationType": 2,
+    "questionId": "q-8df34628",
+    "questionTitle": "北京市丰台区 2024~2025 学年度第二学期综合练习（一）高三英语",
+    "questionNumber": "A",
+    "articleContent": "FREE FAMILY DAY PASS\nNational Trust\nLooking for the perfect day out this March? Whether you love peaceful woodland walks, birdwatching, or discovering new places surrounded by nature, the National Trust has something for everyone.\nThanks to this incredible offer, you can enjoy a FREE visit to a National Trust property of your choice. It will give you the perfect excuse to gather your loved ones and explore the great outdoors.\nStart your year by reconnecting with nature and making unforgettable memories with family and friends. Don't miss out on this wonderful opportunity to experience the beauty of National Trust sites—completely free!\nHOW TO CLAIM\nCut out the voucher(代金券) below and present at your chosen National Trust location. Some National Trust properties require advance booking, please check the property website for full details. Certain places are excluded(排除在外) from this promotion, details can be found at reachforms.co.uk/nationaltrustpass.\nFREE National Trust FAMILY PASS\n\\begin{enumerate}\n    \\item This pass is single use and is effective once from the date of issue through to 31 December, 2025 inclusive.\n    \\item This pass allows free admission at participating National Trust places for 2 adults and up to 3 children, or 1 adult and up to 4 children. Adults are aged 18 or over; children are aged under 17 inclusive.\n    \\item This pass is for standard admission only and excludes parking, group entity, paid transport, and any paid events.\n    \\item This pass is effective at participating National Trust places within advertised opening hours. Opening hours may be subject to change at any time and should be checked at nationaltrust.org.uk.\n    \\item Present this pass to receive free admission at participating places. Pass holders who cannot present the pass, or visit an excluded place, will be charged the full admission price.\n    \\item Only one pass per household will be permitted.\n\\end{enumerate}",
+    "questionContent": "\\textbf{21.} What can people enjoy with the National Trust’s offer?\n\\optionone{A. An outdoor activity close to nature.}{B. A birdwatching photography course.}{C. An exploration to national museums.}{D. A visit to a treasure-themed exhibition.}\n\\textbf{22.} One can get free admission by ________.\n\\optionone{A. purchasing a digital pass on a website}{B. showing the voucher at the selected site}{C. submitting an application on the website}{D. joining as a member of the National Trust}\n\\textbf{23.} According to the passage, the pass ________.\n\\optionone{A. allows free entry for a six-person family}{B. includes free transport and parking}{C. is limited to one per household}{D. can be used more than once}",
+    "answers": [],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181956354
+  },
+  "log-4d207db8": {
+    "id": "log-4d207db8",
+    "operationType": 2,
+    "questionId": "q-1fd62d37",
+    "questionTitle": "北京市丰台区 2024~2025 学年度第二学期综合练习（一）高三英语",
+    "questionNumber": "B",
+    "articleContent": "For years, Robyn Elman, a nature advocate, has been passionately raising the endangered monarch butterflies in the cozy corner of her backyard. She collects the butterfly eggs from the milkweed plants—the only food for these delicate creatures—alongside the highways. Each time she goes on her journey to the highways, she hopes these little eggs, which are as precious as hidden treasures, will hatch(孵化) into many beautiful creatures. They will slowly make the group which is getting smaller gradually breathe new life.\nBut reality destroyed her hopes last year. Instead of being greeted by the green milkweed plants, she was met with the desolate sight of mowed stubs(修剪过的草茬) and destroyed eggs. The milkweed plants had been cut down, and all left were short stubs. She felt a deep sense of loss. “Is there really no hope for these delicate, flying creatures?” she whispered to herself, her heart as heavy as a big piece of lead.\nEven as pain consumed her, Robyn remained determined. She teamed up with other nature lovers. They reached out to Frank Coniglio, the city’s director of highway maintenance, urging him to cut the butterflies a break. At first, Frank was doubtful. He thought, “How important can this be? What difference will it make? It’s just some butterflies and plants.” But as Robyn and her friends poured out their worries, and kept explaining the importance of the issue, Frank began to understand. He finally realised, “What happens to the butterflies is going to happen to us, isn’t it?”, as if a light bulb had suddenly switched on in his mind.\nFrank went to work on studying more about monarch butterflies, and finally he supported their cause, and took decisive action. He stopped mowing in certain areas, drawing an invisible line of protection. So far, around 20 patches of milkweed plants, like oases in the urban desert, have been protected across the city. “We’re making a real difference,” Frank said proudly.\nThanks to their combined efforts, the monarch butterflies now have a brighter future, and the city’s ecosystem is on the path to positive transformation.",
+    "questionContent": "\\textbf{24.} As a nature advocate, Robyn Elman ________.\n\\optionone{A. grows some milkweed in her backyard}{B. raises butterflies alongside the highway}{C. collects butterfly eggs and hatches them}{D. studies milkweed and proves them valuable}\n\\textbf{25.} How did Robyn feel upon seeing the mowed stubs?\n\\optionone{A. Upset and disappointed.}{B. Angry and annoyed.}{C. Embarrassed and ashamed.}{D. Terrified and confused.}\n\\textbf{26.} What did Frank do to help protect the monarch butterflies?\n\\optionone{A. He raised the awareness of the public.}{B. He studied the local natural ecosystem.}{C. He protected milkweed in certain areas.}{D. He moved the butterflies to a safe place.}\n\\textbf{27.} What can we conclude from this passage?\n\\optionone{A. Wildlife conservation takes a back seat to urban development.}{B. Government policies play a main role in wildlife conservation.}{C. The damage of habitats has long-term impact on the ecosystem.}{D. Commitment and cooperation cause positive ecological outcomes.}",
+    "answers": [],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181956367
+  },
+  "log-af30d1f4": {
+    "id": "log-af30d1f4",
+    "operationType": 2,
+    "questionId": "q-6737ca1a",
+    "questionTitle": "北京市丰台区 2024~2025 学年度第二学期综合练习（一）高三英语",
+    "questionNumber": "C",
+    "articleContent": "During WWII, mathematician Alan Turing gathered a team of logic experts to decode enemy messages, a key step toward victory. If there was one branch of mathematics which could be said they were using systematically, it was symbolic logic. However, the curriculum designs that methodically develop students’ symbolic logic abilities are relatively rare.\nSymbolic logic is a form of mathematics that lets us check whether certain conclusions correctly follow from a set of facts. Consider a library book-theft case. If a suspect wasn’t in the library on the day the theft happened, they can’t be the thief. If present, they may or may not be. Being in the library doesn’t mean they stole the book. Symbolic logic turns this kind of argument into algebra(代数学), readily shared, solved and generalized for solving mysteries.\nFor careers such as electrical engineering and computer science, the value of symbolic logic is undeniable. The fundamental building blocks of modern digital computers are circuits representing “AND” and “OR”, which are common in symbolic logic. Almost every computer program contains similar “if-then-else” logical conditions. Professional programmers must routinely write and troubleshoot such statements.\nBut symbolic logic is not solely limited to technical fields. Rutgers University mathematician Gray Wenger argues that teaching responsible citizenship requires providing students with mathematical reasoning skills. For example, consider a debate over a study finding that most adults without high-school certificates earn less. A responsible citizen must think through the implications along the lines of the book-theft case example above. No certificate likely means lower income, but low income doesn’t mean no certificate. Training in symbolic logic makes these sorts of reasonings sink into their cognitive processes and become second nature to citizens.\nIn addition, symbolic logic equips individuals to counter false claims by distinguishing between separate incidents and systematic evidence. The most effective strategy for this lies in preventive education—teaching people to recognize faulty reasoning at its source. Consider, for instance, some global-warming doubters use one day of cold weather as proof that global warming is a hoax(骗局). But a logical thinker can quickly spot that weather is short-term, while climate is long-term change.\nSome doubt the need for a separate symbolic logic course, believing other classes can do the job. In writing courses, for example, students learn how to spot illogical arguments, and elementary proofs are covered in trigonometry(三角学). Much can be gained by teaching people logical thinking without using any symbols. But only symbolic logic ensures logical strictness. A piecemeal approach isn’t enough; a full-semester course is needed for comprehensive learning.\nSymbolic logic is essential for intellectual development. By integrating symbolic logic into educational frameworks, we equip future generations with the intellectual tools to navigate complex challenges. Training for it must be included in the curriculum and cannot be left to chance.",
+    "questionContent": "\\textbf{28.} According to the passage, symbolic logic can play a primary role when ________.\n\\optionone{A. a chef is creating a new recipe by combining different materials}{B. a student is deciding which club to join based on personal interests}{C. a doctor is identifying one’s illness by using signs and test findings}{D. a journalist is writing a feature article by interviewing local people}\n\\textbf{29.} What does the phrase “second nature” underlined in Paragraph 4 probably mean?\n\\optionone{A. A routine practice.}{B. An automatic ability.}{C. An essential tool.}{D. A necessary quality.}\n\\textbf{30.} From the passage, we learn that symbolic logic ________.\n\\optionone{A. tells the difference between separate incidents}{B. is mainly applied in solving mathematical puzzles}{C. questions the basic principles of modern computers}{D. enables people to detect and challenge false arguments}\n\\textbf{31.} The author may agree that current symbolic logic education is ________.\n\\optionone{A. unsatisfying for the lack of symbolic logic courses}{B. problematic and ignores logical reasoning practice}{C. acceptable if alternative courses are available}{D. manageable and will improve naturally}",
+    "answers": [],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181956377
+  },
+  "log-064e8df0": {
+    "id": "log-064e8df0",
+    "operationType": 2,
+    "questionId": "q-192cdcd6",
+    "questionTitle": "北京市丰台区 2024~2025 学年度第二学期综合练习（一）高三英语",
+    "questionNumber": "D",
+    "articleContent": "Recent findings from the Dark Energy Spectroscopic Instrument(DESI) in Arizona, which produced the largest 3D map of the universe, suggest that dark energy—the mysterious force driving the universe’s accelerated(加速的) expansion—might change over time. This challenges the standard model of cosmology(宇宙学), which assumes a steady acceleration.\nDark energy is thought to make up nearly 70% of the cosmos, so if its behaviour really is changing as time passes, it could have significant implications for our understanding of the universe.\nSince the DESI data came out, researchers have been working on ways to explain the apparent changes in the universe’s expansion rate. Dark energy isn’t directly observable, so there are several options that could fit. One solution suggested by Michael Garda at the Federal University in Brazil and his colleagues involves letting dark energy interact with dark matter, an invisible and abundant form of matter that outweighs ordinary matter. This interaction is forbidden in the standard model, but if energy could flow from the universe’s dark matter to its dark energy—essentially changing the former to the latter—the researchers’ simulations (模拟) showed that this would match the DESI measurements. Yet, the mechanism for such an energy transfer isn’t clear.\nThis solution might also help resolve the Hubble tension, a difference in the measurements of this made by analysing nearby galaxies(known as “local” measurements) give an expansion rate, or Hubble constant, which is slightly higher than the one obtained from the cosmic microwave background(CMB)—the remaining radiation from the early universe. CMB measurements rely on a theoretical model of cosmic evolution, which may need adjustment if Garda’s proposal is correct. By allowing energy transfer between dark matter and dark energy, the adjusted model could bring CMB-based estimates more closely into line with local measurements, potentially resolving the tension.\nAnother proposed solution involves dark radiation, an invisible form of radiation similar to light but composed of dark photons(光子). Tamar Allali at Brown University and his team suggest that dark radiation could explain the DESI data and lessened the Hubble tension by increasing the universe’s expansion rate in its early stages. “If you have more radiation, the expansion is faster in the early universe,” says Allali. Unlike adjustments to dark energy, dark radiation introduces a new component without changing existing physical laws, making it a more conservative approach. Allali notes that the DESI data does not rule out dark radiation and even shows a slight preference for it.\nBoth models—interacting dark energy and dark radiation—fit the DESI data, but neither has been confirmed. Shawn Smith at the University of Edinburgh, UK, points out that while many unconventional models could explain the observations, none currently compete with the standard cosmological model from a fundamental physics perspective. Nevertheless, these models serve as catalysts for progress, ensuring that cosmology remains a dynamic and evolving field.",
+    "questionContent": "\\textbf{32.} What does this passage mainly talk about?\n\\optionone{A. The development of scientific models to study the universe.}{B. The discovery of dark energy and its impact on the universe.}{C. The importance of DESI in studying the universe’s behavior.}{D. The attempts to explain the universe’s unexpected expansion.}\n\\textbf{33.} Which of the following might the author agree with?\n\\optionone{A. Garda’s proposal outperforms Allali’s in its simplicity.}{B. Recent research has found ways for dark energy transfer.}{C. The DESI data has confirmed the existence of dark radiation.}{D. The two models share similarities in reducing Hubble tension.}\n\\textbf{34.} The passage is organized in the pattern of ________.\n\\optionone{A. cause—effect—solution}{B. problem—solution—evaluation}{C. example—analysis—conclusion}{D. introduction—comparison—result}",
+    "answers": [],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181956387
+  },
+  "log-e932cb16": {
+    "id": "log-e932cb16",
+    "operationType": 2,
+    "questionId": "q-9e723cbc",
+    "questionTitle": "北京市丰台区 2024~2025 学年度第二学期综合练习（一）高三英语",
+    "questionNumber": "七选五",
+    "articleContent": "Experts have warned that an obsession(痴迷) with healthy eating can cause mental health problems. A survey among mental health professionals found 90% of those surveyed, like in previous research, had seen patients with orthorexia nervosa (ON). \\clozeblank{35}\n\tThe survey found some patients cut out foods like fish, meat or dairy, considering them “unclean”. Their fixation on “pure” foods leads to deficiencies(缺陷) like iron-deficiency anaemia or vitamin B12 deficiency. For example, Dr Niket Sonpal found that his patients didn’t consume enough calories, minerals, protein or carbohydrates. Some patients even cut out entire food groups after the big dinners of holidays. \\clozeblank{36}\n\tThe term ON was coined in 1997 by Dr. Steven Bratman. He noticed patients’ extreme diets caused malnutrition, anxiety, and even death. \\clozeblank{37} It poses a significant challenge. Healthcare providers may not be trained to spot the signs easily, and patients might not be aware their eating habits. As a result, diagnosis and treatment are delayed.\n\t\\clozeblank{38} Healthcare providers need to be attentive to identify and deal with ON in patients, providing support such as nutritional advice, psychological aid, and diet-diversity education. The public needs to know the risks of overly strict eating. \\clozeblank{39} True well-being comes from a healthy relationship with food, not an obsession with “clean” eating. By taking these steps, we can prevent mental health issues caused by fixating on healthy eating and promote a culture where food brings both nourishment and joy.",
+    "questionContent": "\\begin{enumerate}[label=\\Alph{*}.]\n\\item Despite its risks, ON isn’t officially recognised as an eating disorder.\n\\item Some online health communities provide some self-treatment methods.\n\\item ON patients showed doubled depression rates compared to non-sufferers.\n\\item Media and social platforms can promote a more realistic view of nutrition.\n\\item Hence, experts warned that a healthy diet should not simply be seen as a source of restriction.\n\\item In light of the findings, the medical community and the public should take a balanced view on healthy eating.\n\\item Basically, orthorexia is a fixation on eating only healthy or pure foods, or what an individual perceives as healthy or pure.\n\\end{enumerate}",
+    "answers": [],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181956397
+  },
+  "log-cdabe0c7": {
+    "id": "log-cdabe0c7",
+    "operationType": 2,
+    "questionId": "q-46c673b2",
+    "questionTitle": "北京市丰台区 2024~2025 学年度第二学期综合练习（一）高三英语",
+    "questionNumber": "阅读表达",
+    "articleContent": "In the digital age, technology is transforming how we communicate and interact. What were once science-fiction tech ideas are now reality. In the 2002 film \\textit{Minority Report}, John Anderton used a data glove, and now touch-based computing is common. Similar gaming interaction methods have appeared since 2006. These are just a taste of what’s to come.\nMIT computer scientist Thomas Koffler predicted that virtual touch-based computing is the future of human-computer interfaces. He also suggested that an even more exciting area of research, one that will transform how we communicate with computers over the longer term, is so-called brain-computer interface(BCI).\nToday's research on BCI works on a related idea: the brain makes use of electrical signals, an electrical code, to send and process information. As the brain runs on electrical signals, assuming these can be accurately read, the signals thus allow us to communicate with external devices through the transmission of electrical impulses(脉冲) directly from the brain. In theory, it should be possible to use brain signals that move your arm and hand to control a robotic arm, e.g., to pick up a coffee cup.\nResearch of this kind is ongoing. Cochlear implants(人工耳蜗), allowing the hard of hearing to hear, are currently the most widely available use for this technology. The principle of BCI enables brain signals to communicate with the implant, thereby overcoming the damaged part of the ear. In the future, it may be possible for Implants in the brain to allow us to communicate directly with and control a wide variety of devices, using the power of thought alone.\nToday, computers and smartphones with fixed cameras enable real-time face-to-face chat. Next up could be telepresence robots, which let a person remotely see, move around, and interact. Ideal for tele-conferencing and remote site tours, their potential is clear. Ultimately, the driving force behind digital communication’s next stage is the cooperative intelligence that makes humans exceptional communicators.",
+    "questionContent": "\\textbf{40.} According to Thomas Koffler, what will transform the way we communicate with computers over the longer term?\n\\textbf{41.} How do electrical signals allow us to communicate with external devices?\n\\textbf{42.} Please decide which part is false in the following statement, then underline it and explain why.\n> The principle of BCI enables brain signals to directly fix the damaged part of the ear.\n\\textbf{43.} Do you think BCI will make our lives better? Why or why not? (In about 40 words)",
+    "answers": [],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181956410
+  },
+  "log-80e28b93": {
+    "id": "log-80e28b93",
+    "operationType": 2,
+    "questionId": "q-46f8552f",
+    "questionTitle": "北京市丰台区 2024~2025 学年度第二学期综合练习（一）高三英语",
+    "questionNumber": "作文",
+    "articleContent": "",
+    "questionContent": "假设你是红星中学高三学生李华，你的外国好友 Jim 打算在学校举办的世界非物质文化遗产展示周 (World Intangible Heritage Exhibition Week) 中介绍中国非物质文化遗产，发来邮件询问你的建议。请你用英文给他回信，内容包括：\n1. 你推荐的非物质文化遗产；\n2. 简要说明理由。\n注意：1. 词数 100 左右；\n2. 开头和结尾已给出，不计入总词数。\nDear Jim,\n\nYours,\nLi Hua",
+    "answers": [],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181956420
+  },
+  "log-5bd48d23": {
+    "id": "log-5bd48d23",
+    "operationType": 2,
+    "questionId": "q-04be6830",
+    "questionTitle": "北京市朝阳区高三年级第二学期质量检测一",
+    "questionNumber": "完形填空",
+    "articleContent": "Newborn babies aren’t afraid of the dark. They don’t have a \\clozeblank{1} of the dark yet; that comes later. One day, my 2-year-old daughter suddenly said, “Too dark!” after we turned out the light. She believed something was under the bed. To \\clozeblank{2} her fears, I plugged in the desk lamp to prove there were no monsters.\nWhen I first started writing, I didn’t worry about the dark as I could create all kinds of stories. After graduation, I became a busy parent. My writing \\clozeblank{3} . Nights that I would spend reading or thinking were gone. I wrote at 5 am before the \\clozeblank{4} of the everyday housework—laundry, playdates and feedings—but soon nodded off. I was so \\clozeblank{5} . Writing anxiety grew slowly.\nWorn out, I forgot to buy a nightlight. The desk lamp was too bright. A nightlight was enough to help my daughter see the outline of the bed. It would burn through the night, calming her fears. She didn’t need it to see; she needed it to feel \\clozeblank{6} . In the basement I found an old plastic Christmas tree and took it up to her room. My daughter saw it and clapped \\clozeblank{7} . “Light! My light!” It sits there year-round. A Christmas tree in July is odd, but perfect doesn’t \\clozeblank{8} , and besides, it casts the ideal amount of light.\nIn being a parent and a writer, there is no fixed \\clozeblank{9} , no one way of doing things that is right; some things that we must do are odd. Many things bring the light. Some bring just enough light that you are no longer afraid. The shadowy light that says, Don’t be scared, write it! It is a light to \\clozeblank{10} you, to keep you going. And it burns through the night, keeping the monsters at bay.",
+    "questionContent": "\\textbf{1.} \\option{A. secret}{B. hope}{C. fear}{D. habit}\n\\textbf{2.} \\option{A. wipe}{B. hide}{C. stop}{D. draw}\n\\textbf{3.} \\option{A. slowed}{B. ceased}{C. improved}{D. increased}\n\\textbf{4.} \\option{A. training}{B. division}{C. movement}{D. repetition}\n\\textbf{5.} \\option{A. lonely}{B. tired}{C. focused}{D. energetic}\n\\textbf{6.} \\option{A. safe}{B. quiet}{C. proud}{D. confident}\n\\textbf{7.} \\option{A. shyly}{B. softly}{C. politely}{D. excitedly}\n\\textbf{8.} \\option{A. last}{B. exist}{C. work}{D. arrive}\n\\textbf{9.} \\option{A. need}{B. term}{C. bond}{D. routine}\n\\textbf{10.} \\option{A. guide}{B. blind}{C. attract}{D. follow}",
+    "answers": [
+      {
+        "number": 1,
+        "answer": "C"
+      },
+      {
+        "number": 2,
+        "answer": "A"
+      },
+      {
+        "number": 3,
+        "answer": "A"
+      },
+      {
+        "number": 4,
+        "answer": "D"
+      },
+      {
+        "number": 5,
+        "answer": "B"
+      },
+      {
+        "number": 6,
+        "answer": "A"
+      },
+      {
+        "number": 7,
+        "answer": "D"
+      },
+      {
+        "number": 8,
+        "answer": "B"
+      },
+      {
+        "number": 9,
+        "answer": "D"
+      },
+      {
+        "number": 10,
+        "answer": "A"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181956430
+  },
+  "log-f297b9cf": {
+    "id": "log-f297b9cf",
+    "operationType": 2,
+    "questionId": "q-d0ff2783",
+    "questionTitle": "北京市朝阳区高三年级第二学期质量检测一",
+    "questionNumber": "语法填空A",
+    "articleContent": "Zhu Mengdan, a 15-year-old from the Li ethnic (少数民族的) group, grew up climbing coconut trees. However, she had never imagined her childhood game \\clozeblank{11} (become) an official event at a national competition one day. In 2024, as the youngest competitor on Hainan’s team, Zhu \\clozeblank{12} (participate) in the coconut tree climbing competition at the National Traditional Games of Ethnic Minorities. “ \\clozeblank{13} makes the event so special is that it showcases Hainan’s unique cultural identity. I hope this event continues to grow,” she remarked.",
+    "questionContent": "",
+    "answers": [
+      {
+        "number": 11,
+        "answer": "would become"
+      },
+      {
+        "number": 12,
+        "answer": "participated"
+      },
+      {
+        "number": 13,
+        "answer": "What"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181959199
+  },
+  "log-af255d1e": {
+    "id": "log-af255d1e",
+    "operationType": 2,
+    "questionId": "q-59a3faf7",
+    "questionTitle": "北京市朝阳区高三年级第二学期质量检测一",
+    "questionNumber": "语法填空B",
+    "articleContent": "DeepSeek-R1, \\clozeblank{14} core technologies are built upon are next-generation large language model architecture, highlights China’s growing strength in AI innovation. This smart assistant can answer complex questions, create digital art and even write computer code. DeepSeek-R1 learns by repeatedly \\clozeblank{15} (try), unlike other AIs that rely on large amounts of prepared examples. It practises many times and gets \\clozeblank{16} (good), much like how students master maths. \\clozeblank{17} the development of DeepSeek-R1, China shows the world that great things come from new ideas and hard work, not just money.",
+    "questionContent": "",
+    "answers": [
+      {
+        "number": 14,
+        "answer": "whose"
+      },
+      {
+        "number": 15,
+        "answer": "trying"
+      },
+      {
+        "number": 16,
+        "answer": "better"
+      },
+      {
+        "number": 17,
+        "answer": "With"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181959211
+  },
+  "log-9329d5bc": {
+    "id": "log-9329d5bc",
+    "operationType": 2,
+    "questionId": "q-cc934011",
+    "questionTitle": "北京市朝阳区高三年级第二学期质量检测一",
+    "questionNumber": "语法填空C",
+    "articleContent": "It’s difficult \\clozeblank{18} (understand) jargon-filled (充满行话的) writing that academics have long been accused of. To track academic writing over time, The Economist analysed 347,000 PhD abstracts \\clozeblank{19} (publish) between 1812 and 2023. They found that the abstracts have become harder to read. Though specialization and advances in technology require more precise terms, the trend of unreadable academic writing \\clozeblank{20} (grow) stronger. Clear and simple writing would be a breath of fresh air.",
+    "questionContent": "",
+    "answers": [
+      {
+        "number": 18,
+        "answer": "to understand"
+      },
+      {
+        "number": 19,
+        "answer": "published"
+      },
+      {
+        "number": 20,
+        "answer": "is growing"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181959223
+  },
+  "log-341d58c2": {
+    "id": "log-341d58c2",
+    "operationType": 2,
+    "questionId": "q-350b0304",
+    "questionTitle": "北京市朝阳区高三年级第二学期质量检测一",
+    "questionNumber": "A",
+    "articleContent": "UNESCO is inviting teams and individuals from Asia and the Pacific to submit case studies on the roles and risks of intangible cultural heritage (ICH) (非物质文化遗产) in the context of climate change. The goal is to safeguard ICH while advancing sustainable development. These case studies will deepen the understanding of the links between ICH and environmental sustainability, and inform future policies and practices in heritage protection and climate action.\n\n\\textbf{Focus of the Case Studies:}\nSubmitted case studies should address one or more of the following questions in detail:\n\\begin{itemize}\n    \\item What roles does ICH play in identifying, assessing and monitoring climate change?\n    \\item What roles does ICH play in promoting communities’ adaptation and safeguarding against climate change?\n    \\item What roles does ICH play in reducing carbon emissions (排放) and disaster risk?\n    \\item What are the cultural, social and economic impacts and risks to ICH practice, transmission (传承) and safeguarding due to climate change?\n    \\item What changes to ICH are required for adaptation to climate change?\n    \\item What are local and regional strategies for safeguarding ICH in the context of climate change?\n\\end{itemize}\nThe case studies should be grounded in evidence-based research and involve the widest possible participation of the community, groups or individuals. They should highlight the links between cultural diversity and environmental sustainability and offer locally-suited solutions for sustainable development.\n\n\\textbf{Submission Details:}\nThe case studies should be written in English and between 3,000 and 5,000 words in length. All submissions are to be sent to beijing.culture@unesco.org before April 15th, 2025. Authors of selected case studies may have the opportunity to participate in publications or international conferences.",
+    "questionContent": "\\textbf{21.} Why is UNESCO calling for case studies?\n\\optiontwo{A. To show the risk of climate change.}{B. To protect ICH in a sustainable way.}\n{C. To stress UNESCO’s importance.}{D. To raise funds for ICH protection.}\n\\textbf{22.} Which of the following is a focus of the case studies?\n\\optiontwo{A. ICH’s role in evaluating climate change.}{B. ICH’s economic value for communities.}\n{C. Global strategies to safeguard ICH.}{D. Carbon emissions’ effects on ICH.}\n\\textbf{23.} The case studies to be submitted should ______.\n\\optionone{A. cover all the listed questions}{B. maximize public participation}{C. be based on personal opinions}{D. be written in Chinese or English}",
+    "answers": [
+      {
+        "number": 21,
+        "answer": "B"
+      },
+      {
+        "number": 22,
+        "answer": "A"
+      },
+      {
+        "number": 23,
+        "answer": "B"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181959235
+  },
+  "log-7d706ad0": {
+    "id": "log-7d706ad0",
+    "operationType": 2,
+    "questionId": "q-7a30b949",
+    "questionTitle": "北京市朝阳区高三年级第二学期质量检测一",
+    "questionNumber": "B",
+    "articleContent": "Luther Gerlach’s images enrich the permanent collections of the J. Paul Getty Museum in Los Angeles and the National Portrait Gallery in London, among other institutions.\nWhile studying his work, one cannot help but revisit the journey he undertook in pursuit of art. Gerlach has dyslexia, a condition that makes it difficult for him to read and spell, and in middle school, it began to affect his studies. At the University of Minnesota, where Gerlach studied biology, his struggle with writing reached a tipping point. Gerlach left the university and entered art school. “Art has never been something that slowed me down, in contrast to the written word,” Gerlach says.\nAfter graduating from art school, Gerlach took what he learned and traveled across the United States selling his prints at art fairs. It was the late 1980s, and Gerlach traveled roughly 90,000 miles a year, taking photos along the way. He was making $100,000 a year doing what he loved.\nBut the emergence of digital photography changed everything. Photographers began to use Photoshop to create the hand-brushed quality of Gerlach’s photographs and told customers they were using the same process Gerlach was using. “I would hear them talking—complete lies,” he says.\nRather than dive into digital, Gerlach moved into a photographic process that was quite unusual: the wet collodion (火棉胶) process, invented in 1851. The process involves coating a plate of glass or metal with collodion, followed by using a silver nitrate (硝酸银) bath to make the plate sensitive to light. The plate is then placed in a light-tight film holder, with the photo made almost immediately while the plate is still wet.\nIt wasn’t easy when he first started, but Gerlach has always considered “constant problem solving” to be part of the creative process. It made Gerlach feel “present as an artist”. “I saw the final product right there in front of me. The same leaves on the tree that I’m standing in front of are on the image,” Gerlach explains. “The process allowed me to feel more like a photographer instead of a machine that printed prints to sell so I could make money. And when the final product works, nothing else compares to it.”",
+    "questionContent": "\\textbf{24.} Luther Gerlach’s dyslexia ______.\n\\optiontwo{A. forced him to change his major}{B. drove him to go into business}{C. made him drop out of middle school}{D. affected his artistic performance}\n\\textbf{25.} As digital photography emerged, Luther Gerlach ______.\n\\optionone{A. adopted a unique photographic technique}{B. set off for new places to take photographs}{C. praised photographers for using Photoshop}{D. improved the hand-brushed quality of his photos}\n\\textbf{26.} Why did Luther Gerlach prefer the wet collodion process?\n\\optiontwo{A. It was cheap and reliable.}{B. It was easy and efficient.}\n{C. It gave him artistic satisfaction.}{D. It helped him sell prints for profit.}\n\\textbf{27.} What can we learn from this passage?\n\\optionone{A. Necessity inspires invention.}{B. Everything comes to those who wait.}{C. Hope for the best; prepare for the worst.}{D. Dare to be different in a world of copycats.}",
+    "answers": [
+      {
+        "number": 24,
+        "answer": "A"
+      },
+      {
+        "number": 25,
+        "answer": "A"
+      },
+      {
+        "number": 26,
+        "answer": "C"
+      },
+      {
+        "number": 27,
+        "answer": "D"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181959249
+  },
+  "log-4c7c8bb4": {
+    "id": "log-4c7c8bb4",
+    "operationType": 2,
+    "questionId": "q-61b6c2f0",
+    "questionTitle": "北京市朝阳区高三年级第二学期质量检测一",
+    "questionNumber": "C",
+    "articleContent": "When people view photographs of frightening spiders, scientists usually observe increased electrical activity deep in their brain, in a region called the periaqueductal gray (PAG). The obvious conclusion is that the PAG controls fight-or-flight responses in threatening situations. But what if brains don’t have dedicated circuits for fighting and fighting? Is threat detection really a primary mode of the brain with its own neural circuitry (神经回路)?\nThis idea of fight-or-flight circuits originates from the “triune brain” model dividing brains into the so-called lizard brain, including the PAG, for survival functions, the “limbic system” for emotions, and the “neocortex” for higher-order reasoning. If you know anything about evolution, you might know that something is spurious. The only animal on this planet with a lizard brain is a lizard. Also, there’s no unified limbic “system” or the “neocortex” for emotions or rationality (理性), respectively. So where does this leave the fight-or-flight story?\nRecently, changes in PAG activity have been observed in nonthreatening tasks, such as reading a fascinating article about the brain. The PAG has also been proved to regulate bodily systems continuously. Incidentally, this explains why antianxiety medications manage anxiety disorders without healing them. They target brain circuits that aren’t dedicated to anxiety or fight-or-flight but that simply regulate the body.\nResearches on the brain’s powers also cast new light on our understandings. In daily life, individuals might feel like they perceive and react to various stimuli as either threatening or safe. Actually, the brain, using past experiences, skillfully predicts and formulates action plans in anticipation of events before stimuli occur. The brain’s preparatory mechanism, metabolically (新陈代谢地) expensive, involves complicated neuronal activities for sustaining multiple predictions and corresponding action plans over extended periods. But the experiences in fight-or-flight responses crafted by your brain don’t reveal how it works.\nMoreover, your brain, which does much more than avoid threats, handles a complex social world full of uncertainty. That’s a recipe for stress. And what is stress? It reflects energy preparation for anticipated challenges. Your brain often makes sense of metabolic cost of uncertainty, if it drags on for long enough, as anxiety, but that’s not a must. People seek uncertainty outward—its positive cousin, novelty—when they try new foods or learn new skills. Uncertainty is common, but these days, with social media and round-the-clock news coverage, it sometimes bombards us and leaves us anxious and exhausted. But these feelings don’t emerge from fight-or-flight circuits. They may just mean, in an ever changing and only partly predictable world, that you’re doing something hard.",
+    "questionContent": "\\textbf{28.} The author asks the questions in Paragraph 1 to ______.\n\\optiontwo{A. evaluate a statement}{B. justify an assumption}{C. challenge an argument}{D. introduce a new concept}\n\\textbf{29.} Which does the underlined word “spurious” in Paragraph 2 probably mean?\n\\optiontwo{A. Rare.}{B. Wrong.}{C. Limited.}{D. Unexpected.}\n\\textbf{30.} What can we infer from this passage?\n\\optionone{A. Hunting for novelty reduces stress and anxiety.}{B. Medicine targeting PAG cures anxiety disorders.}{C. Uncertainty is a product of modern media and news cycles.}{D. The “Fight or Flight” idea overlooks the brain’s predictive power.",
+    "answers": [
+      {
+        "number": 28,
+        "answer": "C"
+      },
+      {
+        "number": 29,
+        "answer": "B"
+      },
+      {
+        "number": 30,
+        "answer": "D"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181959261
+  },
+  "log-784fc95f": {
+    "id": "log-784fc95f",
+    "operationType": 2,
+    "questionId": "q-446b1a23",
+    "questionTitle": "北京市朝阳区高三年级第二学期质量检测一",
+    "questionNumber": "D",
+    "articleContent": "In the field where philosophy and neuroscience overlap, few questions have fascinated and confused humanity as deeply as the concept of free will. At first glance, the idea that we have the power to make choices that are not predetermined seems intuitive (直觉的). However, a closer examination reveals a complex web of philosophical arguments and scientific findings that challenge this seemingly straightforward concept.\nFrom a philosophical standpoint, the debate around free will has continued intensely for centuries. Compatibilists argue free will can coexist with determinism , as long as our actions are a result of our own desires and motivations. For example, choosing a music career out of passion is considered as a free choice within this framework. In contrast, incompatibilists maintain free will and determinism are mutually exclusive. Hard determinists view the universe as a closed system governed by strict laws of nature, where every event, including human actions, is predetermined. In this view, the idea of free will is an illusion (幻觉).\nNeuroscience has advanced markedly in decoding the brain, revealing that many actions are preceded (先于) by neural activity. Studies on the brain’s reward system and neurotransmitters, particularly dopamine (多巴胺), further challenge the nature of free will. Addictive behaviors, for instance, can be strongly influenced by the brain’s response to dopamine. A person struggling with addiction may feel they lack the free will to resist it, as their brain chemistry has been altered in a way that forces them into acting.\nThe scientific evidence is not conclusive, though. Some argue that the neural activity observed before conscious decisions may not be the cause of the action but rather part of the preparatory process for a decision that is still freely made. Additionally, the complexity of the human brain and the fact that much of its functioning is still not fully understood leave room for the possibility of free will.\nIf free will is an illusion, it challenges our fundamental notions of moral responsibility. We praise and blame people for their actions because we believe they could have acted differently. How can we hold individuals accountable for their actions if they were never truly free to choose otherwise? Without free will, the essential moral framework of our societies would collapse into chaotic indifference. Free will is only an illusion if you are, too.",
+    "questionContent": "\\textbf{31.} Which of the following situations reflects the compatibilists’ view?\n\\optionone{A. Driven by dopamine, Tim keeps checking his social media.}{B. Lucy speaks first after being randomly selected by software.}{C. Exposed to a sudden blinding light, Lily quickly shuts her eyes.}{D. Jerry shifts between companies of shared bikes based on discounts.}\n\\textbf{32.} What can we learn from the passage?\n\\optionone{A. The altered brain chemistry enhances free will.}{B. Conscious decisions are independent of neural activities.}{C. Hard determinists see free will vital to moral accountability.}{D. Neuroscientists’ views on the causes of human actions differ.}\n\\textbf{33.} As for the existence of free will, the author is ______.\n\\optiontwo{A. neutral}{B. disapproving}{C. positive}{D. doubtful}\n\\textbf{34.} Which would be the best title for the passage?\n\\optionone{A. Does Neuroscience Threaten Free Will?}{B. Why the Arguments Against Free Will Fail}{C. Exploration into the Complexity of Free Will}{D. Free Will: Bridging Neuroscience and Philosophy}",
+    "answers": [
+      {
+        "number": 31,
+        "answer": "D"
+      },
+      {
+        "number": 32,
+        "answer": "D"
+      },
+      {
+        "number": 33,
+        "answer": "C"
+      },
+      {
+        "number": 34,
+        "answer": "C"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181959272
+  },
+  "log-3f019cc2": {
+    "id": "log-3f019cc2",
+    "operationType": 2,
+    "questionId": "q-85b0175c",
+    "questionTitle": "北京市朝阳区高三年级第二学期质量检测一",
+    "questionNumber": "七选五",
+    "articleContent": "When I think of my friends, I am mostly filled with love and warmth; I simply can’t wait to see them again for their affection and support. \\clozeblank{35} In the right mood, these individuals can deliver a fun-filled evening, but at the wrong moment, they can drain (耗尽) all my goodwill.\nIf this sounds familiar, then you too have frenemies, who psychologists call “ambivalent relationships”. These love-hate relationships could include a friend, a parent, a colleague or even a husband or wife. Their ambivalence can come in many forms. \\clozeblank{36} It could be a partner love-bombing you one day, but fiercely critical the next, leaving you unsure about their true feelings.\n\\clozeblank{37} At the very least, you would expect them to be better for us than our aversive (令人厌恶的) relationships. Unfortunately, research suggests things aren’t so simple. A team at the University of Utah asked people to take a reaction-time test and they found that rapidly flashing the name of an ambivalent connection on a screen intensified stress response of participants. Another study at Brigham Young University found that simply knowing an ambivalent connection was nearby as participants prepared to give a speech was enough to send their blood pressure rocketing. \\clozeblank{38}\nCutting ties with our ambivalent connections isn’t always possible or desirable if they are deeply mixed into our social network. So, what can be done? Simply being aware of the ambivalent nature of a relationship might offer some protection. We can manage our expectations and mentally prepare ourselves for the mixed feelings when interacting with frenemies. \\clozeblank{39} As importantly, be a little more mindful of any interactions with all our ties. Show others the appreciation and respect we feel for them, for accidental neglect could be taken as a sign of indifference.",
+    "questionContent": "\\begin{enumerate}[label=\\Alph{*}.]\n\\item A. It might be a friend who is often unavailable when you need his support.\n\\item B. We might hope that in such relationships, the good would outweigh the bad.\n\\item C. In fact, even unconscious reminders of a frenemy can break our peace of mind.\n\\item D. This allows us to focus on their good qualities and show empathy for the unpleasant ones.\n\\item E. If you feel someone too negative a presence in your life, you may decide to cut off contact.\n\\item F. A handful, however, stimulate quite different emotions—a mixture of eagerness and anxiety.\n\\item G. After all, the benefits of social connection come from feeling well understood and supported.\n\\end{enumerate}",
+    "answers": [
+      {
+        "number": 35,
+        "answer": "F"
+      },
+      {
+        "number": 36,
+        "answer": "A"
+      },
+      {
+        "number": 37,
+        "answer": "B"
+      },
+      {
+        "number": 38,
+        "answer": "C"
+      },
+      {
+        "number": 39,
+        "answer": "D"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181959283
+  },
+  "log-b28e5255": {
+    "id": "log-b28e5255",
+    "operationType": 2,
+    "questionId": "q-59cb218c",
+    "questionTitle": "北京市朝阳区高三年级第二学期质量检测一",
+    "questionNumber": "阅读表达",
+    "articleContent": "Growing up, my favourite children’s book was Amelia Bedelia. Amelia’s silly behaviours that were a result of her literal interpretation of language often had me laughing. When she was told to dust the furniture, instead of grabbing a feather duster, she sprinkled (撒) dust all over the chairs and tables. A classic moment in Amelia’s life.\nRecently, several of my friends have decided to limit their use of electronic devices for chatting to avoid potential misunderstandings. Yet, I enjoy using these tools to stay connected with my children and grandchildren. But I admit it does lead to more frequent Amelia Bedelia moments.\nThe other day I was providing childcare for my granddaughter Cora and her one-year-old brother, Zay. Zay was sleeping while Cora was in her bedroom colouring, with her tablet right next to her. Hoping to have a few minutes of peace, I told Cora I would be in the backyard and that she should call me if Zay woke up. Shortly after, the door opened. There was Cora, red-faced, struggling to carry Zay. I quickly took him from her, gently scolding (训斥), “Cora, I told you to call me.”\nShe simply replied, “Grandma, I did call you. You didn’t answer. Where’s your phone?” Her call had come via an app on her tablet to my phone which was on the kitchen table. Clearly, we had different ideas of what “call” meant.\nAs my grandchildren become more proficient (熟练) with technology and the language of a different generation, there is no doubt our Amelia Bedelia moments will only increase. I can resist the misunderstandings by putting my phone away, but to enjoy the smile of the loved ones, I’d rather keep it closer to me to experience the silly accidents that will occur.",
+    "questionContent": "\\textbf{40.} What caused Amelia's silly behaviours?\n\\textbf{41.} Why didn't the author's granddaughter call her the way she had expected?\n\\textbf{42.} Please decide which part is false in the following statement, then underline it and explain why.\n\\textit{The author cherishes Amelia Bedelia moments because she wants to resist the misunderstandings.}\n\\textbf{43.} If you experience an Amelia Bedelia moment, what would you do? (In about 40 words )",
+    "answers": [
+      {
+        "number": 40,
+        "answer": "Her literal interpretation of language."
+      },
+      {
+        "number": 41,
+        "answer": "Because they had different ideas of what \"call\" meant."
+      },
+      {
+        "number": 42,
+        "answer": "The author cherishes Amelia Bedelia moments because \\uwave{she wants to resist the misunderstandings}.\nThe author cherishes Amelia Bedelia moments because she wants to enjoy the smile of the loved ones."
+      },
+      {
+        "number": 43,
+        "answer": "略"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181959294
+  },
+  "log-efad4244": {
+    "id": "log-efad4244",
+    "operationType": 2,
+    "questionId": "q-e09a462b",
+    "questionTitle": "北京市朝阳区高三年级第二学期质量检测一",
+    "questionNumber": "作文",
+    "articleContent": "",
+    "questionContent": "假设你是红星中学高三学生李华。你校正在举办以“美丽校园”为主题的原创作品征集活动，交换生Jim打算参加，发来邮件询问你的建议。请你用英文给他回复，内容包括：\n1. 建议创作内容；\n2. 就以上建议简要说明理由。\n注意：1. 词数100左右；\n2. 开头和结尾已给出，不计入总词数。\nDear Jim,\n\nYours,\nLi Hua",
+    "answers": [],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181959306
+  },
+  "log-28789ba7": {
+    "id": "log-28789ba7",
+    "operationType": 2,
+    "questionId": "q-fb3f8429",
+    "questionTitle": "北京市丰台区 2024~2025 学年度第二学期综合练习（一）",
+    "questionNumber": "完形填空",
+    "articleContent": "I stepped out of the store, juggling a few shopping bags in my hands, looking forward to the drive home. As I reached my car, a wave of panic washed over me. I had \\clozeblank{1} my keys and mobile phone inside the vehicle. In a moment of annoyance, I gave the tire a hard kick.\n  A teenager on a bike happened to pass by at that very moment. He stopped, and his eyes filled with \\clozeblank{2}. “What’s wrong?” he asked. I sighed deeply and explained my rather \\clozeblank{3} situation. “But even if I could call my wife,” I added, my tone \\clozeblank{4}, “she can’t bring me the spare car key, since she’s taking care of our children at home.”\n  Without hesitation, he \\clozeblank{5} me his mobile phone. “Call your wife and tell her I’m coming to get the spare key,” he said. I looked at him in \\clozeblank{6}. “That’s an 11-kilometre round trip!” I protested. But he was determined and said, “Don’t worry about it.”\n  An hour seemed to \\clozeblank{7} as I waited anxiously. But true to his word, he \\clozeblank{8} with the key in hand. I was overjoyed and immediately reached for my wallet to offer him some money as a gesture of my \\clozeblank{9}. However, he firmly refused. “Let’s just say I needed the exercise,” he said with a smile. Then, with a casual wave, he got back on his bike and rode off.\n  In a world that often seems focused on self-interest, his kindness was a shining example of the goodness that still exists. A simple act of \\clozeblank{10} can have a profound impact on someone’s day.",
+    "questionContent": "\\textbf{1.} \\option{A. placed}{B. hidden}{C. stored}{D. locked}\n\\textbf{2.} \\option{A. hope}{B. sadness}{C. concern}{D. anxiety}\n\\textbf{3.} \\option{A. unfortunate}{B. dangerous}{C. adventurous}{D. promising}\n\\textbf{4.} \\option{A. relaxed}{B. exhausted}{C. excited}{D. defeated}\n\\textbf{5.} \\option{A. left}{B. handed}{C. sent}{D. sold}\n\\textbf{6.} \\option{A. disbelief}{B. anger}{C. regret}{D. fear}\n\\textbf{7.} \\option{A. jump ahead}{B. fly by}{C. drag on}{D. come around}\n\\textbf{8.} \\option{A. returned}{B. hesitated}{C. disappeared}{D. settled}\n\\textbf{9.} \\option{A. kindness}{B. satisfaction}{C. admiration}{D. gratitude}\n\\textbf{10.} \\option{A. devotion}{B. generosity}{C. courage}{D. sharing}",
+    "answers": [
+      {
+        "number": 1,
+        "answer": "D"
+      },
+      {
+        "number": 2,
+        "answer": "C"
+      },
+      {
+        "number": 3,
+        "answer": "A"
+      },
+      {
+        "number": 4,
+        "answer": "D"
+      },
+      {
+        "number": 5,
+        "answer": "B"
+      },
+      {
+        "number": 6,
+        "answer": "A"
+      },
+      {
+        "number": 7,
+        "answer": "C"
+      },
+      {
+        "number": 8,
+        "answer": "A"
+      },
+      {
+        "number": 9,
+        "answer": "D"
+      },
+      {
+        "number": 10,
+        "answer": "B"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181963122
+  },
+  "log-8748b962": {
+    "id": "log-8748b962",
+    "operationType": 2,
+    "questionId": "q-963a65df",
+    "questionTitle": "北京市丰台区 2024~2025 学年度第二学期综合练习（一）",
+    "questionNumber": "语法填空A",
+    "articleContent": "Whales swim by moving their tails up and down. This motion \\clozeblank{11} (create) pressure pulses(脉冲) which harm their brains. However, whales find a way \\clozeblank{12} (avoid) such damage. Research has revealed that a network of blood vessels(血管) in their brains plays a crucial role. It can maintain stable blood pressure, \\clozeblank{13} (effective) reducing over 90% of the potential harm. This discovery also helps explain \\clozeblank{14} seals, which don't face the same issue, lack these structures.",
+    "questionContent": "",
+    "answers": [
+      {
+        "number": 11,
+        "answer": "creates"
+      },
+      {
+        "number": 12,
+        "answer": "to avoid"
+      },
+      {
+        "number": 13,
+        "answer": "effectively"
+      },
+      {
+        "number": 14,
+        "answer": "why"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181963141
+  },
+  "log-6792d2ec": {
+    "id": "log-6792d2ec",
+    "operationType": 2,
+    "questionId": "q-bf62fd86",
+    "questionTitle": "北京市丰台区 2024~2025 学年度第二学期综合练习（一）",
+    "questionNumber": "语法填空B",
+    "articleContent": "In Traditional Chinese Medicine, cinnamon, known as \"RouGui\", \\clozeblank{15} (use) for centuries for its medicinal properties. It is considered a warming herb, meaning that it is believed to relieve pain and discomfort \\clozeblank{16} (associate) with cold and damp conditions. Cinnamon can harmonize the body's energies and enhance overall well-being, which makes it a must for those \\clozeblank{17} want to improve their immune system.",
+    "questionContent": "",
+    "answers": [
+      {
+        "number": 15,
+        "answer": "has been used"
+      },
+      {
+        "number": 16,
+        "answer": "associated"
+      },
+      {
+        "number": 17,
+        "answer": "who"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181963155
+  },
+  "log-da5f22c1": {
+    "id": "log-da5f22c1",
+    "operationType": 2,
+    "questionId": "q-bcf14ed8",
+    "questionTitle": "北京市丰台区 2024~2025 学年度第二学期综合练习（一）",
+    "questionNumber": "语法填空C",
+    "articleContent": "Last December, I ordered a warm hamburger at a food store. As I left the store, I noticed there was an older poor gentleman \\clozeblank{18} (sit) at the bus stop. Knowing it would probably be his only warm meal of the day, I \\clozeblank{19} (give) him the hamburger. But all was not lost for me. Another customer offered me half of her hamburger. I was so delighted because I realised that \\clozeblank{20} one way or another, we are all looked after.",
+    "questionContent": "",
+    "answers": [
+      {
+        "number": 18,
+        "answer": "sitting"
+      },
+      {
+        "number": 19,
+        "answer": "gave"
+      },
+      {
+        "number": 20,
+        "answer": "in"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181963167
+  },
+  "log-2e147bd5": {
+    "id": "log-2e147bd5",
+    "operationType": 2,
+    "questionId": "q-fd938a4b",
+    "questionTitle": "北京市丰台区 2024~2025 学年度第二学期综合练习（一）",
+    "questionNumber": "A",
+    "articleContent": "\\centerline{\\textbf{FREE FAMILY DAY PASS}}\n\\centerline{\\textbf{National Trust}}\nLooking for the perfect day out this March? Whether you love peaceful woodland walks, birdwatching, or discovering new places surrounded by nature, the National Trust has something for everyone.\nThanks to this incredible offer, you can enjoy a FREE visit to a National Trust property of your choice. It will give you the perfect excuse to gather your loved ones and explore the great outdoors.\nStart your year by reconnecting with nature and making unforgettable memories with family and friends. Don't miss out on this wonderful opportunity to experience the beauty of National Trust sites—completely free!\n\\centerline{\\textbf{HOW TO CLAIM}}\nCut out the voucher(代金券) below and present at your chosen National Trust location. Some National Trust properties require advance booking, please check the property website for full details. Certain places are excluded(排除在外) from this promotion, details can be found at reachforms.co.uk/nationaltrustpass.\n\n\\textbf{FREE National Trust FAMILY PASS}\n\\textbf{1.} This pass is single use and is effective once from the date of issue through to 31 December, 2025 inclusive.\n\\textbf{2.} This pass allows free admission at participating National Trust places for 2 adults and up to 3 children, or 1 adult and up to 4 children. Adults are aged 18 or over; children are aged under 17 inclusive.\n\\textbf{3.} This pass is for standard admission only and excludes parking, group entity, paid transport, and any paid events.\n\\textbf{4.} This pass is effective at participating National Trust places within advertised opening hours. Opening hours may be subject to change at any time and should be checked at nationaltrust.org.uk.\n\\textbf{5.} Present this pass to receive free admission at participating places. Pass holders who cannot present the pass, or visit an excluded place, will be charged the full admission price.\n\\textbf{6.} Only one pass per household will be permitted.",
+    "questionContent": "\\textbf{21.} What can people enjoy with the National Trust's offer?\n\\optionone{A. An outdoor activity close to nature.}{B. A birdwatching photography course.}{C. An exploration to national museums.}{D. A visit to a treasure-themed exhibition.}\n\\textbf{22.} One can get free admission by ________.\n\\optionone{A. purchasing a digital pass on a website}{B. showing the voucher at the selected site}{C. submitting an application on the website}{D. joining as a member of the National Trust}\n\\textbf{23.} According to the passage, the pass ________.\n\\optionone{A. allows free entry for a six-person family}{B. includes free transport and parking}{C. is limited to one per household}{D. can be used more than once",
+    "answers": [
+      {
+        "number": 21,
+        "answer": "A"
+      },
+      {
+        "number": 22,
+        "answer": "B"
+      },
+      {
+        "number": 23,
+        "answer": "C"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181963177
+  },
+  "log-4b9e40e1": {
+    "id": "log-4b9e40e1",
+    "operationType": 2,
+    "questionId": "q-0e35e40f",
+    "questionTitle": "北京市丰台区 2024~2025 学年度第二学期综合练习（一）",
+    "questionNumber": "B",
+    "articleContent": "For years, Robyn Elman, a nature advocate, has been passionately raising the endangered monarch butterflies in the cozy corner of her backyard. She collects the butterfly eggs from the milkweed plants—the only food for these delicate creatures—alongside the highways. Each time she goes on her journey to the highways, she hopes these little eggs, which are as precious as hidden treasures, will hatch(孵化) into many beautiful creatures. They will slowly make the group which is getting smaller gradually breathe new life.\nBut reality destroyed her hopes last year. Instead of being greeted by the green milkweed plants, she was met with the desolate sight of mowed stubs(修剪过的草茬) and destroyed eggs. The milkweed plants had been cut down, and all left were short stubs. She felt a deep sense of loss. “Is there really no hope for these delicate, flying creatures?” she whispered to herself, her heart as heavy as a big piece of lead.\nEven as pain consumed her, Robyn remained determined. She teamed up with other nature lovers. They reached out to Frank Coniglio, the city’s director of highway maintenance, urging him to cut the butterflies a break. At first, Frank was doubtful. He thought, “How important can this be? What difference will it make? It’s just some butterflies and plants.” But as Robyn and her friends poured out their worries, and kept explaining the importance of the issue, Frank began to understand. He finally realised, “What happens to the butterflies is going to happen to us, isn’t it?”, as if a light bulb had suddenly switched on in his mind.\nFrank went to work on studying more about monarch butterflies, and finally he supported their cause, and took decisive action. He stopped mowing in certain areas, drawing an invisible line of protection. So far, around 20 patches of milkweed plants, like oases in the urban desert, have been protected across the city. “We’re making a real difference,” Frank said proudly.\nThanks to their combined efforts, the monarch butterflies now have a brighter future, and the city’s ecosystem is on the path to positive transformation.",
+    "questionContent": "\\textbf{24.} As a nature advocate, Robyn Elman ________.\n\\optionone{A. grows some milkweed in her backyard}{B. raises butterflies alongside the highway}{C. collects butterfly eggs and hatches them}{D. studies milkweed and proves them valuable}\n\\textbf{25.} How did Robyn feel upon seeing the mowed stubs?\n\\optionone{A. Upset and disappointed.}{B. Angry and annoyed.}{C. Embarrassed and ashamed.}{D. Terrified and confused.}\n\\textbf{26.} What did Frank do to help protect the monarch butterflies?\n\\optionone{A. He raised the awareness of the public.}{B. He studied the local natural ecosystem.}{C. He protected milkweed in certain areas.}{D. He moved the butterflies to a safe place.}\n\\textbf{27.} What can we conclude from this passage?\n\\optionone{A. Wildlife conservation takes a back seat to urban development.}{B. Government policies play a main role in wildlife conservation.}{C. The damage of habitats has long-term impact on the ecosystem.}{D. Commitment and cooperation cause positive ecological outcomes.",
+    "answers": [
+      {
+        "number": 24,
+        "answer": "C"
+      },
+      {
+        "number": 25,
+        "answer": "A"
+      },
+      {
+        "number": 26,
+        "answer": "C"
+      },
+      {
+        "number": 27,
+        "answer": "D"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181963187
+  },
+  "log-cb997be9": {
+    "id": "log-cb997be9",
+    "operationType": 2,
+    "questionId": "q-c5e1d774",
+    "questionTitle": "北京市丰台区 2024~2025 学年度第二学期综合练习（一）",
+    "questionNumber": "C",
+    "articleContent": "During WWII, mathematician Alan Turing gathered a team of logic experts to decode enemy messages, a key step toward victory. If there was one branch of mathematics which could be said they were using systematically, it was symbolic logic. However, the curriculum designs that methodically develop students’ symbolic logic abilities are relatively rare.\nSymbolic logic is a form of mathematics that lets us check whether certain conclusions correctly follow from a set of facts. Consider a library book-theft case. If a suspect wasn’t in the library on the day the theft happened, they can’t be the thief. If present, they may or may not be. Being in the library doesn’t mean they stole the book. Symbolic logic turns this kind of argument into algebra(代数学), readily shared, solved and generalized for solving mysteries.\nFor careers such as electrical engineering and computer science, the value of symbolic logic is undeniable. The fundamental building blocks of modern digital computers are circuits representing “AND” and “OR”, which are common in symbolic logic. Almost every computer program contains similar “if-then-else” logical conditions. Professional programmers must routinely write and troubleshoot such statements.\nBut symbolic logic is not solely limited to technical fields. Rutgers University mathematician Gray Wenger argues that teaching responsible citizenship requires providing students with mathematical reasoning skills. For example, consider a debate over a study finding that most adults without high-school certificates earn less. A responsible citizen must think through the implications along the lines of the book-theft case example above. No certificate likely means lower income, but low income doesn’t mean no certificate. Training in symbolic logic makes these sorts of reasonings sink into their cognitive processes and become second nature to citizens.\nIn addition, symbolic logic equips individuals to counter false claims by distinguishing between separate incidents and systematic evidence. The most effective strategy for this lies in preventive education—teaching people to recognize faulty reasoning at its source. Consider, for instance, some global-warming doubters use one day of cold weather as proof that global warming is a hoax(骗局). But a logical thinker can quickly spot that weather is short-term, while climate is long-term change.\nSome doubt the need for a separate symbolic logic course, believing other classes can do the job. In writing courses, for example, students learn how to spot illogical arguments, and elementary proofs are covered in trigonometry(三角学). Much can be gained by teaching people logical thinking without using any symbols. But only symbolic logic ensures logical strictness. A piecemeal approach isn’t enough; a full-semester course is needed for comprehensive learning.\nSymbolic logic is essential for intellectual development. By integrating symbolic logic into educational frameworks, we equip future generations with the intellectual tools to navigate complex challenges. Training for it must be included in the curriculum and cannot be left to chance.",
+    "questionContent": "\\textbf{28.} According to the passage, symbolic logic can play a primary role when ________.\n\\optionone{A. a chef is creating a new recipe by combining different materials}{B. a student is deciding which club to join based on personal interests}{C. a doctor is identifying one's illness by using signs and test findings}{D. a journalist is writing a feature article by interviewing local people}\n\\textbf{29.} What does the phrase “second nature” underlined in Paragraph 4 probably mean?\n\\optionone{A. A routine practice.}{B. An automatic ability.}{C. An essential tool.}{D. A necessary quality.}\n\\textbf{30.} From the passage, we learn that symbolic logic ________.\n\\optionone{A. tells the difference between separate incidents}{B. is mainly applied in solving mathematical puzzles}{C. questions the basic principles of modern computers}{D. enables people to detect and challenge false arguments}\n\\textbf{31.} The author may agree that current symbolic logic education is ________.\n\\optionone{A. unsatisfying for the lack of symbolic logic courses}{B. problematic and ignores logical reasoning practice}{C. acceptable if alternative courses are available}{D. manageable and will improve naturally",
+    "answers": [
+      {
+        "number": 28,
+        "answer": "C"
+      },
+      {
+        "number": 29,
+        "answer": "B"
+      },
+      {
+        "number": 30,
+        "answer": "D"
+      },
+      {
+        "number": 31,
+        "answer": "A"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181963197
+  },
+  "log-889a993a": {
+    "id": "log-889a993a",
+    "operationType": 2,
+    "questionId": "q-e0c1d19a",
+    "questionTitle": "北京市丰台区 2024~2025 学年度第二学期综合练习（一）",
+    "questionNumber": "D",
+    "articleContent": "Recent findings from the Dark Energy Spectroscopic Instrument(DESI) in Arizona, which produced the largest 3D map of the universe, suggest that dark energy—the mysterious force driving the universe’s accelerated(加速的) expansion—might change over time. This challenges the standard model of cosmology(宇宙学), which assumes a steady acceleration.\nDark energy is thought to make up nearly 70% of the cosmos, so if its behaviour really is changing as time passes, it could have significant implications for our understanding of the universe.\nSince the DESI data came out, researchers have been working on ways to explain the apparent changes in the universe’s expansion rate. Dark energy isn’t directly observable, so there are several options that could fit. One solution suggested by Michael Garda at the Federal University in Brazil and his colleagues involves letting dark energy interact with dark matter, an invisible and abundant form of matter that outweighs ordinary matter. This interaction is forbidden in the standard model, but if energy could flow from the universe’s dark matter to its dark energy—essentially changing the former to the latter—the researchers’ simulations (模拟) showed that this would match the DESI measurements. Yet, the mechanism for such an energy transfer isn’t clear.\nThis solution might also help resolve the Hubble tension, a difference in the measurements of this made by analysing nearby galaxies(known as “local” measurements) give an expansion rate, or Hubble constant, which is slightly higher than the one obtained from the cosmic microwave background(CMB)—the remaining radiation from the early universe. CMB measurements rely on a theoretical model of cosmic evolution, which may need adjustment if Garda’s proposal is correct. By allowing energy transfer between dark matter and dark energy, the adjusted model could bring CMB-based estimates more closely into line with local measurements, potentially resolving the tension.\nAnother proposed solution involves dark radiation, an invisible form of radiation similar to light but composed of dark photons(光子). Tamar Allali at Brown University and his team suggest that dark radiation could explain the DESI data and lessened the Hubble tension by increasing the universe’s expansion rate in its early stages. “If you have more radiation, the expansion is faster in the early universe,” says Allali. Unlike adjustments to dark energy, dark radiation introduces a new component without changing existing physical laws, making it a more conservative approach. Allali notes that the DESI data does not rule out dark radiation and even shows a slight preference for it.\nBoth models—interacting dark energy and dark radiation—fit the DESI data, but neither has been confirmed. Shawn Smith at the University of Edinburgh, UK, points out that while many unconventional models could explain the observations, none currently compete with the standard cosmological model from a fundamental physics perspective. Nevertheless, these models serve as catalysts for progress, ensuring that cosmology remains a dynamic and evolving field.",
+    "questionContent": "\\textbf{32.} What does this passage mainly talk about?\n\\optionone{A. The development of scientific models to study the universe.}{B. The discovery of dark energy and its impact on the universe.}{C. The importance of DESI in studying the universe's behavior.}{D. The attempts to explain the universe's unexpected expansion.}\n\\textbf{33.} Which of the following might the author agree with?\n\\optionone{A. Garda's proposal outperforms Allali's in its simplicity.}{B. Recent research has found ways for dark energy transfer.}{C. The DESI data has confirmed the existence of dark radiation.}{D. The two models share similarities in reducing Hubble tension.}\n\\textbf{34.} The passage is organized in the pattern of ________.\n\\optionone{A. cause—effect—solution}{B. problem—solution—evaluation}{C. example—analysis—conclusion}{D. introduction—comparison—result",
+    "answers": [
+      {
+        "number": 32,
+        "answer": "D"
+      },
+      {
+        "number": 33,
+        "answer": "D"
+      },
+      {
+        "number": 34,
+        "answer": "B"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181963208
+  },
+  "log-7413d659": {
+    "id": "log-7413d659",
+    "operationType": 2,
+    "questionId": "q-61b1d380",
+    "questionTitle": "北京市丰台区 2024~2025 学年度第二学期综合练习（一）",
+    "questionNumber": "七选五",
+    "articleContent": "Experts have warned that an obsession(痴迷) with healthy eating can cause mental health problems. A survey among mental health professionals found 90% of those surveyed, like in previous research, had seen patients with orthorexia nervosa (ON). \\clozeblank{35}\nThe survey found some patients cut out foods like fish, meat or dairy, considering them “unclean”. Their fixation on “pure” foods leads to deficiencies(缺陷) like iron-deficiency anaemia or vitamin B12 deficiency. For example, Dr Niket Sonpal found that his patients didn’t consume enough calories, minerals, protein or carbohydrates. Some patients even cut out entire food groups after the big dinners of holidays. \\clozeblank{36}\nThe term ON was coined in 1997 by Dr. Steven Bratman. He noticed patients’ extreme diets caused malnutrition, anxiety, and even death. \\clozeblank{37} It poses a significant challenge. Healthcare providers may not be trained to spot the signs easily, and patients might not be aware their eating habits. As a result, diagnosis and treatment are delayed.\n\\clozeblank{38} Healthcare providers need to be attentive to identify and deal with ON in patients, providing support such as nutritional advice, psychological aid, and diet-diversity education. The public needs to know the risks of overly strict eating. \\clozeblank{39} True well-being comes from a healthy relationship with food, not an obsession with “clean” eating. By taking these steps, we can prevent mental health issues caused by fixating on healthy eating and promote a culture where food brings both nourishment and joy.",
+    "questionContent": "\\begin{enumerate}[label=\\Alph{*}.]\n\\item A. Despite its risks, ON isn’t officially recognised as an eating disorder.\n\\item B. Some online health communities provide some self-treatment methods.\n\\item C. ON patients showed doubled depression rates compared to non-sufferers.\n\\item D. Media and social platforms can promote a more realistic view of nutrition.\n\\item E. Hence, experts warned that a healthy diet should not simply be seen as a source of restriction.\n\\item F. In light of the findings, the medical community and the public should take a balanced view on healthy eating.\n\\item G. Basically, orthorexia is a fixation on eating only healthy or pure foods, or what an individual perceives as healthy or pure.\n\\end{enumerate}",
+    "answers": [
+      {
+        "number": 35,
+        "answer": "G"
+      },
+      {
+        "number": 36,
+        "answer": "E"
+      },
+      {
+        "number": 37,
+        "answer": "A"
+      },
+      {
+        "number": 38,
+        "answer": "F"
+      },
+      {
+        "number": 39,
+        "answer": "D"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181963221
+  },
+  "log-bad5254c": {
+    "id": "log-bad5254c",
+    "operationType": 2,
+    "questionId": "q-3102bd6a",
+    "questionTitle": "北京市丰台区 2024~2025 学年度第二学期综合练习（一）",
+    "questionNumber": "阅读表达",
+    "articleContent": "In the digital age, technology is transforming how we communicate and interact. What were once science-fiction tech ideas are now reality. In the 2002 film \\textit{Minority Report}, John Anderton used a data glove, and now touch-based computing is common. Similar gaming interaction methods have appeared since 2006. These are just a taste of what’s to come.\nMIT computer scientist Thomas Koffler predicted that virtual touch-based computing is the future of human-computer interfaces. He also suggested that an even more exciting area of research, one that will transform how we communicate with computers over the longer term, is so-called brain-computer interface(BCI).\nToday's research on BCI works on a related idea: the brain makes use of electrical signals, an electrical code, to send and process information. As the brain runs on electrical signals, assuming these can be accurately read, the signals thus allow us to communicate with external devices through the transmission of electrical impulses(脉冲) directly from the brain. In theory, it should be possible to use brain signals that move your arm and hand to control a robotic arm, e.g., to pick up a coffee cup.\nResearch of this kind is ongoing. Cochlear implants(人工耳蜗), allowing the hard of hearing to hear, are currently the most widely available use for this technology. The principle of BCI enables brain signals to communicate with the implant, thereby overcoming the damaged part of the ear. In the future, it may be possible for Implants in the brain to allow us to communicate directly with and control a wide variety of devices, using the power of thought alone.\nToday, computers and smartphones with fixed cameras enable real-time face-to-face chat. Next up could be telepresence robots, which let a person remotely see, move around, and interact. Ideal for tele-conferencing and remote site tours, their potential is clear. Ultimately, the driving force behind digital communication’s next stage is the cooperative intelligence that makes humans exceptional communicators.",
+    "questionContent": "\\textbf{40.} According to Thomas Koffler, what will transform the way we communicate with computers over the longer term?\n\\textbf{41.} How do electrical signals allow us to communicate with external devices?\n\\textbf{42.} Please decide which part is false in the following statement, then underline it and explain why.\n> The principle of BCI enables brain signals to directly fix the damaged part of the ear.\n\\textbf{43.} Do you think BCI will make our lives better? Why or why not? (In about 40 words)",
+    "answers": [
+      {
+        "number": 40,
+        "answer": "Brain-computer interface."
+      },
+      {
+        "number": 41,
+        "answer": "By transmitting the electrical impulses directly from the brain./Through the transmission of electrical impulses directly from the brain."
+      },
+      {
+        "number": 42,
+        "answer": "The principle of BCI enables brain signals to \\uwave{directly fix} the damaged part of the ear.\nThe principle of BCI enables brain signals to communicate with the implant to overcome the damaged part of the ear, not directly fix it."
+      },
+      {
+        "number": 43,
+        "answer": "略"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181963232
+  },
+  "log-771bb9cc": {
+    "id": "log-771bb9cc",
+    "operationType": 2,
+    "questionId": "q-20d00e30",
+    "questionTitle": "北京市丰台区 2024~2025 学年度第二学期综合练习（一）",
+    "questionNumber": "作文",
+    "articleContent": "",
+    "questionContent": "假设你是红星中学高三学生李华，你的外国好友 Jim 打算在学校举办的世界非物质文化遗产展示周 (World Intangible Heritage Exhibition Week) 中介绍中国非物质文化遗产，发来邮件询问你的建议。请你用英文给他回信，内容包括：\n1. 你推荐的非物质文化遗产；\n2. 简要说明理由。\n注意：1. 词数 100 左右；\n2. 开头和结尾已给出，不计入总词数。\nDear Jim,\n\nYours,\nLi Hua",
+    "answers": [],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181966307
+  },
+  "log-6d86d51b": {
+    "id": "log-6d86d51b",
+    "operationType": 2,
+    "questionId": "q-80145b73",
+    "questionTitle": "西城区高三统一测试试卷",
+    "questionNumber": "完形填空",
+    "articleContent": "After Glenda and Raphael Savitz moved to Newton, Boston, they were warmly welcomed by their new neighbors, who greeted them with homemade cookies and casseroles. They quickly got used to the \\clozeblank{1} neighborhood and felt an immediate sense of \\clozeblank{2}. Soon after, they had a baby, Samantha, but discovered she was born deaf.\nAlthough the neighbors were excited to meet the new baby, they were also aware of the \\clozeblank{3} the Savitz family would face. Jill McNeil, one of the neighbors, suggested that they all learn sign language together to help Samantha communicate. Jill, who grew up in a tight-knit (\\uwave{紧密团结}) community, believed in the power of helping each other, \\clozeblank{4} when it came to children.\nOver the next few months, the group of 18 neighbors worked hard to learn the basic signs, all while keeping their plan a \\clozeblank{5}. They wanted to surprise the Savitz family with their new \\clozeblank{6} to communicate.\nWhen the big moment came, the Savitz family was deeply moved. Glenda and Raphael were amazed by the effort their neighbors had \\clozeblank{7} learning a new language just to communicate with their daughter. It was a very touching and meaningful moment for the family. They felt incredibly \\clozeblank{8}.\nAs Samantha grew, the neighbors kept including her in everything, making sure she never \\clozeblank{9} left out. The support from the community made a lasting impact on the Savitz family, showing how neighbors can come together to make a real \\clozeblank{10} in each other’s lives.",
+    "questionContent": "\\textbf{1.} \\option{A. friendly}{B. peaceful}{C. quiet}{D. convenient}\n\\textbf{2.} \\option{A. belonging}{B. relief}{C. hope}{D. freedom}\n\\textbf{3.} \\option{A. truth}{B. choices}{C. challenges}{D. threat}\n\\textbf{4.} \\option{A. naturally}{B. especially}{C. immediately}{D. similarly}\n\\textbf{5.} \\option{A. priority}{B. dream}{C. goal}{D. secret}\n\\textbf{6.} \\option{A. media}{B. technology}{C. ability}{D. opportunity}\n\\textbf{7.} \\option{A. drawn on}{B. backed up}{C. relied on}{D. put in}\n\\textbf{8.} \\option{A. proud}{B. grateful}{C. relaxed}{D. satisfied}\n\\textbf{9.} \\option{A. felt}{B. looked}{C. remained}{D. turned}\n\\textbf{10.} \\option{A. point}{B. living}{C. difference}{D. commitment}",
+    "answers": [
+      {
+        "number": 1,
+        "answer": "A"
+      },
+      {
+        "number": 2,
+        "answer": "A"
+      },
+      {
+        "number": 3,
+        "answer": "C"
+      },
+      {
+        "number": 4,
+        "answer": "B"
+      },
+      {
+        "number": 5,
+        "answer": "D"
+      },
+      {
+        "number": 6,
+        "answer": "C"
+      },
+      {
+        "number": 7,
+        "answer": "D"
+      },
+      {
+        "number": 8,
+        "answer": "B"
+      },
+      {
+        "number": 9,
+        "answer": "A"
+      },
+      {
+        "number": 10,
+        "answer": "C"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181966326
+  },
+  "log-bc6b9e4d": {
+    "id": "log-bc6b9e4d",
+    "operationType": 2,
+    "questionId": "q-ec94f9a4",
+    "questionTitle": "西城区高三统一测试试卷",
+    "questionNumber": "语法填空A",
+    "articleContent": "Last summer, I joined a community garden project in my neighborhood. At first, I was nervous about working with \\clozeblank{11} (stranger), but everyone was welcoming and enthusiastic. I learned how to plant vegetables and care for flowers. In autumn, we had a big harvest and decided to donate the fresh produce to a local food bank. I never expected that our small efforts could create such an effect. The surprise came when I received a thank-you letter from a family \\clozeblank{12} benefited from our donations. It made me realize how powerful \\clozeblank{13} (kind) can be!",
+    "questionContent": "",
+    "answers": [
+      {
+        "number": 11,
+        "answer": "strangers"
+      },
+      {
+        "number": 12,
+        "answer": "who"
+      },
+      {
+        "number": 13,
+        "answer": "kindness"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181966341
+  },
+  "log-d5bd0821": {
+    "id": "log-d5bd0821",
+    "operationType": 2,
+    "questionId": "q-b31cc13c",
+    "questionTitle": "西城区高三统一测试试卷",
+    "questionNumber": "语法填空B",
+    "articleContent": "Tsinghua University plans to increase its undergraduate enrollment (\\uwave{本科招生人数}) \\clozeblank{14} about 150 in 2025 and establish a new undergraduate school focused on combining artificial intelligence (AI) with various fields of study. The new school \\clozeblank{15} (make) use of Tsinghua’s strengths, \\clozeblank{16} (highlight) AI’s role in education and research. It \\clozeblank{17} (aim) to explore AI-driven learning models and develop students with diverse skills, a solid understanding of AI and creative thinking.",
+    "questionContent": "",
+    "answers": [
+      {
+        "number": 14,
+        "answer": "by"
+      },
+      {
+        "number": 15,
+        "answer": "will make"
+      },
+      {
+        "number": 16,
+        "answer": "highlighting"
+      },
+      {
+        "number": 17,
+        "answer": "aims"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181966353
+  },
+  "log-9eacae8d": {
+    "id": "log-9eacae8d",
+    "operationType": 2,
+    "questionId": "q-56ecc9a5",
+    "questionTitle": "西城区高三统一测试试卷",
+    "questionNumber": "语法填空C",
+    "articleContent": "At a 200-megawatt (\\uwave{兆瓦}) wind farm in Hengshui, Hebei, the world’s largest tonnage wheeled crane (\\uwave{起重机}), the XCA4000, completed its first lift in March 2024. It \\clozeblank{18} (lift) a 130-metric-ton nacelle, a 40-ton hub and three 95-meter-long blades weighing 28 tons each, to a height of 162 meters for assembly (\\uwave{组装}) on the tower. The XCA4000 has a self-developed control system and technologies \\clozeblank{19} (ensure) safety during operation. With more than a dozen sensors \\clozeblank{20} (distribute) in the facility, it can detect and address potential safety dangers in real time.",
+    "questionContent": "",
+    "answers": [
+      {
+        "number": 18,
+        "answer": "lifted"
+      },
+      {
+        "number": 19,
+        "answer": "to ensure"
+      },
+      {
+        "number": 20,
+        "answer": "distributed"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181966364
+  },
+  "log-bc1c4094": {
+    "id": "log-bc1c4094",
+    "operationType": 2,
+    "questionId": "q-74965b8a",
+    "questionTitle": "西城区高三统一测试试卷",
+    "questionNumber": "A",
+    "articleContent": "In today’s fast-paced digital world, many of us struggle with distraction and burnout. It’s challenging to stay focused and productive with constant interruptions and the pressure to manage multiple tasks. Therefore we bring to you —The Sukha app.\nSukha is a productivity-boosting focus app that helps you complete tasks more efficiently by providing tools that promote focus and community support. This productivity software silences distractions (\\uwave{干扰}), plays focus music, and starts a pomodoro timer (\\uwave{番茄计时器}) with just a click. Sukha ensures you stay on track and finish your work faster.\nFeatures of Sukha\nPhone Distraction Elimination (\\uwave{消除})\nSilence distractions and create a best work environment to ensure you stay focused on the task at hand, minimizing interruptions and increasing efficiency. The next time you pick up your smartphone, the screen will automatically start flashing to keep you away from it.\nFocus Music\nOffers a selection of focus music tracks that help you get into the flow and maintain your concentration for longer periods.\nCommunity Integration\nWork alongside friends and people around the world.\nFeel part of a supportive community by seeing others working in real time, providing motivation and reducing the sense of isolation (\\uwave{孤立}).\nSukha VS Other Productivity Apps\nThere are many other productivity apps. They are also simple and easy to use and set up. While these types of tools offer different features, they tend to work in isolation. However, Sukha takes a unique approach. With Sukha, your needs are met in one place. For example, by adding your Calendar, you ensure that you’re on time for any upcoming online meetings. Productivity isn’t limited to the platform but extends to integrated apps. You have a complete system to work smarter. This doesn’t happen elsewhere but within Sukha.\nSukha Pricing\nWe are excited to announce that Sukha now offers a 14-day free trial for all new users. After the conclusion of your 14-day trial, you will be automatically moved to the Basic Plan at no cost. However, if you wish to continue with the Pro Subscription, you need to pay $10 per month.\nIf you have any questions regarding the Sukha Pro Subscription or the 14-day trial version, please do not hesitate to get in touch with our support team at support@centered.app. So, what are you waiting for?",
+    "questionContent": "\\textbf{21.} What is the aim of Sukha?\n\\option{A. To create focus music.}{B. To produce novel ideas.}{C. To enhance working efficiency.}{D. To unite a whole community.}\n\\textbf{22.} What is unique to Sukha?\n\\option{A. It’s easy to use and set up.}{B. It provides different features.}{C. It can minimize interruptions.}{D. It works together with other apps.}\n\\textbf{23.} How will Sukha charge users after the trial period?\n\\option{A. Users will continue to have access to all features for free.}{B. Users will be charged a one-time fee of $10 after the trial.}{C. Users will be charged $10 per month for the Pro Subscription.}{D. Users will automatically be moved to the Pro Subscription at no cost.}",
+    "answers": [
+      {
+        "number": 21,
+        "answer": "C"
+      },
+      {
+        "number": 22,
+        "answer": "D"
+      },
+      {
+        "number": 23,
+        "answer": "C"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181966374
+  },
+  "log-a2deac92": {
+    "id": "log-a2deac92",
+    "operationType": 2,
+    "questionId": "q-951e4dc9",
+    "questionTitle": "西城区高三统一测试试卷",
+    "questionNumber": "B",
+    "articleContent": "Uday Bhatia’s enthusiasm for technology began in childhood. His interest was awakened when he received a drone (\\uwave{无人机}) in the fourth grade, stimulating a curiosity about how machines work. By 14, he had taught himself computer science and created his first video game on Roblox. However, Uday’s passion wasn’t limited to coding and gadgets—he was deeply aware of societal issues. During the pandemic, he developed FindOurTutor, an e-tutoring platform to help students continue learning remotely.\nAt 16, Uday, as part of a mentorship program, visited Bichpuri village in Uttar Pradesh and discovered a critical problem: the villagers faced six-to-eight-hour-long power outages. “When I learned that children were using flashlights and kerosene lamps to study, I wanted to find a solution,” he recalls. His research revealed that while most villages in India had been electrified, unreliable power supply remained a continuing issue in many rural areas, with some states like Rajasthan and Uttarakhand enduring power cuts lasting 10 to 12 hours a day.\nDetermined to help, Uday spent the next six months learning from instructional videos and gathering second-hand components. He worked in his terrace (\\uwave{屋顶}) workshop, experimenting with different designs until he developed the Smart Outage-Guard (OG), a low-cost backup lightbulb (\\uwave{灯泡}) with a lithium-ion battery. The bulb, priced at Rs 250, about half the cost of other options, features dynamic-lumen technology and pulse-width modulation, which allows users to adjust the brightness. This feature extends the bulb’s illumination capacity to up to 10 hours, depending on the brightness level.\nSince its launch in May 2022, Smart OG bulbs have reached 10,000 homes across eight states. Uday also founded Uday Electric, a for-profit venture that collaborates with distributors, NGOs, retailers, and CSR programs to provide affordable lighting to semi-electrified rural regions. For non-electrified regions, he developed the Glow Grid, a solar-powered lamp, launched this month.\nUday’s innovations have earned him several awards, including the 2023 Diana Legacy Award. His long-term goal is to provide low-cost energy to every home, and he’s just getting started.",
+    "questionContent": "\\textbf{24.} Uday Bhatia’s experience in Bichpuri village influenced him to ________.\n\\optionone{A. develop an interest in computer science}{B. create a low-cost, backup-based lightbulb}{C. launch an e-tutoring platform for students}{D. study power supply systems in other villages}\n\\textbf{25.} What do we know about Uday’s inventions?\n\\optionone{A. They make energy easier to access.}{B. They bring innovation to global markets.}{C. They focus on sustainable energy solutions.}{D. They provide affordable lighting for rural areas.}\n\\textbf{26.} Which of the following best describes Uday Bhatia?\n\\optionone{A. Innovative and commercial.}{B. Determined and socially aware.}{C. Creative and environmentally conscious.}{D. Technologically skilled and competitive.}",
+    "answers": [
+      {
+        "number": 24,
+        "answer": "B"
+      },
+      {
+        "number": 25,
+        "answer": "D"
+      },
+      {
+        "number": 26,
+        "answer": "B"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181966385
+  },
+  "log-20cf2b66": {
+    "id": "log-20cf2b66",
+    "operationType": 2,
+    "questionId": "q-c55b3d9c",
+    "questionTitle": "西城区高三统一测试试卷",
+    "questionNumber": "C",
+    "articleContent": "Recently, I attended a public talk by someone whose views I “knew” I would oppose. And yet, I went. I listened, asked questions, and gave my time. While my core values weren’t transformed in those two hours, I learned something and left with a deeper appreciation for the complexity of other perspectives.\nIn this weeknight activity, I was actively trying to tackle “beliefism,” a divisive phenomenon in which surrounding yourself with people who share your views leads to discrimination against those who disagree. In this way, beliefism deepens division and reinforces polarization—building walls instead of bridges.\nIndeed, beliefism is widespread in modern society. A significant part of the problem originates from the fact that we live in a world that is both physically and virtually divided. We rarely interact with people from other walks of life. Social media algorithms \\uwave{stoke} the fires of division, locking us into echo chambers that reinforce our preexisting beliefs and shut down debate.\nUltimately, where many forces are driving us apart, we must think—what can we do to unpack division and restore connection?\nWe can begin by trying to understand the psychology of beliefism, which at its core is a form of bias—a mental shortcut in which we categorise people according to single characteristics or generalising assumptions. Indeed, in a world that is infinitely complex, our minds use these biases to simplify and make sense of the world. The thing is, when we see others only through the perspective of their political or social beliefs, we reduce and flatten them to a single dimension. Further, when people feel they are dismissed or disregarded only for their beliefs, they are left feeling isolated and misunderstood.\nSecondly, we can understand the tendency for beliefism as part of our evolutionary (\\uwave{进化的}) desire to establish a community or group. The problem is that while this instinct (\\uwave{本能}) may have once served evolutionary purposes, today, it blocks meaningful dialogue and cooperation. Indeed, research shows that overcoming beliefism has benefits. When we welcome a variety of ideas and perspectives, we are able to overcome group-think and make better decisions and judgements. What’s more, less beliefist people are generally happier, having stronger, more fulfilling relationships and broader horizons.\nLuckily, there are a number of relevant, research-backed psychological techniques that help build tolerance and break bias. We might exercise individuation, seeing people as diverse-sided individuals and breaking away from reductive ways of thinking. We can practice perspective-taking, building empathy (\\uwave{同理心}) by stepping into someone else’s shoes and trying to see the world through their eyes.\nUltimately, the way forward is not through divisions, but through a recognition of our shared humanity. Remind yourself that each person exists at the intersection of many identities, experiences, and beliefs. Challenge yourself to practice empathy, and remember that no one is wholly defined by the worst thing they have said or done.",
+    "questionContent": "\\textbf{27.} What does the underlined word “stoke” in Paragraph 3 probably mean?\n\\option{A. Fuel.}{B. Keep.}{C. Put.}{D. Contain.}\n\\textbf{28.} What can we know about beliefism from the passage?\n\\optionone{A. Social media algorithms mainly contribute to its wide spread.}{B. Human evolution proves its harm in establishing group-think.}{C. It reflects our simplified way of understanding the surrounding world.}{D. It leads us to make assumptions about others’ political or social beliefs.}\n\\textbf{29.} Which of the following would be most effective in fighting beliefism?\n\\optionone{A. Facilitating interactions between people from different communities.}{B. Creating a list of acceptable beliefs for each community to follow.}{C. Asking people to write about their experiences of being isolated.}{D. Stressing conflict instead of cooperation between different beliefs.}\n\\textbf{30.} Which would be the best title for the passage?\n\\option{A. Beyond Us and Them}{B. The Roots of Beliefism}{C. The Harm of Social Division}{D. At the Crossroad of Faith}",
+    "answers": [
+      {
+        "number": 27,
+        "answer": "A"
+      },
+      {
+        "number": 28,
+        "answer": "C"
+      },
+      {
+        "number": 29,
+        "answer": "A"
+      },
+      {
+        "number": 30,
+        "answer": "A"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181966398
+  },
+  "log-0e7ced10": {
+    "id": "log-0e7ced10",
+    "operationType": 2,
+    "questionId": "q-e6522d99",
+    "questionTitle": "西城区高三统一测试试卷",
+    "questionNumber": "D",
+    "articleContent": "Genetic (\\uwave{基因的}) variation is what allows a species to adapt as climate changes, new diseases arise, and novel enemies come on the scene. A slightly different genetic makeup can ensure at least some individuals will still do OK in times of crisis. But just as the number of species is declining worldwide, so, too, is the genetic diversity within many species.\nUntil 2022, governments focused primarily on preventing species from disappearing. That year, however, when updating the United Nations’s Convention on Biological Diversity treaty (\\uwave{条约}), participating countries agreed to start to look at genetic diversity as well.\nThe first step toward slowing the trend is understanding it. Conservation biologist Catherine Grueber from the University of Sydney and many colleagues gathered 882 papers written between 1985 and 2019 that tracked diversity changes within 628 individual species by analyzing their DNA at least two time points. The team used complex statistical analyses to make the data comparable, enabling them to identify trends and correlate loss of genetic diversity with floods, habitat destruction, or other disturbances. They also tracked what happened in the face of various conservation measures, such as legally protecting a species or setting aside and protecting habitat.\nTwo-thirds of the populations analyzed exhibited a decline in diversity, Grueber and her colleagues report. That included species already known to be at risk, but it also included more common species. The implication is that those species may be less able to bounce back than expected during environmental change, says Alicia Mastretta-Yanes, a conservation geneticist.\nSome conservation efforts, such as ecological restoration or reducing pests (\\uwave{害虫}), didn’t help much, the analysis found. But certain actions did seem to help, such as efforts to expand and protect habitat, introduce new individuals to declining populations, or connect two isolated populations.\n“It was pretty impressive that they were able to track what human disturbances and conservation actions had done,” says Moisés Alonso, an evolutionary geneticist who authored a preprint last year indicating that protecting existing habitat won’t be enough to prevent genetic diversity losses for many species. “We needed something like this,” he says.\nConservation scientists emphasize the importance of continuing to monitor populations. But DNA methods aren’t always practical, some note. “It is relatively hard and expensive to measure genetic diversity directly,” Mastretta-Yanes says.\nTo get around that, Mastretta-Yanes and others published a paper in Ecology Letters last year that used proxy (\\uwave{代替物}) measures, such as population size, to evaluate genetic diversity in 919 species. The method, which only required about 3 hours of work per species, indicated that 58% of the species have populations that are too small to maintain their genetic diversity. The fact that these different approaches found declining diversity “makes both results more convincing,” Mastretta-Yanes says. “Finally, genetic diversity is getting the attention it deserves.”",
+    "questionContent": "\\textbf{31.} What is Paragraph 3 mainly about?\n\\optionone{A. Challenges of collecting DNA data for diversity research.}{B. Findings on genetic diversity changes over the past 30 years.}{C. Research methods applied to track genetic diversity changes.}{D. Impacts of human disturbances on diversity of different species.}\n\\textbf{32.} What can be learned from Grueber’s study?\n\\optionone{A. Habitat extension and population management preserve diversity.}{B. The diversity of common species tends to decline more severely.}{C. At-risk species better resist the impact of environmental changes.}{D. Ecosystem recovery and pest control drive population rise.}\n\\textbf{33.} Mastretta-Yanes holds that DNA methods ________.\n\\optionone{A. will soon be replaced by proxy measures}{B. lack practicality due to their costs and complexity}{C. may get in the way of monitoring species populations}{D. require a large population size to achieve high accuracy}\n\\textbf{34.} What is the purpose of this passage?\n\\optionone{A. To identify more effective methods applied in gene research.}{B. To advocate for using DNA methods exclusively in conservation efforts.}{C. To warn people of the threat posed by environmental changes on species.}{D. To draw people’s attention to effective measures against loss of diversity.}",
+    "answers": [
+      {
+        "number": 31,
+        "answer": "C"
+      },
+      {
+        "number": 32,
+        "answer": "B"
+      },
+      {
+        "number": 33,
+        "answer": "B"
+      },
+      {
+        "number": 34,
+        "answer": "D"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181966410
+  },
+  "log-d75f2d08": {
+    "id": "log-d75f2d08",
+    "operationType": 2,
+    "questionId": "q-99ab0e6e",
+    "questionTitle": "西城区高三统一测试试卷",
+    "questionNumber": "七选五",
+    "articleContent": "Live performances are often described as raw, emotional, and immersive, while studio recordings are polished and carefully produced. \\clozeblank{35} One of the most notable differences with live music is the energy. A live performance brings an atmosphere that cannot be recreated in a studio. When musicians perform live, they connect directly with their audience. The cheers, clapping, and excitement from the crowd create a feedback loop (\\uwave{循环}) that can enhance the performance. This shared energy makes each live concert unique and personal for everyone there. \\clozeblank{36} Whether it’s a small, intimate venue or a massive stadium, the space influences how you experience the music. Live music is more than just something you hear; it’s something you feel.\nAnother key aspect of live music is its unpredictability. No two performances are ever the same. Musicians might improvise (\\uwave{即兴演奏}), change the arrangement of a song, or even interact with the audience in ways that feel spontaneous and genuine. \\clozeblank{37} In a live setting, imperfections can make the music feel more real. A slight mistake or an unexpected variation in a song reminds you that what you’re witnessing is unique. It’s a reminder that music isn’t just about technical perfection—it’s about emotion and expression.\nLive music creates a special kind of connection between performers and listeners.\nSeeing musicians perform in real time allows you to witness their passion and energy firsthand. \\clozeblank{38} For many people, live music is about more than just the songs. It’s about being part of a shared experience, which can make the music feel more powerful and memorable.\n\\clozeblank{39} While recordings offer a polished, consistent way to enjoy music, live performances bring energy, authenticity (\\uwave{真实性}), and emotional connection. Both forms of music have their place, and many people enjoy a mix of the two.",
+    "questionContent": "\\begin{enumerate}[label=\\Alph{*}.]\n\\item A. Live music and studio recordings each have their own strengths.\n\\item B. The physical environment also plays a significant role in creating this energy.\n\\item C. Studio recordings often rely on advanced technology to perfect the sound quality.\n\\item D. These moments of authenticity add an extra layer of excitement to the experience.\n\\item E. This contrast isn’t just about how the music sounds but also about how it feels to experience it.\n\\item F. This doesn’t mean studio recordings are less valuable—they offer a different way to enjoy music.\n\\item G. The physical presence of the artist, their expressions, and how they interact with the crowd all contribute to this emotional connection.\n\\end{enumerate}",
+    "answers": [
+      {
+        "number": 35,
+        "answer": "E"
+      },
+      {
+        "number": 36,
+        "answer": "B"
+      },
+      {
+        "number": 37,
+        "answer": "D"
+      },
+      {
+        "number": 38,
+        "answer": "G"
+      },
+      {
+        "number": 39,
+        "answer": "A"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181966422
+  },
+  "log-e04099f9": {
+    "id": "log-e04099f9",
+    "operationType": 2,
+    "questionId": "q-26c78d6f",
+    "questionTitle": "西城区高三统一测试试卷",
+    "questionNumber": "阅读表达",
+    "articleContent": "The convenience of modern life is truly astonishing. As I write this, my phone is wirelessly playing 18th-century classics, and I can use the same device to instantly get a ride or have food delivered. It’s easy to see why we love such shortcuts—they make life easier, save time, and reduce effort. However, many people also recognize that convenience has its darker sides.\nTo understand why, we need to examine why we are so drawn to convenience in the first place. Evolutionary psychology can provide some answers. The concept of “evolutionary mismatch” suggests that we evolved as hunter-gatherers, but while the world has changed, our brains and bodies have not. This mismatch means that our instincts often don’t match modern life. In the past, resistance—whether to avoid unnecessary effort or conserve energy—was vital during tough times, like searching for food in the rain or escaping from danger. Those who stayed sheltered during hard times, like storms when food was scarce, were more likely to survive and pass on their genes. We have inherited (\\uwave{继承}) this instinct to conserve energy from them.\nInnovation has dramatically transformed our world. Technology and our environment have adapted to suit our instinct to conserve energy. But what do we lose when we prioritize convenience? Choosing the easy path consistently weakens our ability to tackle challenges. From an evolutionary view, some discomfort is as essential to survival as rest. Our ancestors didn’t survive by being lazy; they survived by balancing safety with risk.\nThis very struggle shapes and develops our character. In today’s technological world, we must sometimes go against our natural instincts. As a society, we need to remember—and teach the younger generation—that while convenience may feel good in the moment, our ability to adapt and overcome challenges is not only a key part of our evolutionary heritage but also central to the adventure of life.",
+    "questionContent": "\\textbf{40.} Why do people love shortcuts?\n\\textbf{41.} What does “evolutionary mismatch” mean?\n\\textbf{42.} Please decide which part is false in the following statement, then underline it and explain why.\n> The evolutionary view shows that some discomfort is less important for our survival compared to rest.\n\\textbf{43.} Use an example to show what you can learn about “convenience” from the passage. (In about 40 words)",
+    "answers": [
+      {
+        "number": 40,
+        "answer": "Because they make life easier, save time, and reduce effort."
+      },
+      {
+        "number": 41,
+        "answer": "It means that our instincts often don't match modern life."
+      },
+      {
+        "number": 42,
+        "answer": "The evolutionary view shows that some discomfort \\uwave{is less important} for our survival compared to rest.\nAccording to the passage, from an evolutionary view, some discomfort is just as crucial to our survival as rest."
+      },
+      {
+        "number": 43,
+        "answer": " "
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181970055
+  },
+  "log-0ebaf0db": {
+    "id": "log-0ebaf0db",
+    "operationType": 2,
+    "questionId": "q-692ad0e5",
+    "questionTitle": "西城区高三统一测试试卷",
+    "questionNumber": "作文",
+    "articleContent": "",
+    "questionContent": "假设你是红星中学高三学生李华。你的英国笔友 Jim 在你们学校组织举办了“我的年度词 (My Word of the Year)”的学生活动，发来邮件询问你的年度词。请你用英语给他回复，内容包括：\n1. 你的年度词是什么；\n2. 你选该词的理由。\n注意：1. 词数 100 左右；\n2. 开头和结尾已给出，不计入总词数。\nDear Jim,\n\n\n\n\n\nYours,\nLi Hua",
+    "answers": [],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181970075
+  },
+  "log-448bfd25": {
+    "id": "log-448bfd25",
+    "operationType": 2,
+    "questionId": "q-c52f87c3",
+    "questionTitle": "石景山区 2025 年高三统一练习",
+    "questionNumber": "完形填空",
+    "articleContent": "As a student planning to study management, I realised that classroom alone wouldn't be enough to fully prepare me for the challenges from the world. Eager to gain market-related experience before university, I stepped into the world of \\clozeblank{1} this summer.\nI noticed a problem in my community: the electricity supply was not \\clozeblank{2}, often being insufficient and leading to frequent power cuts that affected daily life. This created a clear need for a charging station, so I decided to open one to \\clozeblank{3} the issue. What started as a way to prepare myself for college quickly turned into a meaningful project, shaping my understanding of how business can not only \\clozeblank{4} practical needs but also make a lasting impact in a community.\nThe response to my business was \\clozeblank{5}. On the first three days alone, I made $406. That initial success was more than just encouraging—it was \\clozeblank{6} that I was solving a real problem and that the market was there for my services. Seeing people stream into the centre, grateful for the charging service, \\clozeblank{7} my belief that business is about addressing needs and serving others.\nThe journey of starting this business was not without challenges. When I needed \\clozeblank{8} to start the business, I negotiated with my relatives to give me two cows, which I then sold to raise funds. I also drew on technical skills to handle the electrical work myself, which \\clozeblank{9} my startup costs. Today, the charging center is alive with activities.\nThe skills I've acquired will certainly serve me well as I begin my university journey. Looking back, I can see how these \\clozeblank{10} lessons have set a stage for the future.",
+    "questionContent": "\\textbf{1.} \\option{A. medicine}{B. literature}{C. business}{D. science}\n\\textbf{2.} \\option{A. reliable}{B. private}{C. affordable}{D. renewable}\n\\textbf{3.} \\option{A. discuss}{B. raise}{C. report}{D. address}\n\\textbf{4.} \\option{A. promote}{B. replace}{C. meet}{D. guide}\n\\textbf{5.} \\option{A. disappointing}{B. incredible}{C. strange}{D. embarrassing}\n\\textbf{6.} \\option{A. proof}{B. doubt}{C. hope}{D. fear}\n\\textbf{7.} \\option{A. confused}{B. challenged}{C. confirmed}{D. changed}\n\\textbf{8.} \\option{A. income}{B. capital}{C. price}{D. profit}\n\\textbf{9.} \\option{A. estimated}{B. provided}{C. doubled}{D. reduced}\n\\textbf{10.} \\option{A. practical}{B. classic}{C. familiar}{D. cultural}",
+    "answers": [
+      {
+        "number": 1,
+        "answer": "C"
+      },
+      {
+        "number": 2,
+        "answer": "A"
+      },
+      {
+        "number": 3,
+        "answer": "D"
+      },
+      {
+        "number": 4,
+        "answer": "C"
+      },
+      {
+        "number": 5,
+        "answer": "B"
+      },
+      {
+        "number": 6,
+        "answer": "A"
+      },
+      {
+        "number": 7,
+        "answer": "C"
+      },
+      {
+        "number": 8,
+        "answer": "B"
+      },
+      {
+        "number": 9,
+        "answer": "D"
+      },
+      {
+        "number": 10,
+        "answer": "A"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181970091
+  },
+  "log-2158fbad": {
+    "id": "log-2158fbad",
+    "operationType": 2,
+    "questionId": "q-490fa5d5",
+    "questionTitle": "石景山区 2025 年高三统一练习",
+    "questionNumber": "语法填空A",
+    "articleContent": "A\nReleased in 2023, DeepSeek is \\clozeblank{11} open-source artificial intelligence system. Users can download, change and even run it locally \\clozeblank{12} (satisfy) their specific technical requirements. Its latest model, V3.5, delivers exceptional performance in reasoning, text generation, and data analysis tasks. Many users are choosing DeepSeek not only for its powerful features but also for its \\clozeblank{13} (low) costs compared to any other option on the market.",
+    "questionContent": "",
+    "answers": [
+      {
+        "number": 11,
+        "answer": "an"
+      },
+      {
+        "number": 12,
+        "answer": "to satisfy"
+      },
+      {
+        "number": 13,
+        "answer": "low"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181970104
+  },
+  "log-422c7a2d": {
+    "id": "log-422c7a2d",
+    "operationType": 2,
+    "questionId": "q-ebb899cc",
+    "questionTitle": "石景山区 2025 年高三统一练习",
+    "questionNumber": "语法填空B",
+    "articleContent": "B\nThe first public hotline, \\clozeblank{14} is a tool for enhancing citizen participation and improving city management, started in London in 1937. In China, the government hotline \\clozeblank{15} (launch) in big cities during the 1980s and later improved to be a citizen service platform in 2019. Now, in Beijing, more than 1,700 operators deal with over 60,000 calls each day. This system \\clozeblank{16} (promote) interaction between citizens and the city, \\clozeblank{17} (respond) to their appeals and making the city a better place.",
+    "questionContent": "",
+    "answers": [
+      {
+        "number": 14,
+        "answer": "which"
+      },
+      {
+        "number": 15,
+        "answer": "was launched"
+      },
+      {
+        "number": 16,
+        "answer": "promotes"
+      },
+      {
+        "number": 17,
+        "answer": "responding"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181970115
+  },
+  "log-2378de39": {
+    "id": "log-2378de39",
+    "operationType": 2,
+    "questionId": "q-12463e50",
+    "questionTitle": "石景山区 2025 年高三统一练习",
+    "questionNumber": "语法填空C",
+    "articleContent": "C\nScrolling through the phone, Zhang Yang noticed Chongqing subway-through-building videos were gaining massive attention. Curious, he searched the data and found that the foreign tourist arrivals \\clozeblank{18} (keep) rising steadily even before these videos surfaced.\n\\clozeblank{19} (inspire) by this upward trend, he joined a travel startup and set about designing personalised cultural trips. As a result, his \\clozeblank{20} (booking) have doubled these days, proving that such trips are attracting more foreign travelers than crowded tourist spots when they look for meaningful connections with local culture.",
+    "questionContent": "",
+    "answers": [
+      {
+        "number": 18,
+        "answer": "kept"
+      },
+      {
+        "number": 19,
+        "answer": "Inspired"
+      },
+      {
+        "number": 20,
+        "answer": "bookings"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181970127
+  },
+  "log-ea32a413": {
+    "id": "log-ea32a413",
+    "operationType": 2,
+    "questionId": "q-48fcbb24",
+    "questionTitle": "石景山区 2025 年高三统一练习",
+    "questionNumber": "A",
+    "articleContent": "The AI Scholars Programme (AISP) offers high school students worldwide a four-week, on-campus experience in artificial intelligence (AI) at Westbridge Technology University (WTU), connecting them with leading AI researchers. This fully-funded programme covers course fees, housing and programme-related field trips.\nCourse Plan\n\\begin{itemize}\n    \\item A virtual Python preparation course begins one month prior to the start of the campus programme. Coding experience is not required, and instructor support will be available for all students.\n    \\item Core academic modules include lectures on using AI fairly and safely, along with in-depth seminars led by WTU teaching staff that explore current AI research projects. Students will apply newly learned AI skills to real-world challenges in a hands-on group project, which will be presented at the AISP closing ceremony.\n    \\item Site visits with industry leaders are also included to explore emerging career paths in the AI field, along with academic writing workshops for college application.\n\\end{itemize}\nApplication Requirements\nStudents applying for AISP must be at least 16 years old. The complete application for AISP will consist of:\n\\begin{itemize}\n    \\item an online application form;\n    \\item official high school records of academic performance and extra-curricular activities;\n    \\item a personal statement demonstrating curiosity in AI research and commitment to socially responsible innovation.\n\\end{itemize}\nApplicants are strongly encouraged to submit a one-page maximum summary of the research proposal, clarifying how the project uses AI, its importance and intended outcomes. This will provide valuable information about the applicant's research potential, technical skills, and ability to plan and communicate their research goals.\nApplications of 2025 programme close on April 15, 2025, with interviews conducted through May. Click here to start your application.",
+    "questionContent": "\\textbf{21.} What is the main purpose of the AISP?\\optiontwo{A. To engage students in AI exploration.}{B. To advocate cooperation in AI research.}{C. To provide career guidance in AI industry.}{D. To promote the principles of AI applications.}\n\\textbf{22.} What can students learn from the programme?\\optiontwo{A. Academic writing on AI development.}{B. Ways to write an AI research proposal.}{C. AI skills for solving problems in reality.}{D. Advanced maths and physics with AI focus.}\n\\textbf{23.} To be considered for the programme, students should ________.\\optiontwo{A. pay the tuition fees in advance}{B. upload a recommendation letter}{C. submit an online application form in May}{D. provide school records and a personal statement.}",
+    "answers": [
+      {
+        "number": 21,
+        "answer": "A"
+      },
+      {
+        "number": 22,
+        "answer": "C"
+      },
+      {
+        "number": 23,
+        "answer": "C"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181970138
+  },
+  "log-9a1c7c87": {
+    "id": "log-9a1c7c87",
+    "operationType": 2,
+    "questionId": "q-075bbc48",
+    "questionTitle": "石景山区 2025 年高三统一练习",
+    "questionNumber": "B",
+    "articleContent": "In my early forties, I began painting with watercolours. Each brushstroke on paper turned into a personal language, allowing me to express the inexpressible. The feeling of colour being absorbed into the paper was calming, yet it left me longing for something deeper. Over time, I became more interested in oil paints. Although they took longer to dry, they offered me a sense of control. Layers of paints combined smoothly, creating a three-dimensional effect that watercolours couldn't copy. Oil paints granted me the precious opportunity to take a few steps back, as if I were a curious explorer approaching a hidden landscape.\nHowever, working with oil paints wasn't easy. Getting the right shine or thickness required patience, and at times, I felt annoyed by my lack of progress. Colours didn't always behave as expected, and I struggled to achieve the vision in my mind. But the more I persisted, the more I understood oil paints. They balanced softness with depth, giving me the chance to create both delicate and grand images. The process of painting became reflective, a practice of exploring colours, textures (纹理) and emotions—sometimes rough, sometimes peaceful, but always rewarding.\nOne evening, I noticed a strange shade of blue on my canvas (油布). It seemed out of place, as if it didn't belong. My heart skipped a beat, and I stared at it, uncertain if it was part of my recent work or a trick of the eye. As I stepped back to examine the canvas, the blue shade slowly began to make sense. It was not an error but an invitation—an unplanned element that added depth to the piece in a way I hadn't expected. At that moment, I realised that painting, much like life, was not about complete control but about embracing the unexpected.\nFrom then on, I approached my work with a new sense of curiosity. I let colours blend more freely, allowed accidental mistakes to become part of the composition, and accepted that every brushstroke carried its own story. Oil painting not only gave me a medium to express myself but also taught me patience, resilience, and the beauty of discovery.\nLooking at my finished work, I no longer saw just layers of paints. I saw moments of struggle, joy, and growth woven into the canvas—a reminder that art, like any, is as much about the process as it is about the final masterpiece.",
+    "questionContent": "\\textbf{24.} Why did the author turn to oil paints?\\optiontwo{A. To enhance creativity.}{B. To save painting time.}{C. To seek deeper artistic control.}{D. To improve painting skills.}\n\\textbf{25.} What challenge did the author face when working with oil paints?\\optiontwo{A. Balancing softness and sharpness.}{B. Creating a three-dimensional effect.}{C. Achieving the right shine and thickness.}{D. Controlling the drying time of the paints.}\n\\textbf{26.} What message does the author want to convey?\\optiontwo{A. Art is a journey of welcoming imperfections.}{B. A good picture is worth a thousand words.}{C. Beauty is the ultimate goal of fine art.}{D. Creating is about exploring ideal self.}",
+    "answers": [
+      {
+        "number": 24,
+        "answer": "C"
+      },
+      {
+        "number": 25,
+        "answer": "C"
+      },
+      {
+        "number": 26,
+        "answer": "A"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181970150
+  },
+  "log-fc1d0c2a": {
+    "id": "log-fc1d0c2a",
+    "operationType": 2,
+    "questionId": "q-7653529c",
+    "questionTitle": "石景山区 2025 年高三统一练习",
+    "questionNumber": "C",
+    "articleContent": "Researchers from the NeuroMind Institute have developed a new system that uses predator (捕食者) robots to chase (追逐) larval (幼体的) zebrafish in an open water. This innovative approach is helping scientists study how the young fish rapidly learn and adapt in real-world conditions.\nLarval zebrafish are a valuable tool for neuroscientists because their transparency enables easy study of the brain and behaviour. However, it's been difficult for scientists to study learning in these developing vertebrates (脊椎动物)—an important part of understanding how the brain works. Previous research found young zebrafish could learn simple associations. But this type of learning happens slowly and often unreliably, and it was still unclear whether days-old zebrafish can learn fast enough to use their memory in natural situations, like recognizing and avoiding new predators.\nThe researchers thought that traditional ways of testing learning in larval zebrafish in the lab, where the conditions were far from what the fish would encounter in the wild, might not be effective for uncovering how the fish learn. To model a real-life situation, the researchers used small robotic cylinders (圆柱体), with some programmed to show predator-like characteristics.\nThe researchers created the dynamics: they first placed a robot that stayed still with a free-swimming zebrafish; after the robot chased the fish for a minute, the fish began avoiding the robot's area for more than an hour—a big change from the non-avoidant behaviour before the chase experience. When a second robot was introduced that did not chase the fish, the zebrafish only avoided the chasing robot, showing that they could distinguish between a threat and a non-threat.\nUsing this system, the researchers made an unexpected discovery that not only could larval zebrafish learn extremely quickly in a more natural context, but they could also do so just five days after beginning their lives as single cells. This was particularly surprising given the fact that a developing zebrafish larva contains just one percent or so of the neurons (神经元) in its adult form. The findings suggest that some essential learning abilities, like recognizing predators, emerge early in life and are critical for survival.\nFurther brain imaging reveals that different regions of the zebrafish brain are involved in this rapid learning: the hindbrain, a region controlling essential functions, responds to the approaching predator; the forebrain, a region associated with learning and planning, encodes the presence of the predator robot; and the habenula, another brain area, signals avoidance outcomes. All these regions are necessary for learning, and silencing any of them removes the ability of the fish to learn. It is believed that the new work could offer insights into how other brains process real-world threats.",
+    "questionContent": "\\textbf{27.} Why did the researchers develop a new system with larval zebrafish?\\optiontwo{A. To observe their hunting behaviours.}{B. To identify their simple associations.}{C. To examine their brain characteristics.}{D. To uncover their learning in natural settings.}\n\\textbf{28.} What does the underlined word “dynamics” in Paragraph 4 probably mean?\\optiontwo{A. Interaction.}{B. Function.}{C. Structure.}{D. Standard.}\n\\textbf{29.} What can we learn about larval zebrafish?\\optiontwo{A. They can distinguish between robots and fish.}{B. They learn fast through a multi-regional brain network.}{C. They develop learning abilities when reaching adulthood.}{D. They can recognise predators with much neurons needed.}\n\\textbf{30.} What will the author most probably discuss in the paragraph that follows?\\optiontwo{A. Explaining the robot design used in the experiment.}{B. Exploring danger processing in other species’ brains.}{C. Analysing the connection between learning and planning.}{D. Describing zebrafish behaviours in different surroundings.}",
+    "answers": [
+      {
+        "number": 27,
+        "answer": "D"
+      },
+      {
+        "number": 28,
+        "answer": "A"
+      },
+      {
+        "number": 29,
+        "answer": "B"
+      },
+      {
+        "number": 30,
+        "answer": "B"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181970161
+  },
+  "log-f403db58": {
+    "id": "log-f403db58",
+    "operationType": 2,
+    "questionId": "q-47db40ce",
+    "questionTitle": "石景山区 2025 年高三统一练习",
+    "questionNumber": "D",
+    "articleContent": "The moon stands alone. Unique in the universe, it is a lifeless and sunbaked wasteland that harbours little except what we bring to it. But that is about to change.\nHalf a century after the Apollo programme, a private spacecraft Nova-C made the first touchdown on the moon successfully, bearing scientific instruments, microfiche (缩微胶片) story disks, cameras, and sculptures to stay on the moon forever. Its success would promise many more. Though it may seem like an exciting outlook for humanity’s space exploration ambitions, it also signals a future where the moon becomes a hotbed of ungoverned business operations that will irreversibly (不可逆地) transform it.\nFor the first time, private capital has reached the moon, expanding beyond scientific goals. This allows private landers, even when carrying government science experiments, to include additional non-scientific payloads (有效载荷) for other customers. Items bound to raise various objections, such as human cremains (骨灰) and dehydrated water bears from past missions, have caused concerns about biological materials on the moon. There’re a lot more planned for future launches, likely sparking further debate.\nBefore this decade is out, with a powerful enough telescope, you may be able to see evidence of human construction or even habitation on the moon. In 2023, the global space industry was valued at $469 billion, expected to exceed $1 trillion by 2030, driven by growing satellite use in manufacturing, power, and data. “We are now at a tipping point, where ideas previously limited to science fiction represent attractive investment projects,” a report read.\nA voluntary agreement has been used since 2020 to foster lunar cooperation. It promotes international standards, emergency assistance and data sharing. However, it also allows for exploiting (开采) lunar resources like dust, water, rare earth elements and other materials.\nExploring the moon has value for science and potential benefits for Earth, but humans often turn exploration into exploitation, and the moon may face the same fate. The moon won’t be alone for long. But it is and will forever be quiet. It plays host to no thunderstorms, no crashing waves, no bird songs and no anthems (颂歌). We must be its voice. We will soon change its surface, and our relationship to it, forever. At the very least, we owe the moon a considered discussion of why and how we will do so.",
+    "questionContent": "\\textbf{31.} What is the author’s concern about the moon’s future?\\optiontwo{A. Unregulated commercial activities.}{B. Illegal human construction.}{C. Limited payload carried to the moon.}{D. A lack of scientific missions.}\n\\textbf{32.} The “tipping point” in Paragraph 4 indicates the change________.\\optiontwo{A. from cooperation to competition}{B. from science to trade}{C. from lunar landing to settlement}{D. from fantasy to adventure}\n\\textbf{33.} What can we infer from this passage?\\optiontwo{A. Lunar resource exploration holds great promise.}{B. Massive investment is beneficial to lunar development.}{C. Non-scientific activities can test lunar environmental limits.}{D. The existing agreement is insufficient in controlling over-exploitation.}\n\\textbf{34.}What would be the best title for this passage?\\optiontwo{A. The Promising Moon: Playground for All}{B. The Moon’s Edge: Ambition Meets Reality}{C. The Moon’s Future: Uncover the Unknown}{D. The Silent Moon: Humanity’s Responsibility}",
+    "answers": [
+      {
+        "number": 31,
+        "answer": "A"
+      },
+      {
+        "number": 32,
+        "answer": "B"
+      },
+      {
+        "number": 33,
+        "answer": "D"
+      },
+      {
+        "number": 34,
+        "answer": "D"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181970172
+  },
+  "log-4757d30d": {
+    "id": "log-4757d30d",
+    "operationType": 2,
+    "questionId": "q-9eedf707",
+    "questionTitle": "石景山区 2025 年高三统一练习",
+    "questionNumber": "七选五",
+    "articleContent": "The Brain Perceives Unexpected Pain More Strongly\nPain perception (感觉) can vary significantly between individuals and even within the same person across different situations. In some cases, an injury or physical illness may lead to stronger pain than expected, while similar injuries at other times may result in much milder pain. This difference suggests that pain perception is not entirely determined by the physical injury itself. \\clozeblank{35} One is the Estimate Hypothesis (假设), which suggests that the brain estimates the intensity of pain based on predictions it makes about the injury. The other is the Surprise Hypothesis, which argues that the brain feels pain as the difference between what it expects and what actually occurred. This difference, also known as the prediction gap, plays a key role in shaping how pain is experienced. \\clozeblank{37} Healthy participants were subjected to painful hot-based stimuli (刺激), while observing visual signals in a virtual reality setting. These signals were either associated with painful or non-painful experiences. Participants were then asked to report their pain intensity.\nThe researchers discovered that pain perception becomes more intense as the prediction gap widens. This phenomenon occurs when the actual pain is much stronger than the brain’s expectations. Their findings suggest that the brain strengthens pain perception when there is a substantial difference between anticipated and actual pain levels. \\clozeblank{38} it provides a more accurate framework for understanding how the brain processes pain. The study also revealed that unexpected events tend to increase pain, supporting the idea that the difference between expectation and reality causes pain to feel worse.\nIndividuals with persistent pain often experience uncertain fears and anxieties about their condition. This mismatch between their expectations and the actual experience of pain can further strengthen how strongly they perceive the pain. \\clozeblank{39} Gaining deeper insights into how the brain processes pain could also contribute to the development of more effective treatments, ultimately improving recovery from persistent pain.",
+    "questionContent": "\\begin{enumerate}[label=\\Alph{*}.]\n\\item[A.] This evidence supports the Surprise Hypothesis.\n\\item[B.] It is also strongly influenced by individual expectations.\n\\item[C.] In this study, how the brain perceives pain was examined.\n\\item[D.] In contrast, the gap will determine the intensity of the pain one feels.\n\\item[E.] To explain this phenomenon, a new study has introduced two main assumptions.\n\\item[F.] The findings highlight the importance of psychological factors in pain management.\n\\item[G.] Narrowing this gap between expectation and reality may play a key role in reducing pain.\n\\end{enumerate}",
+    "answers": [
+      {
+        "number": 36,
+        "answer": "E"
+      },
+      {
+        "number": 37,
+        "answer": "C"
+      },
+      {
+        "number": 38,
+        "answer": "A"
+      },
+      {
+        "number": 35,
+        "answer": "B"
+      },
+      {
+        "number": 39,
+        "answer": "G"
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181973292
+  },
+  "log-60c35fcd": {
+    "id": "log-60c35fcd",
+    "operationType": 2,
+    "questionId": "q-8b809619",
+    "questionTitle": "石景山区 2025 年高三统一练习",
+    "questionNumber": "阅读表达",
+    "articleContent": "A Journey with a Painting Drone\nIn the messy garage of their home, 16-year-old Emma stared at the pieces of her brother’s old broken drone (无人机). Her physics teacher had given the class a task—turning old technology into something “magical.” While most students built simple things like solar chargers, Emma dreamed of something bigger—a drone that could paint pictures while flying! She drew designs mixing science and art—brushes attached to propellers (螺旋桨) and colours guided by GPS. Her classmates laughed, calling it a “flying junk,” but Emma kept working.\nOne rainy afternoon, she adjusted the drone’s settings to match music. Every beat released a paint drop. The first try was a mess—bright paints spread everywhere. But Emma noticed a pattern in the chaos. After five tries, the drone danced to Beethoven’s Fifth Symphony, creating a beautiful abstract painting. Her project won the school’s top prize and even inspired local artists to use her technology for large outdoor artworks.\nEmma’s success wasn’t just about imagination. It teaches us three essential keys to unlocking creativity. First, balance is crucial. Creativity grows not in daydreams alone, but when wild ideas meet real-world logic. Emma didn’t just imagine a painting drone; she grounded her vision in maths and physics, calculating how to keep brushes steady mid-flight. Second, bravery grows through small steps. Early on, Emma almost abandoned her idea fearing others would laugh. But she fought doubts by practising creativity daily. Finally, fun fuels persistence. Emma’s first test spread paints everywhere, but instead of giving up, she found joy in the chaos. Her attempts reminded her that “impossible” ideas can awaken wonder. Creativity isn’t a rare gift for the chosen few; it’s a muscle that strengthens when we laugh at failures and celebrate small wins.\nMost importantly, Emma’s journey mirrors a universal truth: creativity, like a child learning to walk, demands patience. Every wobble (蹒跚) and every fall is a crack of progress. When we cheer for effort rather than perfection—whether for a child’s first steps or our own messy drafts—we unlock the courage to keep moving forward.",
+    "questionContent": "\\textbf{40.} What task did Emma’s physics teacher give to the class?\n\\textbf{41.} According to the author, what are the essential keys to unlocking creativity?\n\\textbf{42.} Please decide which part is false in the following statement, then underline it and explain why.\n> Emma, valuing the final result instead of small wins, learned from failures and eventually achieved her goal.\n\\textbf{43.} How do you unlock your creativity? Please give one example. (In about 40 words)",
+    "answers": [
+      {
+        "number": 40,
+        "answer": "Her physics teacher gave the class a task—turning old technology into something “magical.”"
+      },
+      {
+        "number": 41,
+        "answer": "Balance, bravery and fun."
+      },
+      {
+        "number": 42,
+        "answer": "Emma, valuing the final result instead of small wins, learned from failures and eventually achieved her goal.\nFalse part: valuing the final result instead of small wins.\nExplanation: Emma valued small wins instead of the final result."
+      },
+      {
+        "number": 43,
+        "answer": "I unlock my creativity by trying new things and not being afraid to make mistakes. For example, I started learning to play the guitar even though I knew I would be terrible at first. But I kept practicing and eventually I got better."
+      }
+    ],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181973311
+  },
+  "log-78a294de": {
+    "id": "log-78a294de",
+    "operationType": 2,
+    "questionId": "q-aaee7a14",
+    "questionTitle": "石景山区 2025 年高三统一练习",
+    "questionNumber": "作文",
+    "articleContent": "",
+    "questionContent": "假如你是红星中学高三学生李华，你的英国好友 Jim 要参加学校举办的“世界智慧城市”(Global Smart City) 展示活动，他打算介绍北京，聚焦智慧北京的亮点，向你寻求相关建议。请你用英文回复，内容包括：\n1. 建议内容；\n2. 说明理由。\n注意：1. 词数 100 左右；\n2. 开头和结尾已给出，不计入总词数。\nDear Jim,\n\nYours,\nLi Hua",
+    "answers": [],
+    "operatorEmail": "abc@123.com",
+    "operatedAt": 1768181973326
   }
 }

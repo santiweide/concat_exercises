@@ -3,11 +3,15 @@ Question Management Service - Handles soft delete and operation logs for questio
 """
 import structlog
 from typing import Optional, Dict, Any, List
+import time
 
-from storage import question_store, operation_log_store
+from storage import question_store, operation_log_store, queue_store
 from models import ReadingQuestion, QuestionOperationLog, OperationType
 
 logger = structlog.get_logger()
+
+# Constants
+PHYSICAL_DELETE_DAYS = 3  # Number of days after which soft-deleted questions are physically deleted
 
 
 class QuestionManagementService:
@@ -95,6 +99,12 @@ class QuestionManagementService:
                 'error': '删除失败'
             }
         
+        # Remove from all queues
+        queues_updated = queue_store.remove_question_from_all_queues(question_id)
+        logger.info("Removed question from queues", 
+                   question_id=question_id, 
+                   queues_count=queues_updated)
+        
         # Create operation log
         log = operation_log_store.create(
             operation_type=OperationType.DELETE,
@@ -110,7 +120,8 @@ class QuestionManagementService:
         return {
             'success': True,
             'question': deleted_question.model_dump(),
-            'log': log.model_dump()
+            'log': log.model_dump(),
+            'queuesAffected': queues_updated
         }
     
     def restore_question(self, question_id: str, operator_email: str) -> Dict[str, Any]:
@@ -161,7 +172,8 @@ class QuestionManagementService:
         return {
             'success': True,
             'question': restored_question.model_dump(),
-            'log': log.model_dump()
+            'log': log.model_dump(),
+            'queuesAffected': queues_updated
         }
     
     def batch_soft_delete(self, question_ids: List[str], operator_email: str) -> Dict[str, Any]:
@@ -177,18 +189,21 @@ class QuestionManagementService:
         """
         deleted_count = 0
         failed_ids = []
+        total_queues_affected = 0
         
         for qid in question_ids:
             result = self.soft_delete_question(qid, operator_email)
             if result['success']:
                 deleted_count += 1
+                total_queues_affected += result.get('queuesAffected', 0)
             else:
                 failed_ids.append(qid)
         
         return {
             'success': len(failed_ids) == 0,
             'deletedCount': deleted_count,
-            'failedIds': failed_ids
+            'failedIds': failed_ids,
+            'queuesAffected': total_queues_affected
         }
     
     def get_operation_logs(self, page: int = 1, page_size: int = 20,
@@ -247,6 +262,60 @@ class QuestionManagementService:
             question=question,
             operator_email=operator_email
         )
+    
+    def cleanup_old_deleted_questions(self) -> Dict[str, Any]:
+        """
+        Physically delete questions that have been soft-deleted for more than PHYSICAL_DELETE_DAYS.
+        This should be called on server startup.
+        
+        Returns:
+            Dictionary with cleanup statistics
+        """
+        try:
+            current_time = int(time.time() * 1000)  # Current time in milliseconds
+            cutoff_time = current_time - (PHYSICAL_DELETE_DAYS * 24 * 60 * 60 * 1000)  # 3 days ago
+            
+            # Get all deleted questions
+            all_questions = question_store.list_all()
+            deleted_questions = [q for q in all_questions if q.deleted and q.deletedAt]
+            
+            # Find questions deleted more than PHYSICAL_DELETE_DAYS ago
+            old_deleted = [q for q in deleted_questions if q.deletedAt < cutoff_time]
+            
+            if not old_deleted:
+                logger.info("No old deleted questions to clean up")
+                return {
+                    'success': True,
+                    'deletedCount': 0,
+                    'questionIds': []
+                }
+            
+            deleted_ids = []
+            for question in old_deleted:
+                # Physically delete the question
+                if question_store.delete(question.id):
+                    deleted_ids.append(question.id)
+                    logger.info("Physically deleted old question", 
+                              question_id=question.id,
+                              deleted_at=question.deletedAt,
+                              title=question.title)
+            
+            logger.info("Cleanup completed", 
+                       total_deleted=len(deleted_ids),
+                       cutoff_days=PHYSICAL_DELETE_DAYS)
+            
+            return {
+                'success': True,
+                'deletedCount': len(deleted_ids),
+                'questionIds': deleted_ids
+            }
+            
+        except Exception as e:
+            logger.error("Error during cleanup of old deleted questions", error=str(e))
+            return {
+                'success': False,
+                'error': str(e)
+            }
 
 
 # Singleton instance

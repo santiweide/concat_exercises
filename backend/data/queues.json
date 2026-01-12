@@ -99,23 +99,12 @@
   "queue-44994ebc": {
     "id": "queue-44994ebc",
     "name": "test",
-    "questionIds": [
-      "q-80145b73",
-      "q-ec94f9a4",
-      "q-e09a462b",
-      "q-74965b8a",
-      "q-59cb218c",
-      "q-ea83b2f0",
-      "q-350b0304",
-      "q-7a30b949",
-      "q-61b6c2f0",
-      "q-99ab0e6e"
-    ],
+    "questionIds": [],
     "frozen": false,
     "owner": "abc@123.com",
     "collaborators": [],
     "createdAt": 1767746023469,
-    "updatedAt": 1768178394818
+    "updatedAt": 1768181959305
   },
   "queue-5829b49b": {
     "id": "queue-5829b49b",

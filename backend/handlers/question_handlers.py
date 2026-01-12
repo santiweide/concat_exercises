@@ -42,7 +42,8 @@ async def search_questions(request: web.Request) -> web.Response:
             subsection=subsection,
             labels=labels,
             page=page,
-            page_size=page_size
+            page_size=page_size,
+            include_deleted=False  # Never include deleted questions in search
         )
         
         pagination = PaginationResponse.create(total, page, page_size)

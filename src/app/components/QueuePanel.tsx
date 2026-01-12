@@ -9,11 +9,10 @@ import {
   Trash2, 
   Download, 
   Upload, 
-  Lock, 
-  Unlock, 
   UserPlus,
   Save,
-  BarChart3
+  BarChart3,
+  FileText
 } from 'lucide-react';
 import {
   Dialog,
@@ -23,7 +22,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from './ui/dialog';
-import { ExamProgressDashboard } from './ExamProgressDashboard';
+import { ExamProgressDashboard, EXAM_PAPER_CONFIG } from './ExamProgressDashboard';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { toast } from 'sonner';
@@ -32,7 +31,6 @@ interface QueuePanelProps {
   queue: Queue;
   onRemoveQuestion: (questionId: string) => void;
   onReorderQuestions: (newOrder: ReadingQuestion[]) => void;
-  onToggleFreeze: () => void;
   onSave?: () => void;
   saving?: boolean;
   hasUnsavedChanges?: boolean;
@@ -48,7 +46,6 @@ interface DraggableQuestionProps {
   moveQuestion: (dragIndex: number, hoverIndex: number) => void;
   onRemove: (question: ReadingQuestion) => void;
   onView: (question: ReadingQuestion) => void;
-  frozen: boolean;
 }
 
 const DraggableQuestion: React.FC<DraggableQuestionProps> = ({
@@ -56,13 +53,12 @@ const DraggableQuestion: React.FC<DraggableQuestionProps> = ({
   index,
   moveQuestion,
   onRemove,
-  onView,
-  frozen
+  onView
 }) => {
   const [{ isDragging }, drag, preview] = useDrag({
     type: 'question',
     item: { index },
-    canDrag: !frozen,
+    canDrag: true,
     collect: (monitor) => ({
       isDragging: monitor.isDragging(),
     }),
@@ -71,7 +67,7 @@ const DraggableQuestion: React.FC<DraggableQuestionProps> = ({
   const [, drop] = useDrop({
     accept: 'question',
     hover: (item: { index: number }) => {
-      if (item.index !== index && !frozen) {
+      if (item.index !== index) {
         moveQuestion(item.index, index);
         item.index = index;
       }
@@ -80,16 +76,19 @@ const DraggableQuestion: React.FC<DraggableQuestionProps> = ({
 
   return (
     <div
-      ref={(node) => preview(drop(node))}
+      ref={(node) => {
+        drop(node);
+        preview(node);
+      }}
       style={{ opacity: isDragging ? 0.5 : 1 }}
     >
       <QuestionCard
         question={question}
         onView={onView}
         onRemove={onRemove}
-        showRemoveButton={!frozen}
-        isDraggable={!frozen}
-        dragHandleProps={!frozen ? { ref: drag } : undefined}
+        showRemoveButton={true}
+        isDraggable={true}
+        dragHandleProps={{ ref: drag }}
       />
     </div>
   );
@@ -99,7 +98,6 @@ export function QueuePanel({
   queue,
   onRemoveQuestion,
   onReorderQuestions,
-  onToggleFreeze,
   onSave,
   saving,
   hasUnsavedChanges,
@@ -110,6 +108,34 @@ export function QueuePanel({
 }: QueuePanelProps) {
   const [collaboratorEmail, setCollaboratorEmail] = useState('');
   const [progressDialogOpen, setProgressDialogOpen] = useState(false);
+
+  // 检查队列是否完成
+  const isQueueComplete = () => {
+    const progressData: { section: string; subsection: string; current: number; max: number }[] = [];
+    
+    EXAM_PAPER_CONFIG.sections.forEach((section) => {
+      section.subsections.forEach((subsection) => {
+        const count = queue.questions.filter(
+          (q) => q.section === section.name && q.subsection === subsection.name
+        ).length;
+        
+        progressData.push({
+          section: section.name,
+          subsection: subsection.name,
+          current: count,
+          max: subsection.maxQuestions,
+        });
+      });
+    });
+    
+    const totalCurrent = progressData.reduce((sum, item) => sum + item.current, 0);
+    const totalMax = progressData.reduce((sum, item) => sum + item.max, 0);
+    const hasExceeded = progressData.some((item) => item.current > item.max);
+    
+    return totalCurrent === totalMax && !hasExceeded && totalMax > 0;
+  };
+
+  const queueComplete = isQueueComplete();
 
   const moveQuestion = (dragIndex: number, hoverIndex: number) => {
     const newQuestions = [...queue.questions];
@@ -143,10 +169,12 @@ export function QueuePanel({
               <div>
                 <CardTitle>{queue.name}</CardTitle>
                 <div className="flex gap-2 mt-2 items-center">
-                  <Badge variant={queue.frozen ? 'destructive' : 'default'}>
-                    {queue.frozen ? '已冻结' : '编辑中'}
+                  {queueComplete && (
+                  <Badge variant="default" className="bg-green-500">
+                    <FileText className="h-3 w-3 mr-1" />
+                    组卷完成
                   </Badge>
-                  <span className="text-sm text-gray-500">
+                )}                  <span className="text-sm text-gray-500">
                     {queue.questions.length} 道题目
                   </span>
                 </div>
@@ -157,7 +185,7 @@ export function QueuePanel({
                     size="sm"
                     variant={hasUnsavedChanges ? "default" : "outline"}
                     onClick={onSave}
-                    disabled={!hasUnsavedChanges || saving || queue.frozen}
+                    disabled={!hasUnsavedChanges || saving}
                   >
                     <Save className="size-4 mr-1" />
                     {saving ? '保存中...' : '保存'}
@@ -183,27 +211,16 @@ export function QueuePanel({
                 <Button
                   size="sm"
                   variant="outline"
-                  onClick={onToggleFreeze}
-                >
-                  {queue.frozen ? (
-                    <>
-                      <Unlock className="size-4 mr-1" />
-                      解冻
-                    </>
-                  ) : (
-                    <>
-                      <Lock className="size-4 mr-1" />
-                      冻结
-                    </>
-                  )}
-                </Button>
-                <Button
-                  size="sm"
-                  variant="outline"
                   onClick={onExport}
+                  disabled={!queueComplete}
+                  title={
+                    !queueComplete 
+                      ? "请完成组卷后再导出" 
+                      : "导出试卷为LaTeX格式"
+                  }
                 >
                   <Download className="size-4 mr-1" />
-                  导出
+                  导出试卷
                 </Button>
                 <Button
                   size="sm"
@@ -266,7 +283,6 @@ export function QueuePanel({
                     moveQuestion={moveQuestion}
                     onRemove={(q) => onRemoveQuestion(q.id)}
                     onView={onViewQuestion}
-                    frozen={queue.frozen}
                   />
                 ))}
               </div>
