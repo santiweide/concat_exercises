@@ -12,7 +12,7 @@ export const EXAM_PAPER_CONFIG = {
       name: '第一部分 知识运用',
       subsections: [
         { name: '第一节', maxQuestions: 1, description: '完形填空' },
-        { name: '第二节', maxQuestions: 1, description: '语法填空' }
+        { name: '第二节', maxQuestions: 3, description: '语法填空A/B/C' }
       ]
     },
     {
