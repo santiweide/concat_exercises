@@ -68,9 +68,10 @@ interface ImportResult {
 
 interface ImportPaperPageProps {
   onBack: () => void;
+  onImportComplete?: () => void;
 }
 
-export function ImportPaperPage({ onBack }: ImportPaperPageProps) {
+export function ImportPaperPage({ onBack, onImportComplete }: ImportPaperPageProps) {
   const { token } = useAuth();
   const [file, setFile] = useState<File | null>(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -230,6 +231,11 @@ export function ImportPaperPage({ onBack }: ImportPaperPageProps) {
         setPreviewData(null);
         setShowOverwriteDialog(false);
         toast.success(`成功${forceOverwrite ? '覆盖' : ''}导入 ${result.questionsImported} 道试题`);
+        
+        // Notify parent component to refresh questions
+        if (onImportComplete) {
+          onImportComplete();
+        }
       } else if (result.duplicate) {
         // Paper with same title already exists, show confirmation dialog
         setDuplicateTitle(previewData.title);

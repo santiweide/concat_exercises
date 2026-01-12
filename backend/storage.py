@@ -286,15 +286,20 @@ class QuestionStore:
         return results, total
     
     def exists_by_title(self, title: str) -> bool:
-        """Check if any question with the given title exists."""
+        """Check if any non-deleted question with the given title exists."""
         for q in self.questions.values():
+            # Skip deleted questions
+            if getattr(q, 'deleted', False):
+                continue
             if q.title == title:
                 return True
         return False
     
     def delete_by_title(self, title: str) -> int:
-        """Delete all questions with the given title. Returns count of deleted questions."""
-        to_delete = [qid for qid, q in self.questions.items() if q.title == title]
+        """Delete all non-deleted questions with the given title. Returns count of deleted questions."""
+        # Only delete questions that are not already soft-deleted
+        to_delete = [qid for qid, q in self.questions.items() 
+                     if q.title == title and not getattr(q, 'deleted', False)]
         for qid in to_delete:
             del self.questions[qid]
         if to_delete:
@@ -305,11 +310,15 @@ class QuestionStore:
     def get_all_labels(self) -> List[str]:
         labels = set()
         for q in self.questions.values():
-            labels.update(q.labels)
+            # Skip deleted questions
+            if not getattr(q, 'deleted', False):
+                labels.update(q.labels)
         return sorted(list(labels))
     
     def get_all_years(self) -> List[int]:
-        years = set(q.year for q in self.questions.values())
+        # Only include years from non-deleted questions
+        years = set(q.year for q in self.questions.values() 
+                   if not getattr(q, 'deleted', False))
         return sorted(list(years), reverse=True)
 
 

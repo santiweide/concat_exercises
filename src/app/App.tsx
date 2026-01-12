@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { ReadingQuestion, Queue } from './types';
 import { mockQuestions } from './data/mockData';
 import { QueuePanel } from './components/QueuePanel';
@@ -83,7 +83,7 @@ function MainApp() {
   const [originalQueue, setOriginalQueue] = useState<Queue | null>(null);
 
   // Load questions from backend API
-  useEffect(() => {
+  const loadQuestions = useCallback(() => {
     if (!token) return;
     
     setLoadingQuestions(true);
@@ -106,6 +106,10 @@ function MainApp() {
       })
       .finally(() => setLoadingQuestions(false));
   }, [token]);
+
+  useEffect(() => {
+    loadQuestions();
+  }, [loadQuestions]);
 
   // Update queue owner when user changes
   useEffect(() => {
@@ -436,7 +440,10 @@ function MainApp() {
   if (route === '/import') {
     return (
       <>
-        <ImportPaperPage onBack={() => navigate('/')} />
+        <ImportPaperPage 
+          onBack={() => navigate('/')} 
+          onImportComplete={loadQuestions}
+        />
         <Toaster />
       </>
     );
