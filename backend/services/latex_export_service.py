@@ -144,26 +144,144 @@ class LatexExportService:
         
         return grouped
 
-    def _generate_section_content(self, questions: List[ReadingQuestion]) -> str:
-        """Generate content for a list of questions."""
+    def _clean_option_prefixes(self, text: str) -> str:
+        """
+        Remove A. B. C. D. prefixes from option content to avoid duplication.
+        Since \\option{}, \\optiontwo{}, \\optionone{} already add A. B. C. D. labels,
+        we need to remove them from the content.
+        
+        Examples:
+            \\option{A. apple}{B. banana}{C. orange}{D. grape}
+            → \\option{apple}{banana}{orange}{grape}
+            
+            \\optiontwo{A. To protect}{B. To promote}{C. To study}{D. To develop}
+            → \\optiontwo{To protect}{To promote}{To study}{To develop}
+        """
+        if not text:
+            return text
+        
+        import re
+        
+        def clean_single_option(match):
+            """清理单个 \option{}{}{}{} 或类似命令"""
+            full_match = match.group(0)
+            command = match.group(1)  # option, optiontwo, 或 optionone
+            
+            # 使用简单的方法：找到命令后面的4个 {...} 块
+            # 然后清理每个块内开头的 A. B. C. D. 等前缀
+            result = f"\\{command}"
+            
+            # 从命令后面开始查找大括号
+            pos = len(f"\\{command}")
+            i = pos
+            options_found = 0
+            
+            while i < len(full_match) and options_found < 4:
+                if full_match[i] == '{':
+                    # 找到匹配的右大括号
+                    brace_count = 1
+                    j = i + 1
+                    while j < len(full_match) and brace_count > 0:
+                        if full_match[j] == '{':
+                            brace_count += 1
+                        elif full_match[j] == '}':
+                            brace_count -= 1
+                        j += 1
+                    
+                    # 提取选项内容
+                    option_content = full_match[i+1:j-1]
+                    
+                    # 清理 A. B. C. D. E. F. G. 前缀
+                    cleaned_content = re.sub(r'^\s*[A-G]\.\s*', '', option_content)
+                    
+                    # 添加到结果
+                    result += '{' + cleaned_content + '}'
+                    
+                    options_found += 1
+                    i = j
+                else:
+                    i += 1
+            
+            return result
+        
+        # 处理三种选项命令，使用非贪婪匹配
+        # 匹配 \option{...}{...}{...}{...}
+        pattern = r'\\(option|optiontwo|optionone)\{[^}]*\}\{[^}]*\}\{[^}]*\}\{[^}]*\}'
+        text = re.sub(pattern, clean_single_option, text)
+        
+        return text
+
+    def _generate_section_content(self, questions: List[ReadingQuestion], start_number: int = 1) -> tuple[str, int]:
+        """
+        Generate content for a list of questions with automatic numbering.
+        
+        Args:
+            questions: List of questions to generate content for
+            start_number: Starting question number
+            
+        Returns:
+            Tuple of (generated_content, next_number)
+            - generated_content: LaTeX formatted content
+            - next_number: The next available question number after this section
+        """
+        import re
+        
         content = ""
+        current_number = start_number
         
         for question in questions:
             # 添加文章内容
             if question.articleContent:
                 content += "\n" + question.articleContent + "\n\n"
             
-            # 添加题目内容
+            # 添加题目内容，自动重新编号
             if question.questionContent:
-                content += question.questionContent + "\n\n"
+                question_text = question.questionContent
+                
+                # 方案1: 如果使用了 subQuestions 结构（未来优化）
+                if hasattr(question, 'subQuestions') and question.subQuestions:
+                    for sub_q in question.subQuestions:
+                        if sub_q.get('content'):
+                            content += f"\\textbf{{{current_number}.}} {sub_q['content']}\n"
+                        if sub_q.get('options'):
+                            content += sub_q['options'] + "\n"
+                        current_number += 1
+                else:
+                    # 方案2: 当前格式 - 替换现有题号
+                    # 匹配并替换题号格式: \textbf{21.} 或 \textbf{1.} 等
+                    def replace_number(match):
+                        nonlocal current_number
+                        replacement = f"\\textbf{{{current_number}.}}"
+                        current_number += 1
+                        return replacement
+                    
+                    # 1. 替换所有 \textbf{数字.} 格式的题号
+                    question_text = re.sub(
+                        r'\\textbf\{(\d+)\.\}',
+                        replace_number,
+                        question_text
+                    )
+                    
+                    # 2. 清理选项内容中的 A. B. C. D. 前缀（避免与LaTeX命令重复）
+                    question_text = self._clean_option_prefixes(question_text)
+                    
+                    # 如果没有找到题号，但有 subQuestionCount，则根据数量推进编号
+                    if current_number == start_number and question.subQuestionCount > 0:
+                        current_number += question.subQuestionCount
+                    
+                    content += question_text + "\n\n"
+            elif question.subQuestionCount > 0:
+                # 如果没有 questionContent 但有 subQuestionCount（如语法填空只有文章）
+                # 编号仍需推进
+                current_number += question.subQuestionCount
             
             content += r"\vspace{0.5cm}" + "\n\n"
         
-        return content
+        return content, current_number
 
     def export_queue_to_latex(self, queue_detail: QueueDetail) -> str:
         """
-        Export a queue to LaTeX format.
+        Export a queue to LaTeX format with automatic question numbering.
         
         Args:
             queue_detail: QueueDetail object containing queue info and questions
@@ -190,10 +308,24 @@ class LatexExportService:
                 '第三部分 书面表达'
             ]
             
+            # 定义每个部分的起始题号
+            section_start_numbers = {
+                '第一部分 知识运用': 1,      # 完形填空从1开始，语法填空继续
+                '第二部分 阅读理解': None,    # 继续上一部分的编号
+                '第三部分 书面表达': None     # 继续上一部分的编号
+            }
+            
+            # 追踪当前题号
+            current_question_number = 1
+            
             # 按照固定顺序生成各部分内容
             for section_name in section_order:
                 if section_name not in grouped_questions:
                     continue
+                
+                # 设置该部分的起始题号
+                if section_start_numbers.get(section_name) is not None:
+                    current_question_number = section_start_numbers[section_name]
                     
                 subsections = grouped_questions[section_name]
                 
@@ -216,15 +348,23 @@ class LatexExportService:
                     if subsection_name != "默认":
                         latex_content += f"\\subsection*{{{subsection_name}}}\n"
                     
-                    # 添加题目内容
-                    latex_content += self._generate_section_content(questions)
+                    # 添加题目内容，并更新题号
+                    section_content, current_question_number = self._generate_section_content(
+                        questions, 
+                        current_question_number
+                    )
+                    latex_content += section_content
                 
                 # 处理其他未在固定顺序中的subsection
                 for subsection_name, questions in subsections.items():
                     if subsection_name not in subsection_order:
                         if subsection_name != "默认":
                             latex_content += f"\\subsection*{{{subsection_name}}}\n"
-                        latex_content += self._generate_section_content(questions)
+                        section_content, current_question_number = self._generate_section_content(
+                            questions,
+                            current_question_number
+                        )
+                        latex_content += section_content
             
             # 处理不在固定section顺序中的其他section
             for section_name, subsections in grouped_questions.items():
@@ -237,14 +377,19 @@ class LatexExportService:
                     for subsection_name, questions in subsections.items():
                         if subsection_name != "默认":
                             latex_content += f"\\subsection*{{{subsection_name}}}\n"
-                        latex_content += self._generate_section_content(questions)
+                        section_content, current_question_number = self._generate_section_content(
+                            questions,
+                            current_question_number
+                        )
+                        latex_content += section_content
             
             # 添加文档尾部
             latex_content += self.LATEX_FOOTER
             
             logger.info("LaTeX export completed successfully", 
                        queue_id=queue_detail.queue.id,
-                       questions_count=len(queue_detail.questions))
+                       questions_count=len(queue_detail.questions),
+                       total_sub_questions=current_question_number - 1)
             
             return latex_content
             
