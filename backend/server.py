@@ -4,6 +4,7 @@ aiohttp HTTP server with routing.
 from aiohttp import web
 import aiohttp_cors
 import structlog
+from pathlib import Path
 from config import config
 from handlers import question_handlers, queue_handlers, auth_handlers, pdf_handlers, management_handlers
 from services.auth_service import auth_service
@@ -17,6 +18,9 @@ def create_app() -> web.Application:
     
     # Setup routes
     setup_routes(app)
+    
+    # Setup static files (for production deployment)
+    setup_static_files(app)
     
     # Setup CORS
     setup_cors(app)
@@ -61,6 +65,7 @@ def setup_routes(app: web.Application):
     app.router.add_post('/api/queues/{queue_id}/export', queue_handlers.export_queue)
     
     # PDF Import Routes
+    app.router.add_get('/api/papers/models', pdf_handlers.get_available_models)
     app.router.add_post('/api/papers/parse', pdf_handlers.parse_paper)
     app.router.add_post('/api/papers/confirm', pdf_handlers.confirm_import)
     app.router.add_post('/api/papers/import', pdf_handlers.import_paper)  # Legacy
@@ -77,6 +82,30 @@ def setup_routes(app: web.Application):
     app.router.add_get('/health', health_check)
     
     logger.info("Routes configured")
+
+
+def setup_static_files(app: web.Application):
+    """Setup static file serving for production (SPA support)."""
+    static_dir = Path(__file__).parent / 'static'
+    
+    # Check if static directory exists (production deployment)
+    if static_dir.exists() and static_dir.is_dir():
+        # Serve static assets (JS, CSS, images, etc.)
+        app.router.add_static('/assets', static_dir / 'assets', name='assets')
+        
+        # SPA fallback: serve index.html for all non-API routes
+        async def serve_spa(request):
+            index_file = static_dir / 'index.html'
+            if index_file.exists():
+                return web.FileResponse(index_file)
+            return web.Response(text='Frontend not built', status=404)
+        
+        # Catch-all route for SPA (must be added last)
+        app.router.add_get('/{path:.*}', serve_spa)
+        
+        logger.info("Static files configured", static_dir=str(static_dir))
+    else:
+        logger.warning("Static directory not found, skipping static file serving", static_dir=str(static_dir))
 
 
 def setup_cors(app: web.Application):

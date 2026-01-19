@@ -68,6 +68,11 @@ class Config:
     
     # Development mode (skip email, print link to console)
     DEV_MODE: bool = os.getenv("DEV_MODE", "true").lower() == "true"
+    
+    # AI Model Configuration
+    GEMINI_API_KEY: str = os.getenv("GEMINI_API_KEY", "")
+    QWEN_API_KEY: str = os.getenv("QWEN_API_KEY", "")
+    DEFAULT_AI_MODEL: str = os.getenv("DEFAULT_AI_MODEL", "gemini")  # "gemini" or "qwen-vl"
 
 
 config = Config()

@@ -1,0 +1,56 @@
+# Google Cloud Build Configuration
+# This file defines the steps to build and deploy the application to Cloud Run
+
+steps:
+  # Step 1: Build the container image
+  # Uses Dockerfile to create a multi-stage build (frontend + backend)
+  - name: 'gcr.io/cloud-builders/docker'
+    args: 
+      - 'build'
+      - '-t'
+      - 'us-central1-docker.pkg.dev/$PROJECT_ID/exampapersys/app:$SHORT_SHA'
+      - '-t'
+      - 'us-central1-docker.pkg.dev/$PROJECT_ID/exampapersys/app:latest'
+      - '.'
+    timeout: 1200s
+
+  # Step 2: Push the image to Artifact Registry
+  # Pushes both the SHA-tagged and latest-tagged images
+  - name: 'gcr.io/cloud-builders/docker'
+    args: 
+      - 'push'
+      - '--all-tags'
+      - 'us-central1-docker.pkg.dev/$PROJECT_ID/exampapersys/app'
+
+  # Step 3: Deploy to Cloud Run
+  # Deploys the container to Cloud Run with specific configurations
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      - 'run'
+      - 'deploy'
+      - 'exampapersys'                                          # Cloud Run service name
+      - '--image=us-central1-docker.pkg.dev/$PROJECT_ID/exampapersys/app:$SHORT_SHA'
+      - '--region=us-central1'
+      - '--platform=managed'
+      - '--allow-unauthenticated'                              # Allow public access
+      - '--memory=1Gi'                                         # Allocate 1GB memory
+      - '--cpu=1'                                              # Allocate 1 CPU
+      - '--timeout=300'                                        # 5 minute timeout
+      - '--concurrency=80'                                     # Max concurrent requests
+      - '--min-instances=0'                                    # Scale to zero when idle
+      - '--max-instances=10'                                   # Max 10 instances
+      - '--set-env-vars=FRONTEND_URL=https://exampapersys-XXXXX.run.app,CORS_ORIGINS=https://exampapersys-XXXXX.run.app'
+
+# Images to be pushed to registry
+images:
+  - 'us-central1-docker.pkg.dev/$PROJECT_ID/exampapersys/app:$SHORT_SHA'
+  - 'us-central1-docker.pkg.dev/$PROJECT_ID/exampapersys/app:latest'
+
+# Build timeout (20 minutes)
+timeout: 1200s
+
+# Build options
+options:
+  machineType: 'N1_HIGHCPU_8'  # Use a faster machine for building
+  logging: CLOUD_LOGGING_ONLY

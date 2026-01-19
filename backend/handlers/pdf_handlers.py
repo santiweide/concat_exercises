@@ -1,11 +1,12 @@
 """
-PDF Import handlers for parsing exam papers using Gemini API.
+PDF Import handlers for parsing exam papers using AI models.
+Supports multiple AI backends: Gemini, Qwen VL, etc.
 """
 from aiohttp import web
 import structlog
 import tempfile
 import os
-from services.pdf_import_service import pdf_import_service
+from services.pdf_import_service import PDFImportService, pdf_import_service
 from services.auth_service import auth_service
 
 logger = structlog.get_logger()
@@ -26,6 +27,7 @@ async def parse_paper(request: web.Request) -> web.Response:
     """
     POST /api/papers/parse
     Parse a PDF exam paper and return preview data without saving.
+    Accepts optional 'model' parameter to select AI model.
     """
     try:
         # Parse multipart form data
@@ -33,12 +35,14 @@ async def parse_paper(request: web.Request) -> web.Response:
         
         pdf_content = None
         filename = None
+        model_type = None
         
         async for field in reader:
             if field.name == 'file':
                 filename = field.filename
                 pdf_content = await field.read()
-                break
+            elif field.name == 'model':
+                model_type = (await field.read()).decode('utf-8')
         
         if not pdf_content:
             return web.json_response(
@@ -58,8 +62,11 @@ async def parse_paper(request: web.Request) -> web.Response:
             tmp_path = tmp_file.name
         
         try:
-            # Parse the PDF using Gemini AI (without saving)
-            result = await pdf_import_service.parse_pdf(tmp_path, filename)
+            # Create service with specified model (or use default)
+            service = PDFImportService(model_type) if model_type else pdf_import_service
+            
+            # Parse the PDF using selected AI model (without saving)
+            result = await service.parse_pdf(tmp_path, filename)
             
             if result['success']:
                 return web.json_response({
@@ -145,3 +152,22 @@ async def import_paper(request: web.Request) -> web.Response:
     Legacy endpoint - redirects to parse then confirm flow.
     """
     return await parse_paper(request)
+
+
+async def get_available_models(request: web.Request) -> web.Response:
+    """
+    GET /api/papers/models
+    Get list of available AI models with their configuration status.
+    """
+    try:
+        models = PDFImportService.get_available_models()
+        return web.json_response({
+            "success": True,
+            "models": models
+        })
+    except Exception as e:
+        logger.exception("get_available_models error", error=str(e))
+        return web.json_response(
+            {"success": False, "message": f"获取模型列表失败: {str(e)}"},
+            status=500
+        )

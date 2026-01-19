@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from './ui/card';
 import { Progress } from './ui/progress';
@@ -7,7 +7,7 @@ import { Textarea } from './ui/textarea';
 import { Badge } from './ui/badge';
 import { 
   ArrowLeft, Upload, FileText, CheckCircle2, AlertCircle, Loader2, 
-  ChevronRight, Edit2, X, Plus, Save, Eye 
+  ChevronRight, Edit2, X, Plus, Save, Eye, Sparkles
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { API_BASE_URL } from '../../api/config';
@@ -26,6 +26,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from './ui/select';
+import { Label } from './ui/label';
+
+// Types for AI models
+interface AIModel {
+  type: string;
+  name: string;
+  available: boolean;
+}
 
 // Types for answers
 interface QuestionAnswer {
@@ -81,6 +89,11 @@ export function ImportPaperPage({ onBack, onImportComplete }: ImportPaperPagePro
   const [importResult, setImportResult] = useState<ImportResult | null>(null);
   const [isConfirming, setIsConfirming] = useState(false);
   
+  // AI Model selection
+  const [availableModels, setAvailableModels] = useState<AIModel[]>([]);
+  const [selectedModel, setSelectedModel] = useState<string>('');
+  const [isLoadingModels, setIsLoadingModels] = useState(true);
+  
   // Overwrite confirmation dialog state
   const [showOverwriteDialog, setShowOverwriteDialog] = useState(false);
   const [duplicateTitle, setDuplicateTitle] = useState<string>('');
@@ -104,6 +117,39 @@ export function ImportPaperPage({ onBack, onImportComplete }: ImportPaperPagePro
     newLabel: '',
     answers: [],
   });
+
+  // Load available models on mount
+  useEffect(() => {
+    const loadModels = async () => {
+      try {
+        const response = await fetch(`${API_BASE_URL}/api/papers/models`, {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
+        });
+        
+        if (response.ok) {
+          const result = await response.json();
+          if (result.success) {
+            setAvailableModels(result.models);
+            // Select first available model as default
+            const defaultModel = result.models.find((m: AIModel) => m.available);
+            if (defaultModel) {
+              setSelectedModel(defaultModel.type);
+            }
+          }
+        }
+      } catch (error) {
+        console.error('Failed to load models:', error);
+      } finally {
+        setIsLoadingModels(false);
+      }
+    };
+    
+    if (token) {
+      loadModels();
+    }
+  }, [token]);
 
   const handleDragOver = useCallback((e: React.DragEvent) => {
     e.preventDefault();
@@ -142,6 +188,11 @@ export function ImportPaperPage({ onBack, onImportComplete }: ImportPaperPagePro
 
   const handleUpload = async () => {
     if (!file || !token) return;
+    
+    if (!selectedModel) {
+      toast.error('请选择AI模型');
+      return;
+    }
 
     setIsUploading(true);
     setUploadProgress(0);
@@ -151,6 +202,7 @@ export function ImportPaperPage({ onBack, onImportComplete }: ImportPaperPagePro
     try {
       const formData = new FormData();
       formData.append('file', file);
+      formData.append('model', selectedModel);
 
       // Simulate progress for better UX
       const progressInterval = setInterval(() => {
@@ -396,6 +448,44 @@ export function ImportPaperPage({ onBack, onImportComplete }: ImportPaperPagePro
             </CardDescription>
           </CardHeader>
           <CardContent>
+            {/* AI Model Selection */}
+            <div className="mb-6">
+              <Label htmlFor="model-select" className="flex items-center gap-2 mb-2">
+                <Sparkles className="h-4 w-4 text-purple-600" />
+                <span>选择AI模型</span>
+              </Label>
+              <Select 
+                value={selectedModel} 
+                onValueChange={setSelectedModel}
+                disabled={isLoadingModels || isUploading}
+              >
+                <SelectTrigger id="model-select">
+                  <SelectValue placeholder="选择AI模型..." />
+                </SelectTrigger>
+                <SelectContent>
+                  {availableModels.map((model) => (
+                    <SelectItem 
+                      key={model.type} 
+                      value={model.type}
+                      disabled={!model.available}
+                    >
+                      <div className="flex items-center justify-between w-full">
+                        <span>{model.name}</span>
+                        {!model.available && (
+                          <Badge variant="outline" className="ml-2 text-xs">
+                            未配置
+                          </Badge>
+                        )}
+                      </div>
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <p className="text-xs text-gray-500 mt-1">
+                不同的AI模型有不同的识别效果和速度，请根据需要选择
+              </p>
+            </div>
+
             {/* Drop Zone */}
             <div
               onDragOver={handleDragOver}
@@ -690,7 +780,7 @@ export function ImportPaperPage({ onBack, onImportComplete }: ImportPaperPagePro
           </CardHeader>
           <CardContent className="text-sm text-gray-600 space-y-2">
             <p>1. 上传高考英语试卷的PDF文件（推荐清晰度较高的扫描件或原版PDF）</p>
-            <p>2. 系统将使用Gemini AI自动识别并提取阅读理解部分的题目</p>
+            <p>2. 系统将使用AI自动识别并提取阅读理解部分的题目</p>
             <p>3. 解析完成后，您可以预览和编辑每道题目的内容和标签</p>
             <p>4. 确认无误后点击"确认导入"，题目将添加到题库中</p>
           </CardContent>

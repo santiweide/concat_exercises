@@ -1,0 +1,84 @@
+# Docker build context ignore file
+# Prevents unnecessary files from being sent to Docker daemon
+
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+*.egg-info/
+dist-python/
+build/
+eggs/
+.eggs/
+
+# Development files
+.git/
+.gitignore
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment files
+.env
+.env.local
+.env.*.local
+*.local
+
+# Build outputs (we'll rebuild in Docker)
+dist/
+
+# Documentation
+docs/
+*.md
+!README.md
+
+# Example files
+example/
+
+# Test files
+*.test.js
+*.test.ts
+*.spec.js
+*.spec.ts
+test_*.py
+*_test.py
+
+# Logs
+logs/
+*.log
+*.log.*
+backend/logs/
+
+# Data files (should use volumes in production)
+backend/data/
+*.db
+*.sqlite
+*.sqlite3
+
+# CI/CD (not needed in container)
+.github/
+.gitlab-ci.yml
+cloudbuild.yaml
+
+# Guidelines
+guidelines/
+
+# Kubernetes configs (deployed separately)
+k8s/
+
+# IDL/Proto files (already compiled)
+idl/
+proto/
+
+# Temporary files
+tmp/
+temp/
+*.tmp

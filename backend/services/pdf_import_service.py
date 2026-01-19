@@ -1,5 +1,6 @@
 """
-PDF Import Service - Uses Gemini AI to extract reading questions from exam papers.
+PDF Import Service - Uses AI models to extract reading questions from exam papers.
+Supports multiple AI backends: Gemini, Qwen VL, etc.
 """
 import asyncio
 import base64
@@ -22,19 +23,12 @@ from dotenv import load_dotenv
 from config import config
 from storage import question_store, operation_log_store
 from models import ReadingQuestion, OperationType
+from services.ai_models import AIModel, AIModelType, GeminiModel, QwenVLModel
 
 # Load environment variables from .env file
 load_dotenv()
 
 logger = structlog.get_logger()
-
-# Gemini API configuration - loaded from environment variable
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-if not GEMINI_API_KEY:
-    logger.warning("GEMINI_API_KEY not set in environment variables!")
-# Use gemini-1.5-flash for faster image processing
-GEMINI_API_URL_TEXT = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
-GEMINI_API_URL_IMAGE = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
 
 # Limits for image processing
 MAX_PAGES = 15  # Limit pages to avoid payload too large errors
@@ -42,10 +36,69 @@ MAX_IMAGE_SIZE = 1536  # Max dimension for image resizing
 
 
 class PDFImportService:
-    """Service for importing PDF exam papers using Gemini AI."""
+    """Service for importing PDF exam papers using AI models."""
     
-    def __init__(self):
-        self.api_key = GEMINI_API_KEY
+    def __init__(self, model_type: str = None):
+        """
+        Initialize PDF import service with specified AI model.
+        
+        Args:
+            model_type: Type of AI model to use ("gemini" or "qwen-vl"). 
+                       If None, uses default from config.
+        """
+        if model_type is None:
+            model_type = config.DEFAULT_AI_MODEL
+        
+        self.model_type = model_type
+        self.model = self._create_model(model_type)
+    
+    def _create_model(self, model_type: str) -> AIModel:
+        """Create and return the appropriate AI model instance."""
+        model_type = model_type.lower()
+        
+        if model_type == "gemini":
+            api_key = config.GEMINI_API_KEY
+            if not api_key:
+                logger.error("GEMINI_API_KEY not set in environment variables!")
+                raise ValueError("GEMINI_API_KEY is required for Gemini model")
+            return GeminiModel(api_key)
+        
+        elif model_type == "qwen-vl":
+            api_key = config.QWEN_API_KEY
+            if not api_key:
+                logger.error("QWEN_API_KEY not set in environment variables!")
+                raise ValueError("QWEN_API_KEY is required for Qwen VL model")
+            return QwenVLModel(api_key)
+        
+        else:
+            logger.error("Unknown model type", model_type=model_type)
+            raise ValueError(f"Unsupported model type: {model_type}")
+    
+    @staticmethod
+    def get_available_models() -> List[Dict[str, str]]:
+        """
+        Get list of available AI models with their configuration status.
+        
+        Returns:
+            List of dicts with model info: {type, name, available}
+        """
+        models = []
+        
+        # Gemini
+        models.append({
+            "type": "gemini",
+            "name": "Google Gemini 2.0 Flash",
+            "available": bool(config.GEMINI_API_KEY)
+        })
+        
+        # Qwen VL
+        models.append({
+            "type": "qwen-vl",
+            "name": "Qwen VL Max",
+            "available": bool(config.QWEN_API_KEY)
+        })
+        
+        return models
     
     def _extract_text_from_pdf(self, pdf_path: str) -> str:
         """Extract text content from PDF using pdfplumber."""
@@ -121,7 +174,7 @@ class PDFImportService:
     
     async def parse_pdf(self, pdf_path: str, filename: str) -> Dict[str, Any]:
         """
-        Parse a PDF file and extract reading questions using Gemini AI.
+        Parse a PDF file and extract reading questions using AI model.
         Returns parsed data for preview without saving to database.
         
         Args:
@@ -132,6 +185,11 @@ class PDFImportService:
             Dictionary with extraction results for preview
         """
         try:
+            logger.info("Starting PDF parsing", 
+                       filename=filename, 
+                       model=self.model.name,
+                       model_type=self.model_type)
+            
             # Try to extract text from PDF locally first (much faster)
             text_content = self._extract_text_from_pdf(pdf_path)
             text_length = len(text_content.strip())
@@ -140,12 +198,16 @@ class PDFImportService:
             # Some scanned PDFs have a low-quality OCR layer with garbage text
             is_text_sufficient = text_length >= self.MIN_TEXT_LENGTH
             
+            # Get extraction prompt
+            prompt = self._get_extraction_prompt()
+            
             if text_content.strip() and is_text_sufficient:
                 # Text extracted successfully with sufficient content, use text mode
-                logger.info("Using text mode for Gemini API", 
+                logger.info("Using text mode for AI extraction", 
                            text_length=text_length,
-                           threshold=self.MIN_TEXT_LENGTH)
-                extracted_data = await self._call_gemini_api_text(text_content, filename)
+                           threshold=self.MIN_TEXT_LENGTH,
+                           model=self.model.name)
+                extracted_data = await self.model.extract_from_text(text_content, filename, prompt)
             else:
                 # No text or insufficient text extracted, likely a scanned PDF - use image mode
                 if text_length > 0:
@@ -154,7 +216,8 @@ class PDFImportService:
                                   threshold=self.MIN_TEXT_LENGTH,
                                   text_preview=text_content[:100] if text_length > 0 else "")
                 else:
-                    logger.info("No text found, switching to image mode for Gemini API")
+                    logger.info("No text found, switching to image mode",
+                               model=self.model.name)
                 
                 images_base64 = self._convert_pdf_to_images(pdf_path)
                 
@@ -164,7 +227,7 @@ class PDFImportService:
                         'error': 'PDF文件无法处理，请检查文件是否损坏'
                     }
                 
-                extracted_data = await self._call_gemini_api_images(images_base64, filename)
+                extracted_data = await self.model.extract_from_images(images_base64, filename, prompt)
             
             if not extracted_data:
                 return {
@@ -574,6 +637,42 @@ class PDFImportService:
 ### 标题格式
 - `\centerline{\textbf{A}}` - 居中的篇章标记
 
+### 段落格式（非常重要！）
+LaTeX中的段落分隔与换行有严格区分：
+
+**段落分隔（新段落）：**
+- 使用**两个换行符**（空行）来分隔段落：`段落1内容\\n\\n段落2内容`
+- 段落之间会有明显的缩进和间距
+- **适用场景**：文章的不同段落、题目之间的分隔
+
+**普通换行（同一段落内）：**
+- 使用 `\\\\` 命令实现强制换行但保持在同一段落内
+- 或者使用 `\\newline` 命令
+- **适用场景**：同一段落内需要换行但不开始新段落
+
+**错误示例（所有换行都变成段落）：**
+```
+段落1第一句。
+段落1第二句。
+段落1第三句。
+```
+这样会被LaTeX渲染为3个独立段落（每个都有首行缩进）。
+
+**正确示例（保持段落结构）：**
+```
+段落1第一句。\\\\段落1第二句。\\\\段落1第三句。
+
+段落2第一句。\\\\段落2第二句。
+
+段落3内容。
+```
+
+**重要提示**：
+1. 当原文是**同一段落的多行文本**时，句子之间用 `\\\\` 连接（不要用 `\\n`）
+2. 当原文是**不同段落**时，段落之间用 `\\n\\n` 分隔（空行）
+3. 识别段落的依据：原文中有明显的段落缩进、空行、段落间距等视觉标志
+4. 英文文章通常：首行缩进或段落间有空行 = 新段落；纯粹换行继续写 = 同段落强制换行
+
 ## 提取要求
 
 1. **识别试卷来源和年份**：从试卷标题或页眉提取
@@ -605,7 +704,11 @@ class PDFImportService:
 
 - 同一道题目可能跨页，请完整提取
 - 保持原文格式，不要添加或删除内容
-- **将所有连续下划线（`______`、`___`等）转换为LaTeX填空命令 `\myblank[1.5cm]`**
+- **正确区分段落分隔和换行**：
+  - 原文中不同段落（有缩进或空行）：段落间用 `\\n\\n` 分隔
+  - 原文中同一段落的多行文本：行与行之间用 `\\\\` 连接
+  - 不要把每一行文本都当成独立段落！
+- **将所有连续下划线（`______`、`___`等）转换为LaTeX填空命令 `\\myblank[1.5cm]`**
 - **确保所有题目、文章、选项内容都使用正确的LaTeX命令格式化**
 - **不要在输出中保留任何原始下划线字符串（如`______`），必须全部转换为LaTeX格式**
 - 如果某部分在试卷中不存在，不要捏造，直接跳过
@@ -628,6 +731,42 @@ class PDFImportService:
 "articleContent": "Hello \\clozeblank{1} world"
 ```
 
+### 段落格式处理示例（重要！）
+
+假设原文如下（第一段有3句话，第二段有2句话）：
+
+```
+    Mary went to the park. She saw a beautiful bird. The bird was singing.
+    
+    Tom joined her later. They had a great time.
+```
+
+**错误的JSON输出（每个句子都成了独立段落）：**
+```json
+{
+    "articleContent": "Mary went to the park.\nShe saw a beautiful bird.\nThe bird was singing.\nTom joined her later.\nThey had a great time."
+}
+```
+这样会导致5个段落，每个都有首行缩进。
+
+**正确的JSON输出（保持原始段落结构）：**
+```json
+{
+    "articleContent": "Mary went to the park. \\\\She saw a beautiful bird. \\\\The bird was singing.\n\nTom joined her later. \\\\They had a great time."
+}
+```
+或者如果句子本身就在同一行，可以直接空格分隔：
+```json
+{
+    "articleContent": "Mary went to the park. She saw a beautiful bird. The bird was singing.\n\nTom joined her later. They had a great time."
+}
+```
+
+**要点**：
+- 同一段落的句子：可以用空格连接（如果原文就在一行），或用 `\\\\` 强制换行
+- 不同段落之间：用 `\n\n`（在JSON中直接写成字符串的换行）分隔
+- 识别段落的关键：原文中是否有明显的段落缩进或空行
+
 所有LaTeX命令都需要这样处理：
 - \\clozeblank{} 
 - \\textbf{}
@@ -648,225 +787,17 @@ class PDFImportService:
    - 例如：原文 "A. apple  B. banana" 应写为 `\\\\option{apple}{banana}{...}{...}`
 4. 文本中的百分号 `%` 必须转义为 `\\%`（JSON中写为 `\\\\%`），因为在LaTeX中 `%` 是注释符号
 5. 绝对不要在输出中保留原始下划线字符串（如 `______`）
+6. **段落格式处理（关键！）**：
+   - 原文不同段落之间：在JSON字符串中使用 `\\n\\n` 分隔（实际是两个换行符）
+   - 原文同一段落内换行：在JSON字符串中使用 `\\\\\\\\` 分隔（JSON转义后为LaTeX的 `\\\\`）
+   - 示例：`"articleContent": "段落1第一句。\\\\\\\\段落1第二句。\\n\\n段落2第一句。"`
+   - 这样可以保持文章的原始段落结构，避免所有换行都变成新段落
 
 如果无法识别为英语试卷，返回：
 {"error": "无法识别为英语试卷，具体原因：..."}
 '''
-    
-    async def _call_gemini_api_text(self, text_content: str, filename: str) -> Optional[Dict[str, Any]]:
-        """Call Gemini API to extract reading questions from text content."""
-        
-        base_prompt = self._get_extraction_prompt()
-        prompt = f"""{base_prompt}
-
-试卷内容：
----
-{text_content}
----
-"""
-        
-        # Log the prompt for debugging
-        logger.info("Gemini API prompt (text mode)", 
-                   filename=filename,
-                   prompt_length=len(prompt),
-                   prompt_preview=prompt[:500] + "..." if len(prompt) > 500 else prompt)
-
-        try:
-            async with httpx.AsyncClient(timeout=120.0) as client:
-                response = await client.post(
-                    f"{GEMINI_API_URL_TEXT}?key={self.api_key}",
-                    json={
-                        "contents": [
-                            {
-                                "parts": [
-                                    {
-                                        "text": prompt
-                                    }
-                                ]
-                            }
-                        ],
-                        "generationConfig": {
-                            "temperature": 0.1,
-                            "topK": 40,
-                            "topP": 0.95,
-                            "maxOutputTokens": 65536,
-                        }
-                    },
-                    headers={
-                        "Content-Type": "application/json"
-                    }
-                )
-                
-                if response.status_code != 200:
-                    logger.error("Gemini API error", 
-                                status=response.status_code, 
-                                body=response.text[:500])
-                    return None
-                
-                result = response.json()
-                
-                # Extract text from response
-                if 'candidates' in result and len(result['candidates']) > 0:
-                    candidate = result['candidates'][0]
-                    if 'content' in candidate and 'parts' in candidate['content']:
-                        text = candidate['content']['parts'][0].get('text', '')
-                        
-                        # Parse JSON from response
-                        return self._parse_gemini_response(text)
-                
-                return None
-                
-        except httpx.TimeoutException:
-            logger.error("Gemini API timeout")
-            return None
-        except Exception as e:
-            logger.exception("Gemini API call failed", error=str(e))
-            return None
-    
-    async def _call_gemini_api_images(self, images_base64: List[str], filename: str) -> Optional[Dict[str, Any]]:
-        """Call Gemini API to extract reading questions from images (for scanned PDFs)."""
-        
-        base_prompt = self._get_extraction_prompt()
-        prompt = f"""请阅读这些图片中的试卷文档内容。
-
-{base_prompt}
-"""
-
-        # Build parts with images and prompt
-        parts = []
-        
-        # Add all images first
-        for img_base64 in images_base64:
-            parts.append({
-                "inline_data": {
-                    "mime_type": "image/jpeg",
-                    "data": img_base64
-                }
-            })
-        
-        # Add prompt text at the end
-        parts.append({
-            "text": prompt
-        })
-        
-        # Log the prompt for debugging
-        logger.info("Gemini API prompt (image mode)",
-                   filename=filename,
-                   image_count=len(images_base64),
-                   prompt_length=len(prompt),
-                   prompt=prompt)
-
-        try:
-            # Use longer timeout for image processing (multiple images can take time)
-            async with httpx.AsyncClient(timeout=600.0) as client:
-                response = await client.post(
-                    f"{GEMINI_API_URL_IMAGE}?key={self.api_key}",
-                    json={
-                        "contents": [
-                            {
-                                "parts": parts
-                            }
-                        ],
-                        "generationConfig": {
-                            "temperature": 0.1,
-                            "topK": 40,
-                            "topP": 0.95,
-                            "maxOutputTokens": 65536,
-                        }
-                    },
-                    headers={
-                        "Content-Type": "application/json"
-                    }
-                )
-                
-                if response.status_code != 200:
-                    logger.error("Gemini API error (image mode)", 
-                                status=response.status_code, 
-                                body=response.text[:500])
-                    return None
-                
-                result = response.json()
-                
-                # Extract text from response
-                if 'candidates' in result and len(result['candidates']) > 0:
-                    candidate = result['candidates'][0]
-                    if 'content' in candidate and 'parts' in candidate['content']:
-                        text = candidate['content']['parts'][0].get('text', '')
-                        
-                        # Parse JSON from response
-                        return self._parse_gemini_response(text)
-                
-                return None
-                
-        except httpx.TimeoutException:
-            logger.error("Gemini API timeout (image mode)")
-            return None
-        except Exception as e:
-            logger.exception("Gemini API call failed (image mode)", error=str(e))
-            return None
-    
-    def _parse_gemini_response(self, text: str) -> Optional[Dict[str, Any]]:
-        """Parse JSON from Gemini response text using json_repair for robustness."""
-        try:
-            original_text = text
-            
-            # Try to extract JSON from markdown code blocks
-            # Handle ```json ... ``` format
-            if '```json' in text:
-                start = text.find('```json') + 7
-                end = text.find('```', start)
-                if end > start:
-                    text = text[start:end].strip()
-                else:
-                    # No closing ```, try to extract everything after ```json
-                    text = text[start:].strip()
-                    # Remove trailing ``` if it exists at the very end
-                    if text.endswith('```'):
-                        text = text[:-3].strip()
-            elif '```' in text:
-                start = text.find('```') + 3
-                # Skip optional language identifier on the same line
-                newline_pos = text.find('\n', start)
-                if newline_pos != -1 and newline_pos - start < 20:  # language id is short
-                    start = newline_pos + 1
-                end = text.find('```', start)
-                if end > start:
-                    text = text[start:end].strip()
-                else:
-                    text = text[start:].strip()
-                    if text.endswith('```'):
-                        text = text[:-3].strip()
-            
-            # Additional cleanup: remove any leading/trailing backticks
-            text = text.strip('`').strip()
-            
-            # Try to find JSON object boundaries if text doesn't start with {
-            if not text.startswith('{'):
-                json_start = text.find('{')
-                if json_start != -1:
-                    text = text[json_start:]
-            
-            # Find the last closing brace to handle truncated responses
-            if not text.endswith('}'):
-                last_brace = text.rfind('}')
-                if last_brace != -1:
-                    text = text[:last_brace + 1]
-            
-            # Use json_repair to handle broken JSON from LLM output
-            # This automatically fixes issues like unescaped LaTeX backslashes
-            data = json_repair.loads(text)
-            
-            # Check for error response
-            if 'error' in data:
-                logger.warning("Gemini returned error", error=data['error'])
-                return None
-            
-            return data
-            
-        except Exception as e:
-            logger.error("Failed to parse Gemini response", error=str(e), text=original_text[:500])
-            return None
 
 
-# Singleton instance
+# Default singleton instance (uses default model from config)
 pdf_import_service = PDFImportService()
+
