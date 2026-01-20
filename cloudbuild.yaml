@@ -42,9 +42,9 @@ steps:
       - '--max-instances=10'                                   # Max 10 instances
       - '--set-env-vars=FRONTEND_URL=https://exampapersys-$SHORT_SHA-uc.a.run.app'
       - '--set-env-vars=CORS_ORIGINS=https://exampapersys-$SHORT_SHA-uc.a.run.app'
-      - '--set-env-vars=GEMINI_API_KEY=projects/$PROJECT_ID/secrets/gemini-api-key/versions/latest'
-      - '--set-env-vars=QWEN_API_KEY=projects/$PROJECT_ID/secrets/qwen-api-key/versions/latest'
-      - '--set-env-vars=JWT_SECRET=projects/$PROJECT_ID/secrets/jwt-secret/versions/latest'
+      - '--set-secrets=GEMINI_API_KEY=gemini-api-key:latest'
+      - '--set-secrets=QWEN_API_KEY=qwen-api-key:latest'
+      - '--set-secrets=JWT_SECRET=jwt-secret:latest'
       - '--set-env-vars=DEFAULT_AI_MODEL=gemini'
       - '--set-env-vars=DEV_MODE=false'
 
