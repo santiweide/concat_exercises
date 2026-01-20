@@ -5,8 +5,9 @@ import * as pb from './generated/exam_paper';
 // ============================================================================
 // 配置
 // ============================================================================
-
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+// In production: empty string means use current domain (frontend and backend same origin)
+// In development: can be overridden via VITE_API_URL env var (e.g., http://localhost:8080)
+const API_BASE_URL = import.meta.env.VITE_API_URL || '';
 
 // 创建 Connect 传输层
 const transport: Transport = createConnectTransport({
