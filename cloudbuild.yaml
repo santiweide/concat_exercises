@@ -1,6 +1,7 @@
 # Google Cloud Build Configuration
 # This file defines the steps to build and deploy the application to Cloud Run
-
+substitutions:
+  _TAG: 'latest'  # Default region for Cloud Run deployment
 steps:
   # Step 1: Build the container image
   # Uses Dockerfile to create a multi-stage build (frontend + backend)
@@ -8,9 +9,9 @@ steps:
     args: 
       - 'build'
       - '-t'
-      - 'us-central1-docker.pkg.dev/$PROJECT_ID/exampapersys/app:$SHORT_SHA'
+      - 'us-central1-docker.pkg.dev/$PROJECT_ID/exampapersys/app:${_TAG}'
       - '-t'
-      - 'us-central1-docker.pkg.dev/$PROJECT_ID/exampapersys/app:latest'
+      - 'us-central1-docker.pkg.dev/$PROJECT_ID/concat/app:latest'
       - '.'
     timeout: 1200s
 
@@ -30,7 +31,7 @@ steps:
       - 'run'
       - 'deploy'
       - 'exampapersys'                                          # Cloud Run service name
-      - '--image=us-central1-docker.pkg.dev/$PROJECT_ID/exampapersys/app:$SHORT_SHA'
+      - '--image=us-central1-docker.pkg.dev/$PROJECT_ID/exampapersys/app:${_TAG}'
       - '--region=us-central1'
       - '--platform=managed'
       - '--allow-unauthenticated'                              # Allow public access
@@ -40,8 +41,8 @@ steps:
       - '--concurrency=80'                                     # Max concurrent requests
       - '--min-instances=0'                                    # Scale to zero when idle
       - '--max-instances=10'                                   # Max 10 instances
-      - '--set-env-vars=FRONTEND_URL=https://exampapersys-$SHORT_SHA-uc.a.run.app'
-      - '--set-env-vars=CORS_ORIGINS=https://exampapersys-$SHORT_SHA-uc.a.run.app'
+      - '--set-env-vars=FRONTEND_URL=https://exampapersys-${_TAG}-uc.a.run.app'
+      - '--set-env-vars=CORS_ORIGINS=https://exampapersys-${_TAG}-uc.a.run.app'
       - '--set-secrets=GEMINI_API_KEY=gemini-api-key:latest'
       - '--set-secrets=QWEN_API_KEY=qwen-api-key:latest'
       - '--set-secrets=JWT_SECRET=jwt-secret:latest'
@@ -50,7 +51,7 @@ steps:
 
 # Images to be pushed to registry
 images:
-  - 'us-central1-docker.pkg.dev/$PROJECT_ID/exampapersys/app:$SHORT_SHA'
+  - 'us-central1-docker.pkg.dev/$PROJECT_ID/exampapersys/app:${_TAG}'
   - 'us-central1-docker.pkg.dev/$PROJECT_ID/exampapersys/app:latest'
 
 # Build timeout (20 minutes)
