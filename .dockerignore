@@ -74,9 +74,8 @@ guidelines/
 # Kubernetes configs (deployed separately)
 k8s/
 
-# IDL/Proto files (already compiled)
+# IDL files (not needed in production)
 idl/
-proto/
 
 # Temporary files
 tmp/
