@@ -50,7 +50,14 @@ class PDFImportService:
             model_type = config.DEFAULT_AI_MODEL
         
         self.model_type = model_type
-        self.model = self._create_model(model_type)
+        self._model = None  # Lazy initialization
+    
+    @property
+    def model(self) -> AIModel:
+        """Lazy-load the AI model on first access."""
+        if self._model is None:
+            self._model = self._create_model(self.model_type)
+        return self._model
     
     def _create_model(self, model_type: str) -> AIModel:
         """Create and return the appropriate AI model instance."""
