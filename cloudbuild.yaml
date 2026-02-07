@@ -28,7 +28,7 @@ steps:
     args:
       - 'run'
       - 'deploy'
-      - 'exampapersys'
+      - 'exam-paper'
       - '--image=us-central1-docker.pkg.dev/$PROJECT_ID/exampapersys/app:${_TAG}'
       - '--region=us-central1'
       - '--platform=managed'
