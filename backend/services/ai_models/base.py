@@ -22,7 +22,8 @@ class AIModel(ABC):
         Args:
             api_key: API key for the model service
         """
-        self.api_key = api_key
+        # Strip whitespace and newlines from API key (Secret Manager may add them)
+        self.api_key = api_key.strip() if api_key else ""
     
     @abstractmethod
     async def extract_from_text(self, text_content: str, filename: str, prompt: str) -> Optional[Dict[str, Any]]:
