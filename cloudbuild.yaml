@@ -28,7 +28,7 @@ steps:
     args:
       - 'run'
       - 'deploy'
-      - 'exam-paper'
+      - 'exampapersys'
       - '--image=us-central1-docker.pkg.dev/$PROJECT_ID/exampapersys/app:${_TAG}'
       - '--region=us-central1'
       - '--platform=managed'
@@ -64,3 +64,4 @@ timeout: 1200s
 options:
   machineType: 'N1_HIGHCPU_8'
   logging: CLOUD_LOGGING_ONLY
+
