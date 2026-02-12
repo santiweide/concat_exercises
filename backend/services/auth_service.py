@@ -101,14 +101,16 @@ class AuthService:
         """Get user info by email."""
         return self._users.get(email)
     
-    def get_magic_link_url(self, token: str) -> str:
+    def get_magic_link_url(self, token: str, request_host: Optional[str] = None) -> str:
         """Generate the full magic link URL."""
         # Use hash-based routing for frontend
-        return f"{config.FRONTEND_URL}/#/auth/verify?token={token}"
+        # If request_host is provided, use it; otherwise fall back to FRONTEND_URL
+        base_url = f"https://{request_host}" if request_host else config.FRONTEND_URL
+        return f"{base_url}/#/auth/verify?token={token}"
     
-    async def send_magic_link_email(self, email: str, token: str) -> bool:
+    async def send_magic_link_email(self, email: str, token: str, request_host: Optional[str] = None) -> bool:
         """Send the magic link email."""
-        magic_link = self.get_magic_link_url(token)
+        magic_link = self.get_magic_link_url(token, request_host)
         
         # In dev mode, just print to console
         if config.DEV_MODE or not config.SMTP_HOST:

@@ -38,8 +38,11 @@ async def send_magic_link(request: web.Request) -> web.Response:
         # Generate magic link token
         token = auth_service.generate_magic_token(email)
         
+        # Get request host for generating the magic link URL
+        request_host = request.headers.get('Host')
+        
         # Send email (or print to console in dev mode)
-        success = await auth_service.send_magic_link_email(email, token)
+        success = await auth_service.send_magic_link_email(email, token, request_host)
         
         if not success:
             return web.json_response(
