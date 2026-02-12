@@ -47,6 +47,7 @@ class GeminiModel(AIModel):
             async with httpx.AsyncClient(timeout=120.0) as client:
                 self.api_key = self.api_key.strip().replace('\n', '')
                 url = f"{self.BASE_URL}/{self.TEXT_MODEL}:generateContent?key={self.api_key}"
+                url = url.replace("\n", "")
                 response = await client.post(
                     url,
                     json={
