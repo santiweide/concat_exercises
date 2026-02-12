@@ -70,8 +70,9 @@ class Config:
     DEV_MODE: bool = os.getenv("DEV_MODE", "true").lower() == "true"
     
     # AI Model Configuration
-    GEMINI_API_KEY: str = os.getenv("GEMINI_API_KEY", "")
-    QWEN_API_KEY: str = os.getenv("QWEN_API_KEY", "")
+    # Strip whitespace and newlines from API keys (Secret Manager may add them)
+    GEMINI_API_KEY: str = os.getenv("GEMINI_API_KEY", "").strip()
+    QWEN_API_KEY: str = os.getenv("QWEN_API_KEY", "").strip()
     DEFAULT_AI_MODEL: str = os.getenv("DEFAULT_AI_MODEL", "gemini")  # "gemini" or "qwen-vl"
 
 
