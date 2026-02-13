@@ -39,6 +39,7 @@ interface AIModel {
 interface QuestionAnswer {
   number: number;
   answer: string;
+  type?: 'choice' | 'text'; // 'choice' for A/B/C/D, 'text' for free text
 }
 
 // Types for preview data
@@ -321,7 +322,10 @@ export function ImportPaperPage({ onBack, onImportComplete }: ImportPaperPagePro
       questionContent: question.questionContent,
       labels: [...question.labels],
       newLabel: '',
-      answers: question.answers ? [...question.answers] : [],
+      answers: question.answers ? question.answers.map(a => ({
+        ...a,
+        type: a.type || (a.answer.length === 1 && /^[A-G]$/i.test(a.answer) ? 'choice' : 'text')
+      })) : [],
     });
   };
 
@@ -353,12 +357,17 @@ export function ImportPaperPage({ onBack, onImportComplete }: ImportPaperPagePro
     toast.success('已保存修改');
   };
 
-  const handleUpdateAnswer = (index: number, field: 'number' | 'answer', value: string) => {
+  const handleUpdateAnswer = (index: number, field: 'number' | 'answer' | 'type', value: string | 'choice' | 'text') => {
     setEditFormData(prev => ({
       ...prev,
       answers: prev.answers.map((a, i) =>
         i === index
-          ? { ...a, [field]: field === 'number' ? parseInt(value) || 0 : value.toUpperCase() }
+          ? { 
+              ...a, 
+              [field]: field === 'number' ? parseInt(value as string) || 0 : value,
+              // If switching to choice mode and current answer is not a valid choice, reset to 'A'
+              ...(field === 'type' && value === 'choice' && !/^[A-G]$/i.test(a.answer) ? { answer: 'A' } : {})
+            }
           : a
       ),
     }));
@@ -370,7 +379,7 @@ export function ImportPaperPage({ onBack, onImportComplete }: ImportPaperPagePro
       : 20;
     setEditFormData(prev => ({
       ...prev,
-      answers: [...prev.answers, { number: lastNumber + 1, answer: 'A' }],
+      answers: [...prev.answers, { number: lastNumber + 1, answer: 'A', type: 'choice' }],
     }));
   };
 
@@ -892,10 +901,10 @@ export function ImportPaperPage({ onBack, onImportComplete }: ImportPaperPagePro
 
             {/* Answers */}
             <div>
-              <label className="block text-sm font-medium mb-2">答案（题号 + 选项）</label>
-              <div className="space-y-2 mb-3">
+              <label className="block text-sm font-medium mb-2">答案（题号 + 答案内容）</label>
+              <div className="space-y-3 mb-3">
                 {editFormData.answers.map((answer, index) => (
-                  <div key={index} className="flex items-center gap-2">
+                  <div key={index} className="flex items-start gap-2">
                     <Input
                       type="number"
                       value={answer.number}
@@ -904,16 +913,60 @@ export function ImportPaperPage({ onBack, onImportComplete }: ImportPaperPagePro
                       placeholder="题号"
                     />
                     <span className="text-gray-500">.</span>
-                    <select
-                      value={answer.answer}
-                      onChange={(e) => handleUpdateAnswer(index, 'answer', e.target.value)}
-                      className="h-10 px-3 py-2 border border-gray-200 rounded-md bg-white text-sm"
-                    >
-                      <option value="A">A</option>
-                      <option value="B">B</option>
-                      <option value="C">C</option>
-                      <option value="D">D</option>
-                    </select>
+                    
+                    {/* Answer Type Toggle */}
+                    <div className="flex items-center gap-1 bg-gray-100 rounded-md p-1">
+                      <button
+                        type="button"
+                        onClick={() => handleUpdateAnswer(index, 'type', 'choice')}
+                        className={`px-2 py-1 text-xs rounded transition-colors ${
+                          answer.type === 'choice' || !answer.type
+                            ? 'bg-white shadow-sm font-medium text-gray-900'
+                            : 'text-gray-600 hover:text-gray-900'
+                        }`}
+                        title="选择题模式（A/B/C/D）"
+                      >
+                        选择
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleUpdateAnswer(index, 'type', 'text')}
+                        className={`px-2 py-1 text-xs rounded transition-colors ${
+                          answer.type === 'text'
+                            ? 'bg-white shadow-sm font-medium text-gray-900'
+                            : 'text-gray-600 hover:text-gray-900'
+                        }`}
+                        title="文本答案模式（填空/问答）"
+                      >
+                        文本
+                      </button>
+                    </div>
+
+                    {/* Answer Input - Choice or Text based on type */}
+                    {answer.type === 'text' ? (
+                      <Textarea
+                        value={answer.answer}
+                        onChange={(e) => handleUpdateAnswer(index, 'answer', e.target.value)}
+                        className="flex-1 min-h-[80px] max-h-[200px] resize-y"
+                        placeholder="输入文本答案（语法填空：如 would become；阅读表达：完整句子；作文：范文全文）"
+                        rows={3}
+                      />
+                    ) : (
+                      <select
+                        value={answer.answer}
+                        onChange={(e) => handleUpdateAnswer(index, 'answer', e.target.value)}
+                        className="h-10 px-3 py-2 border border-gray-200 rounded-md bg-white text-sm min-w-[80px]"
+                      >
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                        <option value="D">D</option>
+                        <option value="E">E</option>
+                        <option value="F">F</option>
+                        <option value="G">G</option>
+                      </select>
+                    )}
+
                     <Button
                       variant="ghost"
                       size="sm"

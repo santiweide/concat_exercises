@@ -2584,5 +2584,425 @@
     "updatedAt": 1768485655869,
     "deleted": false,
     "deletedAt": null
+  },
+  "q-0ac41ab6": {
+    "id": "q-0ac41ab6",
+    "title": "海淀区2024—2025学年第一学期期末练习高三英语",
+    "year": 2025,
+    "section": "第一部分 知识运用",
+    "subsection": "第一节",
+    "questionNumber": "完形填空",
+    "articleContent": "Last weekend, I took Rio, my energetic 3-year-old grandson who couldn’t sit still for a moment,\\nto the park so he could run around and see the duck pond. My goal was to get him outside for a\\nwhile, let him \\clozeblank{1} some energy, and teach him about the ducks. But he had no goals. Three-year-\\nolds don’t need goals.\\n\\nThat was the first of several lessons I learned that day. I had expected to be the teacher, but I had\\nit \\clozeblank{2} . My grandson helped me remember things we’re born knowing but forget in the process of\\nbecoming an adult.\\n\\nRio had a sense of \\clozeblank{3} . As soon as we walked into the park, he looked up at the sky. It was\\na cold day, with pillowy clouds drifting across the sky, and he found \\clozeblank{4} in watching them. I’d\\nforgotten how magical clouds could be.\\n\\nHis exploration was endless. He was always on the search for sticks. He knew that a stick could\\nbe used for many things. He scraped the ground with them, rapped a drumbeat with them on trees\\nand benches, and \\clozeblank{5} them in the air like a flag. No need for toys or electronic devices, unlike at\\nhome. Just sticks.\\n\\nThere were a few kids playing in the park with a parent and people walking dogs. Rio said hi\\nto everyone and stuck out his hand for a high-five with a few 4- to 5-year-olds. He tried to \\clozeblank{6}\\nconversations with enthusiasm. It was clear he didn’t care what people looked like, how old they\\nwere, or whether they said hello first. No \\clozeblank{7} . Just a sincere desire to \\clozeblank{8} .\\n\\nMy biggest revelation from our hour in the park was that Rio was fully \\clozeblank{9} no matter what\\nhe was doing. He never asked what time it was, when we were leaving, or what we were going to do\\nnext. He was, every second we were there, completely and absolutely in the \\clozeblank{10} .\\n\\nI wish I could be. Don’t we all?",
+    "questionContent": "\\textbf{1.} \\option{burn}{feel}{waste}{produce}\n\\textbf{2.} \\option{together}{here}{out}{backwards}\n\\textbf{3.} \\option{direction}{wonder}{security}{purpose}\n\\textbf{4.} \\option{joy}{hope}{difference}{relief}\n\\textbf{5.} \\option{broke}{threw}{waved}{kicked}\n\\textbf{6.} \\option{write down}{strike up}{reflect on}{look into}\n\\textbf{7.} \\option{envy}{guilt}{judgment}{amazement}\n\\textbf{8.} \\option{show}{improve}{explain}{connect}\n\\textbf{9.} \\option{aware}{prepared}{present}{informed}\n\\textbf{10.} \\option{way}{lead}{balance}{moment}",
+    "labels": [
+      "记叙文",
+      "亲子关系",
+      "童年",
+      "感悟"
+    ],
+    "answers": [
+      {
+        "number": 1,
+        "answer": "A"
+      },
+      {
+        "number": 2,
+        "answer": "D"
+      },
+      {
+        "number": 3,
+        "answer": "B"
+      },
+      {
+        "number": 4,
+        "answer": "A"
+      },
+      {
+        "number": 5,
+        "answer": "C"
+      },
+      {
+        "number": 6,
+        "answer": "B"
+      },
+      {
+        "number": 7,
+        "answer": "C"
+      },
+      {
+        "number": 8,
+        "answer": "D"
+      },
+      {
+        "number": 9,
+        "answer": "C"
+      },
+      {
+        "number": 10,
+        "answer": "D"
+      }
+    ],
+    "subQuestionCount": 10,
+    "createdAt": 1770983647040,
+    "updatedAt": 1770983647040,
+    "deleted": false,
+    "deletedAt": null
+  },
+  "q-3a4a6f17": {
+    "id": "q-3a4a6f17",
+    "title": "海淀区2024—2025学年第一学期期末练习高三英语",
+    "year": 2025,
+    "section": "第一部分 知识运用",
+    "subsection": "第二节",
+    "questionNumber": "语法填空A",
+    "articleContent": "The largest desert in China, the Taklamakan Desert, is now completely encircled by a green\\nbelt \\clozeblank{11} (stretch) 3,046 km. This is part of China’s Three-North Shelter Belt Forest Program\\nto address desertification and restore ecological balance. Since the launch of the program \\clozeblank{12}\\n1978, China \\clozeblank{13} (expand) its afforestation area by 32 million hectares (公顷). The project fully\\ndemonstrates China’s \\clozeblank{14} (innovate) approach to ecological construction and offers valuable\\nexperience for global efforts in fighting desertification.",
+    "questionContent": "",
+    "labels": [
+      "环保",
+      "生态",
+      "中国"
+    ],
+    "answers": [
+      {
+        "number": 11,
+        "answer": "stretching"
+      },
+      {
+        "number": 12,
+        "answer": "in"
+      },
+      {
+        "number": 13,
+        "answer": "has expanded"
+      },
+      {
+        "number": 14,
+        "answer": "innovative"
+      }
+    ],
+    "subQuestionCount": 4,
+    "createdAt": 1770983647040,
+    "updatedAt": 1770983647040,
+    "deleted": false,
+    "deletedAt": null
+  },
+  "q-189e697e": {
+    "id": "q-189e697e",
+    "title": "海淀区2024—2025学年第一学期期末练习高三英语",
+    "year": 2025,
+    "section": "第一部分 知识运用",
+    "subsection": "第二节",
+    "questionNumber": "语法填空B",
+    "articleContent": "Today’s parents face something different and more demanding. They are expected to spend\\never more time and money educating and enriching their children. These pressures, researchers\\nsay, \\clozeblank{15} (drive) in part by fears that if parents do not equip their children with every possible\\nadvantage, their children could fail to achieve a secure life. This parenting style involves\\npainstakingly and methodically cultivating children’s talents, academics and futures through\\neveryday \\clozeblank{16} (activity). But we may have got into a situation, some experts suggest, \\clozeblank{17}\\nintensive parenting has become too intense for parents.",
+    "questionContent": "",
+    "labels": [
+      "教育",
+      "家庭",
+      "社会"
+    ],
+    "answers": [
+      {
+        "number": 15,
+        "answer": "are driven"
+      },
+      {
+        "number": 16,
+        "answer": "activities"
+      },
+      {
+        "number": 17,
+        "answer": "where"
+      }
+    ],
+    "subQuestionCount": 3,
+    "createdAt": 1770983647040,
+    "updatedAt": 1770983647040,
+    "deleted": false,
+    "deletedAt": null
+  },
+  "q-628f8762": {
+    "id": "q-628f8762",
+    "title": "海淀区2024—2025学年第一学期期末练习高三英语",
+    "year": 2025,
+    "section": "第一部分 知识运用",
+    "subsection": "第二节",
+    "questionNumber": "语法填空C",
+    "articleContent": "We all have been in this situation: At a meeting, everyone else agrees on a solution, and you\\nare the only one still opposing it, or at least doubting \\clozeblank{18} it will work. Employees often face this\\ndilemma, referred to as“ conformity bias (从众偏差)”—individuals feel \\clozeblank{19} (stress) to go along\\nwith the decision of the majority, even if it seems wrong. \\clozeblank{20} (avoid) this bias, leaders should\\nensure that everyone at the table has a voice and that all options are considered in order to work\\ntoward a better solution.",
+    "questionContent": "",
+    "labels": [
+      "心理学",
+      "职场",
+      "人际关系"
+    ],
+    "answers": [
+      {
+        "number": 18,
+        "answer": "whether"
+      },
+      {
+        "number": 19,
+        "answer": "stressed"
+      },
+      {
+        "number": 20,
+        "answer": "To avoid"
+      }
+    ],
+    "subQuestionCount": 3,
+    "createdAt": 1770983647040,
+    "updatedAt": 1770983647040,
+    "deleted": false,
+    "deletedAt": null
+  },
+  "q-37e73436": {
+    "id": "q-37e73436",
+    "title": "海淀区2024—2025学年第一学期期末练习高三英语",
+    "year": 2025,
+    "section": "第二部分 阅读理解",
+    "subsection": "第一节",
+    "questionNumber": "A",
+    "articleContent": "Take part in our award-winning summer STEM (Science, Technology, Engineering, Math) teen\\nacademic programs. All courses are conducted online.\\n\\nCurrent course offerings include:\\nBiotech Research: Complete an award-winning, competitive admissions program this year.\\nYou’ll thank yourself when you have one more prestigious credential to add to your college\\napplications. We provide students with state-of-the-art lab equipment and materials to use at home—\\nall shipped to your doorstep. The time is NOW to apply.\\n\\nBiomedical & Surgical Research: The Biomedical and Surgical Research program brings\\nanatomy (解剖) to life through discussion and practice of surgical procedures. From case studies\\nand lectures to mock surgical procedures, students spend three weeks learning what it takes to be a\\nsurgeon.\\n\\nPolymer Chemistry: Materials Science is a new exciting field that includes polymer chemistry\\nand plastics engineering of materials to synthesize (合成) and to create custom or brand new\\nmaterials with specific products for specific uses. Receive materials right to your home to create your\\nown polymers!\\n\\nIntro to Robotics: Are you always taking things apart, seeing how they work and then putting\\nthem back together again? Are you curious how robots and other machines work? From voice\\nactivated, digital personal assistants like Alexa and Siri to our everyday kitchen appliances, the world\\nof robotics is advancing and robots are becoming an integral part of our everyday life. The future is\\nnow and the field of robotics is booming!\\n\\nForensics (法法医医学学): Do mysteries excite you? Do you dive into crime scene shows such as\\nCriminal Minds and Law & Order? Do you want to go behind the scenes to learn what happens\\nduring a crime investigation or trial? This remote program is designed for students all over the world\\ninterested in the scientific approach to crime scenes. This program will introduce the principles of\\nforensic science and will provide the opportunity to explore lab techniques, fingerprint methods and\\nmore through the VR techniques!\\n\\nClick here to see session dates and costs.",
+    "questionContent": "\\textbf{21.} Which courses offer to ship materials?\\n\\optiontwo{Polymer Chemistry and Forensics.}{Intro to Robotics and Biotech Research.}{Biotech Research and Polymer Chemistry.}{Forensics and Biomedical & Surgical Research.}\n\\textbf{22.} Students who choose Forensics can \\myblank[0.5cm].\n\\optiontwo{watch TV series with VR equipment}{study criminal minds on the scene}{draft the principles of forensic science}{experience crime investigation virtually}\n\\textbf{23.} What is the main purpose of the passage?\\n\\optiontwo{To promote summer academic programs.}{To compare different online programs.}{To introduce the content of the programs.}{To explain the benefits of the programs.}",
+    "labels": [
+      "广告",
+      "教育",
+      "STEM"
+    ],
+    "answers": [
+      {
+        "number": 21,
+        "answer": "C"
+      },
+      {
+        "number": 22,
+        "answer": "D"
+      },
+      {
+        "number": 23,
+        "answer": "A"
+      }
+    ],
+    "subQuestionCount": 3,
+    "createdAt": 1770983647040,
+    "updatedAt": 1770983647040,
+    "deleted": false,
+    "deletedAt": null
+  },
+  "q-008b30e1": {
+    "id": "q-008b30e1",
+    "title": "海淀区2024—2025学年第一学期期末练习高三英语",
+    "year": 2025,
+    "section": "第二部分 阅读理解",
+    "subsection": "第一节",
+    "questionNumber": "B",
+    "articleContent": "On a brisk October morning, with 20 pounds of gear on my back, I hiked up a steep, rocky trail.\\nWith each step, I felt my throat tighter and my lungs heave.\\n\\nThis was an experiment. Growing up, my family’s annual“ hikes” often left me weeping with\\nexhaustion after only 2 miles. Decades later, I wondered, at the ripe age of 26, could I learn to love\\nthe outdoors? I decided to start in the deep end with this hiking.\\n\\nPrepared with weeks of exercise, I joined my group at the trailhead near the city border. An hour\\nafter setting off, I fell behind, not sure if I could make it. Frank, my hiking companion, slowed down\\nto accompany me.\\n\\n“Look at the sky, the trees!” he exclaimed.\\n\\nWheezing, I stopped to crane my neck. Nature in all its magnificence chose to show off. The\\nwind whistled, rustling the yellow canopy overhead. Continuing on, I made a point to stop and look\\naround every few minutes.\\n\\nThree hours later, we reached our campsite, a vast grassy area. Frank guided me through putting\\nup my tent, a small victory after a challenging morning. We then sought our only water source,\\nSunfish Pond. Much to my annoyance, I repeatedly lost my footing and returned to camp after\\ncountless falls.\\n\\nAt camp, I built a fire using only flint (火石) sticks. My cheap sleeping pad kept losing air, and\\nmy sleeping bag did little to keep the cold air out. Around 2 a.m. I teared up in frustration and lay\\nsleepless. However, emerging from my tent into the misty morning, I felt my mood lifted. Autumn\\nseemed to have kicked in overnight and the leaves glowed. I ate a breakfast of instant noodles and\\nthen joined the others, sharing intimate thoughts I usually kept hidden.\\n\\nBack at the trailhead where we started, my friend asked what we were grateful for. I piped up\\nabout the vulnerable and funny conversations I’d enjoyed with fellow hikers—and the space to\\nreflect. The forest and its temporary dwellers had convinced me I was capable of much more than I\\nthought possible.\\n\\nDid the experiment work? Memories of that sleepless, freezing night might give me pause\\nbefore I crawl into a tent again. But that doesn’t mean I’m away from the woods completely. I\\nreturned to New York smelly and sore, but when I stepped off the bus into the city’s hustle and\\nbustle, I also felt an unexpected calm.",
+    "questionContent": "\\textbf{24.} Why did the author decide to go on a hiking trip?\\n\\optiontwo{To improve his physical health.}{To escape from the fast-paced city life.}{To explore his potential for the outdoors.}{To revisit a childhood passion for hiking.}\n\\textbf{25.} Which best describes the author’s emotional journey?\\n① amazed ② doubtful ③ annoyed ④ peaceful ⑤ uplifted\n\\optionone{③②⑤①④}{②①③⑤④}{②③①④⑤}{③④②①⑤}\n\\textbf{26.} What has the author learned from the experience?\\n\\optiontwo{Success lies in self-acceptance.}{Wilderness heals a broken heart.}{Small setbacks lead to great achievements.}{Nature gives more than expected.}",
+    "labels": [
+      "记叙文",
+      "户外",
+      "个人成长"
+    ],
+    "answers": [
+      {
+        "number": 24,
+        "answer": "C"
+      },
+      {
+        "number": 25,
+        "answer": "B"
+      },
+      {
+        "number": 26,
+        "answer": "D"
+      }
+    ],
+    "subQuestionCount": 3,
+    "createdAt": 1770983647040,
+    "updatedAt": 1770983647040,
+    "deleted": false,
+    "deletedAt": null
+  },
+  "q-9dedcd8b": {
+    "id": "q-9dedcd8b",
+    "title": "海淀区2024—2025学年第一学期期末练习高三英语",
+    "year": 2025,
+    "section": "第二部分 阅读理解",
+    "subsection": "第一节",
+    "questionNumber": "C",
+    "articleContent": "As global temperatures continue to rise due to human-induced climate change, precise\\ncomputerized climate models will be crucial in shedding light on how our climate will evolve in the\\ncoming years.\\n\\nA study published in Journal of Geophysical Research: Atmospheres by Chloe Clark and her\\nteam from UC Irvine highlights a significant issue with a commonly used climate model known as\\nthe Energy Exascale Earth System Model (E3SM). The research reveals that this model currently\\noverestimates a key physical property of Earth’s climate system called albedo, which is the degree to\\nwhich ice reflects planet-warming sunlight into space.\\n\\nAlbedo is a measure of the reflectivity of a surface, expressed as the fraction of incoming solar\\nradiation that is reflected by that surface back into space. It is a critical factor in determining Earth’s\\nclimate and energy balance. Surfaces with high albedo, such as snow and ice, reflect a large portion\\nof solar energy, whereas darker surfaces like forests or oceans absorb more solar energy.\\n\\n“We found that with old model versions, the ice is too reflective by about five percent,” said\\nChloe Clarke“, Ice reflectivity was much too high.”\\n\\nThe amount of sunlight the planet receives and reflects is important for estimating how much the\\nplanet will warm in the coming years. Previous versions of E3SM overestimated albedo because they\\nfailed to account for microphysical properties of ice in a warming world. These properties include\\nthe effects things like algae (藻类) and dust have on albedo. Dark-colored algae and dust can make\\nsnow and ice less reflective and less able to reflect sunlight.\\n\\nTo do the analysis, Clarke and her team studied satellite data to track the albedo of the\\nGreenland Ice Sheet. They found E3SM overestimates the reflectivity of the ice sheet, meaning the\\nmodel estimates less melt than what would be expected from the ice microphysical properties. But\\nwith the new ice reflectivity incorporated into the model, they discovered the Greenland Ice Sheet\\nis melting at a rate of about six gigatons more than in older model versions. This is based on albedo\\nmeasurements that are more consistent with satellite observations.\\n\\nClarke hopes her team’s study stresses the importance of the seemingly minuscule properties\\nthat can have far-reaching consequences for the overall climate.“ I think our work is going to help\\nmodels do a much better job of helping us capture snow and ice-related climate feedbacks,” she said.\\n\\nNext, Clarke wants to study different icy parts of the planet to calculate how widespread the\\nalbedo discrepancy (差异) is in E3SM.“ Our next steps are to get it so the model is functional\\nglobally and not just valid over Greenland,” said Clarke, who also intends to compare the new\\nGreenland Ice Sheet melt rates to observations to measure how much more accurate the new ice\\nalbedo is.“ It would be useful to apply it to glaciers in places like the Andes and Alaska.”",
+    "questionContent": "\\textbf{27.} According to the passage, albedo \\myblank[0.5cm].\n\\optiontwo{changes with the lightness of surfaces}{matches up with the shape of the ice or snow}{is a measure of the solar energy arriving at the surface}{varies with the direction of the incoming solar radiation}\n\\textbf{28.} What can be learned from the passage?\\n\\optiontwo{The new model is more reliable than satellite observations.}{The previous model versions overestimate Greenland melt.}{Model adaptation improves the accuracy of climate predictions.}{Scientists have used the model globally to reduce the discrepancy.}\n\\textbf{29.} What does the underlined word“ minuscule” in Paragraph 7 probably mean?\\n\\option{Tiny.}{Invisible.}{Plain.}{Stable.}\n\\textbf{30.} The last paragraph is written to \\myblank[0.5cm].\n\\optiontwo{note the limitations of the finding}{point out further research directions}{illustrate the benefits of a new approach}{sum up the changes made in E3SM}",
+    "labels": [
+      "气候变化",
+      "科学",
+      "环境"
+    ],
+    "answers": [
+      {
+        "number": 27,
+        "answer": "A"
+      },
+      {
+        "number": 28,
+        "answer": "C"
+      },
+      {
+        "number": 29,
+        "answer": "A"
+      },
+      {
+        "number": 30,
+        "answer": "B"
+      }
+    ],
+    "subQuestionCount": 4,
+    "createdAt": 1770983647040,
+    "updatedAt": 1770983647040,
+    "deleted": false,
+    "deletedAt": null
+  },
+  "q-46c1133b": {
+    "id": "q-46c1133b",
+    "title": "海淀区2024—2025学年第一学期期末练习高三英语",
+    "year": 2025,
+    "section": "第二部分 阅读理解",
+    "subsection": "第一节",
+    "questionNumber": "D",
+    "articleContent": "Crucial systems across the world collapsed on Friday, triggered by one mistake in a single\\ncompany. The power cut of CrowdStrike, a giant in the cybersecurity industry, hit banks, airlines,\\nand health-care systems. It may end up being the worst information technology disaster in history.\\nThis was not, however, an unforeseeable freak accident, nor will it be the last of its kind.\\n\\nInstead, the devastation was the inevitable outcome of modern social systems that have been\\ndesigned for hyperconnected optimization (优化), not decentralized resilience.\\n\\nThere is often a trade-off between maximum optimization and resilience. Consider a basic\\nprehistorical social system in which many humans lived in small, isolated bands. What any single\\nperson did would have little to no effect on those living elsewhere. It was an inefficient, basic system—\\nbut if one part of the human system failed, few others were affected.\\n\\nThroughout our advancement as a species, from building empires to building machines, social\\nsystems have evolved to be more connected and centralized. In the 21st century, the combination\\nof globalization and digitization has created a landscape characterized by the threat of catastrophic,\\nimmediate risk. Globalization enables large efficiency gains, where a product can be put together\\nfrom carefully managed links in the global supply chain. But those systems lack resilience. Every\\nlink must fit together perfectly; the system falls apart if even one chain breaks.\\n\\nCenturies ago, the philosopher David Hume wrote that we can never be certain that the patterns\\nof the past will remain the patterns of the future. This is especially true in the 21st century as we\\nare betting more and more of our world on unstable systems. Can we really trust our species to\\nflawlessly govern unimaginably complex systems—systems we don’t always fully understand—that\\ncan be brought down by a single screw-up?\\n\\nModern societies have discounted the cost of that risk because our current reward systems favor\\noptimization over resilience. CEOs try to deliver short-term improvements, not long-term planning.\\nNobody gets reelected by investing in a rainy-day fund. Business leaders are hired or fired based on\\nquarterly results.\\n\\nEven though the modern quest for optimization has too often made resilience an afterthought,\\nit is not inevitable that we continue down the risky path we’re on. And making our systems more\\nresilient doesn’t require going back to a disconnected, primitive world, either. Instead, our complex,\\ninterconnected societies simply demand that we compromise a bit of efficiency in order to allow a\\nlittle extra cushion (缓冲).\\n\\nIf social systems rely on a more diverse digital array of companies, the societies will be less\\nvulnerable (脆弱的). For the broader set of risks facing global society, better regulation is essential\\nto ensure fail-safes, backups, and stress testing—so that one error doesn’t bring down entire systems.\\nThe CrowdStrike breakdown is a clear warning that the modern world is fragile by design. So far, we\\nhave decided to make ourselves vulnerable. That means we can decide differently too.",
+    "questionContent": "\\textbf{31.} The author mentions the CrowdStrike mainly to \\myblank[0.5cm].\n\\optiontwo{highlight its crucial role in cybersecurity}{introduce an information technology collapse}{explain why people are in a connected system}{indicate predictable failures of the modern system}\n\\textbf{32.} What can be inferred about a more globalized system?\\n\\optiontwo{It leads to a highly advanced digitalized network.}{It tends to prioritize adaptability over productivity.}{It enlarges the impact of local errors to a global scale.}{It guarantees immediate economic rewards for participants.}\n\\textbf{33.} As for the future of social systems, which would the author agree with?\\n\\optiontwo{The more disconnected they are, the more resilient they will be.}{Some efficiency should be sacrificed for more flexibility.}{Long-term planning prevents structural breakdowns.}{History can help people predict future patterns.}\n\\textbf{34.} Which would be the best title for this passage?\\n\\optiontwo{Hyperconnectivity: The Price of Perfection}{A Wakeful Warning: The Lesson from CrowdStrike}{System Collapse: An Inevitable Technology Disaster}{Resilience vs. Optimization: A Debate for Better Systems}",
+    "labels": [
+      "社会",
+      "科技",
+      "经济"
+    ],
+    "answers": [
+      {
+        "number": 31,
+        "answer": "D"
+      },
+      {
+        "number": 32,
+        "answer": "C"
+      },
+      {
+        "number": 33,
+        "answer": "B"
+      },
+      {
+        "number": 34,
+        "answer": "B"
+      }
+    ],
+    "subQuestionCount": 4,
+    "createdAt": 1770983647040,
+    "updatedAt": 1770983647040,
+    "deleted": false,
+    "deletedAt": null
+  },
+  "q-8076d41e": {
+    "id": "q-8076d41e",
+    "title": "海淀区2024—2025学年第一学期期末练习高三英语",
+    "year": 2025,
+    "section": "第二部分 阅读理解",
+    "subsection": "第二节",
+    "questionNumber": "七选五",
+    "articleContent": "Imagine you’ve been working for hours before a deadline, but you feel like you’re getting\\nnowhere. You’re starting to feel really anxious. At this point, you might start to blame yourself\\nfor having this emotion. Now you have two emotions: feeling anxious about getting work done\\nand feeling frustrated that you are anxious. When the second emotion gets layered on top of the\\nfirst emotion, you often feel worse and are even less likely to reach your goals. You may now be\\nwondering if it is possible to make the second emotion less likely. \\clozeblank{35} .\\n\\nMany people have heard of“ mindfulness”. It is often associated with doing a meditation (冥想)\\npractice, but its essence is to be more aware and accepting of your present-moment experience.\\n\\clozeblank{36} Acceptance can limit judgmental thoughts and unhelpful secondary emotions.\\n\\nLet me explain. Picture yourself in a challenging situation like the scenario described above\\nand you feel anxiety arising. Instead of getting upset at yourself for having this emotion, you bring\\nyour awareness to the experience of the emotion and accept it. You might feel that this anxiety is not\\nfun to experience. \\clozeblank{37} With this attitude of acceptance, and stepping away from the tendency to\\nfight against the emotion, you are less likely to get stuck in a loop of judgmental thoughts that might\\ntrigger more unwanted emotions.\\n\\clozeblank{38} But evidence suggests that it works. That is probably because accepting yourselves,\\n英\\nincluding your emotions, relieves pressure. You stop adding fuel to the emotional fire when you\\nrelease judgmental thoughts about your emotions. \\clozeblank{39} For instance, you could turn down the\\nvolume on the initial emotion, perhaps by seeing the situation from a new perspective or asking\\nsomeone for support.",
+    "questionContent": "\\begin{enumerate}[label=\\Alph{*}.]\n\\item Thankfully, research suggests that the answer is yes.\n\\item You can’t be productive even when you have more inner space.\n\\item Then you may question if you are feeling anxious about getting work done.\n\\item Yet you know you can breathe it through and that it is just a passing emotion.\n\\item Sometimes the experience includes an unpleasant emotion you don’t want to feel.\n\\item It might sound unreasonable that embracing an unpleasant emotion can be a good thing.\n\\item You also create more inner space to determine whether you can do something that helps.\n\\end{enumerate}",
+    "labels": [
+      "心理学",
+      "情绪管理",
+      "人际关系"
+    ],
+    "answers": [
+      {
+        "number": 35,
+        "answer": "A"
+      },
+      {
+        "number": 36,
+        "answer": "E"
+      },
+      {
+        "number": 37,
+        "answer": "D"
+      },
+      {
+        "number": 38,
+        "answer": "F"
+      },
+      {
+        "number": 39,
+        "answer": "G"
+      }
+    ],
+    "subQuestionCount": 5,
+    "createdAt": 1770983647040,
+    "updatedAt": 1770983647040,
+    "deleted": false,
+    "deletedAt": null
+  },
+  "q-f39bf17d": {
+    "id": "q-f39bf17d",
+    "title": "海淀区2024—2025学年第一学期期末练习高三英语",
+    "year": 2025,
+    "section": "第三部分 书面表达",
+    "subsection": "第一节",
+    "questionNumber": "阅读表达",
+    "articleContent": "The Cambridge Dictionary defines curiosity as“ an eager wish to know or learn about something”\\nwhich comes in various types. Ian Leslie, in his book Curious, outlines three types:“ adventurous\\ncuriosity”, the desire to explore new places and people;“ intellectual curiosity”, the deep dive you take\\nwhen finding out about a particular topic; and“ empathetic curiosity”, the wanting to find out more\\nabout the people around us. As children, we bubble over with curiosity. However, as we grow up, it\\ncan fade. Worse, we can come to believe that it’s a bad thing. After all, didn’t it kill the cat?\\n\\nNeuroscience suggests one explanation for this decline. Brains in early childhood possess\\ngreat plasticity and lay down lots of neural pathways based on the information we gather from all\\nthat curious exploring and experimenting. However, as we grow older, our brains lose some of that\\nflexibility. And we rely on those earlier pathways to deal with the things we’ve seen and done before.\\nIt’s a way of conserving brain energy for economy and competence in coping with ordinary life.\\n\\nWhatever underlies our shrinking curiosity, research repeatedly shows that we’d be better off",
+    "questionContent": "continuing to cultivate it. Curiosity is linked to lower levels of anxiety, a greater satisfaction in\\nlife, achieving academically, building empathy and improved relationships. It also protects brain\\nhealth through staying mentally active by trying something new. These positive effects of curiosity\\nare deeply intertwined with our brain’s chemical responses. Research shows that brain’s dopamine\\nsystem is activated when something novel happens. Rather than produce pleasure, dopamine actually\\nstimulates our longing to continue the activity, in this case the desire to find out more. It’s easy to see\\nhow this brain chemistry has helped us.\\n\\nCuriosity has motivated our ancestors to question, experiment and learn, leading us out of the\\nStone Age to the Bronze Age and the Iron Age and, finally, to the Information Age. It has sparked\\nour greatest achievements and discoveries and continues in our personal lives to bring greater\\ncontentment. So, perhaps the cat was simply unlucky, because for us humans, curiosity continues to\\nbe essential, both to our survival and our ability to flourish.\\n\\textbf{40.} What are the three types of curiosity according to Ian Leslie?\n\\textbf{41.} Why do we rely on earlier pathways to deal with the things we’ve seen and done before?\n\\textbf{42.} Please decide which part is false in the following statement, then underline it and explain why.\nWhen something novel happens, the dopamine system of the brain is activated to make us\\nfeel happy.\n\\textbf{43.} How do you develop your curiosity? (In about 40 words)",
+    "labels": [
+      "好奇心",
+      "心理学",
+      "个人成长"
+    ],
+    "answers": [
+      {
+        "number": 40,
+        "answer": "Adventurous curiosity, intellectual curiosity, and empathetic curiosity."
+      },
+      {
+        "number": 41,
+        "answer": "Because our brains lose some of the flexibility. /Because it’s a way of conserving brain energy for economy and competence in coping with ordinary life."
+      },
+      {
+        "number": 42,
+        "answer": "When something novel happens, the dopamine system of the brain is activated to make us\\nfeel happy.\\nWhen something novel happens, the dopamine system of the brain is activated to stimulate our\\nlonging to continue the activity /our desire to find out more."
+      },
+      {
+        "number": 43,
+        "answer": "Possible Version 1:\\nI cultivate my curiosity by actively engaging in various activities that can broaden my\\nperspectives and enrich my experiences. For example, joining the robotics club introduces me to\\ncutting-edge technologies, which may ignite my passion to explore more and prepare me for\\nthe future innovation.\\nPossible Version 2:\\nI always seek new experiences, whether by traveling to unfamiliar places or exploring new\\ntopics through reading. These activities allow me to see the world from fresh perspectives,\\nguiding me to inquire further. Thus, I may become more motivated to explore and gain deeper\\ninsights."
+      }
+    ],
+    "subQuestionCount": 4,
+    "createdAt": 1770983647040,
+    "updatedAt": 1770983647040,
+    "deleted": false,
+    "deletedAt": null
+  },
+  "q-63d1077c": {
+    "id": "q-63d1077c",
+    "title": "海淀区2024—2025学年第一学期期末练习高三英语",
+    "year": 2025,
+    "section": "第三部分 书面表达",
+    "subsection": "第二节",
+    "questionNumber": "作文",
+    "articleContent": "",
+    "questionContent": "假设你是红星中学高三学生李华。你校上周举办了主题为“让传统文化潮起来”的创意文化\\n节。你的英国好友Jim看到了你分享的活动照片，对此很感兴趣，发来邮件询问相关情况。请你\\n用英文给他回复，内容包括：\\n1．活动内容；\\n2．你的感想。\\n注意：1．词数100左右；\\n2．开头和结尾已给出，不计入总词数。\\nDear Jim,\\nYours,\\nLi Hua",
+    "labels": [
+      "应用文",
+      "书信",
+      "传统文化"
+    ],
+    "answers": [
+      {
+        "number": 1,
+        "answer": "Possible Version:\\nDear Jim,\\nI’m glad that you’re interested in the photos from our recent creative cultural festival! Here’s\\nmore about it.\\nWith the theme “Make Traditional Culture Trendy”, the event has injected vigor into traditional\\nChinese culture with modern elements. In the art center, popular music was played on traditional\\nmusical instruments by talented students, creating a unique feast for the ears. At the DIY station,\\nstudents designed reusable bags and T-shirts featuring elements of Chinese painting and\\ncalligraphy. What impressed me the most was the VR section, where students could immerse\\nthemselves in traditional customs like the firework show.\\nThis event was both fun and educational. It has deepened my appreciation for our rich cultural\\nheritage and demonstrated how innovation could breathe new life into tradition.\\nI hope you find the festival inspiring, too.\\nYours,\\nLi Hua",
+        "type": "text"
+      }
+    ],
+    "subQuestionCount": 1,
+    "createdAt": 1770983647040,
+    "updatedAt": 1770983647040,
+    "deleted": false,
+    "deletedAt": null
   }
 }

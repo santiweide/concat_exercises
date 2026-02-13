@@ -180,11 +180,11 @@ export function QuestionDetail({ question, onClose, onUpdateLabels, onUpdateSect
             <div>
               <h3 className="mb-2">答案</h3>
               <div className="bg-green-50 p-4 rounded-lg">
-                <div className="flex flex-wrap gap-4">
+                <div className="space-y-2">
                   {question.answers.map((answer, index) => (
-                    <div key={index} className="flex items-center gap-1">
-                      <span className="font-medium text-gray-700">{answer.number}.</span>
-                      <span className="font-bold text-green-700">{answer.answer}</span>
+                    <div key={index} className="flex items-start gap-2">
+                      <span className="font-medium text-gray-700 whitespace-nowrap">{answer.number}.</span>
+                      <span className="font-bold text-green-700 break-words">{answer.answer}</span>
                     </div>
                   ))}
                 </div>

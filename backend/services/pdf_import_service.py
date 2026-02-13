@@ -616,7 +616,9 @@ class PDFImportService:
             "questionContent": "LaTeX格式的作文题目要求...",
             "subQuestionCount": 1,
             "labels": ["应用文", "书信"],
-            "answers": []
+            "answers": [
+                {"number": 1, "answer": "Possible Version:\\n\\nDear Tom,\\n\\nI hope this letter finds you well. ...\\n\\nBest regards,\\nLi Hua"}
+            ]
         }
     ]
 }
@@ -708,13 +710,18 @@ LaTeX中的段落分隔与换行有严格区分：
 7. **subQuestionCount**：该题包含的小题数量（非常重要！用于自动编号）
 8. **labels**：3-5个语义标签（主题、体裁、话题）
 9. **answers**：从参考答案部分提取，number为原试卷题号，answer为答案
-   - 第一部分知识运用-第一节（完形填空）：选择题答案为A/B/C/D
-   - 第一部分知识运用-第二节（语法填空）：填空题答案为具体单词或短语
-   - 第二部分阅读理解-第一节（阅读选择题A/B/C/D）：选择题答案为A/B/C/D
-   - 第二部分阅读理解-第二节（七选五）：选择题答案为A/B/C/D/E/F/G
-   - 第三部分书面表达-第一节（阅读表达）：答案为完整的英文句子或短语，直接从参考答案抄录
-   - 第三部分书面表达-第二节（作文）：answers数组可为空（作文无标准答案）
+   - **完形填空（第一部分 知识运用 - 第一节）**：选择题答案为A/B/C/D
+   - **语法填空（第一部分 知识运用 - 第二节）**：答案为具体单词或短语（**文本类型**），如 "would become", "participated"
+   - **阅读选择题（第二部分 阅读理解 - 第一节，A/B/C/D）**：选择题答案为A/B/C/D
+   - **七选五（第二部分 阅读理解 - 第二节）**：选择题答案为A/B/C/D/E/F/G
+   - **阅读表达（第三部分 书面表达 - 第一节）**：答案为完整的英文句子或短语（**文本类型**），直接从参考答案抄录，如 "Her literal interpretation of language."
+   - **作文（第三部分 书面表达 - 第二节）**：
+     * 如果参考答案中有范文，通常以 "Possible Version:" 或 "One possible version:" 开头
+     * 请将完整的范文内容作为答案，包含整篇作文（**文本类型**）
+     * 答案格式：`{"number": 1, "answer": "Possible Version:\\n\\nDear Tom,...\\n\\nBest regards,\\nLi Hua"}`
+     * 如果没有范文，answers数组可为空
    - **注意**：number 字段保留原试卷题号即可，导出时会自动重新编号
+   - **重要**：对于语法填空、阅读表达、作文等需要文本答案的题型，请将完整答案文本填入answer字段，不要缩写或省略
 
 ## 注意事项
 
