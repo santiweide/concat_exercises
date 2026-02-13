@@ -234,6 +234,18 @@ class PDFImportService:
                         'error': 'PDF文件无法处理，请检查文件是否损坏'
                     }
                 
+                # Debug: Print model API key status before calling AI
+                import sys
+                sys.stderr.write("\n" + "=" * 80 + "\n")
+                sys.stderr.write("[PDF_SERVICE] About to call model.extract_from_images\n")
+                sys.stderr.write(f"[PDF_SERVICE] Model type: {self.model_type}\n")
+                sys.stderr.write(f"[PDF_SERVICE] Model API key length: {len(self.model.api_key)}\n")
+                sys.stderr.write(f"[PDF_SERVICE] Model API key repr (first 60): {repr(self.model.api_key[:60])}\n")
+                newline_char = '\n'
+                sys.stderr.write(f"[PDF_SERVICE] API key has newline: {newline_char in self.model.api_key}\n")
+                sys.stderr.write("=" * 80 + "\n\n")
+                sys.stderr.flush()
+                
                 extracted_data = await self.model.extract_from_images(images_base64, filename, prompt)
             
             if not extracted_data:

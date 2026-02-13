@@ -155,33 +155,13 @@ class GeminiModel(AIModel):
         
         try:
             # Use longer timeout for image processing
-            async with httpx.AsyncClient(timeout=600.0) as client:
-                # Debug: Print API key details BEFORE cleaning
-                logger.error("DEBUG API Key BEFORE (image mode)",
-                           api_key_length=len(self.api_key),
-                           api_key_repr=repr(self.api_key[:50]),
-                           has_newline='\n' in self.api_key)
-                
+            async with httpx.AsyncClient(timeout=600.0) as client:                
                 # Clean API key - remove ALL non-printable characters
                 cleaned_api_key = clean_url_string(self.api_key)
-                
-                # Debug: Print API key details AFTER cleaning
-                logger.error("DEBUG API Key AFTER (image mode)",
-                           cleaned_length=len(cleaned_api_key),
-                           cleaned_repr=repr(cleaned_api_key[:50]),
-                           has_newline='\n' in cleaned_api_key)
-                
-                # Build URL with cleaned API key
                 base_url = clean_url_string(self.BASE_URL)
                 model_name = clean_url_string(self.IMAGE_MODEL)
-                url = f"{base_url}/{model_name}:generateContent?key={cleaned_api_key}"
                 
-                # Debug: Print URL details
-                logger.error("DEBUG URL (image mode)",
-                           url_length=len(url),
-                           url_repr=repr(url[:150]),
-                           has_newline='\n' in url,
-                           has_any_control_chars=bool(re.search(r'[\x00-\x1f\x7f-\x9f]', url)))
+                url = f"{base_url}/{model_name}:generateContent?key={cleaned_api_key}"
                 
                 response = await client.post(
                     url,
