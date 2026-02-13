@@ -140,7 +140,7 @@ class GeminiModel(AIModel):
             # Use longer timeout for image processing
             async with httpx.AsyncClient(timeout=600.0) as client:
                 # Debug: Print API key details BEFORE cleaning
-                logger.warning("DEBUG API Key BEFORE (image mode)",
+                logger.error("DEBUG API Key BEFORE (image mode)",
                            api_key_length=len(self.api_key),
                            api_key_repr=repr(self.api_key[:50]),
                            has_newline='\n' in self.api_key)
@@ -149,7 +149,7 @@ class GeminiModel(AIModel):
                 cleaned_api_key = clean_url_string(self.api_key)
                 
                 # Debug: Print API key details AFTER cleaning
-                logger.warning("DEBUG API Key AFTER (image mode)",
+                logger.error("DEBUG API Key AFTER (image mode)",
                            cleaned_length=len(cleaned_api_key),
                            cleaned_repr=repr(cleaned_api_key[:50]),
                            has_newline='\n' in cleaned_api_key)
@@ -160,7 +160,7 @@ class GeminiModel(AIModel):
                 url = f"{base_url}/{model_name}:generateContent?key={cleaned_api_key}"
                 
                 # Debug: Print URL details
-                logger.warning("DEBUG URL (image mode)",
+                logger.error("DEBUG URL (image mode)",
                            url_length=len(url),
                            url_repr=repr(url[:150]),
                            has_newline='\n' in url,
@@ -256,7 +256,7 @@ class GeminiModel(AIModel):
             
             # Check for error response
             if 'error' in data:
-                logger.warning("Gemini returned error", error=data['error'])
+                logger.error("Gemini returned error", error=data['error'])
                 return None
             
             return data
