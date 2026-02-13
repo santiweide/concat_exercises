@@ -4,11 +4,18 @@ Gemini AI model implementation.
 import httpx
 import json_repair
 import structlog
+import re
 from typing import Optional, Dict, Any, List
 
 from .base import AIModel, AIModelType
 
 logger = structlog.get_logger()
+
+
+def clean_url_string(s: str) -> str:
+    """Remove all non-printable ASCII characters from a string."""
+    # Remove all control characters including newlines, tabs, etc.
+    return re.sub(r'[\x00-\x1f\x7f-\x9f]', '', s)
 
 
 class GeminiModel(AIModel):
@@ -45,22 +52,11 @@ class GeminiModel(AIModel):
         
         try:
             async with httpx.AsyncClient(timeout=120.0) as client:
-                # Debug: Print API key details
-                logger.warning("DEBUG API Key",
-                           api_key_length=len(self.api_key),
-                           api_key_repr=repr(self.api_key),
-                           api_key_first_10=self.api_key[:10] if len(self.api_key) > 10 else self.api_key)
-                
-                self.api_key = self.api_key.strip().replace('\n', '')
-                url = f"{self.BASE_URL}/{self.TEXT_MODEL}:generateContent?key={self.api_key}"
-                url = url.replace("\n", "")
-                
-                # Debug: Print URL details
-                logger.warning("DEBUG URL",
-                           url_length=len(url),
-                           url_repr=repr(url),
-                           has_newline='\n' in url,
-                           newline_positions=[i for i, c in enumerate(url) if c == '\n'])
+                # Clean API key - remove ALL non-printable characters
+                cleaned_api_key = clean_url_string(self.api_key)
+                base_url = clean_url_string(self.BASE_URL)
+                model_name = clean_url_string(self.TEXT_MODEL)
+                url = f"{base_url}/{model_name}:generateContent?key={cleaned_api_key}"
                 
                 response = await client.post(
                     url,
@@ -143,23 +139,32 @@ class GeminiModel(AIModel):
         try:
             # Use longer timeout for image processing
             async with httpx.AsyncClient(timeout=600.0) as client:
-                # Debug: Print API key details
-                logger.warning("DEBUG API Key (image mode)",
+                # Debug: Print API key details BEFORE cleaning
+                logger.warning("DEBUG API Key BEFORE (image mode)",
                            api_key_length=len(self.api_key),
-                           api_key_repr=repr(self.api_key),
-                           api_key_first_10=self.api_key[:10] if len(self.api_key) > 10 else self.api_key)
+                           api_key_repr=repr(self.api_key[:50]),
+                           has_newline='\n' in self.api_key)
                 
-                # Clean API key (same as in extract_from_text)
-                self.api_key = self.api_key.strip().replace('\n', '')
-                url = f"{self.BASE_URL}/{self.IMAGE_MODEL}:generateContent?key={self.api_key}"
-                url = url.replace("\n", "")
+                # Clean API key - remove ALL non-printable characters
+                cleaned_api_key = clean_url_string(self.api_key)
+                
+                # Debug: Print API key details AFTER cleaning
+                logger.warning("DEBUG API Key AFTER (image mode)",
+                           cleaned_length=len(cleaned_api_key),
+                           cleaned_repr=repr(cleaned_api_key[:50]),
+                           has_newline='\n' in cleaned_api_key)
+                
+                # Build URL with cleaned API key
+                base_url = clean_url_string(self.BASE_URL)
+                model_name = clean_url_string(self.IMAGE_MODEL)
+                url = f"{base_url}/{model_name}:generateContent?key={cleaned_api_key}"
                 
                 # Debug: Print URL details
                 logger.warning("DEBUG URL (image mode)",
                            url_length=len(url),
-                           url_repr=repr(url),
+                           url_repr=repr(url[:150]),
                            has_newline='\n' in url,
-                           newline_positions=[i for i, c in enumerate(url) if c == '\n'])
+                           has_any_control_chars=bool(re.search(r'[\x00-\x1f\x7f-\x9f]', url)))
                 
                 response = await client.post(
                     url,
