@@ -26,6 +26,15 @@ class GeminiModel(AIModel):
     IMAGE_MODEL = "gemini-2.0-flash"
     BASE_URL = "https://generativelanguage.googleapis.com/v1beta/models"
     
+    def __init__(self, api_key: str):
+        """Initialize Gemini model with API key."""
+        super().__init__(api_key)
+        # Debug log at initialization
+        logger.error("GeminiModel INITIALIZED",
+                    api_key_length=len(self.api_key),
+                    api_key_has_newline='\n' in self.api_key,
+                    api_key_repr=repr(self.api_key[:50]) if len(self.api_key) > 50 else repr(self.api_key))
+    
     @property
     def name(self) -> str:
         return "Google Gemini 2.0 Flash"
