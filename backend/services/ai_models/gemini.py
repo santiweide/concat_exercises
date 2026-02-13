@@ -35,9 +35,10 @@ class GeminiModel(AIModel):
         """Initialize Gemini model with API key."""
         super().__init__(api_key)
         # Debug: Write to stderr
+        newline_char = '\n'
         sys.stderr.write("=" * 80 + "\n")
         sys.stderr.write(f"[GEMINI_INIT] API key length: {len(self.api_key)}\n")
-        sys.stderr.write(f"[GEMINI_INIT] Has newline: {'\\n' in self.api_key}\n")
+        sys.stderr.write(f"[GEMINI_INIT] Has newline: {newline_char in self.api_key}\n")
         sys.stderr.write(f"[GEMINI_INIT] API key repr (first 50): {repr(self.api_key[:50])}\n")
         sys.stderr.write("=" * 80 + "\n")
         sys.stderr.flush()
