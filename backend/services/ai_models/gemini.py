@@ -5,23 +5,21 @@ import httpx
 import json_repair
 import structlog
 import re
+import sys
 from typing import Optional, Dict, Any, List
 
 from .base import AIModel, AIModelType
 
 logger = structlog.get_logger()
 
-# Debug: Print at module import time
-print("=" * 80)
-print("🔍 DEBUG: gemini.py module imported - NEW VERSION with clean_url_string")
-print("=" * 80)
-
 
 def clean_url_string(s: str) -> str:
     """Remove all non-printable ASCII characters from a string."""
     # Remove all control characters including newlines, tabs, etc.
     cleaned = re.sub(r'[\x00-\x1f\x7f-\x9f]', '', s)
-    print(f"🔍 clean_url_string called: len(input)={len(s)}, len(output)={len(cleaned)}, removed={len(s)-len(cleaned)} chars")
+    if len(s) != len(cleaned):
+        sys.stderr.write(f"[CLEAN_URL] Removed {len(s)-len(cleaned)} non-printable chars from string of length {len(s)}\n")
+        sys.stderr.flush()
     return cleaned
 
 
@@ -36,13 +34,13 @@ class GeminiModel(AIModel):
     def __init__(self, api_key: str):
         """Initialize Gemini model with API key."""
         super().__init__(api_key)
-        # Debug: Use print to bypass logger
-        print("=" * 80)
-        print(f"🔍 GeminiModel.__init__ called")
-        print(f"🔍 API key length: {len(self.api_key)}")
-        print(f"🔍 API key has newline: {repr(self.api_key).count('\\n')}")
-        print(f"🔍 API key repr (first 60 chars): {repr(self.api_key[:60])}")
-        print("=" * 80)
+        # Debug: Write to stderr
+        sys.stderr.write("=" * 80 + "\n")
+        sys.stderr.write(f"[GEMINI_INIT] API key length: {len(self.api_key)}\n")
+        sys.stderr.write(f"[GEMINI_INIT] Has newline: {'\\n' in self.api_key}\n")
+        sys.stderr.write(f"[GEMINI_INIT] API key repr (first 50): {repr(self.api_key[:50])}\n")
+        sys.stderr.write("=" * 80 + "\n")
+        sys.stderr.flush()
     
     @property
     def name(self) -> str:
