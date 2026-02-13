@@ -144,15 +144,18 @@ class GeminiModel(AIModel):
             # Use longer timeout for image processing
             async with httpx.AsyncClient(timeout=600.0) as client:
                 # Debug: Print API key details
-                logger.info("DEBUG API Key (image mode)",
+                logger.warning("DEBUG API Key (image mode)",
                            api_key_length=len(self.api_key),
                            api_key_repr=repr(self.api_key),
                            api_key_first_10=self.api_key[:10] if len(self.api_key) > 10 else self.api_key)
                 
+                # Clean API key (same as in extract_from_text)
+                self.api_key = self.api_key.strip().replace('\n', '')
                 url = f"{self.BASE_URL}/{self.IMAGE_MODEL}:generateContent?key={self.api_key}"
+                url = url.replace("\n", "")
                 
                 # Debug: Print URL details
-                logger.info("DEBUG URL (image mode)",
+                logger.warning("DEBUG URL (image mode)",
                            url_length=len(url),
                            url_repr=repr(url),
                            has_newline='\n' in url,
