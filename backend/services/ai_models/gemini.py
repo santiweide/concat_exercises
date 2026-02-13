@@ -15,11 +15,7 @@ logger = structlog.get_logger()
 
 def clean_url_string(s: str) -> str:
     """Remove all non-printable ASCII characters from a string."""
-    # Remove all control characters including newlines, tabs, etc.
     cleaned = re.sub(r'[\x00-\x1f\x7f-\x9f]', '', s)
-    if len(s) != len(cleaned):
-        sys.stderr.write(f"[CLEAN_URL] Removed {len(s)-len(cleaned)} non-printable chars from string of length {len(s)}\n")
-        sys.stderr.flush()
     return cleaned
 
 
@@ -34,14 +30,6 @@ class GeminiModel(AIModel):
     def __init__(self, api_key: str):
         """Initialize Gemini model with API key."""
         super().__init__(api_key)
-        # Debug: Write to stderr
-        newline_char = '\n'
-        sys.stderr.write("=" * 80 + "\n")
-        sys.stderr.write(f"[GEMINI_INIT] API key length: {len(self.api_key)}\n")
-        sys.stderr.write(f"[GEMINI_INIT] Has newline: {newline_char in self.api_key}\n")
-        sys.stderr.write(f"[GEMINI_INIT] API key repr (first 50): {repr(self.api_key[:50])}\n")
-        sys.stderr.write("=" * 80 + "\n")
-        sys.stderr.flush()
     
     @property
     def name(self) -> str:
@@ -155,13 +143,8 @@ class GeminiModel(AIModel):
         
         try:
             # Use longer timeout for image processing
-            async with httpx.AsyncClient(timeout=600.0) as client:                
-                # Clean API key - remove ALL non-printable characters
-                cleaned_api_key = clean_url_string(self.api_key)
-                base_url = clean_url_string(self.BASE_URL)
-                model_name = clean_url_string(self.IMAGE_MODEL)
-                
-                url = f"{base_url}/{model_name}:generateContent?key={cleaned_api_key}"
+            async with httpx.AsyncClient(timeout=600.0) as client:
+                url = f"{self.BASE_URL}/{self.IMAGE_MODEL}:generateContent?key={self.api_key}"
                 
                 response = await client.post(
                     url,
