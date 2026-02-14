@@ -132,6 +132,65 @@ docker run -p 8080:8080 exampapersys:local
 
 如果要汇报需要一定的可用性，目前除了搜索还行还完全不可直接用...！
 
+## 部署指南
+
+### 部署到 Google Cloud Run
+
+#### 快速部署
+
+使用自动化脚本部署最新代码（推荐）：
+
+```bash
+# 确保已安装 gcloud CLI 并完成认证
+./deploy.sh
+```
+
+部署脚本会自动：
+- 清理 Python 缓存文件
+- 检查代码状态
+- 强制无缓存构建（避免旧代码问题）
+- 使用时间戳标签
+- 验证部署状态
+
+#### 验证部署
+
+检查线上版本：
+
+```bash
+./check-deployment.sh
+```
+
+#### 手动部署
+
+```bash
+# 清理缓存
+find . -type d -name "__pycache__" -exec rm -rf {} +
+
+# 提交构建
+gcloud builds submit \
+    --config=cloudbuild.yaml \
+    --substitutions=_TAG="v-$(date +%Y%m%d-%H%M%S)" \
+    --no-source-cache
+```
+
+#### 常见问题
+
+**问题：本地和线上代码不一致**
+
+原因：Docker 构建缓存或 Python 字节码缓存
+
+解决：
+1. 使用 `./deploy.sh` 脚本（自动清理缓存）
+2. 查看详细排查指南：[DEPLOYMENT_TROUBLESHOOTING.md](DEPLOYMENT_TROUBLESHOOTING.md)
+
+**问题：部署成功但功能未更新**
+
+```bash
+# 强制使用新镜像
+gcloud run services update exampapersys \
+    --region=us-central1 \
+    --image=IMAGE_URL
+```
 
 ### 一些想法
 1. 为了提高导入导出质量，重新做SFT对齐是否有助于提高OCR效果？

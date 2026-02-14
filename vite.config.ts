@@ -16,6 +16,17 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  build: {
+    // Generate unique file names with hash to prevent browser caching issues
+    rollupOptions: {
+      output: {
+        // Add timestamp hash to all assets to bust browser cache
+        entryFileNames: `assets/[name].[hash].js`,
+        chunkFileNames: `assets/[name].[hash].js`,
+        assetFileNames: `assets/[name].[hash].[ext]`
+      }
+    }
+  },
   server: {
     proxy: {
       // Proxy API requests to backend

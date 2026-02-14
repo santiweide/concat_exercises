@@ -4,10 +4,11 @@ substitutions:
   _TAG: 'latest'
 
 steps:
-  # Step 1: Build the container image
+  # Step 1: Build the container image (with --no-cache to ensure fresh build)
   - name: 'gcr.io/cloud-builders/docker'
     args: 
       - 'build'
+      - '--no-cache'
       - '-t'
       - 'us-central1-docker.pkg.dev/$PROJECT_ID/exampapersys/app:${_TAG}'
       - '-t'
