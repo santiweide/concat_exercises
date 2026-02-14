@@ -233,16 +233,6 @@ class PDFImportService:
                         'success': False,
                         'error': 'PDF文件无法处理，请检查文件是否损坏'
                     }
-                
-                # Debug: Print before calling AI
-                print("\n" + "="*80, flush=True)
-                print(f"[PDF_SERVICE] About to call extract_from_images", flush=True)
-                print(f"[PDF_SERVICE] Model type: {self.model_type}", flush=True)
-                print(f"[PDF_SERVICE] API key length: {len(self.model.api_key)}", flush=True)
-                print(f"[PDF_SERVICE] API key repr: {repr(self.model.api_key[:60])}", flush=True)
-                print(f"[PDF_SERVICE] Has newline: {'\\n' in self.model.api_key}", flush=True)
-                print("="*80 + "\n", flush=True)
-                
                 extracted_data = await self.model.extract_from_images(images_base64, filename, prompt)
             
             if not extracted_data:
