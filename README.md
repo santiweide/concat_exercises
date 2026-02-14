@@ -175,34 +175,15 @@ gcloud builds submit \
 
 #### 常见问题
 
-**问题 1：本地和线上代码不一致（后端）**
+**问题：本地和线上代码不一致**
 
 原因：Docker 构建缓存或 Python 字节码缓存
 
 解决：
 1. 使用 `./deploy.sh` 脚本（自动清理缓存）
-2. 查看详细排查指南：[SOLUTION_SUMMARY.md](SOLUTION_SUMMARY.md)
+2. 查看详细排查指南：[DEPLOYMENT_TROUBLESHOOTING.md](DEPLOYMENT_TROUBLESHOOTING.md)
 
-**问题 2：前端界面没有更新（浏览器缓存）**⚠️
-
-现象：后端 API 已更新，但前端界面还是旧的（例如答案编辑面板没有更新）
-
-原因：浏览器缓存了旧版本的 JavaScript 文件
-
-**立即解决**（硬刷新）：
-```
-macOS:  Cmd + Shift + R
-Windows/Linux: Ctrl + Shift + R
-```
-
-**长期解决**：
-- ✅ 已配置文件名哈希（`vite.config.ts`）- 每次部署文件名自动变化
-- ✅ 部署脚本会提示清理缓存（`deploy.sh`）
-- 📖 详细指南：[FRONTEND_CACHE_FIX.md](FRONTEND_CACHE_FIX.md)
-
-**重要**：首次应用此修复需要重新部署，之后用户无需手动清理缓存！
-
-**问题 3：部署成功但功能未更新**
+**问题：部署成功但功能未更新**
 
 ```bash
 # 强制使用新镜像

@@ -12,18 +12,10 @@ RUN npm install
 
 # 复制前端源码
 COPY src/ ./src/
-COPY index.html vite.config.ts postcss.config.mjs ./
-
-# 注意：项目可能没有 tsconfig.json，如果没有则不需要
+COPY index.html vite.config.ts postcss.config.mjs tsconfig*.json ./
 
 # 构建前端 (生成 dist 目录)
 RUN npm run build
-
-# 验证构建产物（调试用）
-RUN echo "=== Verifying frontend build ===" && \
-    ls -la /app/dist && \
-    echo "=== dist/assets/ ===" && \
-    ls -la /app/dist/assets/ || echo "No assets directory"
 
 
 # ==============================================================================
@@ -49,12 +41,6 @@ COPY backend/ ./
 
 # 从第一阶段复制构建好的前端静态文件到后端的 static 目录
 COPY --from=build-frontend /app/dist /app/static
-
-# 验证静态文件复制成功（调试用）
-RUN echo "=== Verifying static files ===" && \
-    ls -la /app/static && \
-    echo "=== static/assets/ ===" && \
-    ls -la /app/static/assets/ || echo "No assets directory in static"
 
 # 创建必要的数据目录
 RUN mkdir -p /app/data /app/logs
