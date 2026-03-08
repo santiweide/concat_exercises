@@ -4688,5 +4688,434 @@
     "updatedAt": 1772960611294,
     "deleted": false,
     "deletedAt": null
+  },
+  "q-cbb499ff": {
+    "id": "q-cbb499ff",
+    "title": "西城区高三统一测试试卷英语2025.4",
+    "year": 2025,
+    "section": "第一部分 知识运用",
+    "subsection": "第一节",
+    "questionNumber": "完形填空",
+    "articleContent": "After Glenda and Raphael Savitz moved to Newton, Boston, they were warmly\\\\welcomed by their new neighbors, who greeted them with homemade cookies and\\\\casseroles. They quickly got used to the \\\\clozeblank{1} neighborhood and felt an\\\\immediate sense of \\\\clozeblank{2} . Soon after, they had a baby, Samantha, but discovered\\\\she was born deaf.\\n\\nAlthough the neighbors were excited to meet the new baby, they were also aware\\\\of the \\\\clozeblank{3} the Savitz family would face. Jill McNeil, one of the neighbors,\\\\suggested that they all learn sign language together to help Samantha communicate.\\\\Jill, who grew up in a tight-knit (紧密团结) community, believed in the power of\\\\helping each other, \\\\clozeblank{4} when it came to children.\\n\\nOver the next few months, the group of 18 neighbors worked hard to learn the\\\\basic signs, all while keeping their plan a \\\\clozeblank{5} . They wanted to surprise the Savitz\\\\family with their new \\\\clozeblank{6} to communicate.\\n\\nWhen the big moment came, the Savitz family was deeply moved. Glenda and\\\\Raphael were amazed by the effort their neighbors had \\\\clozeblank{7} learning a new\\\\language just to communicate with their daughter. It was a very touching and\\\\meaningful moment for the family. They felt incredibly \\\\clozeblank{8} .\\n\\nAs Samantha grew, the neighbors kept including her in everything, making sure\\\\she never \\\\clozeblank{9} left out. The support from the community made a lasting impact\\\\on the Savitz family, showing how neighbors can come together to make a real\\\\\\\\clozeblank{10} in each other’s lives.",
+    "questionContent": "\\textbf{1.} \\option{friendly}{peaceful}{quiet}{convenient}\n\\textbf{2.} \\option{belonging}{relief}{hope}{freedom}\n\\textbf{3.} \\option{truth}{choices}{challenges}{threat}\n\\textbf{4.} \\option{naturally}{especially}{immediately}{similarly}\n\\textbf{5.} \\option{priority}{dream}{goal}{secret}\n\\textbf{6.} \\option{media}{technology}{ability}{opportunity}\n\\textbf{7.} \\option{drawn on}{backed up}{relied on}{put in}\n\\textbf{8.} \\option{proud}{grateful}{relaxed}{satisfied}\n\\textbf{9.} \\option{felt}{looked}{remained}{turned}\n\\textbf{10.} \\option{point}{living}{difference}{commitment}",
+    "labels": [
+      "邻里关系",
+      "社区",
+      "友谊",
+      "关爱"
+    ],
+    "answers": [
+      {
+        "number": 1,
+        "answer": "A"
+      },
+      {
+        "number": 2,
+        "answer": "A"
+      },
+      {
+        "number": 3,
+        "answer": "C"
+      },
+      {
+        "number": 4,
+        "answer": "B"
+      },
+      {
+        "number": 5,
+        "answer": "D"
+      },
+      {
+        "number": 6,
+        "answer": "C"
+      },
+      {
+        "number": 7,
+        "answer": "D"
+      },
+      {
+        "number": 8,
+        "answer": "B"
+      },
+      {
+        "number": 9,
+        "answer": "A"
+      },
+      {
+        "number": 10,
+        "answer": "C"
+      }
+    ],
+    "subQuestionCount": 10,
+    "createdAt": 1772961172077,
+    "updatedAt": 1772961172077,
+    "deleted": false,
+    "deletedAt": null
+  },
+  "q-b0a22c3f": {
+    "id": "q-b0a22c3f",
+    "title": "西城区高三统一测试试卷英语2025.4",
+    "year": 2025,
+    "section": "第一部分 知识运用",
+    "subsection": "第二节",
+    "questionNumber": "语法填空A",
+    "articleContent": "Last summer, I joined a community garden project in my neighborhood. At first,\\\\I was nervous about working with \\\\clozeblank{11} (stranger), but everyone was welcoming\\\\and enthusiastic. I learned how to plant vegetables and care for flowers. In autumn, we\\\\had a big harvest and decided to donate the fresh produce to a local food bank. I never\\\\expected that our small efforts could create such an effect. The surprise came when I\\\\received a thank-you letter from a family \\\\clozeblank{12} benefited from our donations. It\\\\made me realize how powerful \\\\clozeblank{13} (kind) can be!",
+    "questionContent": "",
+    "labels": [
+      "社区",
+      "园艺",
+      "公益",
+      "个人成长"
+    ],
+    "answers": [
+      {
+        "number": 11,
+        "answer": "strangers"
+      },
+      {
+        "number": 12,
+        "answer": "who"
+      },
+      {
+        "number": 13,
+        "answer": "kindness"
+      }
+    ],
+    "subQuestionCount": 3,
+    "createdAt": 1772961172077,
+    "updatedAt": 1772961172077,
+    "deleted": false,
+    "deletedAt": null
+  },
+  "q-5ee771fb": {
+    "id": "q-5ee771fb",
+    "title": "西城区高三统一测试试卷英语2025.4",
+    "year": 2025,
+    "section": "第一部分 知识运用",
+    "subsection": "第二节",
+    "questionNumber": "语法填空B",
+    "articleContent": "Tsinghua University plans to increase its undergraduate enrollment (本科招生人数)\\\\ \\\\clozeblank{14} about 150 in 2025 and establish a new undergraduate school focused on\\\\combining artificial intelligence (AI) with various fields of study. The new school\\\\\\\\clozeblank{15} (make) use of Tsinghua’s strengths, \\\\clozeblank{16} (highlight) AI’s role in\\\\education and research. It \\\\clozeblank{17} (aim) to explore AI-driven learning models and",
+    "questionContent": "",
+    "labels": [
+      "教育",
+      "人工智能",
+      "科技",
+      "招生"
+    ],
+    "answers": [
+      {
+        "number": 14,
+        "answer": "by"
+      },
+      {
+        "number": 15,
+        "answer": "will make"
+      },
+      {
+        "number": 16,
+        "answer": "highlighting"
+      },
+      {
+        "number": 17,
+        "answer": "aims"
+      }
+    ],
+    "subQuestionCount": 3,
+    "createdAt": 1772961172077,
+    "updatedAt": 1772961172077,
+    "deleted": false,
+    "deletedAt": null
+  },
+  "q-ac9af2f5": {
+    "id": "q-ac9af2f5",
+    "title": "西城区高三统一测试试卷英语2025.4",
+    "year": 2025,
+    "section": "第一部分 知识运用",
+    "subsection": "第二节",
+    "questionNumber": "语法填空C",
+    "articleContent": "At a 200-megawatt (兆瓦) wind farm in Hengshui, Hebei, the world’s largest\\\\tonnage wheeled crane (起重机), the XCA4000, completed its first lift in March 2024.\\n\\nIt \\\\clozeblank{18} (lift) a 130-metric-ton nacelle, a 40-ton hub and three 95-meter-long\\\\blades weighing 28 tons each, to a height of 162 meters for assembly (组装) on the\\\\tower. The XCA4000 has a self-developed control system and technologies \\\\clozeblank{19}\\\\\\(ensure) safety during operation. With more than a dozen sensors \\\\clozeblank{20}\\\\\\(distribute) in the facility, it can detect and address potential safety dangers in real time.",
+    "questionContent": "",
+    "labels": [
+      "科技",
+      "工程",
+      "能源",
+      "安全"
+    ],
+    "answers": [
+      {
+        "number": 18,
+        "answer": "lifted"
+      },
+      {
+        "number": 19,
+        "answer": "to ensure"
+      },
+      {
+        "number": 20,
+        "answer": "distributed"
+      }
+    ],
+    "subQuestionCount": 3,
+    "createdAt": 1772961172077,
+    "updatedAt": 1772961172077,
+    "deleted": false,
+    "deletedAt": null
+  },
+  "q-cd8a9600": {
+    "id": "q-cd8a9600",
+    "title": "西城区高三统一测试试卷英语2025.4",
+    "year": 2025,
+    "section": "第二部分 阅读理解",
+    "subsection": "第一节",
+    "questionNumber": "A",
+    "articleContent": "In today’s fast-paced digital world, many of us struggle with distraction and\\\\burnout. It’s challenging to stay focused and productive with constant interruptions\\\\and the pressure to manage multiple tasks. Therefore we bring to you—The Sukha app.\\n\\nSukha is a productivity-boosting focus app that helps you complete tasks more\\\\efficiently by providing tools that promote focus and community support. This\\\\productivity software silences distractions (干扰), plays focus music, and starts a\\\\pomodoro timer (番茄计时器) with just a click. Sukha ensures you stay on track and\\\\finish your work faster.\\n\\nFeatures of Sukha\\n\\nPhone Distraction Elimination (消除)\\n\\nSilence distractions and create a best work environment to ensure you stay focused\\\\on the task at hand, minimizing interruptions and increasing efficiency. The next time\\\\you pick up your smartphone, the screen will automatically start flashing to keep you\\\\away from it.\\n\\nFocus Music\\n\\n● Offers a selection of focus music tracks that help you get into the flow and maintain\\\\your concentration for longer periods.\\n\\nCommunity Integration\\n\\n● Work alongside friends and people around the world.\\n\\n● Feel part of a supportive community by seeing others working in real time, providing\\\\motivation and reducing the sense of isolation (孤立).\\n\\nSukha VS Other Productivity Apps\\n\\nThere are many other productivity apps. They are also simple and easy to use and\\\\set up. While these types of tools offer different features, they tend to work in\\\\isolation. However, Sukha takes a unique approach. With Sukha, your needs are met\\\\in one place. You can integrate other apps into the platform. For example, by adding\\\\your Calendar, you ensure that you’re on time for any upcoming online\\\\meetings. Productivity isn’t limited to the platform but extends to integrated apps.\\n\\nYou have a complete system to work smarter. This doesn’t happen elsewhere but\\\\within Sukha.\\n\\nSukha Pricing\\n\\nWe are excited to announce that Sukha now offers a 14-day free trial for all new\\\\users. After the conclusion of your 14-day trial, you will be automatically moved to\\\\the Basic Plan at no cost. However, if you wish to continue with the Pro Subscription,\\\\you need to pay $10 per month.\\n\\nIf you have any questions regarding the Sukha Pro Subscription or the 14-day trial\\\\version, please do not hesitate to get in touch with our support team at\\\\support@centered.app. So, what are you waiting for?",
+    "questionContent": "\\textbf{21.} What is the aim of Sukha?\\n\\option{To create focus music.}{To produce novel ideas.}{To enhance working efficiency.}{To unite a whole community.}\n\\textbf{22.} What is unique to Sukha?\\n\\option{It’s easy to use and set up.}{It provides different features.}{It can minimize interruptions.}{It works together with other apps.}\n\\textbf{23.} How will Sukha charge users after the trial period?\\n\\option{Users will continue to have access to all features for free.}{Users will be charged a one−time fee of $10 after the trial.}{Users will be charged $10 per month for the Pro Subscription.}{Users will automatically be moved to the Pro Subscription at no cost.}",
+    "labels": [
+      "科技",
+      "效率",
+      "软件",
+      "生产力"
+    ],
+    "answers": [
+      {
+        "number": 21,
+        "answer": "C"
+      },
+      {
+        "number": 22,
+        "answer": "D"
+      },
+      {
+        "number": 23,
+        "answer": "C"
+      }
+    ],
+    "subQuestionCount": 3,
+    "createdAt": 1772961172077,
+    "updatedAt": 1772961172077,
+    "deleted": false,
+    "deletedAt": null
+  },
+  "q-c340135c": {
+    "id": "q-c340135c",
+    "title": "西城区高三统一测试试卷英语2025.4",
+    "year": 2025,
+    "section": "第二部分 阅读理解",
+    "subsection": "第一节",
+    "questionNumber": "B",
+    "articleContent": "Uday Bhatia’s enthusiasm for technology began in childhood. His interest was\\\\awakened when he received a drone (无人机) in the fourth grade, stimulating a\\\\curiosity about how machines work. By 14, he had taught himself computer science\\\\and created his first video game on Roblox. However, Uday’s passion wasn’t limited\\\\to coding and gadgets—he was deeply aware of societal issues. During the pandemic,\\\\he developed FindOurTutor, an e-tutoring platform to help students continue learning\\\\remotely.\\n\\nAt 16, Uday, as part of a mentorship program, visited Bichpuri village in Uttar\\\\Pradesh and discovered a critical problem: the villagers faced six-to-eight-hour-long\\\\power outages. “When I learned that children were using flashlights and kerosene\\\\lamps to study, I wanted to find a solution,” he recalls. His research revealed that while\\\\most villages in India had been electrified, unreliable power supply remained a\\\\continuing issue in many rural areas, with some states like Rajasthan and Uttarakhand\\\\enduring power cuts lasting 10 to 12 hours a day.\\n\\nDetermined to help, Uday spent the next six months learning from instructional\\\\videos and gathering second-hand components. He worked in his terrace (屋顶)\\\\workshop, experimenting with different designs until he developed the Smart Outage-\\\\Guard (OG), a low-cost backup lightbulb (灯泡) with a lithium-ion battery. The bulb,\\\\priced at Rs 250, about half the cost of other options, features dynamic-lumen\\\\technology and pulse-widthmodulation, which allows users to adjust the brightness.\\\\This feature extends the bulb’s illumination capacity to up to 10 hours, depending on\\\\the brightness level.\\n\\nSince its launch in May 2022, Smart OG bulbs have reached 10,000 homes across\\\\eight states. Uday also founded Uday Electric, a for-profit venture that collaborates\\\\with distributors, NGOs, retailers, and CSR programs to provide affordable lighting to\\\\semi-electrified rural areas. For non-electrified regions, he developed the Glow Grid,\\\\a solar-powered lamp, launched this month.\\n\\nUday’s innovations have earned him several awards, including the 2023 Diana\\\\Legacy Award. His long-term goal is to provide low-cost energy to every home, and\\\\he’s just getting started.",
+    "questionContent": "\\textbf{24.} Uday Bhatia’s experience in Bichpuri village influenced him to _______.\n\\option{develop an interest in computer science}{create a low-cost, backup-based lightbulb}{launch an e-tutoring platform for students}{study power supply systems in other villages}\n\\textbf{25.} What do we know about Uday’s inventions?\n\\option{They make energy easier to access.}{They bring innovation to global markets.}{They focus on sustainable energy solutions.}{They provide affordable lighting for rural areas.}\n\\textbf{26.} Which of the following best describes Uday Bhatia?\n\\option{Innovative and commercial.}{Determined and socially aware.}{Creative and environmentally conscious.}{Technologically skilled and competitive.}",
+    "labels": [
+      "人物传记",
+      "科技创新",
+      "社会责任",
+      "能源"
+    ],
+    "answers": [
+      {
+        "number": 24,
+        "answer": "B"
+      },
+      {
+        "number": 25,
+        "answer": "D"
+      },
+      {
+        "number": 26,
+        "answer": "B"
+      }
+    ],
+    "subQuestionCount": 3,
+    "createdAt": 1772961172077,
+    "updatedAt": 1772961172077,
+    "deleted": false,
+    "deletedAt": null
+  },
+  "q-c00b355d": {
+    "id": "q-c00b355d",
+    "title": "西城区高三统一测试试卷英语2025.4",
+    "year": 2025,
+    "section": "第二部分 阅读理解",
+    "subsection": "第一节",
+    "questionNumber": "C",
+    "articleContent": "Recently, I attended a public talk by someone whose views I “knew” I would\\\\oppose. And yet, I went. I listened, asked questions, and gave my time. While my core\\\\values weren’t transformed in those two hours, I learned something and left with a\\\\deeper appreciation for the complexity of other perspectives.\\n\\nIn this weeknight activity, I was actively trying to tackle“beliefism,” a divisive\\\\phenomenon in which surrounding yourself with people who share your views leads\\\\to discrimination against those who disagree. In this way, beliefism deepens division\\\\and reinforces polarization—building walls instead of bridges.\\n\\nIndeed, beliefism is widespread in modern society. A significant part of the\\\\problem originates from the fact that we live in a world that is both physically and\\\\virtually divided. We rarely interact with people from other walks of life. Social media\\\\algorithms stoke the fires of division, locking us into echo chambers that reinforce our\\\\preexisting beliefs and shut down debate.\\n\\nUltimately, where many forces are driving us apart, we must think—what can we\\\\do to unpack division and restore connection?\\n\\nWe can begin by trying to understand the psychology of beliefism, which at its\\\\core is a form of bias—a mental shortcut in which we categorise people according to\\\\single characteristics or generalising assumptions. Indeed, in a world that is infinitely\\\\complex, our minds use these biases to simplify and make sense of the world. The\\\\thing is, when we see others only through the perspective of their political or social\\\\beliefs, we reduce and flatten them to a single dimension. Further, when people feel\\\\they are dismissed or disregarded only for their beliefs, they are left feeling isolated\\\\and misunderstood.\\n\\nSecondly, we can understand the tendency for beliefism as part of our evolutionary\\\\(进化的) desire to establish a community or group. The problem is that while this\\\\instinct (本能) may have once served evolutionary purposes, today, it blocks\\\\meaningful dialogue and cooperation. Indeed, research shows that overcoming\\\\beliefism has benefits. When we welcome a variety of ideas and perspectives, we are\\\\able to overcome group-think and make better decisions and judgements. What’s more,\\\\less beliefist people are generally happier, having stronger, more fulfilling\\\\relationships and broader horizons.\\n\\nLuckily, there are a number of relevant, research-backed psychological techniques\\\\that help build tolerance and break bias. We might exercise individuation, seeing\\\\people as diverse-sided individuals and breaking away from reductive ways of\\\\thinking. We can practice perspective-taking, building empathy (同理心) by stepping\\\\into someone else’s shoes and trying to see the world through their eyes.\\n\\nUltimately, the way forward is not through divisions, but through a recognition of\\\\our shared humanity. Remind yourself that each person exists at the intersection of\\\\many identities, experiences, and beliefs. Challenge yourself to practice empathy, and\\\\remember that no one is wholly defined by the worst thing they have said or done.",
+    "questionContent": "\\textbf{27.} What does the underlined word “stoke” in Paragraph 3 probably mean?\n\\option{Fuel.}{Keep.}{Put.}{Contain.}\n\\textbf{28.} What can we know about beliefism from the passage?\n\\option{Social media algorithms mainly contribute to its wide spread.}{Human evolution proves its harm in establishing group-think.}{It reflects our simplified way of understanding the surrounding world.}{It leads us to make assumptions about others’ political or social beliefs.}\n\\textbf{29.} Which of the following would be most effective in fighting beliefism?\n\\option{Facilitating interactions between people from different communities.}{Creating a list of acceptable beliefs for each community to follow.}{Asking people to write about their experiences of being isolated.}{Stressing conflict instead of cooperation between different beliefs.}\n\\textbf{30.} Which would be the best title for the passage?\n\\option{Beyond Us and Them}{The Roots of Beliefism}{The Harm of Social Division}{At the Crossroad of Faith}",
+    "labels": [
+      "社会现象",
+      "心理学",
+      "人际关系",
+      "偏见"
+    ],
+    "answers": [
+      {
+        "number": 27,
+        "answer": "A"
+      },
+      {
+        "number": 28,
+        "answer": "C"
+      },
+      {
+        "number": 29,
+        "answer": "A"
+      },
+      {
+        "number": 30,
+        "answer": "A"
+      }
+    ],
+    "subQuestionCount": 4,
+    "createdAt": 1772961172077,
+    "updatedAt": 1772961172077,
+    "deleted": false,
+    "deletedAt": null
+  },
+  "q-1dcd8b26": {
+    "id": "q-1dcd8b26",
+    "title": "西城区高三统一测试试卷英语2025.4",
+    "year": 2025,
+    "section": "第二部分 阅读理解",
+    "subsection": "第一节",
+    "questionNumber": "D",
+    "articleContent": "Genetic (基因的) variation is what allows a species to adapt as climate changes,\\\\new diseases arise, and novel enemies come on the scene. A slightly different genetic\\\\makeup can ensure at least some individuals will still do OK in times of crisis. But just\\\\as the number of species is declining worldwide, so, too, is the genetic diversity within\\\\many species.\\n\\nUntil 2022, governments focused primarily on preventing species from\\\\disappearing. That year, however, when updating the United Nations’s Convention on\\\\Biological Diversity treaty (条约), participating countries agreed to start to look at\\\\genetic diversity as well.\\n\\nThe first step toward slowing the trend is understanding it. Conservation biologist\\\\Catherine Grueber from the University of Sydney and many colleagues gathered 882\\\\papers written between 1985 and 2019 that tracked diversity changes within 628\\\\individual species by analyzing their DNA at at least two time points. The team used\\\\complex statistical analyses to make the data comparable, enabling them to identify\\\\trends and correlate loss of genetic diversity with floods, habitat destruction, or other\\\\disturbances. They also tracked what happened in the face of various conservation\\\\measures, such as legally protecting a species or setting aside and protecting habitat.\\n\\nTwo-thirds of the populations analyzed exhibited a decline in diversity, Grueber\\\\and her colleagues report. That included species already known to be at risk, but it also\\\\included more common species. The implication is that those species may be less able\\\\to bounce back than expected during environmental change, says Alicia Mastretta-\\\\Yanes, a conservation geneticist.\\n\\nSome conservation efforts, such as ecological restoration or reducing pests (害虫),\\\\didn’t help much, the analysis found. But certain actions did seem to help, such as\\\\efforts to expand and protect habitat, introduce new individuals to declining\\\\populations, or connect two isolated populations.\\n\\n“It was pretty impressive that they were able to track what human disturbances\\\\and conservation actions had done,” says Moisés Alonso, an evolutionary geneticist\\\\who authored a preprint last year indicating that protecting existing habitat won’t be\\\\enough to prevent genetic diversity losses for many species. “We needed something\\\\like this,” he says.\\n\\nConservation scientists emphasize the importance of continuing to monitor\\\\populations. But DNA methods aren’t always practical, some note. “It is relatively\\\\hard and expensive to measure genetic diversity directly,” Mastretta-Yanes says.\\n\\nTo get around that, Mastretta-Yanes and others published a paper in Ecology\\\\Letters last year that used proxy (代替物) measures, such as population size, to evaluate\\\\genetic diversity in 919 species. The method, which only required about 3 hours of\\\\work per species, indicated that 58\\% of the species have populations that are too small\\\\to maintain their genetic diversity. The fact that these different approaches found\\\\declining diversity “makes both results more convincing,” Mastretta-Yanes says.\\n\\n“Finally, genetic diversity is getting the attention it deserves.”",
+    "questionContent": "\\textbf{31} What is Paragraph 3 mainly about?\n\\option{Challenges of collecting DNA data for diversity research.}{Findings on genetic diversity changes over the past 30 years.}{Research methods applied to track genetic diversity changes.}{Impacts of human disturbances on diversity of different species.}\n\\textbf{32.} What can be learned from Grueber’s study?\n\\option{Habitat extension and population management preserve diversity.}{The diversity of common species tends to decline more severely.}{At-risk species better resist the impact of environmental changes.}{Ecosystem recovery and pest control drive population rise.}\n\\textbf{33.} Mastretta-Yanes holds that DNA methods _______.\n\\option{will soon be replaced by proxy measures}{lack practicality due to their costs and complexity}{may get in the way of monitoring species populations}{require a large population size to achieve high accuracy}\n\\textbf{34.} What is the purpose of this passage?\n\\option{To identify more effective methods applied in gene research.}{To advocate for using DNA methods exclusively in conservation efforts.}{To warn people of the threat posed by environmental changes on species.}{To draw people’s attention to effective measures against loss of diversity.}",
+    "labels": [
+      "生物",
+      "基因",
+      "环境",
+      "保护"
+    ],
+    "answers": [
+      {
+        "number": 31,
+        "answer": "C"
+      },
+      {
+        "number": 32,
+        "answer": "A"
+      },
+      {
+        "number": 33,
+        "answer": "B"
+      },
+      {
+        "number": 34,
+        "answer": "D"
+      }
+    ],
+    "subQuestionCount": 4,
+    "createdAt": 1772961172077,
+    "updatedAt": 1772961172077,
+    "deleted": false,
+    "deletedAt": null
+  },
+  "q-ab773af8": {
+    "id": "q-ab773af8",
+    "title": "西城区高三统一测试试卷英语2025.4",
+    "year": 2025,
+    "section": "第二部分 阅读理解",
+    "subsection": "第二节",
+    "questionNumber": "七选五",
+    "articleContent": "Live performances are often described as raw, emotional, and immersive, while\\\\studio recordings are polished and carefully produced. \\\\clozeblank{35} One of the most notable differences with live music is the energy. A live\\\\performance brings an atmosphere that cannot be recreated in a studio. When\\\\musicians perform live, they connect directly with their audience. The cheers, clapping,\\\\and excitement from the crowd create a feedback loop (循环) that can enhance the\\\\performance. This shared energy makes each live concert unique and personal for\\\\everyone there. \\\\clozeblank{36} Whether it’s a small, intimate venue or a massive stadium,\\\\the space influences how you experience the music. Live music is more than just\\\\something you hear; it’s something you feel.\\n\\nAnother key aspect of live music is its unpredictability. No two performances are\\\\ever the same. Musicians might improvise (即兴演奏), change the arrangement of a\\\\song, or even interact with the audience in ways that feel spontaneous and genuine.\\\\ \\\\clozeblank{37} In a live setting, imperfections can make the music feel more real. A slight\\\\mistake or an unexpected variation in a song reminds you that what you’re witnessing\\\\is unique. It’s a reminder that music isn’t just about technical perfection—it’s about\\\\emotion and expression.\\n\\nLive music creates a special kind of connection between performers and listeners.\\\\Seeing musicians perform in real time allows you to witness their passion and energy\\\\firsthand. \\\\clozeblank{38} For many people, live music is about more than just the songs.\\\\It’s about being part of a shared experience, which can make the music feel more\\\\powerful and memorable.\\n\\n\\\\clozeblank{39} While recordings offer a polished, consistent way to enjoy music, live\\\\performances bring energy, authenticity (真实性), and emotional connection. Both\\\\forms of music have their place, and many people enjoy a mix of the two.",
+    "questionContent": "A. Live music and studio recordings each have their own strengths.\nB. The physical environment also plays a significant role in creating this energy.\nC. Studio recordings often rely on advanced technology to perfect the sound quality.\nD. These moments of authenticity add an extra layer of excitement to the experience.\nE. This contrast isn’t just about how the music sounds but also about how it feels to\\\\experience it.\nF. This doesn’t mean studio recordings are less valuable—they offer a different way to\\\\enjoy music.\nG. The physical presence of the artist, their expressions, and how they interact with\\\\the crowd all contribute to this emotional connection.",
+    "labels": [
+      "音乐",
+      "现场表演",
+      "录音",
+      "体验"
+    ],
+    "answers": [
+      {
+        "number": 35,
+        "answer": "E"
+      },
+      {
+        "number": 36,
+        "answer": "B"
+      },
+      {
+        "number": 37,
+        "answer": "D"
+      },
+      {
+        "number": 38,
+        "answer": "G"
+      },
+      {
+        "number": 39,
+        "answer": "A"
+      }
+    ],
+    "subQuestionCount": 5,
+    "createdAt": 1772961172077,
+    "updatedAt": 1772961172077,
+    "deleted": false,
+    "deletedAt": null
+  },
+  "q-ca2c2b3c": {
+    "id": "q-ca2c2b3c",
+    "title": "西城区高三统一测试试卷英语2025.4",
+    "year": 2025,
+    "section": "第三部分 书面表达",
+    "subsection": "第一节",
+    "questionNumber": "阅读表达",
+    "articleContent": "The convenience of modern life is truly astonishing. As I write this, my phone is\\\\wirelessly playing 18th-century classics, and I can use the same device to instantly get\\\\a ride or have food delivered. It’s easy to see why we love such shortcuts—they make\\\\life easier, save time, and reduce effort. However, many people also recognize that\\\\convenience has its darker sides.\\n\\nTo understand why, we need to examine why we are so drawn to convenience in\\\\the first place. Evolutionary psychology can provide some answers. The concept of\\\\“evolutionary mismatch” suggests that we evolved as hunter-gatherers, but while the\\\\world has changed, our brains and bodies have not. This mismatch means that our\\\\instincts often don’t match modern life. In the past, resistance—whether to avoid\\\\unnecessary effort or conserve energy—was vital during tough times, like searching\\\\for food in the rain or escaping from danger. Those who stayed sheltered during hard\\\\times, like storms when food was scarce, were more likely to survive and pass on their\\\\genes. We have inherited (继承) this instinct to conserve energy from them.\\n\\nInnovation has dramatically transformed our world. Technology and our\\\\environment have adapted to suit our instinct to conserve energy. But what do we lose\\\\when we prioritize convenience? Choosing the easy path consistently weakens our\\\\ability to tackle challenges. From an evolutionary view, some discomfort is as essential\\\\to survival as rest. Our ancestors didn’t survive by being lazy; they survived by\\\\balancing safety with risk.\\n\\nThis very struggle shapes and develops our character. In today’s technological\\\\world, we must sometimes go against our natural instincts. As a society, we need to\\\\remember—and teach the younger generation—that while convenience may feel good\\\\in the moment, our ability to adapt and overcome challenges is not only a key part of\\\\our evolutionary heritage but also central to the adventure of life.",
+    "questionContent": "\\textbf{40.} Why do people love shortcuts?\n\\textbf{41.} What does “evolutionary mismatch” mean?\n\\textbf{42.} Please decide which part is false in the following statement, then underline it and\\\\explain why.\nØ The evolutionary view shows that some discomfort is less important for our\\\\survival compared to rest.\n\\textbf{43.} Use an example to show what you can learn about “convenience” from the passage.\n(In about 40 words)",
+    "labels": [
+      "现代生活",
+      "便利",
+      "进化心理学",
+      "挑战"
+    ],
+    "answers": [
+      {
+        "number": 40,
+        "answer": "Because they make life easier, save time, and reduce effort."
+      },
+      {
+        "number": 41,
+        "answer": "It means that our instincts often don’t match modern life."
+      },
+      {
+        "number": 42,
+        "answer": "According to the passage, from an evolutionary view, some discomfort is just as crucial to our survival as rest."
+      },
+      {
+        "number": 43,
+        "answer": "略"
+      }
+    ],
+    "subQuestionCount": 4,
+    "createdAt": 1772961172077,
+    "updatedAt": 1772961172077,
+    "deleted": false,
+    "deletedAt": null
+  },
+  "q-c141807c": {
+    "id": "q-c141807c",
+    "title": "西城区高三统一测试试卷英语2025.4",
+    "year": 2025,
+    "section": "第三部分 书面表达",
+    "subsection": "第二节",
+    "questionNumber": "作文",
+    "articleContent": "",
+    "questionContent": "假设你是红星中学高三学生李华。你的英国笔友 Jim 在你们学校的网站看\\\\到你们学校组织了“我的年度词 (My Word of the Year) ”的学生活动，发来邮件\\\\询问你的年度词。请你用英文给他回复，内容包括：\n1. 你的年度词是什么；\n2. 你选该词的理由。\n注意：1.词数100左右；\n2.开头和结尾已给出，不计入总词数。\nDear Jim,\nYours,\nLi Hua",
+    "labels": [
+      "应用文",
+      "书信",
+      "年度词",
+      "个人成长"
+    ],
+    "answers": [
+      {
+        "number": 1,
+        "answer": "Possible Version:\\n\\nDear Jim,\\n\\nSo glad to hear from you! I’m thrilled to share my Word of the Year with you.\\n\\nMy Word of the Year is “Transformation,” as this year has been an all-around journey of personal growth for me. The stress of exams and those endless late-night study sessions have shaped me into a more resilient and competent individual. Turning 18 was also a milestone in this transformation. Stepping into adulthood is a bit nerve-wracking, but it has motivated me to shoulder more responsibilities, not only for myself but also for others. This year has been like a caterpillar turning into a butterfly: slow, tough, yet beautiful. That’s why “Transformation” feels so right.\\n\\nHow about you? What’s your Word of the Year? I can’t wait to see what word you choose.\\n\\nYours,\\nLi Hua"
+      }
+    ],
+    "subQuestionCount": 1,
+    "createdAt": 1772961172077,
+    "updatedAt": 1772961172077,
+    "deleted": false,
+    "deletedAt": null
   }
 }
