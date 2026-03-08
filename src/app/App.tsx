@@ -308,6 +308,64 @@ function MainApp() {
     }
   };
 
+  const handleProofread = async () => {
+    if (!token || !selectedQueueId) {
+      toast.error('请先登录并选择队列');
+      return null;
+    }
+
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/queues/${selectedQueueId}/proofread`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({ autoFix: false }),
+      });
+
+      if (!response.ok) {
+        throw new Error('AI校对请求失败');
+      }
+
+      const result = await response.json();
+      return result;
+    } catch (err) {
+      console.error('Proofread error:', err);
+      toast.error('AI校对失败');
+      return null;
+    }
+  };
+
+  const handleGenerateFixedLatex = async (proofreadResult: any) => {
+    if (!token || !selectedQueueId) {
+      toast.error('请先登录并选择队列');
+      return null;
+    }
+
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/queues/${selectedQueueId}/proofread/fix`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({ proofreadResult }),
+      });
+
+      if (!response.ok) {
+        throw new Error('生成修正版请求失败');
+      }
+
+      const result = await response.json();
+      return result;
+    } catch (err) {
+      console.error('Generate fixed LaTeX error:', err);
+      toast.error('生成修正版失败');
+      return null;
+    }
+  };
+
   const handleImport = (file: File) => {
     const reader = new FileReader();
     reader.onload = (e) => {
@@ -571,6 +629,8 @@ function MainApp() {
               onImport={handleImport}
               onViewQuestion={setSelectedQuestion}
               onAddCollaborator={handleAddCollaborator}
+              onProofread={handleProofread}
+              onGenerateFixedLatex={handleGenerateFixedLatex}
             />
 
             {/* Right Panel - Search */}

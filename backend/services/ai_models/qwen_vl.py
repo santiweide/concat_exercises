@@ -90,6 +90,65 @@ class QwenVLModel(AIModel):
             logger.exception("Qwen VL API call failed", error=str(e))
             return None
     
+    async def generate_text_raw(self, prompt: str, content: str) -> Optional[str]:
+        """Generate raw text (non-JSON) output from Qwen VL API."""
+        full_prompt = f"""{prompt}
+
+内容：
+---
+{content}
+---
+"""
+        
+        logger.info("Calling Qwen VL API (raw text mode)",
+                   prompt_length=len(full_prompt),
+                   model=self.MODEL_NAME)
+        
+        try:
+            async with httpx.AsyncClient(timeout=180.0) as client:
+                url = f"{self.BASE_URL}/chat/completions"
+                response = await client.post(
+                    url,
+                    json={
+                        "model": self.MODEL_NAME,
+                        "messages": [
+                            {
+                                "role": "user",
+                                "content": full_prompt
+                            }
+                        ],
+                        "temperature": 0.1,
+                        "top_p": 0.95,
+                        "max_tokens": 65536,
+                    },
+                    headers={
+                        "Content-Type": "application/json",
+                        "Authorization": f"Bearer {self.api_key}"
+                    }
+                )
+                
+                if response.status_code != 200:
+                    logger.error("Qwen VL API error (raw text)",
+                                status=response.status_code,
+                                body=response.text[:500])
+                    return None
+                
+                result = response.json()
+                
+                if 'choices' in result and len(result['choices']) > 0:
+                    choice = result['choices'][0]
+                    if 'message' in choice and 'content' in choice['message']:
+                        return choice['message']['content']
+                
+                return None
+                
+        except httpx.TimeoutException:
+            logger.error("Qwen VL API timeout (raw text)")
+            return None
+        except Exception as e:
+            logger.exception("Qwen VL API call failed (raw text)", error=str(e))
+            return None
+    
     async def extract_from_images(self, images_base64: List[str], filename: str, prompt: str) -> Optional[Dict[str, Any]]:
         """Extract exam paper data from images using Qwen VL API."""
         

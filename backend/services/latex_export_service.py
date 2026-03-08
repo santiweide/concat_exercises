@@ -15,7 +15,6 @@ class LatexExportService:
     LATEX_HEADER = r"""\documentclass[11pt, a4paper]{article}
 
 %--- 宏包引用 ---
-\usepackage[UTF8]{ctex}          % 处理中文
 \usepackage{geometry}            % 页面设置
 \usepackage{fontspec}            % 字体设置
 \usepackage{titlesec}            % 标题格式
@@ -24,6 +23,7 @@ class LatexExportService:
 \usepackage{fancyhdr}            % 页眉页脚
 \usepackage{amsmath}             % 数学公式（备用）
 \usepackage{ulem}                % 下划线支持
+\usepackage{pifont}              % 带圈数字支持
 \usepackage[UTF8, fontset=windows]{ctex}
 
 %--- 页面设置 ---
@@ -144,6 +144,63 @@ class LatexExportService:
         
         return grouped
 
+    def _process_text_formatting(self, text: str) -> str:
+        """
+        Process text formatting including:
+        1. Replace \\n and \n with empty space
+        2. Replace circled numbers ①②③④⑤ with \ding{172-176}
+        """
+        if not text:
+            return text
+        
+        # Replace \\n and \n with empty space
+        text = text.replace('\\n', ' ')
+        text = text.replace('\n', ' ')
+        
+        # Replace circled numbers with \ding commands
+        circled_numbers = {
+            '①': r'\ding{172}',
+            '②': r'\ding{173}',
+            '③': r'\ding{174}',
+            '④': r'\ding{175}',
+            '⑤': r'\ding{176}'
+        }
+        
+        for circled, ding_cmd in circled_numbers.items():
+            text = text.replace(circled, ding_cmd)
+        
+        return text
+    
+    def _add_par_after_questions(self, text: str) -> str:
+        """
+        Add \\par after each question ending (after options or question content).
+        This ensures proper spacing between individual questions.
+        
+        Example:
+            \\textbf{1.} What...? \\option{...}{...}{...}{...}
+            \\textbf{2.} Where...? \\option{...}{...}{...}{...}
+            
+            becomes:
+            
+            \\textbf{1.} What...? \\option{...}{...}{...}{...}\\par
+            \\textbf{2.} Where...? \\option{...}{...}{...}{...}\\par
+        """
+        import re
+        
+        if not text:
+            return text
+        
+        # 匹配选项命令结束位置（4个大括号闭合后）
+        # 在 \option{}{}{}{} 或 \optiontwo{}{}{}{} 或 \optionone{}{}{}{} 后添加 \par
+        def add_par_after_option(match):
+            return match.group(0) + r'\par'
+        
+        # 匹配选项命令并在其后添加 \par
+        pattern = r'\\(?:option|optiontwo|optionone)\{[^}]*\}\{[^}]*\}\{[^}]*\}\{[^}]*\}'
+        text = re.sub(pattern, add_par_after_option, text)
+        
+        return text
+    
     def _clean_option_prefixes(self, text: str) -> str:
         """
         Remove A. B. C. D. prefixes from option content to avoid duplication.
@@ -232,7 +289,8 @@ class LatexExportService:
         for question in questions:
             # 添加文章内容
             if question.articleContent:
-                content += "\n" + question.articleContent + "\n\n"
+                article_text = self._process_text_formatting(question.articleContent)
+                content += "\n" + article_text + "\n\n"
             
             # 添加题目内容，自动重新编号
             if question.questionContent:
@@ -245,6 +303,7 @@ class LatexExportService:
                             content += f"\\textbf{{{current_number}.}} {sub_q['content']}\n"
                         if sub_q.get('options'):
                             content += sub_q['options'] + "\n"
+                        content += "\\par\n"
                         current_number += 1
                 else:
                     # 方案2: 当前格式 - 替换现有题号
@@ -264,6 +323,13 @@ class LatexExportService:
                     
                     # 2. 清理选项内容中的 A. B. C. D. 前缀（避免与LaTeX命令重复）
                     question_text = self._clean_option_prefixes(question_text)
+                    
+                    # 3. 处理文本格式（换行符和带圈数字）
+                    question_text = self._process_text_formatting(question_text)
+                    
+                    # 4. 在每道题后添加 \par（在 \textbf{数字.} ... 内容结束后）
+                    # 将题目按 \textbf{数字.} 分割，然后在每个部分后添加 \par
+                    question_text = self._add_par_after_questions(question_text)
                     
                     # 如果没有找到题号，但有 subQuestionCount，则根据数量推进编号
                     if current_number == start_number and question.subQuestionCount > 0:

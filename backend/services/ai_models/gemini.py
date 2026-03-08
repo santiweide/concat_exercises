@@ -196,6 +196,73 @@ class GeminiModel(AIModel):
             logger.exception("Gemini API call failed (image mode)", error=str(e))
             return None
     
+    async def generate_text_raw(self, prompt: str, content: str) -> Optional[str]:
+        """Generate raw text (non-JSON) output from Gemini API."""
+        full_prompt = f"""{prompt}
+
+内容：
+---
+{content}
+---
+"""
+        
+        logger.info("Calling Gemini API (raw text mode)",
+                   prompt_length=len(full_prompt),
+                   model=self.TEXT_MODEL)
+        
+        try:
+            async with httpx.AsyncClient(timeout=180.0) as client:
+                cleaned_api_key = clean_url_string(self.api_key)
+                base_url = clean_url_string(self.BASE_URL)
+                model_name = clean_url_string(self.TEXT_MODEL)
+                url = f"{base_url}/{model_name}:generateContent?key={cleaned_api_key}"
+                
+                response = await client.post(
+                    url,
+                    json={
+                        "contents": [
+                            {
+                                "parts": [
+                                    {
+                                        "text": full_prompt
+                                    }
+                                ]
+                            }
+                        ],
+                        "generationConfig": {
+                            "temperature": 0.1,
+                            "topK": 40,
+                            "topP": 0.95,
+                            "maxOutputTokens": 65536,
+                        }
+                    },
+                    headers={
+                        "Content-Type": "application/json"
+                    }
+                )
+                
+                if response.status_code != 200:
+                    logger.error("Gemini API error (raw text)",
+                                status=response.status_code,
+                                body=response.text[:500])
+                    return None
+                
+                result = response.json()
+                
+                if 'candidates' in result and len(result['candidates']) > 0:
+                    candidate = result['candidates'][0]
+                    if 'content' in candidate and 'parts' in candidate['content']:
+                        return candidate['content']['parts'][0].get('text', '')
+                
+                return None
+                
+        except httpx.TimeoutException:
+            logger.error("Gemini API timeout (raw text)")
+            return None
+        except Exception as e:
+            logger.exception("Gemini API call failed (raw text)", error=str(e))
+            return None
+    
     def _parse_response(self, text: str) -> Optional[Dict[str, Any]]:
         """Parse JSON from Gemini response text using json_repair."""
         try:

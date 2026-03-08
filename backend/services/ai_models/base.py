@@ -55,6 +55,21 @@ class AIModel(ABC):
         """
         pass
     
+    async def generate_text_raw(self, prompt: str, content: str) -> Optional[str]:
+        """
+        Generate raw text output (not JSON-parsed) from the AI model.
+        Default implementation calls extract_from_text and returns None
+        (subclasses should override for proper raw text support).
+        
+        Args:
+            prompt: The instruction prompt
+            content: The content to process
+            
+        Returns:
+            Raw text response string, or None on failure
+        """
+        return None
+    
     @property
     @abstractmethod
     def name(self) -> str:

@@ -14,6 +14,7 @@ from models import (
 from storage import queue_store
 from services.auth_service import auth_service
 from services.latex_export_service import latex_export_service
+from services.latex_proofread_service import latex_proofread_service
 
 logger = structlog.get_logger()
 
@@ -381,5 +382,94 @@ async def export_queue(request: web.Request) -> web.Response:
         logger.error("export_queue error", error=str(e), queue_id=queue_id)
         return web.json_response(
             {"code": 500, "message": str(e)},
+            status=500
+        )
+
+
+async def proofread_queue(request: web.Request) -> web.Response:
+    """
+    POST /api/queues/{queue_id}/proofread
+    Generate LaTeX for a queue then proofread it using AI against the format RFC.
+    Optional body: {"model": "gemini", "autoFix": false}
+    """
+    queue_id = request.match_info['queue_id']
+
+    try:
+        body = await request.json() if request.can_read_body else {}
+        model_type = body.get('model', None)
+        auto_fix = body.get('autoFix', False)
+
+        # 1. Get queue data
+        queue_detail = queue_store.get(queue_id)
+        if queue_detail is None:
+            return web.json_response(
+                {"code": 404, "message": "Queue not found"},
+                status=404
+            )
+
+        # 2. Generate LaTeX
+        latex_content = latex_export_service.export_queue_to_latex(queue_detail)
+
+        # 3. Proofread with AI
+        if auto_fix:
+            result = await latex_proofread_service.proofread_and_fix(
+                latex_content, model_type
+            )
+        else:
+            result = await latex_proofread_service.proofread_latex(
+                latex_content, model_type
+            )
+
+        return web.json_response(result)
+
+    except Exception as e:
+        logger.error("proofread_queue error", error=str(e), queue_id=queue_id)
+        return web.json_response(
+            {"code": 500, "message": f"校对失败: {str(e)}"},
+            status=500
+        )
+
+
+async def generate_fixed_latex(request: web.Request) -> web.Response:
+    """
+    POST /api/queues/{queue_id}/proofread/fix
+    Generate a corrected LaTeX file based on proofread results.
+    Body: {"proofreadResult": {...}, "model": "gemini"}
+    """
+    queue_id = request.match_info['queue_id']
+
+    try:
+        body = await request.json()
+        proofread_result = body.get('proofreadResult', {})
+        model_type = body.get('model', None)
+
+        if not proofread_result or not proofread_result.get('issues'):
+            return web.json_response(
+                {"success": False, "error": "缺少校对结果数据"},
+                status=400
+            )
+
+        # 1. Get queue data
+        queue_detail = queue_store.get(queue_id)
+        if queue_detail is None:
+            return web.json_response(
+                {"code": 404, "message": "Queue not found"},
+                status=404
+            )
+
+        # 2. Generate original LaTeX
+        latex_content = latex_export_service.export_queue_to_latex(queue_detail)
+
+        # 3. Use AI to generate corrected LaTeX
+        result = await latex_proofread_service.generate_fixed_latex(
+            latex_content, proofread_result, model_type
+        )
+
+        return web.json_response(result)
+
+    except Exception as e:
+        logger.error("generate_fixed_latex error", error=str(e), queue_id=queue_id)
+        return web.json_response(
+            {"code": 500, "message": f"生成修正版失败: {str(e)}"},
             status=500
         )

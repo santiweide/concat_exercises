@@ -27,31 +27,6 @@
     "createdAt": 1704067200000,
     "updatedAt": 1704067200000
   },
-  "queue-a79b5517": {
-    "id": "queue-a79b5517",
-    "name": "测试",
-    "questionIds": [
-      "q-001",
-      "q-002"
-    ],
-    "frozen": false,
-    "owner": "ggy_778@outlook.com",
-    "collaborators": [],
-    "createdAt": 1767666087928,
-    "updatedAt": 1767667926907
-  },
-  "queue-89b6817e": {
-    "id": "queue-89b6817e",
-    "name": "orz",
-    "questionIds": [
-      "q-005"
-    ],
-    "frozen": false,
-    "owner": "ggy_778@outlook.com",
-    "collaborators": [],
-    "createdAt": 1767666143173,
-    "updatedAt": 1767668506187
-  },
   "queue-978de441": {
     "id": "queue-978de441",
     "name": "abc",
@@ -117,5 +92,49 @@
     "collaborators": [],
     "createdAt": 1767746023469,
     "updatedAt": 1768193753570
+  },
+  "queue-285c28cf": {
+    "id": "queue-285c28cf",
+    "name": "test1",
+    "questionIds": [
+      "q-b803ed22",
+      "q-8ecbe30a",
+      "q-6d851916",
+      "q-d65c9e62",
+      "q-37e73436",
+      "q-008b30e1",
+      "q-a4346c77",
+      "q-f405fbee",
+      "q-8076d41e",
+      "q-0a1ba2f9",
+      "q-48a1aee9"
+    ],
+    "frozen": false,
+    "owner": "abc@123.com",
+    "collaborators": [],
+    "createdAt": 1771046936013,
+    "updatedAt": 1771047096441
+  },
+  "queue-327c4aab": {
+    "id": "queue-327c4aab",
+    "name": "职业发展",
+    "questionIds": [
+      "q-b803ed22",
+      "q-f8966d1e",
+      "q-38e67694",
+      "q-2c3b4901",
+      "q-8fb6dcb0",
+      "q-0a1ba2f9",
+      "q-3cef99ed",
+      "q-9dedcd8b",
+      "q-008b30e1",
+      "q-ec5ccd48",
+      "q-8e7cd322"
+    ],
+    "frozen": false,
+    "owner": "ggy_778@outlook.com",
+    "collaborators": [],
+    "createdAt": 1772959869083,
+    "updatedAt": 1772960306554
   }
 }
