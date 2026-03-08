@@ -24,7 +24,7 @@ class LatexExportService:
 \usepackage{amsmath}             % 数学公式（备用）
 \usepackage{ulem}                % 下划线支持
 \usepackage{pifont}              % 带圈数字支持
-\usepackage[UTF8, fontset=windows]{ctex}
+\usepackage[UTF8]{ctex}
 
 %--- 页面设置 ---
 \geometry{left=2.0cm, right=2.0cm, top=2.5cm, bottom=2.5cm}
