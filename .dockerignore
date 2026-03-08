@@ -57,8 +57,7 @@ logs/
 *.log.*
 backend/logs/
 
-# Data files (should use volumes in production)
-backend/data/
+# Database files
 *.db
 *.sqlite
 *.sqlite3

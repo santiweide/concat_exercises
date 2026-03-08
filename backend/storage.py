@@ -64,88 +64,12 @@ class QuestionStore:
         for qid, qdata in data.items():
             self.questions[qid] = ReadingQuestion(**qdata)
         
-        if not self.questions:
-            self._init_mock_data()
-            self._save()
-        
         logger.info("Questions loaded", count=len(self.questions))
     
     def _save(self):
         """Save questions to file."""
         data = {qid: q.model_dump() for qid, q in self.questions.items()}
         save_json_file(QUESTIONS_FILE, data)
-    
-    def _init_mock_data(self):
-        """Initialize with mock data for testing."""
-        mock_questions = [
-            ReadingQuestion(
-                id="q-001",
-                title="2023年全国卷I",
-                year=2023,
-                section="第二部分 阅读理解",
-                subsection="第一节",
-                questionNumber="A",
-                articleContent="In recent years, artificial intelligence has made remarkable progress...",
-                questionContent="\\textbf{1.} What is the main idea of the passage?\n\\option{AI development}{Technology history}{Future predictions}{Scientific research}",
-                labels=["科技", "人工智能"],
-                createdAt=1704067200000,
-                updatedAt=1704067200000
-            ),
-            ReadingQuestion(
-                id="q-002",
-                title="2023年全国卷I",
-                year=2023,
-                section="第二部分 阅读理解",
-                subsection="第一节",
-                questionNumber="B",
-                articleContent="Climate change has become one of the most pressing issues of our time...",
-                questionContent="\\textbf{1.} According to the passage, what is the main cause of climate change?\n\\option{Natural cycles}{Human activities}{Solar radiation}{Volcanic eruptions}",
-                labels=["环境", "气候"],
-                createdAt=1704067200000,
-                updatedAt=1704067200000
-            ),
-            ReadingQuestion(
-                id="q-003",
-                title="2022年全国卷II",
-                year=2022,
-                section="第二部分 阅读理解",
-                subsection="第一节",
-                questionNumber="C",
-                articleContent="The history of tea dates back thousands of years to ancient China...",
-                questionContent="\\textbf{1.} When did tea first become popular outside of China?\n\\option{16th century}{17th century}{18th century}{19th century}",
-                labels=["文化", "历史"],
-                createdAt=1704067200000,
-                updatedAt=1704067200000
-            ),
-            ReadingQuestion(
-                id="q-004",
-                title="2022年全国卷II",
-                year=2022,
-                section="第一部分 知识运用",
-                subsection="第一节",
-                questionNumber="完形填空",
-                articleContent="The story begins with a young girl who loved to explore...",
-                questionContent="New-born babies aren't afraid of the dark. They don't have a \\clozeblank{1} of the dark yet.\n\n\\textbf{1.} \\option{secret}{hope}{fear}{habit}",
-                labels=["记叙文", "成长"],
-                createdAt=1704067200000,
-                updatedAt=1704067200000
-            ),
-            ReadingQuestion(
-                id="q-005",
-                title="2021年全国卷I",
-                year=2021,
-                section="第三部分 书面表达",
-                subsection="第二节",
-                questionNumber="作文",
-                articleContent="",
-                questionContent="假设你是红星中学高三学生李华。你校正在举办以「美丽校园」为主题的原创作品征集活动...",
-                labels=["书面表达", "应用文"],
-                createdAt=1704067200000,
-                updatedAt=1704067200000
-            ),
-        ]
-        for q in mock_questions:
-            self.questions[q.id] = q
     
     def search(self, query: str = "", year: Optional[int] = None, section: Optional[str] = None,
                subsection: Optional[str] = None, labels: List[str] = None,
@@ -334,40 +258,11 @@ class QueueStore:
         data = load_json_file(QUEUES_FILE)
         for qid, qdata in data.items():
             self.queues[qid] = Queue(**qdata)
-        if not self.queues:
-            self._init_mock_data()
-            self._save()
         logger.info("Queues loaded", count=len(self.queues))
     
     def _save(self):
         data = {qid: q.model_dump() for qid, q in self.queues.items()}
         save_json_file(QUEUES_FILE, data)
-    
-    def _init_mock_data(self):
-        mock_queues = [
-            Queue(
-                id="queue-001",
-                name="2024高考模拟卷1",
-                questionIds=["q-001", "q-002"],
-                frozen=False,
-                owner="user@example.com",
-                collaborators=["other@example.com"],
-                createdAt=1704067200000,
-                updatedAt=1704067200000
-            ),
-            Queue(
-                id="queue-002",
-                name="科技类专题练习",
-                questionIds=["q-001", "q-005"],
-                frozen=False,
-                owner="user@example.com",
-                collaborators=[],
-                createdAt=1704067200000,
-                updatedAt=1704067200000
-            ),
-        ]
-        for q in mock_queues:
-            self.queues[q.id] = q
     
     def list(self, user_email: str, page: int = 1, page_size: int = 20) -> tuple[List[Queue], int]:
         results = [q for q in self.queues.values() 
