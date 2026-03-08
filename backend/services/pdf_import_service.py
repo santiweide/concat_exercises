@@ -509,6 +509,40 @@ class PDFImportService:
         """Get the prompt for extracting ALL exam questions in LaTeX format."""
         return r'''你是一个专业的高考英语试卷分析助手。请仔细分析试卷内容，提取其中**所有**题目部分（知识运用、阅读理解、书面表达）及其答案，并以LaTeX格式输出。
 
+## ⚠️ 重要提示：跨页内容处理
+
+**PDF页面顺序**：
+- 如果输入是多张图片，这些图片是按照PDF页面顺序排列的（第1页、第2页、第3页...）
+- 图片之间是连续的，没有缺页
+
+**跨页题目处理（关键！）**：
+1. **题目可能跨页**：一道题的文章或题目可能从一页末尾开始，在下一页继续
+2. **识别方法**：
+   - 如果某页末尾的文章/题目没有结束标志（如没有题号、没有新的section标题）
+   - 而下一页开头继续了相同的内容
+   - 这说明内容是连续的，需要合并
+3. **合并规则**：
+   - 将跨页的文章内容完整拼接到一起
+   - 将跨页的题目内容完整拼接到一起
+   - 保持原有的段落结构和格式
+4. **示例**：
+   ```
+   第2页末尾：
+   ...The story continues here and the character walked
+   
+   第3页开头：
+   into the forest. Later, she found...
+   
+   正确处理：
+   "articleContent": "...The story continues here and the character walked into the forest. Later, she found..."
+   ```
+
+**检查清单**：
+- ✅ 每道题的文章内容是否完整？
+- ✅ 每道题的题目是否完整？
+- ✅ 是否有题目在页面中间突然结束？
+- ✅ 相邻页面的内容是否有明显的断裂需要合并？
+
 ## 试卷结构说明
 
 高考英语试卷通常包含以下三个部分：
@@ -524,6 +558,97 @@ class PDFImportService:
 ### 第三部分 书面表达
 - **第一节**：阅读表达/问答题（阅读短文后回答问题）
 - **第二节**：作文（应用文写作，如书信、通知等）
+
+## ⚠️ 题目组织原则（非常重要！）
+
+### 大题与小题的关系
+
+**关键原则**：**一道大题（包含多个小题）必须作为一个整体**，在 JSON 的 `questions` 数组中只占一个元素。
+
+**示例说明**：
+
+1. **完形填空**：
+   - 1道大题，包含10个小题（1题、2题、3题...）
+   - ✅ **正确**：作为1个 question 对象
+   - ❌ **错误**：分成10个独立的 question 对象
+   ```json
+   {
+     "questionNumber": "完形填空",
+     "articleContent": "完形填空文章（带 \\clozeblank{1}, \\clozeblank{2}...）",
+     "questionContent": "\\textbf{1.} \\option{...}{...}{...}{...}\\n\\textbf{2.} \\option{...}{...}{...}{...}",
+     "subQuestionCount": 10,  // 10个小题
+     "answers": [
+       {"number": 1, "answer": "C"},
+       {"number": 2, "answer": "A"},
+       ... // 所有10个小题的答案
+     ]
+   }
+   ```
+
+2. **阅读理解ABCD篇**：
+   - 1道大题（1篇文章），包含3-4个小题（21题、22题、23题...）其中C篇和D篇可能是4个小题
+   - ✅ **正确**：作为1个 question 对象
+   - ❌ **错误**：分成3-4个独立的 question 对象
+   ```json
+   {
+     "questionNumber": "A",
+     "articleContent": "阅读文章原文...",
+     "questionContent": "\\textbf{21.} ...\\n\\optiontwo{...}{...}{...}{...}\\n\\textbf{22.} ...\\n\\optiontwo{...}{...}{...}{...}",
+     "subQuestionCount": 3,  // 3个小题
+     "answers": [
+       {"number": 21, "answer": "B"},
+       {"number": 22, "answer": "A"},
+       {"number": 23, "answer": "D"}
+     ]
+   }
+   ```
+
+3. **语法填空**：
+   - 如果有多篇短文（A、B、C），每篇是1道大题
+   - 每篇包含若干小题，可能有3-4个小题
+   - ✅ **正确**：每篇作为1个 question 对象
+   ```json
+   [
+     {
+       "questionNumber": "语法填空A",
+       "articleContent": "短文A（带空格）",
+       "questionContent": "",
+       "subQuestionCount": 3,
+       "answers": [{"number": 11, "answer": "..."}, ...]
+     },
+     {
+       "questionNumber": "语法填空B",
+       "articleContent": "短文B（带空格）",
+       "questionContent": "",
+       "subQuestionCount": 3,
+       "answers": [{"number": 14, "answer": "..."}, ...]
+     }
+   ]
+   ```
+
+### 题目划分标准
+
+**什么是"一道大题"？**
+- 共享同一篇文章/材料的所有小题 = 1道大题
+- 完形填空的整个文章 + 所有空格 = 1道大题
+- 阅读理解的1篇文章 + 所有问题 = 1道大题
+- 七选五的整篇文章 = 1道大题
+- 1篇语法填空短文 = 1道大题
+
+**识别方法**：
+- 看是否有共同的阅读材料
+- 看题号是否连续且属于同一类型
+- 看是否有明确的分隔（新的文章标题、新的题型名称）
+
+### 验证清单
+
+在输出前，请检查：
+- ✅ 完形填空是否作为1道题（不是10-20道）？
+- ✅ 每篇阅读文章（A/B/C/D）是否作为1道题（不是3-5道）？
+- ✅ 每篇语法填空短文是否作为1道题？
+- ✅ 七选五是否作为1道题（不是5道）？
+- ✅ `subQuestionCount` 是否正确反映了小题数量？
+- ✅ `answers` 数组是否包含了该大题下所有小题的答案？
 
 ## 输出格式要求
 
@@ -683,26 +808,53 @@ LaTeX中的段落分隔与换行有严格区分：
 
 ## 提取要求
 
+### 🔑 核心原则：大题完整性
+
+**最重要**：一道大题（包含多个小题）必须作为一个整体提取，不要拆分！
+
+- ✅ 完形填空（10-20个小题）→ 1个 question 对象
+- ✅ 阅读理解A篇（3-5个小题）→ 1个 question 对象
+- ✅ 七选五（5个小题）→ 1个 question 对象
+- ❌ 不要将小题拆分成独立的 question 对象！
+
+### 具体要求
+
 1. **识别试卷来源和年份**：从试卷标题或页眉提取
+
 2. **section**：必须是"第一部分 知识运用"、"第二部分 阅读理解"或"第三部分 书面表达"之一
+
 3. **subsection**：必须是"第一节"或"第二节"
+
 4. **questionNumber字段**：
-   - 阅读理解第一节：A、B、C、D
-   - 完形填空：完形填空
-   - 语法填空：语法填空A、语法填空B、语法填空C（如有多篇短文）
-   - 七选五：七选五
-   - 阅读表达：阅读表达
-   - 作文：作文
+   - 阅读理解第一节：A、B、C、D（每个字母代表1道大题，包含该篇的所有小题）
+   - 完形填空：完形填空（1道大题，包含所有空格）
+   - 语法填空：语法填空A、语法填空B、语法填空C（每篇短文是1道大题）
+   - 七选五：七选五（1道大题，包含5个空）
+   - 阅读表达：阅读表达（1道大题，包含所有问答题）
+   - 作文：作文（1道大题）
+
 5. **articleContent**：文章/短文原文（LaTeX格式），作文题可为空
-6. **questionContent**：题目和选项（LaTeX格式）
-   - **重要**：题目内容中**可以保留题号**（如 `\textbf{21.}`），导出时系统会自动重新编号
-   - 也可以不包含题号，只写题干和选项，导出时会自动添加编号
-7. **subQuestionCount**：该题包含的小题数量（非常重要！用于自动编号）
+   - **重要**：共享同一篇文章的所有小题必须在同一个 question 对象中
+
+6. **questionContent**：该大题下所有小题的题目和选项（LaTeX格式）
+   - **重要**：包含该大题的**所有小题**，用 `\n` 分隔
+   - **重要**：题目内容中**必须保留题号**（如 `\textbf{21.}`, `\textbf{22.}`），这样可以知道有多少小题
+   - 示例：`\\textbf{21.} 题干1\\n\\optiontwo{...}{...}{...}{...}\\n\\textbf{22.} 题干2\\n\\optiontwo{...}{...}{...}{...}`
+
+7. **subQuestionCount**：该大题包含的小题数量（非常重要！）
+   - 完形填空有10个空 → `subQuestionCount: 10`
+   - 阅读理解A篇有3道题（21-23题）→ `subQuestionCount: 3`
+   - 七选五有5个空 → `subQuestionCount: 5`
+   - 用于系统自动编号和验证
+
 8. **labels**：3-5个语义标签（主题、体裁、话题）
-9. **answers**：从参考答案部分提取，number为原试卷题号，answer为答案
-   - **完形填空（第一部分 知识运用 - 第一节）**：选择题答案为A/B/C/D
-   - **语法填空（第一部分 知识运用 - 第二节）**：答案为具体单词或短语（**文本类型**），如 "would become", "participated"
-   - **阅读选择题（第二部分 阅读理解 - 第一节，A/B/C/D）**：选择题答案为A/B/C/D
+
+9. **answers**：该大题下**所有小题**的答案数组
+   - **重要**：必须包含该大题的所有小题答案
+   - number 为原试卷题号
+   - **完形填空（第一部分 知识运用 - 第一节）**：所有10-20个小题的答案，格式为A/B/C/D
+   - **语法填空（第一部分 知识运用 - 第二节）**：所有空格的答案，格式为具体单词或短语（**文本类型**），如 "would become", "participated"
+   - **阅读选择题（第二部分 阅读理解 - 第一节，A/B/C/D）**：该篇文章所有小题的答案，格式为A/B/C/D
    - **七选五（第二部分 阅读理解 - 第二节）**：选择题答案为A/B/C/D/E/F/G
    - **阅读表达（第三部分 书面表达 - 第一节）**：答案为完整的英文句子或短语（**文本类型**），直接从参考答案抄录，如 "Her literal interpretation of language."
    - **作文（第三部分 书面表达 - 第二节）**：
@@ -715,7 +867,65 @@ LaTeX中的段落分隔与换行有严格区分：
 
 ## 注意事项
 
-- 同一道题目可能跨页，请完整提取
+### ⚠️ 跨页内容处理（最重要！）
+
+**问题**：题目、文章、选项可能会因为翻页而分散在相邻的两页或多页中。
+
+**识别跨页的标志**：
+1. **页面末尾没有明确的结束标志**：
+   - 文章在页面末尾突然中断（句子没有结束）
+   - 没有新的题号、没有新的section标题
+   - 没有明显的分隔线或空白区域
+
+2. **下一页开头继续相同的内容**：
+   - 下一页开头不是新题目的开始
+   - 内容延续了上一页的话题
+   - 格式和字体保持一致
+
+**处理方法**：
+1. **按顺序阅读所有页面**（图片是按PDF页面顺序排列的）
+2. **识别跨页内容**：检查每页末尾和下一页开头的连续性
+3. **合并跨页内容**：
+   - 将跨页的文章段落完整拼接
+   - 将跨页的题目选项完整拼接
+   - 保持原文的段落和格式
+4. **不要重复或遗漏**：确保每部分内容只出现一次
+
+**示例**：
+```
+情况1：文章跨页
+第2页末尾：
+  "...The experiment showed that temperature affects the reaction rate. When the temperature increased from 20°C to"
+  
+第3页开头：
+  "30°C, the rate doubled. This confirmed our hypothesis..."
+
+正确合并：
+  "articleContent": "...The experiment showed that temperature affects the reaction rate. When the temperature increased from 20°C to 30°C, the rate doubled. This confirmed our hypothesis..."
+
+情况2：题目选项跨页
+第4页末尾：
+  "21. What is the main idea of the passage?
+   A. Temperature affects reaction
+   B. Chemical reactions are"
+   
+第5页开头：
+  "important
+   C. Experiments need careful design
+   D. Scientific methods are useful"
+
+正确合并：
+  "questionContent": "\\textbf{21.} What is the main idea of the passage?\\n\\optiontwo{Temperature affects reaction}{Chemical reactions are important}{Experiments need careful design}{Scientific methods are useful}"
+```
+
+**验证清单**：
+- ✅ 每篇文章的内容是否完整？（有完整的开头和结尾）
+- ✅ 每道题的选项是否完整？（A/B/C/D都存在）
+- ✅ 是否有文本在句子中间突然中断？
+- ✅ 是否检查了所有相邻页面的连接处？
+
+### 其他注意事项
+
 - 保持原文格式，不要添加或删除内容
 - **正确区分段落分隔和换行**：
   - 原文中不同段落（有缩进或空行）：段落间用 `\\n\\n` 分隔

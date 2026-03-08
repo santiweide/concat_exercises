@@ -13,6 +13,8 @@ RUN npm install
 # 复制前端源码
 COPY src/ ./src/
 COPY index.html vite.config.ts postcss.config.mjs tsconfig*.json ./
+COPY public/ ./public/
+COPY .env* ./
 
 # 构建前端 (生成 dist 目录)
 RUN npm run build
