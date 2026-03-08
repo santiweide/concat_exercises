@@ -8,7 +8,6 @@ import structlog
 from models import (
     CreateQueueRequest,
     UpdateQueueRequest,
-    ExportFormat,
     PaginationResponse,
 )
 from storage import queue_store
@@ -320,66 +319,6 @@ async def remove_collaborator(request: web.Request) -> web.Response:
     except Exception as e:
         logger.error("remove_collaborator error", error=str(e), 
                     queue_id=queue_id, email=email)
-        return web.json_response(
-            {"code": 500, "message": str(e)},
-            status=500
-        )
-
-
-async def export_queue(request: web.Request) -> web.Response:
-    """
-    POST /api/queues/{queue_id}/export
-    Export a queue to a file.
-    """
-    queue_id = request.match_info['queue_id']
-    
-    try:
-        body = await request.json()
-        format_value = body.get('format', 1)
-        
-        queue_detail = queue_store.get(queue_id)
-        if queue_detail is None:
-            return web.json_response(
-                {"code": 404, "message": "Queue not found"},
-                status=404
-            )
-        
-        # For JSON, return directly
-        if format_value == ExportFormat.JSON:
-            return web.json_response({
-                "queue": queue_detail.queue.model_dump(),
-                "questions": [q.model_dump() for q in queue_detail.questions]
-            })
-        
-        # For LaTeX format
-        elif format_value == ExportFormat.LATEX:
-            try:
-                latex_content = latex_export_service.export_queue_to_latex(queue_detail)
-                
-                # Return LaTeX file for download
-                filename = f"{queue_detail.queue.name}_{queue_id}.tex"
-                return web.Response(
-                    body=latex_content.encode('utf-8'),
-                    headers={
-                        'Content-Type': 'application/x-latex; charset=utf-8',
-                        'Content-Disposition': f'attachment; filename="{filename}"'
-                    }
-                )
-            except Exception as latex_error:
-                logger.error("LaTeX export error", error=str(latex_error), queue_id=queue_id)
-                return web.json_response(
-                    {"code": 500, "message": f"LaTeX export failed: {str(latex_error)}"},
-                    status=500
-                )
-        
-        # For other formats, not implemented yet
-        return web.json_response(
-            {"code": 501, "message": "Export format not implemented"},
-            status=501
-        )
-        
-    except Exception as e:
-        logger.error("export_queue error", error=str(e), queue_id=queue_id)
         return web.json_response(
             {"code": 500, "message": str(e)},
             status=500

@@ -64,7 +64,6 @@ interface QueuePanelProps {
   onSave?: () => void;
   saving?: boolean;
   hasUnsavedChanges?: boolean;
-  onExport: () => void;
   onImport: (file: File) => void;
   onViewQuestion: (question: ReadingQuestion) => void;
   onAddCollaborator?: (email: string) => void;
@@ -153,7 +152,6 @@ export function QueuePanel({
   onSave,
   saving,
   hasUnsavedChanges,
-  onExport,
   onImport,
   onViewQuestion,
   onAddCollaborator,
@@ -347,20 +345,6 @@ export function QueuePanel({
                     <ExamProgressDashboard questions={queue.questions} />
                   </DialogContent>
                 </Dialog>
-                <Button
-                  size="sm"
-                  variant="outline"
-                  onClick={onExport}
-                  disabled={!queueComplete}
-                  title={
-                    !queueComplete 
-                      ? "请完成组卷后再导出" 
-                      : "导出试卷为LaTeX格式"
-                  }
-                >
-                  <Download className="size-4 mr-1" />
-                  导出试卷
-                </Button>
                 {onProofread && (
                   <Button
                     size="sm"
@@ -369,16 +353,16 @@ export function QueuePanel({
                     disabled={!queueComplete || proofreadLoading}
                     title={
                       !queueComplete
-                        ? "请完成组卷后再校对"
-                        : "使用AI校对LaTeX试卷格式"
+                        ? "请完成组卷后再导出"
+                        : "导出试卷为LaTeX格式"
                     }
                   >
                     {proofreadLoading ? (
                       <Loader2 className="size-4 mr-1 animate-spin" />
                     ) : (
-                      <Sparkles className="size-4 mr-1" />
+                      <Download className="size-4 mr-1" />
                     )}
-                    AI校对
+                    导出试卷
                   </Button>
                 )}
                 <Button
@@ -431,17 +415,17 @@ export function QueuePanel({
               <DialogHeader>
                 <DialogTitle className="flex items-center gap-2">
                   <Sparkles className="h-5 w-5" />
-                  AI LaTeX格式校对报告
+                  试卷导出 - AI格式校对报告
                 </DialogTitle>
                 <DialogDescription>
-                  基于《组卷系统格式RFC》对生成的LaTeX试卷进行格式校对
+                  基于《组卷系统格式RFC》对生成的LaTeX试卷进行格式校对，校对完成后可生成修正版并复制/下载
                 </DialogDescription>
               </DialogHeader>
 
               {proofreadLoading ? (
                 <div className="flex flex-col items-center justify-center py-16 gap-4">
                   <Loader2 className="h-10 w-10 animate-spin text-primary" />
-                  <p className="text-sm text-muted-foreground">AI正在校对试卷格式，请稍候...</p>
+                  <p className="text-sm text-muted-foreground">AI正在校对试卷格式并生成LaTeX，请稍候...</p>
                   <p className="text-xs text-muted-foreground">通常需要15-30秒</p>
                 </div>
               ) : proofreadResult ? (

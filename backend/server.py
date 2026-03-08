@@ -62,7 +62,6 @@ def setup_routes(app: web.Application):
     app.router.add_put('/api/queues/{queue_id}/reorder', queue_handlers.reorder_queue_questions)
     app.router.add_post('/api/queues/{queue_id}/collaborators', queue_handlers.add_collaborator)
     app.router.add_delete('/api/queues/{queue_id}/collaborators/{email}', queue_handlers.remove_collaborator)
-    app.router.add_post('/api/queues/{queue_id}/export', queue_handlers.export_queue)
     app.router.add_post('/api/queues/{queue_id}/proofread', queue_handlers.proofread_queue)
     app.router.add_post('/api/queues/{queue_id}/proofread/fix', queue_handlers.generate_fixed_latex)
     

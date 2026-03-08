@@ -260,54 +260,6 @@ function MainApp() {
     setSelectedQueueId(null);
   };
 
-  const handleExport = async () => {
-    if (!token || !selectedQueueId) {
-      // Fallback to JSON export if not using backend
-      const data = JSON.stringify(queue, null, 2);
-      const blob = new Blob([data], { type: 'application/json' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `queue-${queue.id}-${Date.now()}.json`;
-      a.click();
-      URL.revokeObjectURL(url);
-      toast.success('队列已导出');
-      return;
-    }
-
-    try {
-      // Export as LaTeX format (format: 4 = LATEX)
-      const response = await fetch(`${API_BASE_URL}/api/queues/${selectedQueueId}/export`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
-        },
-        body: JSON.stringify({ format: 4 }), // 4 = LATEX format
-      });
-
-      if (!response.ok) {
-        throw new Error('导出失败');
-      }
-
-      // Get the file from response
-      const blob = await response.blob();
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `${queue.name}_${selectedQueueId}.tex`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-      
-      toast.success('试卷已导出为LaTeX文件');
-    } catch (err) {
-      console.error('Export error:', err);
-      toast.error('导出失败');
-    }
-  };
-
   const handleProofread = async () => {
     if (!token || !selectedQueueId) {
       toast.error('请先登录并选择队列');
@@ -625,7 +577,6 @@ function MainApp() {
               onSave={handleSaveQueue}
               saving={saving}
               hasUnsavedChanges={hasUnsavedChanges}
-              onExport={handleExport}
               onImport={handleImport}
               onViewQuestion={setSelectedQuestion}
               onAddCollaborator={handleAddCollaborator}
