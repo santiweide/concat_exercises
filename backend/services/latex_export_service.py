@@ -26,6 +26,10 @@ class LatexExportService:
 \usepackage{pifont}              % 带圈数字支持
 \usepackage[UTF8]{ctex}
 
+\setCJKmainfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans Mono CJK SC}
+
 %--- 页面设置 ---
 \geometry{left=2.0cm, right=2.0cm, top=2.5cm, bottom=2.5cm}
 \setmainfont{Times New Roman}    % 英文主体字体
